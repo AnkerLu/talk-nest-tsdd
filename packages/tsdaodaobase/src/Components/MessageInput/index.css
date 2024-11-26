@@ -46,6 +46,7 @@ body[theme-mode="dark"] .wk-messageinput-input {
   width: 100%;
   display: flex;
   top: 0px;
+  border-bottom: var(--wk-line);
 }
 
 .wk-messageinput-tabs {
@@ -173,11 +174,7 @@ body[theme-mode="dark"] .wk-messageinput-input {
 }
 
 .wk-messageinput-input__control {
-  background-color: white;
-}
-
-body[theme-mode="dark"] .wk-messageinput-input__control {
-  background-color: var(--wk-color-secondary-2);
+  background-color: transparent;
 }
 
 .wk-messageinput-input__suggestions {

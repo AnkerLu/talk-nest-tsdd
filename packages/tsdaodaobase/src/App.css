@@ -1,9 +1,9 @@
 
 
  :root {
-    --wk-color-theme: #E46342;
-    --wk-color-secondary: rgba(246, 246, 246);
-    --wk-color-secondary-2:  rgba(246, 246, 246);
+    --wk-color-theme: rgb(50, 56, 62);
+    --wk-color-secondary: #000;
+    --wk-color-secondary-2:  #000;
     --wk-color-hover: #eee;
     /* 提示类型的字体颜色 */
     --wk-color-font-tip: rgb(170,170,170);
@@ -16,8 +16,8 @@
     --wk-layer-transition: 300ms cubic-bezier(0.33,1,0.68,1);
     --wk-slide-transition: 450ms cubic-bezier(0.25, 1, 0.5, 1);
 
-    --wk-line: 1px solid #eee;
-    --wk-line-color:  #eee;
+    --wk-line: 1px solid rgba(159, 166, 173, 0.16);
+    --wk-line-color:  rgba(159, 166, 173, 0.16);
 
     --wk-color-item: white;
     --wk-text-item:  rgba(9,30,66,.87);
@@ -31,10 +31,10 @@
   }
 
   body[theme-mode=dark] {
-    --wk-color-secondary: #0F0F0F;
-    --wk-color-secondary-2: rgb(33,33,33);
-    --wk-line: 1px solid rgb(255,255,255,0.1);
-    --wk-line-color: rgb(255,255,255,0.1);
+    --wk-color-secondary: #000;
+    --wk-color-secondary-2: rgb(23, 26, 28);
+    --wk-line: 1px solid rgba(159, 166, 173, 0.16);
+    --wk-line-color: rgba(159, 166, 173, 0.16);
     --wk-color-item: rgb(33,33,33);
     --wk-text-item: white;
     color: white !important;

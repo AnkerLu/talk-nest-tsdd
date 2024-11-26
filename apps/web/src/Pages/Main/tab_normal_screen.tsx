@@ -45,11 +45,17 @@ export class TabNormalScreen extends Component<TabNormalScreenProps> {
               alt=""
               src={WKApp.shared.avatarUser(WKApp.loginInfo.uid || "")}
             ></img>
+            <span className="wk-main-sider-avatar-name">
+              {WKApp.loginInfo.name}
+            </span>
           </li>
           {vm.menusList.map((menus: Menus) => {
             return (
               <li
-                className="wk-main-sider-item"
+                className={classnames(
+                  "wk-main-sider-item",
+                  menus.id === vm.currentMenus?.id ? "selected" : undefined
+                )}
                 title={menus.title}
                 key={menus.id}
                 onClick={() => {
@@ -70,6 +76,7 @@ export class TabNormalScreen extends Component<TabNormalScreenProps> {
                 {menus.id === vm.currentMenus?.id
                   ? menus.selectedIcon
                   : menus.icon}
+                <span className="wk-main-sider-item-title">{menus.title}</span>
               </li>
             );
           })}
@@ -114,8 +121,9 @@ export class TabNormalScreen extends Component<TabNormalScreenProps> {
                 WKApp.config.themeMode = ThemeMode.dark;
               }
             }}
-          >{`${WKApp.config.themeMode === ThemeMode.dark ? "关闭" : "打开"
-            }黑暗模式`}</li>
+          >{`${
+            WKApp.config.themeMode === ThemeMode.dark ? "关闭" : "打开"
+          }黑暗模式`}</li>
           <li
             onClick={() => {
               vm.settingSelected = false;

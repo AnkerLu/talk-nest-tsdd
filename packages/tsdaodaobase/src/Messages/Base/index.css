@@ -232,30 +232,6 @@ body[theme-mode="dark"] .wk-message-base-bubble-box.recv .svgAppendix .corner {
   flex-direction: row;
 }
 
-/*.messageTime {
-    color: rgba(9,30,66,.74);
-    font-size: 12px;
-    font-weight: 400;
-    text-transform: capitalize;
-    display: none;
-}
-
-.wk-message-base-send:hover .messageTime {
-    display: block;
-}
-
-.wk-message-base-recv:hover .messageTime {
-    display: block;
-}
-
-.wk-message-base-recv .messageTime {
-    margin-left: 8px;
-}
-
-.wk-message-base-send .messageTime {
-    margin-right: 8px;
-}*/
-
 .wk-message-base-content {
   width: 100%;
   height: 100%;

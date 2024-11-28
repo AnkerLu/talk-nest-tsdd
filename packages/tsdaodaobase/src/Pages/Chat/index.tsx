@@ -111,7 +111,7 @@ export class ChatContentPage extends Component<
                     );
                   })}
                 <div className="wk-chat-conversation-header-right-item">
-                  <svg
+                  {/* <svg
                     fill={WKApp.config.themeColor}
                     height="28px"
                     role="presentation"
@@ -122,6 +122,30 @@ export class ChatContentPage extends Component<
                       clipRule="evenodd"
                       d="M18 29C24.0751 29 29 24.0751 29 18C29 11.9249 24.0751 7 18 7C11.9249 7 7 11.9249 7 18C7 24.0751 11.9249 29 18 29ZM19.5 18C19.5 18.8284 18.8284 19.5 18 19.5C17.1716 19.5 16.5 18.8284 16.5 18C16.5 17.1716 17.1716 16.5 18 16.5C18.8284 16.5 19.5 17.1716 19.5 18ZM23 19.5C23.8284 19.5 24.5 18.8284 24.5 18C24.5 17.1716 23.8284 16.5 23 16.5C22.1716 16.5 21.5 17.1716 21.5 18C21.5 18.8284 22.1716 19.5 23 19.5ZM14.5 18C14.5 18.8284 13.8284 19.5 13 19.5C12.1716 19.5 11.5 18.8284 11.5 18C11.5 17.1716 12.1716 16.5 13 16.5C13.8284 16.5 14.5 17.1716 14.5 18Z"
                       fillRule="evenodd"
+                    ></path>
+                  </svg> */}
+                  <svg
+                    viewBox="0 0 1024 1024"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    p-id="24902"
+                    width="24"
+                    height="24"
+                  >
+                    <path
+                      d="M243.2 512m-83.2 0a1.3 1.3 0 1 0 166.4 0 1.3 1.3 0 1 0-166.4 0Z"
+                      p-id="24903"
+                      fill="#ffffff"
+                    ></path>
+                    <path
+                      d="M512 512m-83.2 0a1.3 1.3 0 1 0 166.4 0 1.3 1.3 0 1 0-166.4 0Z"
+                      p-id="24904"
+                      fill="#ffffff"
+                    ></path>
+                    <path
+                      d="M780.8 512m-83.2 0a1.3 1.3 0 1 0 166.4 0 1.3 1.3 0 1 0-166.4 0Z"
+                      p-id="24905"
+                      fill="#ffffff"
                     ></path>
                   </svg>
                   <div className="wk-conversation-header-mask"></div>

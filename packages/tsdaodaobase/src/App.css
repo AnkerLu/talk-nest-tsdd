@@ -42,8 +42,8 @@
     --wk-message-item: #0F0F0F;
     --wk-message-color: white;
 
-    --semi-color-primary: #E46342;
-    --semi-color-primary-hover: rgb(228, 99, 66,0.5);
+    --semi-color-primary: rgb(11, 107, 203);
+    --semi-color-primary-hover: rgb(11, 107, 203,0.5);
 
   }
 
@@ -73,7 +73,7 @@ html {
     background: var( --background-color);
     color: rgba(9,30,66,.87) ;
 
-    --semi-color-primary: #E46342;
+    --semi-color-primary: rgb(11, 107, 203);
   }
 
   div {

@@ -97,14 +97,12 @@ export default class MessageHead extends Component<MessageHeadProps> {
     );
     return (
       <>
-        {this.needTitle() ? (
           <div
             className="textTitle"
             style={{ color: getTitleColor(channelInfo?.orgData.displayName) }}
-          >
-            {channelInfo?.orgData.displayName}
-          </div>
-        ) : null}
+        >
+          {!message.send ? channelInfo?.orgData.displayName : "你"}
+        </div>
       </>
     );
   }

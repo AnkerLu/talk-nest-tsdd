@@ -33,6 +33,7 @@ body[theme-mode="dark"] .wk-messageinput-input {
 .wk-messageinput-input textarea {
   outline: none;
   border: none;
+  color: white;
 }
 
 .wk-messageinput-input:empty:before {

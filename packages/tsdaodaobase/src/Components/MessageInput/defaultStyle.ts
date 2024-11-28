@@ -8,7 +8,6 @@ export default class InputStyle {
     
     return { 
       control: {
-    
         fontSize: 14,
         fontWeight: 'normal',
       },

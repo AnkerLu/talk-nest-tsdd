@@ -565,11 +565,11 @@ export class Conversation
                     ? "wk-conversation-hasreply"
                     : undefined
                 )}
-                style={{
-                  background: chatBg
-                    ? `url(${chatBg}) rgb(245, 247, 249)`
-                    : undefined,
-                }}
+                // style={{
+                //   background: chatBg
+                //     ? `url(${chatBg}) rgb(245, 247, 249)`
+                //     : undefined,
+                // }}
               >
                 <div
                   onDragOver={(event) => {

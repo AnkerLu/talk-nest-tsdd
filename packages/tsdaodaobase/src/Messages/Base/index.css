@@ -95,7 +95,8 @@
 }
 
 .wk-message-base-bubble {
-  color: rgba(9, 30, 66, 0.87);
+  color: white;
+  background-color: rgb(11, 13, 14);
   display: flex;
   /* margin-bottom: 4px; */
   padding: 10px;
@@ -131,8 +132,6 @@ body[theme-mode="dark"] .wk-message-base-bubble {
 
 .wk-message-base-bubble-box.recv .wk-message-base-bubble {
   border-radius: 0 12px 12px 12px;
-  background-color: white;
-  color: black;
 }
 
 body[theme-mode="dark"]

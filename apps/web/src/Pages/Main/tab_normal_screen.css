@@ -1,7 +1,7 @@
 .wk-main-sider {
-  width: var(--sider-width);
+  width: var(--wk-sider-width);
   height: 100%;
-  background-color: var(--wk-color-secondary);
+  background: var(--wk-bg-secondary);
   border-right: var(--wk-line);
 }
 
@@ -35,14 +35,21 @@
   gap: 10px;
   width: 100%;
   padding: 10px;
+  background: var(--wk-state-default-bg);
+  color: var(--wk-state-default-text);
+  border: 1px solid var(--wk-state-default-border);
 }
 
 .wk-main-sider-item.selected {
-  background-color: rgb(50, 56, 62);
+  background: var(--wk-state-selected-bg);
+  color: var(--wk-state-selected-text);
+  border: 1px solid var(--wk-state-selected-border);
 }
 
 .wk-main-sider-item:hover {
-  background-color: rgb(23, 26, 28);
+  background: var(--wk-state-hover-bg);
+  color: var(--wk-state-hover-text);
+  border: 1px solid var(--wk-state-hover-border);
 }
 
 .wk-main-sider-item img {

@@ -255,10 +255,24 @@ export default class WKApp extends ProviderListener {
   startup() {
     WKApp.loginInfo.load(); // 加载登录信息
 
+    // 检测系统主题
+    const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+    const darkTheme = darkThemeMq.matches;
+    
+    // 如果没有保存的主题设置,则使用系统主题
     const themeMode = StorageService.shared.getItem("theme-mode");
-    if (themeMode === "1") {
+    if (!themeMode) {
+      WKApp.config.themeMode = darkTheme ? ThemeMode.dark : ThemeMode.light;
+    } else if (themeMode === "1") {
       WKApp.config.themeMode = ThemeMode.dark;
     }
+
+    // 监听系统主题变化
+    darkThemeMq.addListener(e => {
+      if (!StorageService.shared.getItem("theme-mode")) {
+        WKApp.config.themeMode = e.matches ? ThemeMode.dark : ThemeMode.light;
+      }
+    });
 
     WKSDK.shared().config.provider.connectAddrCallback = async (
       callback: ConnectAddrCallback

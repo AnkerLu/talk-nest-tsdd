@@ -1,13 +1,98 @@
 :root {
-  --wk-color-theme: rgb(50, 56, 62);
+  /* 主题色 */
+  --wk-color-theme: #32383e;
+  /* 主色 */
+  --wk-color-primary: #0b6bcb;
+  --wk-color-primary-hover: rgba(11, 107, 203, 0.5);
+  /* 次色 */
+  --wk-color-secondary: #fff;
+  --wk-color-secondary-2: rgb(245, 245, 245);
+  /* 基础背景色 */
   --wk-color-secondary: #000;
   --wk-color-secondary-2: rgb(23, 26, 28);
   --wk-color-hover: #eee;
-  /* 提示类型的字体颜色 */
+  --wk-bg-base: #fff;
+  --wk-bg-secondary: #f5f5f5;
+  --wk-bg-hover: rgba(0, 0, 0, 0.06);
+  --wk-bg-active: rgba(0, 0, 0, 0.1);
+  --wk-bg-mask: rgba(0, 0, 0, 0.45);
+  --wk-bg-spotlight: rgba(0, 0, 0, 0.85);
+  --wk-bg-message-item: #fff;
+  --wk-bg-message-sender-item: #f5f5f5;
+  /* 文字色 */
+  --wk-text-primary: rgba(0, 0, 0, 0.85);
+  --wk-text-secondary: rgba(0, 0, 0, 0.45);
+  --wk-text-disabled: rgba(0, 0, 0, 0.25);
+  --wk-text-link: var(--wk-color-primary);
+  --wk-text-item: #000;
   --wk-color-font-tip: rgb(170, 170, 170);
-  --wk-width-layout-content-left: 300px;
+  /* 线 */
+  --wk-line: 1px solid rgba(0, 0, 0, 0.1);
+  --wk-line-color: rgba(0, 0, 0, 0.1);
+  /* 圆角 */
+  --wk-border-radius-base: 4px;
+  --wk-border-radius-sm: 2px;
+  --wk-border-radius-lg: 8px;
+  /* 阴影 */
+  --wk-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --wk-shadow-card: 0 1px 2px -2px rgba(0, 0, 0, 0.16),
+                    0 3px 6px 0 rgba(0, 0, 0, 0.12),
+                    0 5px 12px 4px rgba(0, 0, 0, 0.09);
+  --wk-shadow-popup: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+                     0 6px 16px 0 rgba(0, 0, 0, 0.08),
+                     0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  /* 头部高度 */
+  --wk-header-height: 60px;
+  /* 侧边栏宽度 */
+  --wk-sider-width: 220px;
+  /* 间距 */
+  --wk-spacing-base: 8px;
+  --wk-spacing-lg: 24px;
+  --wk-spacing-sm: 12px;
+  /* 字体大小 */
+  --wk-font-size-base: 14px;
+  --wk-font-size-lg: 16px;
+  --wk-font-size-sm: 12px;
+  /* 行高 */
+  --wk-line-height-base: 1.5715;
+
+  /* 基础状态 - Base State */
+  --wk-state-default-bg: #fff;
+  --wk-state-default-text: rgba(0, 0, 0, 0.85);
+  --wk-state-default-border: rgba(0, 0, 0, 0.1);
+
+  /* 悬停状态 - Hover State */
+  --wk-state-hover-bg: rgba(0, 0, 0, 0.06);
+  --wk-state-hover-text: rgba(0, 0, 0, 0.95);
+  --wk-state-hover-border: rgba(0, 0, 0, 0.2);
+  
+  /* 选中状态 - Selected State */
+  --wk-state-selected-bg: rgba(11, 107, 203, 0.1);
+  --wk-state-selected-text: rgb(11, 107, 203);
+  --wk-state-selected-border: rgb(11, 107, 203);
+  
+  /* 激活状态 - Active State */
+  --wk-state-active-bg: rgba(0, 0, 0, 0.1);
+  --wk-state-active-text: rgba(0, 0, 0, 1);
+  --wk-state-active-border: rgba(0, 0, 0, 0.3);
+  
+  /* 禁用状态 - Disabled State */
+  --wk-state-disabled-bg: rgba(0, 0, 0, 0.04);
+  --wk-state-disabled-text: rgba(0, 0, 0, 0.25);
+  --wk-state-disabled-border: rgba(0, 0, 0, 0.08);
+
+  /* 老的变量 */
+  --wk-color-item: rgb(33, 33, 33);
+  --wk-text-item: white;
+
+  --wk-message-item: #0f0f0f;
+  --wk-message-color: white;
+
+  --semi-color-primary: rgb(11, 107, 203);
+  --semi-color-primary-hover: rgb(11, 107, 203, 0.5);
+  --wk-color-font-tip: rgb(170, 170, 170);
+  --wk-width-layout-content-left: 321px;
   --wk-wdith-conversation-list: var(--wk-width-layout-content-left);
-  /* --wk-height-chat-search: 65px; */
   --wk-height-chat-search: 64px;
   --wk-height-chat-conversation-header: 64px;
   --wk-wdith-chat-channelsetting: 340px;
@@ -16,12 +101,6 @@
 
   --wk-line: 1px solid rgba(159, 166, 173, 0.16);
   --wk-line-color: rgba(159, 166, 173, 0.16);
-
-  --wk-color-item: white;
-  --wk-text-item: rgba(9, 30, 66, 0.87);
-
-  --wk-message-item: white;
-  --wk-message-color: #0f0f0f;
 }
 
 *,
@@ -31,19 +110,105 @@
 }
 
 body[theme-mode="dark"] {
+  /* 主题色 */
+  --wk-color-theme: #121212;
+  /* 主色 */
+  --wk-color-primary: #0b6bcb;
+  --wk-color-primary-hover: rgba(11, 107, 203, 0.5);
+  /* 次色 */
   --wk-color-secondary: #000;
-  --wk-color-secondary-2: rgb(23, 26, 28);
+  --wk-color-secondary-2: #171a1c;
+  /* 基础背景色 */
+  --wk-bg-base: #000;
+  --wk-bg-secondary: #141414;
+  --wk-bg-hover: rgba(255, 255, 255, 0.08);
+  --wk-bg-active: rgba(255, 255, 255, 0.12);
+  --wk-bg-mask: rgba(0, 0, 0, 0.45);
+  --wk-bg-spotlight: rgba(0, 0, 0, 0.85);
+  --wk-bg-message-item: #0b0d0e;
+  --wk-bg-message-sender-item: #0b6bcb;
+  /* 文字色 */
+  --wk-text-primary: rgba(255, 255, 255, 0.85);
+  --wk-text-secondary: rgba(255, 255, 255, 0.45);
+  --wk-text-disabled: rgba(255, 255, 255, 0.25);
+  --wk-text-link: #177ddc;
+  --wk-text-item: white;
+  --wk-color-font-tip: rgb(170, 170, 170);
+  /* 线 */
   --wk-line: 1px solid rgba(159, 166, 173, 0.16);
   --wk-line-color: rgba(159, 166, 173, 0.16);
-  --wk-color-item: rgb(33, 33, 33);
-  --wk-text-item: white;
-  color: white !important;
+  /* 圆角 */
+  --wk-border-radius-base: 4px;
+  --wk-border-radius-sm: 2px;
+  --wk-border-radius-lg: 8px;
+  /* 阴影 */
+  --wk-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.65);
+  --wk-shadow-card: 0 1px 2px -2px rgba(0, 0, 0, 0.64),
+                    0 3px 6px 0 rgba(0, 0, 0, 0.48),
+                    0 5px 12px 4px rgba(0, 0, 0, 0.36);
+  --wk-shadow-popup: 0 3px 6px -4px rgba(0, 0, 0, 0.48),
+                     0 6px 16px 0 rgba(0, 0, 0, 0.32),
+                     0 9px 28px 8px rgba(0, 0, 0, 0.2);
+  /* 头部高度 */
+  --wk-header-height: 60px;
+  /* 侧边栏宽度 */
+  --wk-sider-width: 220px;
+  /* 间距 */
+  --wk-spacing-base: 8px;
+  --wk-spacing-lg: 24px;
+  --wk-spacing-sm: 12px;
+  /* 字体大小 */
+  --wk-font-size-base: 14px;
+  --wk-font-size-lg: 16px;
+  --wk-font-size-sm: 12px;
+  /* 行高 */
+  --wk-line-height-base: 1.5715;
 
-  --wk-message-item: #0f0f0f;
-  --wk-message-color: white;
+  /* 基础状态 - Base State */
+  --wk-state-default-bg: #141414;
+  --wk-state-default-text: rgba(255, 255, 255, 0.85);
+  --wk-state-default-border: rgba(255, 255, 255, 0.1);
+
+  /* 悬停状态 - Hover State */
+  --wk-state-hover-bg: rgba(255, 255, 255, 0.08);
+  --wk-state-hover-text: rgba(255, 255, 255, 0.95);
+  --wk-state-hover-border: rgba(255, 255, 255, 0.2);
+  
+  /* 选中状态 - Selected State */
+  --wk-state-selected-bg: rgba(11, 107, 203, 0.2);
+  --wk-state-selected-text: #177ddc;
+  --wk-state-selected-border: #177ddc;
+  
+  /* 激活状态 - Active State */
+  --wk-state-active-bg: rgba(255, 255, 255, 0.12);
+  --wk-state-active-text: rgba(255, 255, 255, 1);
+  --wk-state-active-border: rgba(255, 255, 255, 0.3);
+  
+  /* 禁用状态 - Disabled State */
+  --wk-state-disabled-bg: rgba(255, 255, 255, 0.08);
+  --wk-state-disabled-text: rgba(255, 255, 255, 0.25);
+  --wk-state-disabled-border: rgba(255, 255, 255, 0.08);
+
+  /* 老的变量 */
+  --wk-color-item: white;
+  --wk-text-item: rgba(9, 30, 66, 0.87);
+
+  --wk-message-item: white;
+  --wk-message-color: #0f0f0f;
 
   --semi-color-primary: rgb(11, 107, 203);
   --semi-color-primary-hover: rgb(11, 107, 203, 0.5);
+  --wk-color-font-tip: rgb(170, 170, 170);
+  --wk-width-layout-content-left: 321px;
+  --wk-wdith-conversation-list: var(--wk-width-layout-content-left);
+  --wk-height-chat-search: 64px;
+  --wk-height-chat-conversation-header: 64px;
+  --wk-wdith-chat-channelsetting: 340px;
+  --wk-layer-transition: 300ms cubic-bezier(0.33, 1, 0.68, 1);
+  --wk-slide-transition: 450ms cubic-bezier(0.25, 1, 0.5, 1);
+
+  --wk-line: 1px solid rgba(159, 166, 173, 0.16);
+  --wk-line-color: rgba(159, 166, 173, 0.16);
 }
 
 /* ::-webkit-scrollbar-thumb:window-inactive {
@@ -74,6 +239,13 @@ body {
   color: white;
 
   --semi-color-primary: rgb(11, 107, 203);
+  transition: background-color 0.3s ease;
+}
+
+[theme-mode] * {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease,
+              border-color 0.3s ease;
 }
 
 div {

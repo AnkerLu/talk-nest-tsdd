@@ -87,11 +87,6 @@ body[theme-mode="dark"] .wk-conversationlist-item-name h3 {
   color: white;
 }
 
-.wk-conversationlist-item-selected .wk-conversationlist-item-name h3,
-.wk-conversationlist-item-selected .wk-conversationlist-item-name {
-  color: white;
-}
-
 .wk-conversationlist-item-time {
   color: #9b9b9b;
   padding-left: 10px;
@@ -115,10 +110,6 @@ body[theme-mode="dark"] .wk-conversationlist-item-name h3 {
   overflow: hidden;
   font-size: 14px;
   min-height: 22px;
-}
-
-.wk-conversationlist-item-selected .wk-conversationlist-item-lastmsg {
-  color: white;
 }
 
 .wk-conversationlist-item-selected {

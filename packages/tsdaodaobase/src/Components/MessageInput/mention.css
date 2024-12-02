@@ -49,7 +49,7 @@
   .mentions__mention {
     position: relative;
     z-index: 1;
-    color: var(--wk-color-theme);
+    color: var(--wk-color-primary);
     text-shadow: none;
     /* text-shadow: 1px 1px 1px white, 1px -1px 1px white, -1px 1px 1px white,
       -1px -1px 1px white; */

@@ -148,7 +148,7 @@
 .wk-organizational-group-new-right {
   width: 50%;
   height: 100%;
-  background-color: var(--wk-color-item);
+  background-color: var(--wk-bg-secondary);
   padding: 12px;
   display: flex;
   flex-direction: column;
@@ -172,7 +172,7 @@
   font-size: 14px;
   line-height: 20px;
   word-break: break-word;
-  color: var(--semi-color-text-0);
+  color: var(--wk-text-primary);
 }
 
 .wk-organizational-group-new-right

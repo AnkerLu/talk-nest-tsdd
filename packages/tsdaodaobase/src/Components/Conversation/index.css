@@ -215,7 +215,7 @@ body[theme-mode="dark"] .wk-conversation-topview {
 }
 
 .wk-multiplepanel-content-item-icon {
-  background-color: var(--wk-color-item);
+  background-color: var(--wk-bg-secondary);
   width: 60px;
   height: 60px;
   border-radius: 50%;

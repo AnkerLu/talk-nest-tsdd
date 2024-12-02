@@ -90,7 +90,7 @@
     display: flex;
     align-items: center;
     padding: 15px;
-    background-color: white;
+    background-color: var(--wk-color-theme);
 
 }
 

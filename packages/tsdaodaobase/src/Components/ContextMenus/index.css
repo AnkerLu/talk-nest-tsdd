@@ -4,7 +4,7 @@
     position: fixed;
     top: 100px;
     left: 0px;
-    background-color: white;
+    background-color: var(--wk-color-theme);
     z-index: 99;
 
     box-shadow: 0 0.25rem 0.5rem 0.125rem rgba(114,114,114,0.25098);
@@ -42,7 +42,7 @@ body[theme-mode=dark]  .wk-contextmenus {
 }
 
 body[theme-mode=dark]  .wk-contextmenus li {
-    color: white;
+    color: var(--wk-text-primary);
 }
 
 .wk-contextmenus li:hover {

@@ -24,7 +24,7 @@
 }
 
 .wk-message-text-send {
-    color: white;
+    color: var(--wk-text-primary);
 }
 
 .wk-message-text-recv {
@@ -32,7 +32,7 @@
 }
 
 body[theme-mode=dark] .wk-message-text-recv {
-    color: white;
+    color: var(--wk-text-primary);
 }
 
 .wk-message-text-richemoji {

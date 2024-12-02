@@ -30,7 +30,7 @@
 }
 
 body[theme-mode="dark"] .wk-chat-search-add {
-  color: white;
+  color: var(--wk-text-primary);
 }
 
 .wk-chat-title {
@@ -40,7 +40,7 @@ body[theme-mode="dark"] .wk-chat-search-add {
 }
 
 body[theme-mode="dark"] .wk-chat-title {
-  color: white;
+  color: var(--wk-text-primary);
 }
 
 .wk-chat-conversation-list {
@@ -194,7 +194,7 @@ body[theme-mode="dark"] .wk-chat-conversation-header {
 }
 
 body[theme-mode="dark"] .wk-chat-conversation-header-channel-info-name {
-  color: white;
+  color: var(--wk-text-primary);
 }
 
 .wk-chat-conversation-header-content {
@@ -276,7 +276,7 @@ body[theme-mode="dark"] .wk-chat-channelsetting {
 
 body[theme-mode="dark"] .wk-chat-popover {
   background-color: var(--wk-color-secondary);
-  color: white;
+  color: var(--wk-text-primary);
   --color-popover-bg-default: red;
 }
 
@@ -294,7 +294,7 @@ body[theme-mode="dark"] .wk-chat-popover {
 .wk-chatmenuspopover li img {
   width: 20px;
   height: 20px;
-  color: white;
+  color: var(--wk-text-primary);
 }
 
 .wk-chatmenuspopover-title {

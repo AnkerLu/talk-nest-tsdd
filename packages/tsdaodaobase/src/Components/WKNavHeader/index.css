@@ -25,5 +25,5 @@
 }
 
 body[theme-mode=dark] .wk-navheader-content-left-title {
-    color: white;
+    color: var(--wk-text-primary);
 } 

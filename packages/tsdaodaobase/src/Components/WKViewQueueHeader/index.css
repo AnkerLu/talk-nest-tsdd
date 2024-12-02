@@ -29,7 +29,7 @@
 }
 
 body[theme-mode=dark] .wk-viewqueueheader-content-title {
-    color: white;
+    color: var(--wk-text-primary);
 }
 
 .wk-viewqueueheader-back {

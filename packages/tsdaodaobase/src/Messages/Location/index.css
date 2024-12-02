@@ -5,7 +5,7 @@
 
 .wk-message-location-content {
     width: 250px;
-    background-color: white;
+    background-color: var(--wk-color-theme);
     border-radius: 4px;
 }
 

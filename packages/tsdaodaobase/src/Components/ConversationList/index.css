@@ -84,7 +84,7 @@ body[theme-mode="dark"] .wk-conversationlist-item:hover {
 }
 
 body[theme-mode="dark"] .wk-conversationlist-item-name h3 {
-  color: white;
+  color: var(--wk-text-primary);
 }
 
 .wk-conversationlist-item-time {
@@ -99,7 +99,7 @@ body[theme-mode="dark"] .wk-conversationlist-item-name h3 {
 }
 
 .wk-conversationlist-item-selected .wk-conversationlist-item-time {
-  color: white;
+  color: var(--wk-state-selected-text);
 }
 
 .wk-conversationlist-item-lastmsg {
@@ -113,7 +113,7 @@ body[theme-mode="dark"] .wk-conversationlist-item-name h3 {
 }
 
 .wk-conversationlist-item-selected {
-  background-color: var(--wk-color-theme);
+  background-color: var(--wk-state-selected-bg);
 }
 
 .wk-mention {

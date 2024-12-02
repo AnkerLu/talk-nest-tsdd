@@ -1,5 +1,5 @@
 .wk-join-oraganization {
-  background-color: white;
+  background-color: var(--wk-color-theme);
   cursor: pointer;
   border-radius: 8px;
   width: 100%;

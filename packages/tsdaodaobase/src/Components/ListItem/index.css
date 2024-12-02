@@ -7,7 +7,7 @@
     align-items: center;
     position: relative;
     cursor: pointer;
-    background-color: white;
+    background-color: var(--wk-color-theme);
     justify-content: space-between;
     box-sizing: border-box;
 }
@@ -58,7 +58,7 @@ body[theme-mode=dark] .wk-list-item {
 
 
 body[theme-mode=dark] .wk-list-item-title{
-    color: white;
+    color: var(--wk-text-primary);
 }
 
 

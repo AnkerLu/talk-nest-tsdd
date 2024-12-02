@@ -33,7 +33,7 @@
 }
 
 body[theme-mode="dark"] .wk-contacts-section-item-index {
-  color: white;
+  color: var(--wk-text-primary);
 }
 
 .wk-contacts-section-item {
@@ -49,12 +49,12 @@ body[theme-mode="dark"] .wk-contacts-section-item-index {
 } */
 
 .wk-contacts-section-item-selected {
-  background-color: rgb(50, 56, 62) !important;
-  color: white;
+  background-color: var(--wk-state-selected-bg);
+  color: var(--wk-state-selected-text);
 }
 
 .wk-contacts-section-item:hover {
-  background-color: rgb(23, 26, 28);
+  background-color: var(--wk-state-hover-bg);
 }
 
 .wk-contacts-section-item-avatar img {
@@ -68,7 +68,7 @@ body[theme-mode="dark"] .wk-contacts-section-item-index {
 }
 
 body[theme-mode="dark"] .wk-contacts-section-item-name {
-  color: white;
+  color: var(--wk-text-primary);
 }
 
 .wk-contacts-content-fnc {
@@ -76,7 +76,7 @@ body[theme-mode="dark"] .wk-contacts-section-item-name {
 }
 
 .wk-contacts-content-header .wk-search-box {
-  background-color: white;
+  background-color: var(--wk-color-theme);
   width: 100%;
   border-radius: 4px;
 }

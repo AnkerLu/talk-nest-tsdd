@@ -4,7 +4,7 @@
 }
 
 .wk-sex-select-item {
-    background-color: white;
+    background-color: var(--wk-color-theme);
     height: 50px;
     width: 100%;
     background-color: var(--wk-color-item);

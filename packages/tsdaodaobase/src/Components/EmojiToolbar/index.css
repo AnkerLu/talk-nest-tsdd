@@ -121,7 +121,7 @@ body[theme-mode=dark] .wk-emojitoolbar-emojipanel {
 }
 
 .wk-emojipanel-tab-item-selected {
-    background-color: white;
+    background-color: var(--wk-color-theme);
 }
 
 body[theme-mode=dark] .wk-emojipanel-tab-item-selected {

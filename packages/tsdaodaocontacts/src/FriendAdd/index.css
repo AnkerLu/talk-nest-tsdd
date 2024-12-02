@@ -1,6 +1,6 @@
 .wk-friendadd .wk-search-box {
   border-radius: 0px;
-  background-color: white;
+  background-color: var(--wk-color-theme);
 }
 
 .wk-friendadd .wk-search-input {
@@ -20,7 +20,7 @@
 }
 
 body[theme-mode="dark"] .wk-friendadd-content-qrcode {
-  color: white;
+  color: var(--wk-text-primary);
 }
 
 .wk-friendadd-content-qrcode img {

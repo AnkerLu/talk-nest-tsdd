@@ -48,7 +48,6 @@ export default class ContactsModule implements IModule {
           badge={ WKApp.shared.getFriendApplysUnreadCount() }
           title="新朋友"
           icon={require("./assets/friend_new.png")}
-          backgroudColor={"var(--wk-color-secondary)"}
           onClick={() => {
             WKApp.routeLeft.push(<NewFriend></NewFriend>);
           }}
@@ -61,7 +60,6 @@ export default class ContactsModule implements IModule {
         <IconListItem
           title="保存的群"
           icon={require("./assets/icon_group_save.png")}
-          backgroudColor={"var(--wk-color-secondary)"}
           onClick={() => {
             WKApp.routeLeft.push(<GroupSave></GroupSave>);
           }}
@@ -76,7 +74,6 @@ export default class ContactsModule implements IModule {
           <IconListItem
             title="黑名单"
             icon={require("./assets/blacklist.png")}
-            backgroudColor={"var(--wk-color-secondary)"}
             onClick={() => {
               WKApp.routeLeft.push(<Blacklist></Blacklist>);
             }}

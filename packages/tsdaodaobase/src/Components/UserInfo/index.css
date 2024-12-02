@@ -14,7 +14,7 @@
 .wk-userInfo-footer {
     width: 100%;
     height: var(--wk-height-userInfo-footer);
-    background-color: white;
+    background-color: var(--wk-color-theme);
     position: absolute;
     bottom: 0px;
 }

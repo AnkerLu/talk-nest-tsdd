@@ -37,13 +37,13 @@ body[theme-mode=dark] .wk-search-box {
 }
 
 body[theme-mode=dark] .wk-search-input input {
-    color: white;
+    color: var(--wk-text-primary);
 }
 
 
 .wk-search-input .semi-input-wrapper{
     height: 100%;
-    background-color: white;
+    background-color: var(--wk-color-theme);
 }
 
 body[theme-mode=dark] .wk-search-input .semi-input-wrapper {

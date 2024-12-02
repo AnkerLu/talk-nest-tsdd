@@ -122,7 +122,7 @@
     border-radius: 8px;
     height: 40px;
     background-color: var(--wk-color-theme);
-    color: white;
+    color: var(--wk-text-primary);
     display: flex;
     justify-content: center;
     align-items: center;

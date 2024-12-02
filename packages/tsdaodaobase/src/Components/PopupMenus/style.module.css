@@ -1,7 +1,7 @@
 
 
 .wk-popupmenus {
-    background-color: white;
+    background-color: var(--wk-color-theme);
     border-radius: 4px;
     box-shadow: -5px 5px 20px 0px #eee, 
     0px 20px 20px -15px #eee;

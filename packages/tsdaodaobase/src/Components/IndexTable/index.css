@@ -37,7 +37,7 @@ body[theme-mode=dark] .wk-indextable-item {
 }
 
 body[theme-mode=dark]  .wk-indextable-item-name {
-    color: white;
+    color: var(--wk-text-primary);
 }
 
 .wk-indextable-search {
@@ -61,7 +61,7 @@ body[theme-mode=dark] .wk-indextable-search  {
 }
 
 body[theme-mode=dark] .wk-indextable-item-index {
-    color: white;
+    color: var(--wk-text-primary);
 }
 
 .wk-indextable-checkbox {
@@ -109,7 +109,7 @@ body[theme-mode=dark] .wk-indextable-search-box  {
 }
 
 body[theme-mode=dark] .wk-indextable-search-input input {
-    color: white;
+    color: var(--wk-text-primary);
 }
 
 .wk-indextable-select-user {

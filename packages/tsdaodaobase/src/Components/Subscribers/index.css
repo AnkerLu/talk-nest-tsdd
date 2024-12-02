@@ -43,7 +43,7 @@
 }
 
 body[theme-mode=dark] .wk-subscribers-item-name {
-    color: white;
+    color: var(--wk-text-primary);
 }
 
 .wk-subscribers-more {

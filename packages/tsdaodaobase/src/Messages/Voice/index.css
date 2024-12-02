@@ -13,7 +13,7 @@
 .voicePlay {
     width: 48px;
     height: 48px;
-    background-color: white;
+    background-color: var(--wk-color-theme);
     border-radius: 50%;
     display: flex;
     justify-content: center;

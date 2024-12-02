@@ -123,7 +123,7 @@
 }
 
 body[theme-mode=dark]  .wk-route-header-title {
-    color: white;
+    color: var(--wk-text-primary);
 }
 
 
@@ -145,7 +145,7 @@ body[theme-mode=dark]  .wk-route-header-title {
 }
 
 body[theme-mode=dark] .wk-route-header-title-next {
-    color: white;
+    color: var(--wk-text-primary);
 }
 
 .wk-route-header-title-box-open .wk-route-header-title-next {

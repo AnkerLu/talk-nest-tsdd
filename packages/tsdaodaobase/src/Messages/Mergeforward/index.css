@@ -2,7 +2,7 @@
 
 .wk-mergeforwards {
     width: 300px;
-    background-color: var(--wk-message-item);
+    background-color: var(--wk-color-theme);
     border-radius: 8px;
     cursor: pointer;
 }
@@ -11,14 +11,14 @@
 
 .wk-mergeforwards-content {
     padding: 10px 10px 0px 10px;
-    color: black;
+    color: var(--wk-text-primary);
 
 }
 
 .wk-mergeforwards-content-title {
     font-size: 15px;
     font-weight: 500;
-    color: var(--wk-message-color);
+    color: var(--wk-text-primary);
 }
 
 .wk-mergeforwards-content-items {
@@ -31,13 +31,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 13px;
-    color: #999 !important;
+    color: var(--wk-text-secondary) !important;
 }
 
 .wk-mergeforwards-content-tip {
     display: flex;
     justify-content: space-between;
-    color: #999 !important;
+    color: var(--wk-text-secondary) !important;
     font-size: 13px;
     padding: 2px 0px;
 }

@@ -7,7 +7,7 @@
 
 .wk-channelqrcode-box {
     width: 100%;
-    background-color: var(--wk-color-item);
+    background-color: var(--wk-bg-secondary);
     display: flex;
     align-items: center;
     justify-content: center;

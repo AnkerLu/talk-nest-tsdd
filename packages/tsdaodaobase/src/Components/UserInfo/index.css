@@ -43,7 +43,7 @@ body[theme-mode=dark]  .wk-userInfo-footer {
 .wk-userinfo-user-avatar {
     margin-left: 20px;
     border-radius: 40%;
-    background-color: var(--wk-color-item);
+    background-color: var(--wk-bg-secondary);
     width: 54px;
     height: 54px;
     display: flex;
@@ -68,7 +68,7 @@ body[theme-mode=dark]  .wk-userInfo-footer {
 }
 
 .wk-userinfo-user-info-others li {
-    color: var(--wk-color-font-tip);
+    color: var(--wk-text-secondary);
 }
 
 .wk-userinfo-footer-sendbutton {

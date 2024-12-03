@@ -74,7 +74,7 @@ body[theme-mode=dark] .wk-list-item-title{
     flex: 1;
     margin-left: 20px;
     font-size: 14px;
-    color: var(--wk-color-font-tip);
+    color: var(--wk-text-secondary);
     text-align: end;
     word-wrap: break-word;
     word-break: normal;
@@ -113,7 +113,7 @@ body[theme-mode=dark] .wk-list-item-title{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--wk-color-font-tip);
+    color: var(--wk-text-secondary);
     font-size: 13px;
 
 }

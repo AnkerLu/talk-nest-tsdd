@@ -7,7 +7,7 @@
     background-color: var(--wk-color-theme);
     height: 50px;
     width: 100%;
-    background-color: var(--wk-color-item);
+    background-color: var(--wk-bg-secondary);
     display: flex;
     align-items: center;
     cursor: pointer;

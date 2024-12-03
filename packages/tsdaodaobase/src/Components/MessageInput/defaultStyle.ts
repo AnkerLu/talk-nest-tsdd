@@ -61,7 +61,7 @@ export default class InputStyle {
     
       suggestions: {
         list: {
-          backgroundColor: "var(--wk-color-item)",
+          backgroundColor: "var(--wk-bg-secondary)",
           // border: '1px solid rgba(0,0,0,0.15)',
           boxShadow: WKApp.config.themeMode === ThemeMode.dark?"15px 15px 15px -15px #000, -15px -15px 15px -15px #000":'15px 15px 15px -15px #eee, -15px -15px 15px -15px #eee',
           fontSize: 14,

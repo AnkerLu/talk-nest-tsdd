@@ -12,7 +12,7 @@
 .wk-emojitoolbar-emojipanel {
     max-width: 460px;
     height: 372px;
-    background-color: var(--wk-color-item);
+    background-color: var(--wk-bg-secondary);
     position: absolute;
     left: 20px;
     top: calc(-372px - 15px);

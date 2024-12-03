@@ -8,7 +8,7 @@
 .wk-smalltableedit-content-item{
     display: flex;
     padding: 5px 15px;
-    background-color: var(--wk-color-item);
+    background-color: var(--wk-bg-secondary);
 }
 
 .wk-smalltableedit-content-item-avatar {

@@ -112,7 +112,7 @@
   display: flex;
   flex-direction: column;
   margin-left: 15px;
-  color: var(--wk-color-font-tip);
+  color: var(--wk-text-secondary);
 }
 
 .wk-replyview-content-msg {

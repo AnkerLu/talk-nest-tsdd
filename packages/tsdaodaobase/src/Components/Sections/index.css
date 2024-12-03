@@ -16,7 +16,7 @@
 
 .wk-section-title {
   padding: 5px 15px;
-  color: var( --wk-color-font-tip);
+  color: var( --wk-text-secondary);
   font-size: 13px;
 }
 
@@ -26,6 +26,6 @@
 
 .wk-section-subtitle {
   padding: 5px 15px;
-  color: var( --wk-color-font-tip);
+  color: var( --wk-text-secondary);
   font-size: 13px;
 }

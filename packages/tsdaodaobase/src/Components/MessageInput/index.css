@@ -179,7 +179,7 @@ body[theme-mode="dark"] .wk-messageinput-input {
 }
 
 .wk-messageinput-input__suggestions {
-  background-color: var(--wk-color-item);
+  background-color: var(--wk-bg-secondary);
 }
 
 body[theme-mode="dark"] .wk-messageinput-input__input {

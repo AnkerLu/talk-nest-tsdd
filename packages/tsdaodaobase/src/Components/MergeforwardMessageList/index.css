@@ -26,7 +26,7 @@
     display: flex;
     width: 100%;
     padding: 15px;
-    background-color: var(--wk-color-item);
+    background-color: var(--wk-bg-secondary);
 }
 
 .wk-mergeforwardmessagelist-content-msg-info {

@@ -7,7 +7,7 @@
 .wk-blacklist-content ul li {
     height: 80px;
     width: 100%;
-    background-color: var(--wk-color-item);
+    background-color: var(--wk-bg-secondary);
     display: flex;
     align-items: center;
     cursor: pointer;

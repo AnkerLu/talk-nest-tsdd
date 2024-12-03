@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh-CN">
+  <head>
+    <link rel="icon" href="/images/logo.png" type="image/x-icon" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      data-i18n="meta.description"
+      content="语窝 - 企业级即时通讯软件,支持Windows、Mac、Linux等多平台,提供端对端加密、群聊、语音通话等功能"
+    />
+    <meta
+      name="keywords"
+      data-i18n="meta.keywords"
+      content="语窝,即时通讯,IM,企业通讯,在线沟通"
+    />
+    <title data-i18n="meta.title">语窝 - 企业级即时通讯软件</title>
+
+    <!-- Open Graph tags for social sharing -->
+    <meta
+      property="og:title"
+      data-i18n="og.title"
+      content="语窝 - 企业级即时通讯软件"
+    />
+    <meta
+      property="og:description"
+      data-i18n="og.description"
+      content="跨平台企业级即时通讯解决方案"
+    />
+    <meta property="og:image" content="/images/og-image.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- 导航栏 -->
+    <nav class="nav">
+      <div class="container">
+        <div class="logo">
+          <img
+            src="/images/logo.png"
+            alt="语窝logo"
+            width="120"
+            data-i18n-alt="common.logoAlt"
+          />
+        </div>
+        <ul class="nav-links">
+          <li><a href="#features" data-i18n="nav.features">功能特点</a></li>
+          <li><a href="#solutions" data-i18n="nav.solutions">解决方案</a></li>
+          <li><a href="#download" data-i18n="nav.download">下载</a></li>
+          <li><a href="#price" data-i18n="nav.price">价格</a></li>
+          <li><a href="#about" data-i18n="nav.about">关于我们</a></li>
+          <li>
+            <a href="https://docs.yuwo.com" target="_blank" data-i18n="nav.docs"
+              >开发文档</a
+            >
+          </li>
+          <li class="language-selector">
+            <select
+              id="languageSelect"
+              aria-label="选择语言"
+              data-i18n-aria-label="language.selector.ariaLabel"
+            >
+              <option value="zh-CN" data-i18n="language.zhCN">简体中文</option>
+              <option value="zh-TW" data-i18n="language.zhTW">繁體中文</option>
+              <option value="en" data-i18n="language.en">English</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero区域 -->
+    <header class="hero">
+      <div class="container">
+        <h1 data-i18n="hero.title">语窝 - 企业级即时通讯解决方案</h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">
+          安全可靠的一站式企业通讯平台
+        </p>
+        <div class="hero-features">
+          <span data-i18n="hero.features.encryption">端对端加密</span>
+          <span data-i18n="hero.features.multiPlatform">多平台支持</span>
+          <span data-i18n="hero.features.privateDeployment">私有化部署</span>
+          <span data-i18n="hero.features.openApi">开放API</span>
+        </div>
+        <div class="cta-buttons">
+          <a href="#download" class="btn btn-primary" data-i18n="hero.cta.trial"
+            >免费试用</a
+          >
+          <a href="#demo" class="btn btn-secondary" data-i18n="hero.cta.demo"
+            >在线演示</a
+          >
+        </div>
+        <div class="hero-image">
+          <img
+            src="/images/hero-preview.png"
+            alt="语窝界面预览"
+            data-i18n-alt="hero.preview.alt"
+          />
+        </div>
+      </div>
+    </header>
+
+    <!-- 功能特点 -->
+    <section id="features" class="features">
+      <div class="container">
+        <h2 data-i18n="features.title">核心功能</h2>
+        <p class="section-desc" data-i18n="features.description">
+          为企业提供全方位的通讯协作解决方案
+        </p>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <i class="fas fa-comments fa-3x"></i>
+            <h3 data-i18n="features.im.title">即时通讯</h3>
+            <ul>
+              <li data-i18n="features.im.list.item1">
+                支持文字、图片、语音、视频等多种消息类型
+              </li>
+              <li data-i18n="features.im.list.item2">消息已读回执</li>
+              <li data-i18n="features.im.list.item3">消息撤回与删除</li>
+              <li data-i18n="features.im.list.item4">历史消息搜索</li>
+              <li data-i18n="features.im.list.item5">消息表情回复</li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-shield-alt fa-3x"></i>
+            <h3 data-i18n="features.security.title">安全加密</h3>
+            <ul>
+              <li data-i18n="features.security.list.item1">端对端加密通讯</li>
+              <li data-i18n="features.security.list.item2">数据本地存储加密</li>
+              <li data-i18n="features.security.list.item3">多重身份认证</li>
+              <li data-i18n="features.security.list.item4">敏感信息过滤</li>
+              <li data-i18n="features.security.list.item5">安审计日志</li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-users fa-3x"></i>
+            <h3 data-i18n="features.groups.title">群组管理</h3>
+            <ul>
+              <li data-i18n="features.groups.list.item1">支持创建多人群聊</li>
+              <li data-i18n="features.groups.list.item2">群角色权限管理</li>
+              <li data-i18n="features.groups.list.item3">群公告与群文件</li>
+              <li data-i18n="features.groups.list.item4">群成员管理</li>
+              <li data-i18n="features.groups.list.item5">群消息免打扰</li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-video fa-3x"></i>
+            <h3 data-i18n="features.video.title">音视频通话</h3>
+            <ul>
+              <li data-i18n="features.video.list.item1">一对一视频通话</li>
+              <li data-i18n="features.video.list.item2">多人视频会议</li>
+              <li data-i18n="features.video.list.item3">屏幕共享</li>
+              <li data-i18n="features.video.list.item4">通话录制</li>
+              <li data-i18n="features.video.list.item5">美颜滤镜</li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-cloud fa-3x"></i>
+            <h3 data-i18n="features.cloud.title">云端存储</h3>
+            <ul>
+              <li data-i18n="features.cloud.list.item1">文件云端存储</li>
+              <li data-i18n="features.cloud.list.item2">多端文件同步</li>
+              <li data-i18n="features.cloud.list.item3">文件在线预览</li>
+              <li data-i18n="features.cloud.list.item4">文件版本控制</li>
+              <li data-i18n="features.cloud.list.item5">存储空间管理</li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-plug fa-3x"></i>
+            <h3 data-i18n="features.integration.title">系统集成</h3>
+            <ul>
+              <li data-i18n="features.integration.list.item1">统一身份认证</li>
+              <li data-i18n="features.integration.list.item2">
+                第三方系统对接
+              </li>
+              <li data-i18n="features.integration.list.item3">自定义机器人</li>
+              <li data-i18n="features.integration.list.item4">WebHook支持</li>
+              <li data-i18n="features.integration.list.item5">开放API接口</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 解决方案 -->
+    <section id="solutions" class="solutions">
+      <div class="container">
+        <h2 data-i18n="solutions.title">行业解决方案</h2>
+        <p class="section-desc" data-i18n="solutions.description">
+          针对不同行业特点定制专属方案
+        </p>
+        <div class="solution-grid">
+          <div class="solution-item">
+            <i class="fas fa-landmark fa-3x"></i>
+            <h3 data-i18n="solutions.finance.title">金融行业</h3>
+            <p data-i18n="solutions.finance.description">
+              符合监管要求的安全通讯方案
+            </p>
+            <ul>
+              <li data-i18n="solutions.finance.list.item1">通讯内容加密存储</li>
+              <li data-i18n="solutions.finance.list.item2">敏感信息识别</li>
+              <li data-i18n="solutions.finance.list.item3">合规审计</li>
+            </ul>
+          </div>
+          <div class="solution-item">
+            <i class="fas fa-graduation-cap fa-3x"></i>
+            <h3 data-i18n="solutions.education.title">教育行业</h3>
+            <p data-i18n="solutions.education.description">
+              远程教学协作解决方案
+            </p>
+            <ul>
+              <li data-i18n="solutions.education.list.item1">在线课堂</li>
+              <li data-i18n="solutions.education.list.item2">作业批改</li>
+              <li data-i18n="solutions.education.list.item3">家校沟通</li>
+            </ul>
+          </div>
+          <div class="solution-item">
+            <i class="fas fa-hospital fa-3x"></i>
+            <h3 data-i18n="solutions.medical.title">医疗行业</h3>
+            <p data-i18n="solutions.medical.description">
+              安全可靠的医疗协作平台
+            </p>
+            <ul>
+              <li data-i18n="solutions.medical.list.item1">远程会诊</li>
+              <li data-i18n="solutions.medical.list.item2">病历共享</li>
+              <li data-i18n="solutions.medical.list.item3">处方流转</li>
+            </ul>
+          </div>
+          <div class="solution-item">
+            <i class="fas fa-building fa-3x"></i>
+            <h3 data-i18n="solutions.enterprise.title">企业通用</h3>
+            <p data-i18n="solutions.enterprise.description">
+              高效协作的企业通讯平台
+            </p>
+            <ul>
+              <li data-i18n="solutions.enterprise.list.item1">部门管理</li>
+              <li data-i18n="solutions.enterprise.list.item2">工作协同</li>
+              <li data-i18n="solutions.enterprise.list.item3">知识沉淀</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 下载区域 -->
+    <section id="download" class="download">
+      <div class="container">
+        <h2 data-i18n="download.title">全平台支持</h2>
+        <p class="section-desc" data-i18n="download.description">
+          随时随地保持连接
+        </p>
+        <div class="download-options">
+          <div class="download-card">
+            <i class="fab fa-windows fa-3x"></i>
+            <h3 data-i18n="download.windows.title">Windows 版</h3>
+            <div class="version-info">
+              <span class="version" data-i18n="download.windows.version"
+                >版本 2.5.0</span
+              >
+              <span class="size" data-i18n="download.windows.size">56.8MB</span>
+            </div>
+            <a
+              href="/downloads/windows"
+              class="btn btn-primary"
+              data-i18n="download.button"
+              >下载安装包</a
+            >
+          </div>
+          <div class="download-card">
+            <i class="fab fa-apple fa-3x"></i>
+            <h3 data-i18n="download.mac.title">Mac 版</h3>
+            <div class="version-info">
+              <span class="version" data-i18n="download.mac.version"
+                >版本 2.5.0</span
+              >
+              <span class="size" data-i18n="download.mac.size">68.2MB</span>
+            </div>
+            <a
+              href="/downloads/mac"
+              class="btn btn-primary"
+              data-i18n="download.button"
+              >下载安装包</a
+            >
+          </div>
+          <div class="download-card">
+            <i class="fab fa-android fa-3x"></i>
+            <h3 data-i18n="download.android.title">Android 版</h3>
+            <div class="version-info">
+              <span class="version" data-i18n="download.android.version"
+                >版本 2.0.1</span
+              >
+              <span class="size" data-i18n="download.android.size">45MB</span>
+            </div>
+            <a
+              href="/downloads/android"
+              class="btn btn-primary"
+              data-i18n="download.button"
+              >下载安装包</a
+            >
+          </div>
+          <div class="download-card">
+            <i class="fas fa-mobile-alt fa-3x"></i>
+            <h3 data-i18n="download.ios.title">iOS 版</h3>
+            <div class="version-info">
+              <span class="version" data-i18n="download.ios.version"
+                >版本 2.5.0</span
+              >
+            </div>
+            <a
+              href="https://apps.apple.com/app/id123456789"
+              class="btn btn-primary"
+              data-i18n="download.ios.button"
+              >App Store</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 价格方案 -->
+    <section id="price" class="price">
+      <div class="container">
+        <h2 data-i18n="pricing.title">价格方案</h2>
+        <p class="section-desc" data-i18n="pricing.description">
+          灵活的付费方案，满足不同规模企业需求
+        </p>
+        <div class="price-grid">
+          <div class="price-card">
+            <div class="price-header">
+              <h3 data-i18n="pricing.free.name">基础版</h3>
+              <div class="price-amount">
+                <span class="currency" data-i18n="pricing.currency">￥</span>
+                <span class="amount" data-i18n="pricing.free.price">99</span>
+                <span class="period" data-i18n="pricing.free.period"
+                  >/年/用户</span
+                >
+              </div>
+            </div>
+            <ul class="price-features">
+              <li data-i18n="pricing.free.features.0">✓ 基础即时通讯</li>
+              <li data-i18n="pricing.free.features.1">✓ 群组管理</li>
+              <li data-i18n="pricing.free.features.2">✓ 文件传输</li>
+              <li data-i18n="pricing.free.features.3">✓ 基础音视频</li>
+              <li data-i18n="pricing.free.features.4">✓ 云端存储10GB</li>
+              <li data-i18n="pricing.free.features.5">✓ 在线客服</li>
+            </ul>
+            <a
+              href="/purchase"
+              class="btn btn-primary"
+              data-i18n="pricing.button"
+              >立即购买</a
+            >
+          </div>
+          <div class="price-card popular">
+            <span class="recommended-badge" data-i18n="pricing.recommended">推荐</span>
+            <div class="price-header">
+              <h3 data-i18n="pricing.enterprise.name">企业版</h3>
+              <div class="price-amount">
+                <span class="currency" data-i18n="pricing.currency">￥</span>
+                <span class="amount" data-i18n="pricing.enterprise.price"
+                  >199</span
+                >
+                <span class="period" data-i18n="pricing.enterprise.period"
+                  >/年/用户</span
+                >
+              </div>
+            </div>
+            <ul class="price-features">
+              <li data-i18n="pricing.enterprise.features.0">
+                ✓ 包含基础版全部功能
+              </li>
+              <li data-i18n="pricing.enterprise.features.1">
+                ✓ 高级管理控制台
+              </li>
+              <li data-i18n="pricing.enterprise.features.2">✓ 系统集成API</li>
+              <li data-i18n="pricing.enterprise.features.3">
+                ✓ 高级音视频会议
+              </li>
+              <li data-i18n="pricing.enterprise.features.4">✓ 云端存储100GB</li>
+              <li data-i18n="pricing.enterprise.features.5">✓ 7*24技术支持</li>
+            </ul>
+            <a
+              href="/purchase"
+              class="btn btn-primary"
+              data-i18n="pricing.button"
+              >立即购买</a
+            >
+          </div>
+          <div class="price-card">
+            <div class="price-header">
+              <h3 data-i18n="pricing.private.name">私有部署版</h3>
+              <div class="price-amount">
+                <span data-i18n="pricing.private.price">联系销售</span>
+              </div>
+            </div>
+            <ul class="price-features">
+              <li data-i18n="pricing.private.features.0">
+                ✓ 包含企业版全部功能
+              </li>
+              <li data-i18n="pricing.private.features.1">✓ 私有化部署</li>
+              <li data-i18n="pricing.private.features.2">✓ 源代码授权</li>
+              <li data-i18n="pricing.private.features.3">✓ 定制开发</li>
+              <li data-i18n="pricing.private.features.4">✓ 无限存储空间</li>
+              <li data-i18n="pricing.private.features.5">✓ 专属技术支持</li>
+            </ul>
+            <a
+              href="/contact"
+              class="btn btn-primary"
+              data-i18n="pricing.private.button"
+              >联系我们</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 客户案例 -->
+    <section class="cases">
+      <div class="container">
+        <h2 data-i18n="cases.title">成功案例</h2>
+        <p class="section-desc" data-i18n="cases.description">
+          值得信赖的企业通讯伙伴
+        </p>
+        <div class="case-grid">
+          <div class="case-item">
+            <i class="fas fa-landmark fa-3x"></i>
+            <div class="case-content">
+              <h3 data-i18n="cases.bank.title">某大型商业银行</h3>
+              <p data-i18n="cases.bank.description">
+                为10000+员工提供安全合规的通讯平台
+              </p>
+              <a
+                href="/cases/bank"
+                class="btn btn-text"
+                data-i18n="cases.viewMore"
+                >查看详情</a
+              >
+            </div>
+          </div>
+          <div class="case-item">
+            <i class="fas fa-graduation-cap fa-3x"></i>
+            <div class="case-content">
+              <h3 data-i18n="cases.education.title">某知名教育机构</h3>
+              <p data-i18n="cases.education.description">
+                打造线上线下一体化教学平台
+              </p>
+              <a
+                href="/cases/edu"
+                class="btn btn-text"
+                data-i18n="cases.viewMore"
+                >查看详情</a
+              >
+            </div>
+          </div>
+          <div class="case-item">
+            <i class="fas fa-hospital fa-3x"></i>
+            <div class="case-content">
+              <h3 data-i18n="cases.hospital.title">某三甲医院</h3>
+              <p data-i18n="cases.hospital.description">
+                实现院内高效协作与远程会诊
+              </p>
+              <a
+                href="/cases/hospital"
+                class="btn btn-text"
+                data-i18n="cases.viewMore"
+                >查看详情</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 技术优势 -->
+    <section class="advantages">
+      <div class="container">
+        <h2 data-i18n="advantages.title">技术优势</h2>
+        <p class="section-desc" data-i18n="advantages.description">
+          稳定可靠的技术架构
+        </p>
+        <div class="advantages-grid">
+          <div class="advantage-item">
+            <i class="fas fa-network-wired fa-3x"></i>
+            <h3 data-i18n="advantages.distributed.title">分布式架构</h3>
+            <p data-i18n="advantages.distributed.description">
+              支持横向扩展，轻松应对百万级并发
+            </p>
+          </div>
+          <div class="advantage-item">
+            <i class="fas fa-sync-alt fa-3x"></i>
+            <h3 data-i18n="advantages.sync.title">消息同步</h3>
+            <p data-i18n="advantages.sync.description">
+              多端实时同步，离线消息自动推送
+            </p>
+          </div>
+          <div class="advantage-item">
+            <i class="fas fa-code fa-3x"></i>
+            <h3 data-i18n="advantages.api.title">开放接口</h3>
+            <p data-i18n="advantages.api.description">
+              标准REST API，支持第三方系统集成
+            </p>
+          </div>
+          <div class="advantage-item">
+            <i class="fas fa-shield-alt fa-3x"></i>
+            <h3 data-i18n="advantages.security.title">安全防护</h3>
+            <p data-i18n="advantages.security.description">
+              多重加密机制，防止数据泄露
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 新闻动态 -->
+    <section class="news">
+      <div class="container">
+        <h2 data-i18n="news.title">新闻动态</h2>
+        <p class="section-desc" data-i18n="news.description">
+          了解语窝最新动态
+        </p>
+        <div class="news-grid">
+          <div class="news-item">
+            <div class="news-date" data-i18n="news.latest.date">2024-03-15</div>
+            <h3 data-i18n="news.latest.title">
+              语窝2.5.0版本发布，新增AI助手功能
+            </h3>
+            <p data-i18n="news.latest.description">
+              全新的AI助手功能上线，提供智能对话、文档总结等功能...
+            </p>
+            <a
+              href="/news/ai-assistant"
+              class="btn btn-text"
+              data-i18n="news.readMore"
+              >阅读更多</a
+            >
+          </div>
+          <div class="news-item">
+            <div class="news-date" data-i18n="news.funding.date">
+              2024-03-01
+            </div>
+            <h3 data-i18n="news.funding.title">语窝完成新一轮融资</h3>
+            <p data-i18n="news.funding.description">
+              语窝完成B轮融资，将进一步加大研发投入...
+            </p>
+            <a
+              href="/news/funding"
+              class="btn btn-text"
+              data-i18n="news.readMore"
+              >阅读更多</a
+            >
+          </div>
+          <div class="news-item">
+            <div class="news-date" data-i18n="news.award.date">2024-02-15</div>
+            <h3 data-i18n="news.award.title">语窝荣获"年度最佳企业服务商"</h3>
+            <p data-i18n="news.award.description">
+              在2024企业服务峰会上，语窝荣获多个奖项...
+            </p>
+            <a href="/news/award" class="btn btn-text" data-i18n="news.readMore"
+              >阅读更多</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="about" class="contact">
+      <div class="container">
+        <h2 data-i18n="contact.title">联系我们</h2>
+        <p class="section-desc" data-i18n="contact.description">如有任何问题，请随时与我们联系</p>
+        
+        <div class="contact-wrapper">
+          <!-- 联系卡片 -->
+          <div class="contact-cards">
+            <div class="contact-card">
+              <div class="card-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <h4 data-i18n="contact.phone.title">咨询热线</h4>
+              <p data-i18n="contact.phone.content">400-888-8888</p>
+              <p class="text-muted" data-i18n="contact.phone.hours">周一至周五 9:00-18:00</p>
+            </div>
+
+            <div class="contact-card">
+              <div class="card-icon">
+                <i class="fas fa-comments"></i>
+              </div>
+              <h4 data-i18n="contact.online.title">在线咨询</h4>
+              <p data-i18n="contact.online.content">在线客服为您服务</p>
+              <button class="btn btn-outline" data-i18n="contact.online.button">
+                立即咨询
+              </button>
+            </div>
+
+            <div class="contact-card">
+              <div class="card-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h4 data-i18n="contact.email.title">商务合作</h4>
+              <p data-i18n="contact.email.content">contact@yuwo.com</p>
+              <p class="text-muted" data-i18n="contact.email.response">
+                我们将在24小时内回复
+              </p>
+            </div>
+          </div>
+
+          <!-- 联系表单 -->
+          <div class="contact-form-wrapper">
+            <div class="form-header">
+              <h3 data-i18n="contact.form.title">留言咨询</h3>
+              <p data-i18n="contact.form.subtitle">填写以下信息，我们会尽快与您联系</p>
+            </div>
+            
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name" data-i18n="contact.form.name">姓名</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    data-i18n-placeholder="contact.form.namePlaceholder" 
+                    placeholder="请输入您的姓名" 
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email" data-i18n="contact.form.email">邮箱</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    data-i18n-placeholder="contact.form.emailPlaceholder" 
+                    placeholder="请输入您的邮箱" 
+                    required
+                  />
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="subject" data-i18n="contact.form.subject">咨询主题</label>
+                <select id="subject" required>
+                  <option value="" data-i18n="contact.form.subjectPlaceholder">请选择咨询主题</option>
+                  <option value="product" data-i18n="contact.form.subjectProduct">产品咨询</option>
+                  <option value="price" data-i18n="contact.form.subjectPrice">价格咨询</option>
+                  <option value="technical" data-i18n="contact.form.subjectTechnical">技术支持</option>
+                  <option value="other" data-i18n="contact.form.subjectOther">其他问题</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message" data-i18n="contact.form.message">留言内容</label>
+                <textarea 
+                  id="message" 
+                  data-i18n-placeholder="contact.form.messagePlaceholder" 
+                  placeholder="请详细描述您的需求，以便我们更好地为您服务"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">
+                提交留言
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4 data-i18n="footer.product.title">产品</h4>
+            <ul>
+              <li>
+                <a href="#features" data-i18n="footer.product.features"
+                  >功能介绍</a
+                >
+              </li>
+              <li>
+                <a href="#solutions" data-i18n="footer.product.solutions"
+                  >解决方案</a
+                >
+              </li>
+              <li>
+                <a href="#download" data-i18n="footer.product.download"
+                  >下载中心</a
+                >
+              </li>
+              <li>
+                <a href="#price" data-i18n="footer.product.pricing">价格方案</a>
+              </li>
+              <li>
+                <a href="/security" data-i18n="footer.product.security"
+                  >安全与隐私</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footer.developer.title">开发者</h4>
+            <ul>
+              <li>
+                <a
+                  href="https://docs.yuwo.com"
+                  data-i18n="footer.developer.docs"
+                  >开发文档</a
+                >
+              </li>
+              <li>
+                <a href="/api" data-i18n="footer.developer.api">API参考</a>
+              </li>
+              <li>
+                <a href="/sdk" data-i18n="footer.developer.sdk">SDK下载</a>
+              </li>
+              <li>
+                <a href="/demo" data-i18n="footer.developer.demo">示例代码</a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/yuwo"
+                  data-i18n="footer.developer.github"
+                  >开源项目</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footer.about.title">关于</h4>
+            <ul>
+              <li>
+                <a href="/about" data-i18n="footer.about.about">关于我们</a>
+              </li>
+              <li>
+                <a href="/news" data-i18n="footer.about.news">新闻动态</a>
+              </li>
+              <li>
+                <a href="/join" data-i18n="footer.about.join">加入我们</a>
+              </li>
+              <li>
+                <a href="/contact" data-i18n="footer.about.contact">联系我们</a>
+              </li>
+              <li>
+                <a href="/partners" data-i18n="footer.about.partners"
+                  >合作伙伴</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footer.follow.title">关注我们</h4>
+            <div class="social-links">
+              <a href="/weixin" class="social-item weixin">
+                <i class="fab fa-weixin fa-2x"></i>
+                <span data-i18n="footer.follow.weixin">微信公众号</span>
+              </a>
+              <a href="/weibo" class="social-item weibo">
+                <i class="fab fa-weibo fa-2x"></i>
+                <span data-i18n="footer.follow.weibo">官方微博</span>
+              </a>
+              <a href="https://github.com/yuwo" class="social-item github">
+                <i class="fab fa-github fa-2x"></i>
+                <span data-i18n="footer.follow.github">GitHub</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-links">
+            <a href="/terms" data-i18n="footer.links.terms">服务条款</a>
+            <a href="/privacy" data-i18n="footer.links.privacy">隐私政策</a>
+            <a href="/security" data-i18n="footer.links.security">安全说明</a>
+          </div>
+          <div class="copyright">
+            <p data-i18n="footer.copyright">© 2024 语窝科技. 保留所有权利</p>
+            <p>
+              <a href="https://beian.miit.gov.cn/" target="_blank" data-i18n="footer.icp">京ICP备XXXXXXXX号-1</a>
+              <a href="http://www.beian.gov.cn/" target="_blank">
+                <i class="fas fa-shield-alt"></i>
+                <span data-i18n="footer.police">京公网安备 XXXXXXXXXXXXX号</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 返回顶部 -->
+    <div
+      id="backToTop"
+      class="back-to-top"
+      title="返回顶部"
+      data-i18n-title="common.backToTop"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- 在线客服 -->
+    <div class="customer-service">
+      <button
+        class="cs-btn"
+        aria-label="打开在线客服"
+        data-i18n-aria-label="common.customerService.ariaLabel"
+      >
+        <i class="fas fa-comments"></i>
+        <span data-i18n="common.customerService">在线客服</span>
+      </button>
+    </div>
+
+    <!-- JS文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="/js/i18n.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

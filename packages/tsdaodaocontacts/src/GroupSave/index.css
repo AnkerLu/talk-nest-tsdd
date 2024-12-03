@@ -13,7 +13,7 @@
 
 .wk-groupsave-content li {
     height: 80px;
-    background-color: var(--wk-color-item);
+    background-color: var(--wk-bg-secondary);
     display: flex;
     align-items: center;
     cursor: pointer;

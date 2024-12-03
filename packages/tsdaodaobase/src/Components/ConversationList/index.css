@@ -106,7 +106,7 @@ body[theme-mode="dark"] .wk-conversationlist-item-name h3 {
   width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: var(--wk-color-font-tip);
+  color: var(--wk-text-secondary);
   overflow: hidden;
   font-size: 14px;
   min-height: 22px;
@@ -125,7 +125,7 @@ body[theme-mode="dark"] .wk-conversationlist-item-name h3 {
 }
 
 .wk-onlinestatusbadge {
-  background-color: var(--wk-color-item);
+  background-color: var(--wk-bg-secondary);
   position: absolute;
   padding: 1.5px;
   transform: scale(0.6);

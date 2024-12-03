@@ -1,0 +1,439 @@
+{
+  "language": {
+    "zhCN": "Simplified Chinese",
+    "zhTW": "Traditional Chinese",
+    "en": "English"
+  },
+  "common": {
+    "logoAlt": "Yuwo logo",
+    "backToTop": "Back to Top",
+    "customerService": "Customer Service"
+  },
+  "meta": {
+    "title": "Yuwo - Enterprise Instant Messaging Software",
+    "description": "Yuwo - Enterprise-grade instant messaging software, supporting Windows, Mac, Linux, and more platforms, offering end-to-end encryption, group chat, voice calls, and more.",
+    "keywords": "Yuwo, instant messaging, IM, enterprise communication, online communication"
+  },
+  "og": {
+    "title": "Yuwo - Enterprise Instant Messaging Software",
+    "description": "Cross-platform enterprise-grade instant messaging solution"
+  },
+  "nav": {
+    "features": "Features",
+    "solutions": "Solutions",
+    "download": "Download",
+    "price": "Pricing",
+    "about": "About Us",
+    "docs": "Documentation"
+  },
+  "hero": {
+    "title": "Yuwo - Enterprise Instant Messaging Solution",
+    "subtitle": "A secure and reliable all-in-one enterprise communication platform",
+    "features": {
+      "encryption": "End-to-end Encryption",
+      "multiPlatform": "Multi-platform Support",
+      "privateDeployment": "Private Deployment",
+      "openApi": "Open API"
+    },
+    "cta": {
+      "trial": "Free Trial",
+      "demo": "Live Demo"
+    },
+    "preview": {
+      "alt": "Yuwo Interface Preview"
+    }
+  },
+  "features": {
+    "title": "Core Features",
+    "description": "Providing comprehensive communication and collaboration solutions for enterprises",
+    "im": {
+      "title": "Instant Messaging",
+      "list": {
+        "item1": "Supports text, image, voice, video, and more message types",
+        "item2": "Message read receipts",
+        "item3": "Message recall and delete",
+        "item4": "Search message history",
+        "item5": "Message emoji reactions"
+      }
+    },
+    "security": {
+      "title": "Security Encryption",
+      "list": {
+        "item1": "End-to-end encrypted communication",
+        "item2": "Local data storage encryption",
+        "item3": "Multi-factor authentication",
+        "item4": "Sensitive information filtering",
+        "item5": "Security audit logs"
+      }
+    },
+    "groups": {
+      "title": "Group Management",
+      "list": {
+        "item1": "Support for creating multi-person group chats",
+        "item2": "Group role and permission management",
+        "item3": "Group announcements and files",
+        "item4": "Group member management",
+        "item5": "Group message do not disturb"
+      }
+    },
+    "video": {
+      "title": "Audio and Video Calls",
+      "list": {
+        "item1": "One-on-one video calls",
+        "item2": "Multi-person video conferencing",
+        "item3": "Screen sharing",
+        "item4": "Call recording",
+        "item5": "Beauty filters"
+      }
+    },
+    "cloud": {
+      "title": "Cloud Storage",
+      "list": {
+        "item1": "File cloud storage",
+        "item2": "Multi-device file synchronization",
+        "item3": "Online file preview",
+        "item4": "File version control",
+        "item5": "Storage space management"
+      }
+    },
+    "integration": {
+      "title": "System Integration",
+      "list": {
+        "item1": "Unified identity authentication",
+        "item2": "Third-party system integration",
+        "item3": "Custom bots",
+        "item4": "WebHook support",
+        "item5": "Open API interfaces"
+      }
+    }
+  },
+  "solutions": {
+    "title": "Industry Solutions",
+    "description": "Customized solutions tailored to the characteristics of different industries",
+    "finance": {
+      "title": "Finance Industry",
+      "description": "Secure communication solutions that meet regulatory requirements",
+      "list": {
+        "item1": "Encrypted storage of communication content",
+        "item2": "Sensitive information identification",
+        "item3": "Compliance audit"
+      }
+    },
+    "education": {
+      "title": "Education Industry",
+      "description": "Remote teaching collaboration solutions",
+      "list": {
+        "item1": "Online classrooms",
+        "item2": "Homework grading",
+        "item3": "Home-school communication"
+      }
+    },
+    "medical": {
+      "title": "Medical Industry",
+      "description": "Secure and reliable medical collaboration platform",
+      "list": {
+        "item1": "Remote consultations",
+        "item2": "Medical record sharing",
+        "item3": "Prescription circulation"
+      }
+    },
+    "enterprise": {
+      "title": "General Enterprise",
+      "description": "Efficient collaboration enterprise communication platform",
+      "list": {
+        "item1": "Department management",
+        "item2": "Work collaboration",
+        "item3": "Knowledge accumulation"
+      }
+    }
+  },
+  "pricing": {
+    "title": "Pricing Plans",
+    "description": "Flexible payment plans to meet the needs of different enterprise sizes",
+    "free": {
+      "name": "Free Plan",
+      "price": "$0",
+      "period": "/month",
+      "features": [
+        "Basic messaging features",
+        "Up to 50 users online simultaneously",
+        "Basic customer support",
+        "Community support",
+        "Cloud storage 10GB",
+        "24/7 technical support"
+      ]
+    },
+    "enterprise": {
+      "name": "Pro Plan",
+      "price": "$999",
+      "period": "/month",
+      "features": [
+        "All Free Plan features",
+        "Unlimited users",
+        "Advanced management features",
+        "24/7 technical support",
+        "Cloud storage 100GB",
+        "24/7 technical support"
+      ]
+    },
+    "private": {
+      "name": "Enterprise Plan",
+      "price": "Contact Sales",
+      "period": "",
+      "features": [
+        "All Pro Plan features",
+        "Private deployment",
+        "Custom development services",
+        "Dedicated technical support",
+        "Unlimited storage space",
+        "Dedicated technical support"
+      ]
+    },
+    "year": "year",
+    "user": "user",
+    "button": "Buy Now",
+    "recommended": "Recommended"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Feel free to contact us with any questions",
+    "form": {
+      "title": "Contact Form",
+      "subtitle": "Fill in the information below and we will get back to you soon",
+      "name": "Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "subject": "Subject",
+      "subjectPlaceholder": "Select inquiry subject",
+      "subjectProduct": "Product Inquiry",
+      "subjectPrice": "Price Inquiry",
+      "subjectTechnical": "Technical Support",
+      "subjectOther": "Other Questions",
+      "message": "Message",
+      "messagePlaceholder": "Please describe your needs in detail so we can better serve you",
+      "submit": "Submit"
+    },
+    "cards": {
+      "phone": {
+        "title": "Hotline",
+        "content": "400-888-8888",
+        "hours": "Mon-Fri 9:00-18:00"
+      },
+      "online": {
+        "title": "Online Support",
+        "content": "Online customer service",
+        "button": "Chat Now"
+      },
+      "email": {
+        "title": "Business Cooperation",
+        "content": "contact@yuwo.com",
+        "response": "We will reply within 24 hours"
+      }
+    }
+  },
+  "footer": {
+    "company": {
+      "title": "Company",
+      "about": "About Us",
+      "careers": "Careers",
+      "contact": "Contact Us",
+      "partners": "Partners"
+    },
+    "product": {
+      "title": "Product",
+      "features": "Features",
+      "solutions": "Solutions",
+      "download": "Download",
+      "pricing": "Pricing",
+      "security": "Security"
+    },
+    "developer": {
+      "title": "Developers",
+      "docs": "Documentation",
+      "api": "API Reference",
+      "sdk": "SDK Download",
+      "demo": "Demo Code",
+      "github": "GitHub"
+    },
+    "about": {
+      "title": "About",
+      "about": "About",
+      "news": "News",
+      "join": "Join Us",
+      "contact": "Contact Us",
+      "partners": "Partners"
+    },
+    "support": {
+      "title": "Support",
+      "docs": "Help Center",
+      "faq": "FAQ",
+      "status": "System Status"
+    },
+    "legal": {
+      "title": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "security": "Security"
+    },
+    "follow": {
+      "title": "Follow Us",
+      "weixin": "WeChat",
+      "weibo": "Weibo",
+      "github": "GitHub"
+    },
+    "contact": {
+      "title": "Contact",
+      "address": "Address: XX Road, Haidian District, Beijing",
+      "phone": "Tel: 010-XXXXXXXX",
+      "email": "Email: contact@yuwo.com"
+    },
+    "copyright": "© 2024 Yuwo Technology. All rights reserved",
+    "icp": "ICP License XXXXXXXX-1",
+    "police": "Public Security XXXXXXXXXXXXX",
+    "policeIcon": "Police Badge",
+    "links": {
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "license": "Open Source License",
+      "security": "Security Statement"
+    }
+  },
+  "news": {
+    "title": "News",
+    "description": "Stay updated with the latest from Yuwo",
+    "readMore": "Read More",
+    "latest": {
+      "date": "2024-03-15",
+      "title": "Yuwo 2.5.0 Released with New AI Assistant Feature",
+      "description": "The new AI Assistant feature is now available, offering intelligent conversation, document summarization, and more..."
+    },
+    "funding": {
+      "date": "2024-03-01",
+      "title": "Yuwo Completes New Round of Financing",
+      "description": "Yuwo completes Series B financing to further increase R&D investment..."
+    },
+    "award": {
+      "date": "2024-02-15",
+      "title": "Yuwo Wins 'Best Enterprise Service Provider of the Year'",
+      "description": "At the 2024 Enterprise Service Summit, Yuwo won multiple awards..."
+    }
+  },
+  "cases": {
+    "title": "Success Cases",
+    "description": "Trusted Enterprise Communication Partner",
+    "viewMore": "View Details",
+    "bank": {
+      "title": "Major Commercial Bank",
+      "description": "Providing secure and compliant communication platform for 10,000+ employees"
+    },
+    "education": {
+      "title": "Leading Educational Institution",
+      "description": "Building an integrated online and offline teaching platform"
+    },
+    "hospital": {
+      "title": "Tertiary Hospital",
+      "description": "Achieving efficient internal collaboration and remote consultation"
+    }
+  },
+  "advantages": {
+    "title": "Technical Advantages",
+    "description": "Stable and reliable technical architecture",
+    "distributed": {
+      "title": "Distributed Architecture",
+      "description": "Supports horizontal scaling, easily handling millions of concurrent users"
+    },
+    "sync": {
+      "title": "Message Synchronization",
+      "description": "Real-time multi-device sync, automatic offline message push"
+    },
+    "api": {
+      "title": "Open Interface",
+      "description": "Standard REST API, supporting third-party system integration"
+    },
+    "security": {
+      "title": "Security Protection",
+      "description": "Multiple encryption mechanisms preventing data leakage"
+    }
+  },
+  "funding": {
+    "title": "Funding",
+    "description": "Stay updated with Yuwo's funding news",
+    "readMore": "Read More",
+    "latest": {
+      "date": "2024-03-01",
+      "title": "Yuwo Completes New Round of Funding",
+      "description": "Yuwo completes Series B funding, will further increase R&D investment..."
+    }
+  },
+  "award": {
+    "title": "Awards",
+    "description": "Yuwo's achievements in the industry",
+    "readMore": "Read More",
+    "latest": {
+      "date": "2024-02-15",
+      "title": "Yuwo Wins 'Best Enterprise Service Provider of the Year'",
+      "description": "Yuwo received multiple awards at the 2024 Enterprise Service Summit..."
+    }
+  },
+  "download": {
+    "title": "Cross-Platform Support",
+    "description": "Stay connected anytime, anywhere",
+    "button": "Download",
+    "windows": {
+      "title": "Windows",
+      "version": "Version 2.5.0",
+      "size": "56.8MB"
+    },
+    "mac": {
+      "title": "Mac",
+      "version": "Version 2.5.0",
+      "size": "68.2MB"
+    },
+    "android": {
+      "title": "Android",
+      "version": "Version 2.0.1",
+      "size": "45MB"
+    },
+    "ios": {
+      "title": "iOS",
+      "version": "Version 2.5.0",
+      "button": "App Store"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Learn about Yuwo's journey",
+    "company": {
+      "title": "Company Profile",
+      "description": "Founded in 2020, Yuwo Technology is committed to providing secure and reliable instant messaging solutions for enterprises"
+    },
+    "mission": {
+      "title": "Mission & Vision",
+      "description": "Making enterprise communication more efficient and secure"
+    },
+    "values": {
+      "title": "Core Values",
+      "list": {
+        "item1": "User First",
+        "item2": "Technical Innovation",
+        "item3": "Integrity & Cooperation",
+        "item4": "Pursuit of Excellence"
+      }
+    },
+    "team": {
+      "title": "Core Team",
+      "description": "Technical experts from renowned internet companies worldwide"
+    },
+    "history": {
+      "title": "Milestones",
+      "events": {
+        "2020": "Company Founded",
+        "2021": "Angel Round Investment",
+        "2022": "Series A Funding",
+        "2023": "Users Exceeded 1 Million",
+        "2024": "Series B Funding"
+      }
+    }
+  }
+}

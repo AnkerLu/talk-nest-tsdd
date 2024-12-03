@@ -6,11 +6,11 @@
 }
 
 .wk-inputedit .semi-input-textarea-wrapper {
-    background-color: var(--wk-color-item);
+    background-color: var(--wk-bg-secondary);
 }
 
 .wk-inputedit-placeholder {
     font-size: 13px;
-    color: #999;
+    color: var(--wk-text-secondary);
     margin: 5px 0px 0px 5px;
 }

@@ -30,23 +30,27 @@
         }
     });
 
-    // 平滑滚动
-    $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function(event) {
-        if (
-            location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-            && 
-            location.hostname == this.hostname
-        ) {
-            let target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            if (target.length) {
-                event.preventDefault();
-                $('html, body').animate({
-                    scrollTop: target.offset().top - 80
-                }, 800);
-                return false;
-            }
+    // 平滑滚动 - 确保可靠触发
+    $(document).on('click', 'a[href*="#"]', function(event) {
+        // 排除不需要处理的链接
+        if (this.getAttribute('href') === '#' || this.getAttribute('href') === '#0') {
+            return;
         }
+        
+        event.preventDefault();
+        
+        // 获取目标元素
+        const hash = this.hash;
+        const targetElement = $(hash).length ? $(hash) : $('[name="' + hash.slice(1) + '"]');
+        
+        if (targetElement.length) {
+            const offsetTop = targetElement.offset().top - 80;
+            $('html, body').animate({
+                scrollTop: offsetTop
+            }, 100);
+        }
+        
+        return false;
     });
 
     // 返回顶部按钮
@@ -312,6 +316,18 @@
             body: JSON.stringify(pageData)
         }).catch(console.error);
     }
+
+    // 初始化多语言支持
+    const i18n = new I18n();
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        await i18n.init();
+        
+        // 语言切换处理
+        document.getElementById('languageSelect').addEventListener('change', async (e) => {
+            await i18n.switchLanguage(e.target.value);
+        });
+    });
 
     // 启动初始化
     init();

@@ -1,0 +1,427 @@
+{
+  "language": {
+    "zhCN": "簡體中文",
+    "zhTW": "繁體中文",
+    "en": "English"
+  },
+  "common": {
+    "logoAlt": "語窩logo",
+    "backToTop": "返回頂部",
+    "customerService": "在線客服"
+  },
+  "meta": {
+    "title": "語窩 - 企業級即時通訊軟體",
+    "description": "語窩 - 企業級即時通訊軟體，支持Windows、Mac、Linux等多平台，提供端對端加密、群聊、語音通話等功能",
+    "keywords": "語窩,即時通訊,IM,企業通訊,在線溝通"
+  },
+  "og": {
+    "title": "語窩 - 企業級即時通訊軟體",
+    "description": "跨平台企業級即時通訊解決方案"
+  },
+  "nav": {
+    "features": "功能特點",
+    "solutions": "解決方案",
+    "download": "下載",
+    "price": "價格",
+    "about": "關於我們",
+    "docs": "開發文檔"
+  },
+  "hero": {
+    "title": "語窩 - 企業級即時通訊解決方案",
+    "subtitle": "安全可靠的一站式企業通訊平台",
+    "features": {
+      "encryption": "端對端加密",
+      "multiPlatform": "多平台支持",
+      "privateDeployment": "私有化部署",
+      "openApi": "開放API"
+    },
+    "cta": {
+      "trial": "免費試用",
+      "demo": "在線演示"
+    },
+    "preview": {
+      "alt": "語窩界面預覽"
+    }
+  },
+  "features": {
+    "title": "核心功能",
+    "description": "為企業提供全方位的通訊協作解決方案",
+    "im": {
+      "title": "即時通訊",
+      "list": {
+        "item1": "支持文字、圖片、語音、視頻等多種消息類型",
+        "item2": "消息已讀回執",
+        "item3": "消息撤回與刪除",
+        "item4": "歷史消息搜索",
+        "item5": "消息表情回覆"
+      }
+    },
+    "security": {
+      "title": "安全加密",
+      "list": {
+        "item1": "端對端加密通訊",
+        "item2": "數據本地存儲加密",
+        "item3": "多重身份認證",
+        "item4": "敏感信息過濾",
+        "item5": "安全審計日誌"
+      }
+    },
+    "groups": {
+      "title": "群組管理",
+      "list": {
+        "item1": "支持創建多人群聊",
+        "item2": "群角色權限管理",
+        "item3": "群公告與群文件",
+        "item4": "群成員管理",
+        "item5": "群消息免打擾"
+      }
+    },
+    "video": {
+      "title": "音視頻通話",
+      "list": {
+        "item1": "一對一視頻通話",
+        "item2": "多人視頻會議",
+        "item3": "屏幕共享",
+        "item4": "通話錄製",
+        "item5": "美顏濾鏡"
+      }
+    },
+    "cloud": {
+      "title": "雲端存儲",
+      "list": {
+        "item1": "文件雲端存儲",
+        "item2": "多端文件同步",
+        "item3": "文件在線預覽",
+        "item4": "文件版本控制",
+        "item5": "存儲空間管理"
+      }
+    },
+    "integration": {
+      "title": "系統集成",
+      "list": {
+        "item1": "統一身份認證",
+        "item2": "第三方系統對接",
+        "item3": "自定義機器人",
+        "item4": "WebHook支持",
+        "item5": "開放API接口"
+      }
+    }
+  },
+  "solutions": {
+    "title": "行業解決方案",
+    "description": "針對不同行業特點定制專屬方案",
+    "finance": {
+      "title": "金融行業",
+      "description": "符合監管要求的安全通訊方案",
+      "list": {
+        "item1": "通訊內容加密存儲",
+        "item2": "敏感信息識別",
+        "item3": "合規審計"
+      }
+    },
+    "education": {
+      "title": "教育行業",
+      "description": "遠程教學協作解決方案",
+      "list": {
+        "item1": "在線課堂",
+        "item2": "作業批改",
+        "item3": "家校溝通"
+      }
+    },
+    "medical": {
+      "title": "醫療行業",
+      "description": "安全可靠的醫療協作平台",
+      "list": {
+        "item1": "遠程會診",
+        "item2": "病歷共享",
+        "item3": "處方流轉"
+      }
+    },
+    "enterprise": {
+      "title": "企業通用",
+      "description": "高效協作的企業通訊平台",
+      "list": {
+        "item1": "部門管理",
+        "item2": "工作協同",
+        "item3": "知識沉澱"
+      }
+    }
+  },
+  "pricing": {
+    "title": "價格方案",
+    "description": "靈活的付費方案，滿足不同規模企業需求",
+    "free": {
+      "name": "免費版",
+      "price": "¥0",
+      "period": "/月",
+      "features": [
+        "基礎消息功能",
+        "最多50人同時在線",
+        "基礎客戶支持",
+        "社區支持",
+        "雲端存儲10GB",
+        "7×24小時技術支持"
+      ]
+    },
+    "enterprise": {
+      "name": "專業版",
+      "price": "¥999",
+      "period": "/月",
+      "features": [
+        "所有免費版功能",
+        "無限人數",
+        "高級管理功能",
+        "7×24小時技術支持",
+        "雲端存儲100GB",
+        "7×24小時技術支持"
+      ]
+    },
+    "private": {
+      "name": "企業版",
+      "price": "聯繫銷售",
+      "button": "聯繫我們",
+      "period": "",
+      "features": [
+        "所有專業版功能",
+        "私有化部署",
+        "定制開發服務",
+        "專屬技術支持",
+        "無限存儲空間",
+        "專屬技術支持"
+      ]
+    },
+    "year": "年",
+    "user": "用戶",
+    "button": "立即購買",
+    "recommended": "推薦"
+  },
+  "contact": {
+    "title": "聯繫我們",
+    "description": "如有任何問題，請隨時與我們聯繫",
+    "form": {
+      "title": "留言諮詢",
+      "subtitle": "填寫以下資訊，我們會盡快與您聯繫",
+      "name": "姓名",
+      "namePlaceholder": "請輸入您的姓名",
+      "email": "電子郵件",
+      "emailPlaceholder": "請輸入您的電子郵件",
+      "subject": "諮詢主題",
+      "subjectPlaceholder": "請選擇諮詢主題",
+      "subjectProduct": "產品諮詢",
+      "subjectPrice": "價格諮詢",
+      "subjectTechnical": "技術支援",
+      "subjectOther": "其他問題",
+      "message": "留言內容",
+      "messagePlaceholder": "請詳細描述您的需求，以便我們更好地為您服務",
+      "submit": "提交留言"
+    },
+    "cards": {
+      "phone": {
+        "title": "諮詢專線",
+        "content": "400-888-8888",
+        "hours": "週一至週五 9:00-18:00"
+      },
+      "online": {
+        "title": "線上諮詢",
+        "content": "線上客服為您服務",
+        "button": "立即諮詢"
+      },
+      "email": {
+        "title": "商務合作",
+        "content": "contact@yuwo.com",
+        "response": "我們將在24小時內回覆"
+      }
+    }
+  },
+  "footer": {
+    "company": {
+      "title": "公司",
+      "about": "關於我們",
+      "careers": "加入我們",
+      "contact": "聯繫我們",
+      "partners": "合作夥伴"
+    },
+    "product": {
+      "title": "產品",
+      "features": "功能介紹",
+      "solutions": "解決方案",
+      "download": "下載中心",
+      "pricing": "價格方案",
+      "security": "安全與隱私"
+    },
+    "developer": {
+      "title": "開發者",
+      "docs": "開發文檔",
+      "api": "API參考",
+      "sdk": "SDK下載",
+      "demo": "示例代碼",
+      "github": "開源項目"
+    },
+    "about": {
+      "title": "關於",
+      "news": "新聞動態",
+      "join": "加入我們",
+      "contact": "聯繫我們",
+      "partners": "合作伙伴"
+    },
+    "support": {
+      "title": "支援",
+      "docs": "幫助文檔",
+      "faq": "常見問題",
+      "status": "系統狀態"
+    },
+    "legal": {
+      "title": "法律",
+      "privacy": "隱私政策",
+      "terms": "服務條款",
+      "security": "安全說明"
+    },
+    "follow": {
+      "title": "關注我們",
+      "weixin": "微信公眾號",
+      "weibo": "官方微博",
+      "github": "GitHub"
+    },
+    "contact": {
+      "title": "聯繫方式",
+      "address": "地址：北京市海淀區XX路XX號",
+      "phone": "電話：010-XXXXXXXX",
+      "email": "郵箱：contact@yuwo.com"
+    },
+    "copyright": "© 2024 語窩科技. 保留所有權利",
+    "icp": "京ICP備XXXXXXXX號-1",
+    "police": "京公網安備 XXXXXXXXXXXXX號",
+    "policeIcon": "警徽",
+    "links": {
+      "terms": "服務條款",
+      "privacy": "隱私政策",
+      "license": "開源協議",
+      "security": "安全說明"
+    }
+  },
+  "news": {
+    "title": "新聞動態",
+    "description": "了解語窩最新動態",
+    "readMore": "閱讀更多",
+    "latest": {
+      "date": "2024-03-15",
+      "title": "語窩2.5.0版本發布，新增AI助手功能",
+      "description": "全新的AI助手功能上線，提供智能對話、文檔總結等功能..."
+    },
+    "funding": {
+      "title": "語窩完成新一輪融資",
+      "description": "語窩完成B輪融資，將進一步加大研發投入..."
+    },
+    "award": {
+      "title": "語窩榮獲\"年度最佳企業服務商\"",
+      "description": "在2024企業服務峰會上，語窩榮獲多個獎項"
+    }
+  },
+  "cases": {
+    "title": "成功案例",
+    "description": "值得信賴的企業通訊夥伴",
+    "viewMore": "查看詳情",
+    "bank": {
+      "title": "某大型商業銀行",
+      "description": "為10000+員工提供安全合規的通訊平台"
+    },
+    "education": {
+      "title": "某知名教育機構",
+      "description": "打造線上線下一體化教學平台"
+    },
+    "hospital": {
+      "title": "某三甲醫院",
+      "description": "實現院內高效協作與遠程會診"
+    }
+  },
+  "advantages": {
+    "title": "技術優勢",
+    "description": "穩定可靠的技術架構",
+    "distributed": {
+      "title": "分佈式架構",
+      "description": "支持橫向擴展，輕鬆應對百萬級並發"
+    },
+    "sync": {
+      "title": "消息同步",
+      "description": "多端實時同步，離線消息自動推送"
+    },
+    "api": {
+      "title": "開放接口",
+      "description": "標準REST API，支持第三方系統集成"
+    },
+    "security": {
+      "title": "安全防護",
+      "description": "多重加密機制，防止數據洩露"
+    }
+  },
+  "funding": {
+    "date": "2024-03-01",
+    "title": "語窩完成新一輪融資",
+    "description": "語窩完成B輪融資，將進一步加大研發投入..."
+  },
+  "award": {
+    "date": "2024-02-15",
+    "title": "語窩榮獲'年度最佳企業服務商'",
+    "description": "在2024企業服務峰會上，語窩榮獲多個獎項..."
+  },
+  "download": {
+    "title": "全平台支援",
+    "description": "隨時隨地保持連接",
+    "button": "下載安裝包",
+    "windows": {
+      "title": "Windows 版",
+      "version": "版本 2.5.0",
+      "size": "56.8MB"
+    },
+    "mac": {
+      "title": "Mac 版",
+      "version": "版本 2.5.0",
+      "size": "68.2MB"
+    },
+    "android": {
+      "title": "Android 版",
+      "version": "版本 2.0.1",
+      "size": "45MB"
+    },
+    "ios": {
+      "title": "iOS 版",
+      "version": "版本 2.5.0",
+      "button": "App Store"
+    }
+  },
+  "about": {
+    "title": "關於我們",
+    "description": "了解語窩的發展歷程",
+    "company": {
+      "title": "公司簡介",
+      "description": "語窩科技成立於2020年，致力於為企業提供安全可靠的即時通訊解決方案"
+    },
+    "mission": {
+      "title": "使命願景",
+      "description": "讓企業溝通更高效、更安全"
+    },
+    "values": {
+      "title": "核心價值觀",
+      "list": {
+        "item1": "用戶至上",
+        "item2": "技術創新",
+        "item3": "誠信合作",
+        "item4": "追求卓越"
+      }
+    },
+    "team": {
+      "title": "核心團隊",
+      "description": "來自國內外知名互聯網公司的技術專家"
+    },
+    "history": {
+      "title": "發展歷程",
+      "events": {
+        "2020": "公司成立",
+        "2021": "獲得天使輪投資",
+        "2022": "完成A輪融資",
+        "2023": "用戶數突破100萬",
+        "2024": "完成B輪融資"
+      }
+    }
+  }
+}

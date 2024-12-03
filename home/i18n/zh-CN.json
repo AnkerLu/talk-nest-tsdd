@@ -1,0 +1,413 @@
+{
+  "language": {
+    "zhCN": "简体中文",
+    "zhTW": "繁體中文",
+    "en": "English"
+  },
+  "common": {
+    "logoAlt": "语窝logo",
+    "backToTop": "返回顶部",
+    "customerService": "在线客服"
+  },
+  "meta": {
+    "title": "语窝 - 企业级即时通讯软件",
+    "description": "语窝 - 企业级即时通讯软件,支持Windows、Mac、Linux等多平台,提供端对端加密、群聊、语音通话等功能",
+    "keywords": "语窝,即时通讯,IM,企业通讯,在线沟通"
+  },
+  "og": {
+    "title": "语窝 - 企业级即时通讯软件",
+    "description": "跨平台企业级即时通讯解决方案"
+  },
+  "nav": {
+    "features": "功能特点",
+    "solutions": "解决方案",
+    "download": "下载",
+    "price": "价格",
+    "about": "关于我们",
+    "docs": "开发文档"
+  },
+  "hero": {
+    "title": "语窝 - 企业级即时通讯解决方案",
+    "subtitle": "安全可靠的一站式企业通讯平台",
+    "features": {
+      "encryption": "端对端加密",
+      "multiPlatform": "多平台支持",
+      "privateDeployment": "私有化部署",
+      "openApi": "开放API"
+    },
+    "cta": {
+      "trial": "免费试用",
+      "demo": "在线演示"
+    },
+    "preview": {
+      "alt": "语窝界面预览"
+    }
+  },
+  "features": {
+    "title": "核心功能",
+    "description": "为企业提供全方位的通讯协作解决方案",
+    "im": {
+      "title": "即时通讯",
+      "list": {
+        "item1": "支持文字、图片、语音、视频等多种消息类型",
+        "item2": "消息已读回执",
+        "item3": "消息撤回与删除",
+        "item4": "历史消息搜索",
+        "item5": "消息表情回复"
+      }
+    },
+    "security": {
+      "title": "安全加密",
+      "list": {
+        "item1": "端对端加密通讯",
+        "item2": "数据本地存储加密",
+        "item3": "多重身份认证",
+        "item4": "敏感信息过滤",
+        "item5": "安全审计日志"
+      }
+    },
+    "groups": {
+      "title": "群组管理",
+      "list": {
+        "item1": "支持创建多人群聊",
+        "item2": "群角色权限管理",
+        "item3": "群公告与群文件",
+        "item4": "群成员管理",
+        "item5": "消息免打扰"
+      }
+    },
+    "video": {
+      "title": "音视频通话",
+      "list": {
+        "item1": "一对一视频通话",
+        "item2": "多人视频会议",
+        "item3": "屏幕共享",
+        "item4": "通话录制",
+        "item5": "美颜滤镜"
+      }
+    },
+    "cloud": {
+      "title": "云端存储",
+      "list": {
+        "item1": "文件云端存储",
+        "item2": "多端文件同步",
+        "item3": "文件在线预览",
+        "item4": "文件版本控制",
+        "item5": "存储空间管理"
+      }
+    },
+    "integration": {
+      "title": "系统集成",
+      "list": {
+        "item1": "统一身份认证",
+        "item2": "第三方系统对接",
+        "item3": "自定义机器人",
+        "item4": "WebHook支持",
+        "item5": "开放API接口"
+      }
+    }
+  },
+  "solutions": {
+    "title": "行业解决方案",
+    "description": "针对不同行业特点定制专属方案",
+    "finance": {
+      "title": "金融行业",
+      "description": "符合监管要求的安全通讯方案",
+      "list": {
+        "item1": "通讯内容加密存储",
+        "item2": "敏感信息识别",
+        "item3": "合规审计"
+      }
+    },
+    "education": {
+      "title": "教育行业",
+      "description": "远程教学协作解决方案",
+      "list": {
+        "item1": "在线课堂",
+        "item2": "作业批改",
+        "item3": "家校沟通"
+      }
+    },
+    "medical": {
+      "title": "医疗行业",
+      "description": "安全可靠的医疗协作平台",
+      "list": {
+        "item1": "远程会诊",
+        "item2": "病历共享",
+        "item3": "处方流转"
+      }
+    },
+    "enterprise": {
+      "title": "企业通用",
+      "description": "高效协作的企业通讯平台",
+      "list": {
+        "item1": "部门管理",
+        "item2": "工作协同",
+        "item3": "知识沉淀"
+      }
+    }
+  },
+  "pricing": {
+    "title": "价格方案",
+    "free": {
+      "name": "免费版",
+      "price": "¥0",
+      "period": "/月",
+      "features": [
+        "基础消息功能",
+        "最多50人同时在线",
+        "基础客户支持",
+        "社区支持",
+        "云端存储10GB",
+        "在线客服"
+      ]
+    },
+    "enterprise": {
+      "name": "企业版",
+      "price": "¥999",
+      "period": "/月",
+      "features": [
+        "所有免费版功能",
+        "无限人数",
+        "高级管理功能",
+        "7×24小时技术支持",
+        "云端存储100GB",
+        "7*24小时技术支持"
+      ]
+    },
+    "private": {
+      "name": "私有部署版",
+      "price": "联系销售",
+      "button": "联系我们",
+      "period": "",
+      "features": [
+        "所有专业版功能",
+        "私有化部署",
+        "定制开发服务",
+        "专属技术支持",
+        "无限存储空间",
+        "专属技术支持"
+      ]
+    },
+    "description": "灵活的付费方案，满足不同规模企业需求",
+    "year": "年",
+    "user": "用户",
+    "button": "立即购买",
+    "recommended": "推荐"
+  },
+  "contact": {
+    "title": "联系我们",
+    "description": "如有任何问题，请随时与我们联系",
+    "form": {
+      "title": "留言咨询",
+      "subtitle": "填写以下信息，我们会尽快与您联系",
+      "name": "姓名",
+      "namePlaceholder": "请输入您的姓名",
+      "email": "邮箱",
+      "emailPlaceholder": "请输入您的邮箱",
+      "subject": "咨询主题",
+      "subjectPlaceholder": "请选择咨询主题",
+      "subjectProduct": "产品咨询",
+      "subjectPrice": "价格咨询",
+      "subjectTechnical": "技术支持",
+      "subjectOther": "其他问题",
+      "message": "留言内容",
+      "messagePlaceholder": "请详细描述您的需求，以便我们更好地为您服务",
+      "submit": "提交留言"
+    },
+    "cards": {
+      "phone": {
+        "title": "咨询热线",
+        "content": "400-888-8888",
+        "hours": "周一至周五 9:00-18:00"
+      },
+      "online": {
+        "title": "在线咨询",
+        "content": "在线客服为您服务",
+        "button": "立即咨询"
+      },
+      "email": {
+        "title": "商务合作",
+        "content": "contact@yuwo.com",
+        "response": "我们将在24小时内回复"
+      }
+    }
+  },
+  "footer": {
+    "company": {
+      "title": "公司",
+      "about": "关于我们",
+      "careers": "加入我们",
+      "contact": "联系我们",
+      "partners": "合作伙伴"
+    },
+    "product": {
+      "title": "产品",
+      "features": "功能介绍",
+      "solutions": "解决方案",
+      "download": "下载中心",
+      "pricing": "价格方案",
+      "security": "安全与隐私"
+    },
+    "developer": {
+      "title": "开发者",
+      "docs": "开发文档",
+      "api": "API参考",
+      "sdk": "SDK下载",
+      "demo": "示例代码",
+      "github": "开源项目"
+    },
+    "about": {
+      "title": "关于我们",
+      "news": "新闻动态",
+      "join": "加入我们",
+      "contact": "联系我们",
+      "partners": "合作伙伴"
+    },
+    "follow": {
+      "title": "关注我们",
+      "weixin": "微信公众号",
+      "weibo": "官方微博",
+      "github": "GitHub"
+    },
+    "links": {
+      "terms": "服务条款",
+      "privacy": "隐私政策",
+      "license": "开源协议",
+      "security": "安全说明"
+    },
+    "support": {
+      "title": "支持",
+      "docs": "帮助文档",
+      "faq": "常见问题",
+      "status": "系统状态"
+    },
+    "legal": {
+      "title": "法律",
+      "privacy": "隐私政策",
+      "terms": "服务条款",
+      "security": "安全说明"
+    },
+    "icp": "京ICP备XXXXXXXX号-1",
+    "policeIcon": "警徽",
+    "police": "京公网安备 XXXXXXXXXXXXX号",
+    "copyright": "© 2024 语窝科技. 保留所有权利"
+  },
+  "news": {
+    "title": "新闻动态",
+    "description": "了解语窝最新动态",
+    "readMore": "阅读更多",
+    "latest": {
+      "date": "2024-03-15",
+      "title": "语窝2.5.0版本发布，新增AI助手功能",
+      "description": "全新的AI助手功能上线，提供智能对话、文档总结等功能..."
+    },
+    "funding": {
+      "date": "2024-03-01",
+      "title": "语窝完成新一轮融资",
+      "description": "语窝完成B轮融资，将进一步加大研发投入..."
+    },
+    "award": {
+      "date": "2024-02-15",
+      "title": "语窝荣获'年度最佳企业服务商'",
+      "description": "在2024企业服务峰会上，语窩荣获多个奖项..."
+    }
+  },
+  "cases": {
+    "title": "成功案例",
+    "description": "值得信赖的企业通讯伙伴",
+    "viewMore": "查看详情",
+    "bank": {
+      "title": "某大型商业银行",
+      "description": "为10000+员工提供安全合规的通讯平台"
+    },
+    "education": {
+      "title": "某知名教育机构",
+      "description": "打造线上线下一体化教学平台"
+    },
+    "hospital": {
+      "title": "某三甲医院",
+      "description": "实现院内高效协作与远程会诊"
+    }
+  },
+  "advantages": {
+    "title": "技术优势",
+    "description": "稳定可靠的技术架构",
+    "distributed": {
+      "title": "分布式架构",
+      "description": "支持横向扩展，轻松应对百万级并发"
+    },
+    "sync": {
+      "title": "消息同步",
+      "description": "多端实时同步，离线消息自动推送"
+    },
+    "api": {
+      "title": "开放接口",
+      "description": "标准REST API，支持第三方系统集成"
+    },
+    "security": {
+      "title": "安全防护",
+      "description": "多重加密机制，防止数据泄露"
+    }
+  },
+  "download": {
+    "title": "全平台支持",
+    "description": "随时随地保持连接",
+    "button": "下载安装包",
+    "windows": {
+      "title": "Windows 版",
+      "version": "版本 2.5.0",
+      "size": "56.8MB"
+    },
+    "mac": {
+      "title": "Mac 版",
+      "version": "版本 2.5.0",
+      "size": "68.2MB"
+    },
+    "android": {
+      "title": "Android 版",
+      "version": "版本 2.0.1",
+      "size": "45MB"
+    },
+    "ios": {
+      "title": "iOS 版",
+      "version": "版本 2.5.0",
+      "button": "App Store"
+    }
+  },
+  "about": {
+    "title": "关于我们",
+    "description": "了解语窝的发展历程",
+    "company": {
+      "title": "公司简介",
+      "description": "语窝科技成立于2020年，致力于为企业提供安全可靠的即时通讯解决方案"
+    },
+    "mission": {
+      "title": "使命愿景",
+      "description": "让企业沟通更高效、更安全"
+    },
+    "values": {
+      "title": "核心价值观",
+      "list": {
+        "item1": "用户至上",
+        "item2": "技术创新",
+        "item3": "诚信合作",
+        "item4": "追求卓越"
+      }
+    },
+    "team": {
+      "title": "核心团队",
+      "description": "来自国内外知名互联网公司的技术专家"
+    },
+    "history": {
+      "title": "发展历程",
+      "events": {
+        "2020": "公司成立",
+        "2021": "获得天使轮投资",
+        "2022": "完成A轮融资",
+        "2023": "用户数突破100万",
+        "2024": "完成B轮融资"
+      }
+    }
+  }
+}

@@ -14,7 +14,7 @@
   --wk-color-primary-7: #003eb8; /* 用于active状态 */
   /* 次色 */
   --wk-color-secondary: #ffffff;
-  --wk-color-secondary-2: #f5f5f5;
+  --wk-color-secondary-2: rgb(240, 244, 248);
   /* 基础背景色 */
   --wk-bg-base: #ffffff;
   --wk-bg-secondary: #f5f5f5;

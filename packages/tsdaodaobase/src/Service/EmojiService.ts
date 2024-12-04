@@ -211,7 +211,7 @@ export class DefaultEmojiService implements EmojiService {
         return this.getImageWithKey(name);
     }
     private getImageWithKey(key: string) {
-        return `./emoji/${key}.png`
+        return `/emoji/${key}.png`
     }
     getAllEmoji(): Emoji[] {
         const emojis = new Array<Emoji>();

@@ -201,7 +201,7 @@
 
 .wk-login-footer-buttons button{
     background-color: transparent;
-    color: var(--wk-color-theme);
+    color: var(--wk-state-default-border);
     outline: none !important;
     border: 0;
     height: 3.5rem;

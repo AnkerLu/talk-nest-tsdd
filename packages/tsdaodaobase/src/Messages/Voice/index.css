@@ -1,13 +1,13 @@
 .icon-play::before {
     content: "";
-    color: var(--wk-color-theme);
+    color: var(--wk-text-primary);
     font-size: 20px;
 }
 
 .icon-pause::before {
     content: "";
     font-size: 20px;
-    color: var(--wk-color-theme);
+    color: var(--wk-text-primary);
 }
 
 .voicePlay {

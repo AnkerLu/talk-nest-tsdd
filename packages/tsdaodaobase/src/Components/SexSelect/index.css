@@ -14,7 +14,7 @@
 }
 
 .wk-sex-select-item .checked {
-    color: var(--wk-color-theme);
+    color: var(--wk-text-primary);
     margin-left: 40px;
 }
 

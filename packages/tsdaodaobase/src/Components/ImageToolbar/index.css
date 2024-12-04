@@ -201,7 +201,7 @@ body[theme-mode=dark] .wk-imagedialog-content-preview--filecontent {
 
 .wk-imagedialog-footer-okbtn {
     margin-left: 16px;
-    color: var(--wk-color-theme) !important;
+    color: var(--wk-text-primary) !important;
     border: none !important;
 }
 

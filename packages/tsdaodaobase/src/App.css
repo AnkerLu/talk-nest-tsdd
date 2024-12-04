@@ -30,6 +30,9 @@
   --wk-text-disabled: rgba(0, 0, 0, 0.25);
   --wk-text-link: var(--wk-color-primary);
   --wk-text-item: #000000;
+
+  --wk-text-primary-hover: rgba(0, 0, 0, 0.85);
+  --wk-text-primary-active: rgba(0, 0, 0, 1);
   
   /* 线 */
   --wk-line: 1px solid rgba(0, 0, 0, 0.1);
@@ -133,8 +136,8 @@
   --wk-color-primary: #0b6bcb;
   --wk-color-primary-hover: rgba(11, 107, 203, 0.5);
   /* 次色 */
-  --wk-color-secondary: #000;
-  --wk-color-secondary-2: #171a1c;
+  --wk-color-secondary: #0F0F0F;
+  --wk-color-secondary-2: rgb(33,33,33);
 
   --wk-color-primary-1: #e6f0ff; /* 最浅，用于背景 */
   --wk-color-primary-2: #bad6ff; /* 用于hover背景 */
@@ -154,11 +157,15 @@
   --wk-bg-message-item: #0b0d0e;
   --wk-bg-message-sender-item: #0b6bcb;
   /* 文字色 */
-  --wk-text-primary: rgba(255, 255, 255, 0.85);
-  --wk-text-secondary: rgba(255, 255, 255, 0.45);
-  --wk-text-disabled: rgba(255, 255, 255, 0.25);
+  --wk-text-primary: rgba(255, 255, 255, 0.8);
+  --wk-text-secondary: rgba(255, 255, 255, 0.6);
+  --wk-text-disabled: rgba(255, 255, 255, 0.4);
   --wk-text-link: #177ddc;
   --wk-text-item: white;
+
+  --wk-text-primary-hover: rgba(255, 255, 255, 1);
+  --wk-text-primary-active: rgba(255, 255, 255, 1);
+
   /* 线 */
   --wk-line: 1px solid rgba(159, 166, 173, 0.16);
   --wk-line-color: rgba(159, 166, 173, 0.16);
@@ -276,6 +283,19 @@ body {
     border-color 0.3s ease;
 }
 
+/* 全局a标签样式 */
+a {
+  color: var(--wk-text-primary);
+}
+
+a:hover {
+  color: var(--wk-text-primary-hover);
+}
+
+a:active {
+  color: var(--wk-text-primary-active);
+}
+
 /* 全局SVG规则 */
 svg {
   fill: var(--icon-primary);
@@ -378,8 +398,3 @@ ul {
 body[theme-mode="dark"] .semi-badge-count {
   color: var(--wk-text-primary);
 }
-
---wk-elevation-1: 0 2px 4px rgba(0, 0, 0, 0.1);
---wk-elevation-2: 0 4px 8px rgba(0, 0, 0, 0.1);
---wk-elevation-3: 0 8px 16px rgba(0, 0, 0, 0.1);
---wk-elevation-4: 0 16px 24px rgba(0, 0, 0, 0.1);

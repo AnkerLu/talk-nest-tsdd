@@ -53,14 +53,8 @@ body[theme-mode=dark] .wk-list-item {
 .wk-list-item-title {
     font-size: 15px;
     font-weight: 400;
-    color: black;
-}
-
-
-body[theme-mode=dark] .wk-list-item-title{
     color: var(--wk-text-primary);
 }
-
 
 .wk-list-item-action {
     display: inline-flex;

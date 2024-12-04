@@ -177,7 +177,7 @@ body[theme-mode="dark"] .wk-message-base-bubble {
 }
 
 .wk-message-base-bubble-box.send .svgAppendix .corner {
-  fill: var(--wk-color-theme);
+  fill: var(--wk-text-primary);
 }
 
 .wk-message-base-bubble-box.recv .svgAppendix .corner {

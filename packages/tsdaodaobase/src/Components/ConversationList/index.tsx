@@ -71,7 +71,7 @@ export default class ConversationList extends Component<ConversationListProps, C
         const { select } = this.props
         const typing = TypingManager.shared.getTyping(conversationWrap.channel)
         const selected = select && select.isEqual(conversationWrap.channel)
-        return <div className="wk-typing"><BeatLoader size={4} margin={3} color={selected ? "white" : "var(--wk-color-theme)"} />&nbsp;&nbsp;{conversationWrap.channel.channelType !== ChannelTypePerson ? typing?.fromName : ""}正在输入</div>
+        return <div className="wk-typing"><BeatLoader size={4} margin={3} color={selected ? "white" : "var(--wk-text-primary)"} />&nbsp;&nbsp;{conversationWrap.channel.channelType !== ChannelTypePerson ? typing?.fromName : ""}正在输入</div>
     }
 
     lastContent(conversationWrap: ConversationWrap) {

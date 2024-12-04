@@ -108,7 +108,7 @@
 }
 
 .wk-channelsetting-name {
-    color: var(--wk-color-theme);
+    color: var(--wk-text-primary);
     font-size: 16px;
     font-weight: 600;
     margin-left: 10px;

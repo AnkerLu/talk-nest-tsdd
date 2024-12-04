@@ -87,7 +87,14 @@ export class ChatContentPage extends Component<
                 </div>
                 <div className="wk-chat-conversation-header-channel">
                   <div className="wk-chat-conversation-header-channel-avatar">
-                    <img alt="" src={WKApp.shared.avatarChannel(channel)}></img>
+                    <img
+                      alt=""
+                      src={WKApp.shared.avatarChannel(channel)}
+                      onError={(e) => {
+                        e.currentTarget.src = require("./assets/default_avatar.svg")
+                          .default;
+                      }}
+                    ></img>
                   </div>
                   <div className="wk-chat-conversation-header-channel-info">
                     <div className="wk-chat-conversation-header-channel-info-name">

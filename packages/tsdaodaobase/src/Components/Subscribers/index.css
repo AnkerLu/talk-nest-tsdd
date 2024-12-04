@@ -49,7 +49,7 @@ body[theme-mode=dark] .wk-subscribers-item-name {
 .wk-subscribers-more {
     font-size: 14px;
     margin-top: 10px;
-    color: var(--wk-color-theme);
+    color: var(--wk-text-primary);
     cursor: pointer;
     text-align: center;
 }

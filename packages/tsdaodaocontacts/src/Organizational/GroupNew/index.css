@@ -33,12 +33,12 @@
 .wk-organizational-group-new-left
   .group-new-left-search
   .group-new-left-search-input.semi-input-wrapper-focus {
-  border: var(--wk-color-theme) solid 1px;
+  border: var(--wk-state-default-border) solid 1px;
 }
 .wk-organizational-group-new-left
   .group-new-left-search
   .group-new-left-search-input.semi-input-wrapper-focus:active {
-  border: var(--wk-color-theme) solid 1px;
+  border: var(--wk-border-primary) solid 1px;
 }
 /* 好友选择 */
 .group-new-left-main .friend-opt .organization-name {
@@ -89,10 +89,10 @@
   height: 100%;
 }
 .organizational-tree .semi-input-wrapper-focus {
-  border: var(--wk-color-theme) solid 1px;
+  border: var(--wk-state-default-border) solid 1px;
 }
 .organizational-tree .semi-input-wrapper-focus:active {
-  border: var(--wk-color-theme) solid 1px;
+  border: var(--wk-state-default-border) solid 1px;
 }
 .organizational-tree .semi-tree-option-list {
   padding-top: 0;
@@ -107,17 +107,17 @@
 
 .semi-checkbox:hover .semi-checkbox-inner-display {
   background: var(--wk-bg-secondary);
-  box-shadow: inset 0 0 0 1px var(--wk-color-theme);
+  box-shadow: inset 0 0 0 1px var(--wk-border-primary);
 }
 
 .semi-checkbox:hover .semi-checkbox-inner-checked .semi-checkbox-inner-display {
   background: var(--wk-color-theme);
-  border-color: var(--wk-color-theme);
+  border-color: var(--wk-border-primary);
   color: var(--semi-color-white);
 }
 
 .organizational-tree .semi-tree-option-list-block .department-icon {
-  color: var(--wk-color-theme);
+  color: var(--wk-border-primary);
 }
 .organizational-tree
   .semi-tree-option-list-block

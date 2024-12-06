@@ -1,232 +1,266 @@
-
-
 .wk-login {
-    display: table;
-    height: 100%;
-    width: 100%;
-    min-height: 600px;
-    padding-bottom: 50px;
-    position: absolute;
-    background-color: rgb(255, 255, 255);
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: var(--wk-color-theme);
+}
+
+.wk-login-panel {
+  display: table-cell;
+  width: 50vw;
+}
+
+.wk-login-bg {
+  background-image: url(https://images.unsplash.com/photo-1527181152855-fc03fc7949c8?auto=format&w=1000&dpr=2);
+  background-size: cover;
+  -webkit-background-position: center;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .wk-login-content {
-    display: table-cell;
-    vertical-align: middle;
-    position: relative;
+  display: table-cell;
+  position: relative;
+}
+
+.wk-login-content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
 }
 
 .wk-login-content-logo {
-    align-items: center;
-    display: flex;
-    height: 120px;
-    justify-content: center;
-    min-width: 100%;
-    width: 120px;
+  align-items: center;
+  display: flex;
 }
 
 .wk-login-content-logo img {
-    width: 75px;
-    height: 75px;
+  width: 40px;
+  height: auto;
+}
+
+.wk-login-content-logo-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-left: 12px;
 }
 
 .wk-login-content-slogan {
-    color: rgba(0, 0, 0, 1);
-    font-size: 36px;
-    font-weight: 450;
-    line-height: 40px;
-    margin-bottom: 45px;
-    margin-top: 24px;
-    text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(var(--wk-color-primary-rgb), 0.3),
+               0 0 20px rgba(var(--wk-color-primary-rgb), 0.3),
+               0 0 30px rgba(var(--wk-color-primary-rgb), 0.3);
+  background: linear-gradient(
+    120deg,
+    #4a90e2,  /* 亮蓝色 */
+    #63bfad,  /* 青绿色 */
+    #7c4dff   /* 紫色 */
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
 }
 
 .wk-login-content-form {
-    margin-top: 32px;
+  margin-top: 32px;
 }
 
 .wk-login-content-form input {
-    border: 1px solid rgba(0, 0, 0, .20);
-    border-radius: 4px;
-    color: rgba(0, 0, 0, 1);
-    display: block;
-    font-family: Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    height: 42px;
-    margin-bottom: 12px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 16px;
-    width: 286px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  color: rgba(0, 0, 0, 1);
+  display: block;
+  font-family: Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;
+  height: 42px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+  width: 100%;
 }
 
 .wk-login-content-form-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
 }
 
-
 .wk-login-content-form-ok {
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 16px;
-    padding: 9.5px 20px;
-    margin-top: 24px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  padding: 11px 20px;
+  width: 100%;
+  height: auto;
+  background-color: var(--wk-color-primary);
 }
 
 .wk-login-content-form-others {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
-    width: 320px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  width: 320px;
 }
 
 .wk-login-content-form-scanlogin {
-    color: #929292;
-    font-size: 15px;
-    font-weight: normal;
-    text-align: center;
-    cursor: pointer;
+  color: #929292;
+  font-size: 15px;
+  font-weight: normal;
+  text-align: center;
+  cursor: pointer;
 }
 
 .wk-login-footer {
-    color: #262626;
-    font-size: 16px;
-    font-weight: 400;
+  color: #262626;
+  font-size: 16px;
+  font-weight: 400;
 
-    bottom: 0;
-    margin-bottom: 66px;
-    position: absolute;
-    text-align: center;
-    width: 100%;
+  bottom: 0;
+  margin-bottom: 66px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }
 
 .wk-login-footer ul {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0px;
 }
 
 .wk-login-footer ul li {
-    margin-left: 40px;
+  margin-left: 40px;
 }
 
 .wk-login-content-phonelogin {
-    margin: 0 auto;
+  margin: 0 auto;
+  display: block;
+  width: 400px;
 }
 
 .wk-login-content-scanlogin {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .wk-login-content-scanlogin-show {
-    display: flex;
+  display: flex;
 }
 
 .wk-login-content-scanlogin-qrcode {
-    width: 280px;
-    height: 280px;
-    position: relative;
+  width: 280px;
+  height: 280px;
+  position: relative;
 
-    opacity: 0;
-    transform: scale(0);
-    transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),opacity 300ms;
-   
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 300ms;
 }
 
-.wk-login-content-scanlogin-show .wk-login-content-scanlogin-qrcode{
-    opacity: 1;
-    transform: scale(1);
+.wk-login-content-scanlogin-show .wk-login-content-scanlogin-qrcode {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .wk-login-content-scanlogin-qrcode-avatar {
-   
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   margin-top: -30px;
-   margin-left: -30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -30px;
+  margin-left: -30px;
 
-   opacity: 0;
-   transform: scale(0);
-   transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),opacity 300ms;
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 300ms;
 }
 
-
 .wk-login-content-scanlogin-qrcode-avatar-show {
-    opacity: 1;
-    transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
 }
 
 .wk-login-content-scanlogin-qrcode-avatar img {
-    width: 60px;
-    height: 60px;
-   border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
 }
 
 .wk-login-content-scanlogin-qrcode-title {
-    margin-top: 30px;
-    color: rgba(9,30,66,.87);
+  margin-top: 30px;
+  color: rgba(9, 30, 66, 0.87);
 }
 
 .wk-login-content-scanlogin-qrcode-desc li {
-    counter-increment: item;
-    text-align: left;
-    margin: 0.75rem 0;
-    display: flex;
-    color: rgba(9,30,66,.87);
+  counter-increment: item;
+  text-align: left;
+  margin: 0.75rem 0;
+  display: flex;
+  color: rgba(9, 30, 66, 0.87);
 }
 
 .wk-login-content-scanlogin-qrcode-desc li::before {
-    content: counter(item);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 1.375rem;
-    height: 1.375rem;
-    padding: 0;
-    margin: 0 0.75rem 0 0;
-    background: var(--wk-color-theme);
-    border-radius: 50%;
-    font-size: smaller;
-    color: #fff;
+  content: counter(item);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 1.375rem;
+  height: 1.375rem;
+  padding: 0;
+  margin: 0 0.75rem 0 0;
+  background: var(--wk-color-theme);
+  border-radius: 50%;
+  font-size: smaller;
+  color: #fff;
 }
 
-.wk-login-footer-buttons button{
-    background-color: transparent;
-    color: var(--wk-state-default-border);
-    outline: none !important;
-    border: 0;
-    height: 3.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.625rem;
-    cursor: pointer;
+.wk-login-footer-buttons button {
+  background-color: transparent;
+  color: var(--wk-state-default-border);
+  outline: none !important;
+  border: 0;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem;
+  cursor: pointer;
 }
 
 .wk-login-content-scanlogin-qrcode-expire {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgb(255, 255,255,0.95);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .wk-login-content-scanlogin-qrcode-expire img {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
 }

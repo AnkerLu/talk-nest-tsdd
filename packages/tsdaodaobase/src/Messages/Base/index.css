@@ -134,18 +134,6 @@ body[theme-mode="dark"] .wk-message-base-bubble {
   border-radius: 0 12px 12px 12px;
 }
 
-.wk-message-base-bubble-box.send.middle .wk-message-base-bubble {
-  border-radius: 0.75rem 0.375rem 0.375rem 0.75rem;
-}
-
-.wk-message-base-bubble-box.recv.middle .wk-message-base-bubble {
-  border-radius: 0.375rem 0.75rem 0.75rem 0.375rem;
-}
-
-.wk-message-base-bubble-box.recv.first .wk-message-base-bubble {
-  border-radius: 0.75rem 0.75rem 0.75rem 0.375rem;
-}
-
 .wk-message-base-bubble-box.hide .wk-message-base-bubble {
   background-color: transparent !important;
   box-shadow: none;

@@ -25,9 +25,9 @@
   --wk-bg-message-item: #ffffff;
   --wk-bg-message-sender-item: #f5f5f5;
   /* 文字色 */
-  --wk-text-primary: rgba(0, 0, 0, 0.65);
-  --wk-text-secondary: rgba(0, 0, 0, 0.35);
-  --wk-text-disabled: rgba(0, 0, 0, 0.25);
+  --wk-text-primary: rgba(0, 0, 0, 0.85);
+  --wk-text-secondary: rgba(0, 0, 0, 0.55);
+  --wk-text-disabled: rgba(0, 0, 0, 0.35);
   --wk-text-link: var(--wk-color-primary);
   --wk-text-item: #000000;
 
@@ -157,9 +157,9 @@
   --wk-bg-message-item: #0b0d0e;
   --wk-bg-message-sender-item: #0b6bcb;
   /* 文字色 */
-  --wk-text-primary: rgba(255, 255, 255, 0.8);
-  --wk-text-secondary: rgba(255, 255, 255, 0.6);
-  --wk-text-disabled: rgba(255, 255, 255, 0.4);
+  --wk-text-primary: rgba(255, 255, 255, 0.9);
+  --wk-text-secondary: rgba(255, 255, 255, 0.7);
+  --wk-text-disabled: rgba(255, 255, 255, 0.5);
   --wk-text-link: #177ddc;
   --wk-text-item: white;
 
@@ -274,13 +274,13 @@ body {
   color: var(--wk-text-primary);
 
   /* 过渡效果 */
-  transition: background-color 0.3s ease;
+  transition: background-color 0.15s ease;
 }
 
 /* 主题切换时的过渡效果 */
 [theme-mode] * {
-  transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease;
 }
 
 /* 全局a标签样式 */
@@ -299,12 +299,12 @@ a:active {
 /* 全局SVG规则 */
 svg {
   fill: var(--icon-primary);
-  transition: fill 0.3s ease;
+  transition: fill 0.15s ease;
 }
 
 svg path {
   fill: var(--icon-primary);
-  transition: fill 0.3s ease;
+  transition: fill 0.15s ease;
 }
 
 svg[data-type="secondary"] {

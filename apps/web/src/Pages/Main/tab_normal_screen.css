@@ -1,24 +1,77 @@
 .wk-main-sider {
-  width: var(--wk-sider-width);
-  height: 100%;
-  background: var(--wk-bg-base);
-  border-right: var(--wk-line);
-}
-
-.wk-main-sider-content {
   display: flex;
   flex-direction: column;
   height: 100%;
-  position: relative;
+  background: var(--wk-bg-base);
+  border-right: var(--wk-line);
+  width: var(--wk-sider-width);
+}
+
+/* Header styles */
+.wk-main-sider-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 8px;
+  height: 64px;
+  border-bottom: var(--wk-line);
+}
+
+.wk-main-sider-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wk-main-sider-theme-toggle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 10px;
+  background: var(--wk-bg-1);
+  color: var(--wk-text-2);
+  transition: all 0.2s ease;
+}
+
+.wk-main-sider-theme-toggle:hover {
+  background: var(--wk-bg-2);
+}
+
+.wk-main-sider-logo-img {
+  width: 30px;
+  height: auto;
+}
+
+.wk-main-sider-logo-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--wk-text-secondary);
+}
+
+.wk-main-sider-content {
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .wk-main-sider-avatar {
-  gap: 10px;
   width: 100%;
-  padding: 20px 10px;
+  padding: 10px;
   align-items: center;
+  justify-content: space-between;
   display: flex;
   cursor: pointer;
+  margin-top: auto;
+  border-top: var(--wk-line);
+}
+
+.wk-main-sider-avatar-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .wk-main-sider-avatar img {
@@ -34,7 +87,7 @@
   align-items: center;
   gap: 10px;
   width: 100%;
-  padding: 10px;
+  padding: 20px 10px;
   color: var(--wk-state-default-text);
   /* border: 1px solid var(--wk-state-default-border); */
 }
@@ -57,10 +110,6 @@
 }
 
 .wk-main-sider-setting-box {
-  position: absolute;
-  bottom: 30px;
-  left: 0;
-  right: 0;
 }
 
 .wk-main-sider-setting {
@@ -151,8 +200,8 @@
 
 .wk-main-sider-item-badge {
   position: absolute;
-  top: -15px;
-  right: -5px;
+  top: 0;
+  right: 0;
 }
 
 .wk-versioncheckview-updateinfo {

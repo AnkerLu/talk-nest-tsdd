@@ -37,10 +37,10 @@ class Login extends Component<any, LoginState> {
                 </div>
                 <div
                   className="wk-login-content-phonelogin"
-                  style={{
-                    display:
-                      vm.loginType === LoginType.phone ? "block" : "none",
-                  }}
+                  // style={{
+                  //   display:
+                  //     vm.loginType === LoginType.phone ? "block" : "none",
+                  // }}
                 >
                   <div className="wk-login-content-form">
                     <div className="wk-login-content-form-item">

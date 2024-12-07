@@ -319,6 +319,12 @@ export interface IChannelDataSource {
      * @param conversationExtra 
      */
     conversationExtraUpdate(conversationExtra: ConversationExtra): Promise<void>
+
+    // 设置成员禁言
+    muteSubscriber(channel: Channel, uid: string, action: number, key: number): Promise<void>;
+    
+    // 获取成员禁言状态
+    getSubscriberMuteInfo(): Promise<void>;
 }
 
 export class ChannelQrcodeResp implements APIResp {

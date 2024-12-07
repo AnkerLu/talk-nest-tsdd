@@ -18,6 +18,11 @@ export class ChannelSettingRouteData {
         return  this.subscriberOfMe?.role === GroupRole.manager || this.subscriberOfMe?.role === GroupRole.owner
      }
 
+     // 我是否是群主
+     get isOwnerOfMe() {
+        return this.subscriberOfMe?.role === GroupRole.owner
+     }
+
 }
 
 // export interface ChannelSettingContext extends RouteContext{

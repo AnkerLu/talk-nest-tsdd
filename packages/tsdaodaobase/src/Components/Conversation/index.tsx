@@ -42,8 +42,7 @@ export interface ConversationProps {
 
 export class Conversation
   extends Component<ConversationProps>
-  implements ConversationContext
-{
+  implements ConversationContext {
   vm!: ConversationVM;
   contextMenusContext!: ContextMenusContext;
   avatarMenusContext!: ContextMenusContext; // 点击头像弹出的菜单
@@ -264,9 +263,8 @@ export class Conversation
           this.setState({});
         }}
         key={message.clientMsgNo}
-        id={`${
-          message.contentType === MessageContentTypeConst.time ? "time-" : ""
-        }${message.clientMsgNo}`}
+        id={`${message.contentType === MessageContentTypeConst.time ? "time-" : ""
+          }${message.clientMsgNo}`}
         className={classNames(
           "wk-message-item",
           last ? "wk-message-item-last" : undefined,
@@ -565,11 +563,11 @@ export class Conversation
                     ? "wk-conversation-hasreply"
                     : undefined
                 )}
-                // style={{
-                //   background: chatBg
-                //     ? `url(${chatBg}) rgb(245, 247, 249)`
-                //     : undefined,
-                // }}
+              // style={{
+              //   background: chatBg
+              //     ? `url(${chatBg}) rgb(245, 247, 249)`
+              //     : undefined,
+              // }}
               >
                 <div
                   onDragOver={(event) => {
@@ -756,17 +754,17 @@ export class Conversation
                 menus={
                   vm.selectMessage
                     ? WKApp.endpoints
-                        .messageContextMenus(vm.selectMessage, this)
-                        .map((menus) => {
-                          return {
-                            title: menus.title,
-                            onClick: () => {
-                              if (menus.onClick) {
-                                menus.onClick();
-                              }
-                            },
-                          };
-                        })
+                      .messageContextMenus(vm.selectMessage, this)
+                      .map((menus) => {
+                        return {
+                          title: menus.title,
+                          onClick: () => {
+                            if (menus.onClick) {
+                              menus.onClick();
+                            }
+                          },
+                        };
+                      })
                     : []
                 }
               ></ContextMenus>

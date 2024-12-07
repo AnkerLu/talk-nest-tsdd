@@ -16,7 +16,7 @@ import { Howl, Howler } from "howler";
 import WKApp, { FriendApply, FriendApplyState, ThemeMode } from "./App";
 import ChannelQRCode from "./Components/ChannelQRCode";
 import { ChannelSettingRouteData } from "./Components/ChannelSetting/context";
-import { IndexTableItem } from "./Components/IndexTable";
+import IndexTable, { IndexTableItem } from "./Components/IndexTable";
 import { InputEdit } from "./Components/InputEdit";
 import {
   ListItem,
@@ -80,6 +80,7 @@ import { ScreenshotCell, ScreenshotContent } from "./Messages/Screenshot";
 import ImageToolbar from "./Components/ImageToolbar";
 import { ProhibitwordsService } from "./Service/ProhibitwordsService";
 import { SubscriberList } from "./Components/Subscribers/list";
+import { Modal } from "@douyinfe/semi-ui";
 
 export default class BaseModule implements IModule {
   messageTone?: Howl;
@@ -628,6 +629,7 @@ export default class BaseModule implements IModule {
     WKApp.endpoints.registerMessageContextMenus(
       "contextmenus.revoke",
       (message, context) => {
+        console.warn("🚀 ~ BaseModule ~ registerMessageContextMenus ~ message.messageID:", message.messageID)
         if (message.messageID == "") {
           return null;
         }
@@ -1446,5 +1448,272 @@ export default class BaseModule implements IModule {
       },
       90000
     );
+
+    WKApp.shared.channelSettingRegister("channel.manager.setting", (context) => {
+      const data = context.routeData() as ChannelSettingRouteData;
+      const channel = data.channel;
+      const channelInfo = data.channelInfo;
+      const subscribers = data.subscribers;
+      console.warn("🚀 ~ BaseModule ~ WKApp.shared.channelSettingRegister ~ subscribers:", subscribers)
+
+      // 只在群聊中显示且只有群主可见
+      if (channel.channelType !== ChannelTypeGroup || !data.isManagerOrCreatorOfMe) {
+        return undefined;
+      }
+
+      let selectFinishButtonContext: FinishButtonContext;
+      let selectedItems: Subscriber[];
+
+      const rows: Row[] = [
+        new Row({
+          cell: ListItem,
+          properties: {
+            title: "添加管理员",
+            onClick: () => {
+              const disableSelectList = subscribers.filter(item => item.role === GroupRole.manager || item.role === GroupRole.owner).map(item => item.uid);
+              context.push(
+                <SubscriberList
+                  channel={channel}
+                  disableSelectList={disableSelectList}
+                  onSelect={(items) => {
+                    selectedItems = items;
+                    selectFinishButtonContext.disable(items.length === 0);
+                  }}
+                  canSelect={true}
+                />,
+                {
+                  title: "添加管理员",
+                  showFinishButton: true,
+                  onFinish: async () => {
+                    selectFinishButtonContext.loading(true);
+                    try {
+                      // 设置选中成员为管理员
+                      await ChannelSettingManager.shared.addManager(
+                        selectedItems.map(item => item.uid),
+                        channel
+                      );
+                      data.refresh();
+                      Toast.success("添加群管理员成功");
+                      context.pop();
+                    } catch (err: any) {
+                      Toast.error(err.msg || "添加群管理员失败");
+                    }
+                    selectFinishButtonContext.loading(false);
+                  },
+                  onFinishContext: (context) => {
+                    selectFinishButtonContext = context;
+                    selectFinishButtonContext.disable(true);
+                  }
+                }
+              );
+            }
+          }
+        }),
+        new Row({
+          cell: ListItem,
+          properties: {
+            title: "删除管理员",
+            onClick: () => {
+              const disableSelectList = subscribers.filter(item => item.role === GroupRole.owner).map(item => item.uid);
+              context.push(
+                <SubscriberList
+                  channel={channel}
+                  disableSelectList={disableSelectList}
+                  onSelect={(items) => {
+                    selectedItems = items;
+                    selectFinishButtonContext.disable(items.length === 0);
+                  }}
+                  canSelect={true}
+                />,
+                {
+                  title: "删除管理员",
+                  showFinishButton: true,
+                  onFinish: async () => {
+                    selectFinishButtonContext.loading(true);
+                    try {
+                      await ChannelSettingManager.shared.removeManager(
+                        selectedItems.map(item => item.uid),
+                        channel
+                      );
+                      data.refresh();
+                      Toast.success("删除群管理员成功");
+                      context.pop();
+                    } catch (err: any) {
+                      Toast.error(err.msg || "删除群管理员失败");
+                    }
+                    selectFinishButtonContext.loading(false);
+                  },
+                  onFinishContext: (context) => {
+                    selectFinishButtonContext = context;
+                    selectFinishButtonContext.disable(true);
+                  }
+                }
+              );
+            }
+          }
+        }),
+        new Row({
+          cell: ListItem,
+          properties: {
+            title: "管理员列表",
+            onClick: () => {
+              context.push(
+                <SubscriberList
+                  channel={channel}
+                />,
+                { title: "管理员列表" }
+              );
+            }
+          }
+        })
+      ];
+
+      rows.push(
+        new Row({
+          cell: ListItemSwitch,
+          properties: {
+            title: "全员禁言",
+            checked: channelInfo?.orgData.forbidden === 1,
+            onCheck: (v: boolean, ctx: ListItemSwitchContext) => {
+              ctx.loading = true;
+              ChannelSettingManager.shared
+                .forbidden(v, channel)
+                .then(() => {
+                  ctx.loading = false;
+                  data.refresh();
+                })
+                .catch(() => {
+                  ctx.loading = false;
+                });
+            },
+          },
+        })
+      );
+
+      rows.push(
+        new Row({
+          cell: ListItemSwitch,
+          properties: {
+            title: "禁止群内互加好友",
+            checked: channelInfo?.orgData.forbidden_add_friend === 1,
+            onCheck: (v: boolean, ctx: ListItemSwitchContext) => {
+              ctx.loading = true;
+              ChannelSettingManager.shared
+                .forbiddenAddFriend(v, channel)
+                .then(() => {
+                  ctx.loading = false;
+                  data.refresh();
+                })
+                .catch(() => {
+                  ctx.loading = false;
+                });
+            },
+          },
+        })
+      );
+
+      rows.push(
+        new Row({
+          cell: ListItemSwitch,
+          properties: {
+            title: "邀请确认",
+            checked: channelInfo?.orgData.invite === 1,
+            onCheck: (v: boolean, ctx: ListItemSwitchContext) => {
+              ctx.loading = true;
+              ChannelSettingManager.shared
+                .invite(v, channel)
+                .then(() => {
+                  ctx.loading = false;
+                  data.refresh();
+                })
+                .catch(() => {
+                  ctx.loading = false;
+                });
+            },
+          },
+        })
+      );
+
+      rows.push(
+        new Row({
+          cell: ListItemSwitch,
+          properties: {
+            title: "禁止新成员查看历史消息",
+            checked: channelInfo?.orgData.receipt === 1,
+            onCheck: (v: boolean, ctx: ListItemSwitchContext) => {
+              ctx.loading = true;
+              ChannelSettingManager.shared
+                .receipt(v, channel)
+                .then(() => {
+                  ctx.loading = false;
+                  data.refresh();
+                })
+                .catch(() => {
+                  ctx.loading = false;
+                });
+            },
+          },
+        })
+      );
+
+      return new Section({
+        rows: rows
+      });
+    }, 1500);
+
+    WKApp.shared.channelSettingRegister("channel.owner.transfer", (context) => {
+      const data = context.routeData() as ChannelSettingRouteData;
+      const channel = data.channel;
+      const subscribers = data.subscribers;
+
+      // 只在群聊中显示且只有群主可见
+      if (channel.channelType !== ChannelTypeGroup || !data.isManagerOrCreatorOfMe) {
+        return undefined;
+      }
+
+      return new Section({
+        rows: [
+          new Row({
+            cell: ListItem,
+            properties: {
+              title: "群主管理权转让",
+              onClick: () => {
+                const disableSelectList = subscribers.filter(item => item.role === GroupRole.owner).map(item => item.uid);
+                context.push(
+                  <IndexTable
+                    items={subscribers.map(item => ({
+                      id: item.uid,
+                      name: item.name,
+                      avatar: item.avatar
+                    }))}
+                    disableSelectList={disableSelectList}
+                    onSelect={(items) => {
+                      Modal.confirm({
+                        title: '选择新的群主',
+                        content: `确定要将群主管理权转让给 ${items[0].name} 吗？转让后你将成为普通成员。`,
+                        onOk: async () => {
+                          try {
+                            await ChannelSettingManager.shared.transferOwner(
+                              items[0].id,
+                              channel
+                            );
+                            Toast.success("群主转让成功");
+                            data.refresh();
+                            context.pop();
+                          } catch (err: any) {
+                            Toast.error(err.msg || "群主转让失败");
+                          }
+                        }
+                      });
+                    }}
+                    canSelect={false}
+                  />
+                );
+              }
+            }
+          })
+        ]
+      });
+    }, 1200); // 优先级较高，显示在靠前位置
   }
 }

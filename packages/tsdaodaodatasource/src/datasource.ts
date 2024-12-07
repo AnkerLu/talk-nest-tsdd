@@ -1,5 +1,6 @@
 import { ChannelQrcodeResp, Contacts, IChannelDataSource, ICommonDataSource, WKApp, RequestConfig, GroupRole } from "@tsdaodao/base";
-import { Channel, ChannelInfo, ChannelTypeGroup, ChannelTypePerson, WKSDK, Message, MessageContentType,ConversationExtra,Subscriber } from "wukongimjssdk";
+import APIClient from "@tsdaodao/base/src/Service/APIClient";
+import { Channel, ChannelInfo, ChannelTypeGroup, ChannelTypePerson, WKSDK, Message, MessageContentType, ConversationExtra, Subscriber } from "wukongimjssdk";
 
 export class ChannelDataSource implements IChannelDataSource {
 
@@ -71,13 +72,13 @@ export class ChannelDataSource implements IChannelDataSource {
         })
     }
 
-    async subscribers(channel: Channel,req:{
-        keyword?:string, // 搜索关键字
-        limit?:number, // 每页数量
-        page?:number, // 页码
+    async subscribers(channel: Channel, req: {
+        keyword?: string, // 搜索关键字
+        limit?: number, // 每页数量
+        page?: number, // 页码
     }): Promise<Subscriber[]> {
         const resp = await WKApp.apiClient.get(`groups/${channel.channelID}/members`, {
-           param: req
+            param: req
         })
         let members = new Array<Subscriber>();
         if (resp) {
@@ -140,14 +141,34 @@ export class ChannelDataSource implements IChannelDataSource {
         return WKApp.apiClient.post(`groups/${channel.channelID}/blacklist/remove`, { uids: uids })
     }
 
-    conversationExtraUpdate(conversationExtra:ConversationExtra): Promise<void> {
-        return WKApp.apiClient.post(`conversations/${conversationExtra.channel.channelID}/${conversationExtra.channel.channelType}/extra`,{
+    conversationExtraUpdate(conversationExtra: ConversationExtra): Promise<void> {
+        return WKApp.apiClient.post(`conversations/${conversationExtra.channel.channelID}/${conversationExtra.channel.channelType}/extra`, {
             "browse_to": conversationExtra.browseTo,
             "keep_message_seq": conversationExtra.keepMessageSeq,
             "keep_offset_y": conversationExtra.keepOffsetY,
-            "draft": conversationExtra.draft||""
+            "draft": conversationExtra.draft || ""
 
         })
+    }
+
+    // 禁言群成员具体到时间
+    async muteSubscriber(channel: Channel, uid: string, action: number = 0, key: number): Promise<void> {
+        return WKApp.apiClient.post(`groups/${channel.channelID}/forbidden_with_member`, {
+            member_uid: uid,
+            action: action, // 0.解禁1.禁言
+            key: key // 禁言时间 1.一分钟 2.10分钟 3.一小时 4.一天 5.一周 6.一个月
+        });
+    }
+
+    async getSubscriberMuteInfo(): Promise<void> {
+        // 返回值
+        // [
+        //     {
+        //         text: "一分钟",
+        //         key: 1
+        //     }
+        // ]
+        return WKApp.apiClient.get("/group/forbiden_times");
     }
 }
 
@@ -158,7 +179,7 @@ export class CommonDataSource implements ICommonDataSource {
     blacklistRemove(uid: string): Promise<void> {
         return WKApp.apiClient.delete(`user/blacklist/${uid}`)
     }
-    deleteFriend(uid:string): Promise<void> {
+    deleteFriend(uid: string): Promise<void> {
         return WKApp.apiClient.delete(`friends/${uid}`)
     }
 
@@ -169,7 +190,7 @@ export class CommonDataSource implements ICommonDataSource {
         // TODO: 这里先取10000足够 等后面再做分页
         return WKApp.apiClient.get(`favorite/my?page_index=1&page_size=10000`)
     }
-    favorities(message: Message): Promise<void>{
+    favorities(message: Message): Promise<void> {
         var content: string = ""
         if (message.contentType === MessageContentType.text) {
             content = message.content.contentObj.content;
@@ -207,8 +228,8 @@ export class CommonDataSource implements ICommonDataSource {
         })
     }
 
-    friendApply(req:{uid:string,remark:string,vercode:string}):Promise<void> {
-        return WKApp.apiClient.post(`friend/apply`,{to_uid:req.uid,remark:req.remark,vercode:req.vercode},)
+    friendApply(req: { uid: string, remark: string, vercode: string }): Promise<void> {
+        return WKApp.apiClient.post(`friend/apply`, { to_uid: req.uid, remark: req.remark, vercode: req.vercode },)
     }
 
     /**
@@ -240,7 +261,7 @@ export class CommonDataSource implements ICommonDataSource {
 
     async contactsSync(version: string): Promise<Contacts[]> {
         const results = await WKApp.apiClient.get(`friend/sync`, {
-            param: { version: version,"api_version":"1" },
+            param: { version: version, "api_version": "1" },
         })
         const contactsList = new Array<Contacts>()
         if (results) {
@@ -254,8 +275,8 @@ export class CommonDataSource implements ICommonDataSource {
     imConnectAddr(): Promise<string> {
         return WKApp.apiClient.get(`users/${WKApp.loginInfo.uid}/im`).then((resp) => {
             let addr = resp.wss_addr
-            if(!addr || addr==='') {
-                addr =  resp.ws_addr
+            if (!addr || addr === '') {
+                addr = resp.ws_addr
             }
             return addr
         });
@@ -263,8 +284,8 @@ export class CommonDataSource implements ICommonDataSource {
     imConnectAddrs(): Promise<string[]> {
         return WKApp.apiClient.get(`users/${WKApp.loginInfo.uid}/im`).then((resp) => {
             let addr = resp.wss_addr
-            if(!addr || addr==='') {
-                addr =  resp.ws_addr
+            if (!addr || addr === '') {
+                addr = resp.ws_addr
             }
             return [addr]
         });
@@ -290,7 +311,7 @@ export class CommonDataSource implements ICommonDataSource {
         let resp = await WKApp.apiClient.get('friend/sync', {
             param: {
                 "keyword": keyword,
-                "api_version":"1"
+                "api_version": "1"
             }
         })
         const channelInfos = [];

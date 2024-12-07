@@ -10,7 +10,7 @@ export interface ListItemProps {
     onClick: () => void
 }
 
-export class ListItem extends Component<ListItemProps>{
+export class ListItem extends Component<ListItemProps> {
 
     render() {
         const { style, title, subTitle, onClick } = this.props
@@ -32,7 +32,7 @@ export class ListItem extends Component<ListItemProps>{
     }
 }
 
-export class ListItemMuliteLine extends Component<ListItemProps>{
+export class ListItemMuliteLine extends Component<ListItemProps> {
 
     hasSubtitle() {
         const { subTitle } = this.props
@@ -64,11 +64,11 @@ export class ListItemMuliteLine extends Component<ListItemProps>{
 
 export interface ListItemSwitchProps extends ListItemProps {
     checked?: boolean
-    onCheck?: (v: boolean,ctx?:ListItemSwitchContext) => void
+    onCheck?: (v: boolean, ctx?: ListItemSwitchContext) => void
 }
 
 export interface ListItemSwitchState {
-    loading:boolean
+    loading: boolean
 }
 
 export interface ListItemSwitchContext {
@@ -97,7 +97,7 @@ export class ListItemSwitch extends Component<ListItemSwitchProps, ListItemSwitc
         const { loading } = this.state
         return <div className="wk-list-item wk-list-item-ripple" style={style} onClick={() => {
             if (onCheck) {
-                onCheck(!checked,this)
+                onCheck(!checked, this)
             }
         }}>
             <div className="wk-list-item-title">
@@ -157,7 +157,7 @@ export class ListItemButton extends Component<ListItemButtonProps> {
 }
 
 export interface ListItemTipProps extends ListItemProps {
-    tip:string | React.ReactNode
+    tip: string | React.ReactNode
 }
 export class ListItemTip extends Component<ListItemTipProps> {
 

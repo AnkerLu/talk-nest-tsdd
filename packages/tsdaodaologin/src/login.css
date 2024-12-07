@@ -20,8 +20,10 @@
 }
 
 .wk-login-content {
-  display: table-cell;
+  display: flex;
   position: relative;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .wk-login-content-header {
@@ -52,13 +54,13 @@
   font-weight: bold;
   text-align: center;
   text-shadow: 0 0 10px rgba(var(--wk-color-primary-rgb), 0.3),
-               0 0 20px rgba(var(--wk-color-primary-rgb), 0.3),
-               0 0 30px rgba(var(--wk-color-primary-rgb), 0.3);
+    0 0 20px rgba(var(--wk-color-primary-rgb), 0.3),
+    0 0 30px rgba(var(--wk-color-primary-rgb), 0.3);
   background: linear-gradient(
     120deg,
-    #4a90e2,  /* 亮蓝色 */
-    #63bfad,  /* 青绿色 */
-    #7c4dff   /* 紫色 */
+    #4a90e2,
+    /* 亮蓝色 */ #63bfad,
+    /* 青绿色 */ #7c4dff /* 紫色 */
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -151,8 +153,11 @@
 }
 
 .wk-login-content-phonelogin {
-  margin: 0 auto;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  flex: 1;
   width: 400px;
 }
 

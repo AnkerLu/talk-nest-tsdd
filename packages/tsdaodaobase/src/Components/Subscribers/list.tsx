@@ -165,7 +165,7 @@ export class SubscriberList extends Component<
                       this.onSearch(v.target.value, vm);
                     }}
                     placeholder={"搜索"}
-                    ref={(rf) => {}}
+                    ref={(rf) => { }}
                     type="text"
                     style={{ fontSize: "17px" }}
                   />

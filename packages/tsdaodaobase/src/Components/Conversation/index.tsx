@@ -109,6 +109,15 @@ export class Conversation
   revokeMessage(message: Message): Promise<void> {
     return this.vm.revokeMessage(message);
   }
+  pinnedMessage(message: Message): Promise<void> {
+    return this.vm.pinnedMessage(message);
+  }
+  clearPinnedMessage(message: Message): Promise<void> {
+    return this.vm.clearPinnedMessage(message);
+  }
+  syncPinnedMessage(message: Message, version: number): Promise<void> {
+    return this.vm.syncPinnedMessage(message, version);
+  }
   onTapAvatar(uid: string, event: React.MouseEvent<Element, MouseEvent>): void {
     this.vm.selectUID = uid;
     this.avatarMenusContext.show(event);

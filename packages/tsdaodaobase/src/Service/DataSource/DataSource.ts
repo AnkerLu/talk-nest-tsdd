@@ -208,7 +208,6 @@ export class ChannelField {
 }
 
 export interface IChannelDataSource {
-
     /**
      * 修改频道属性
      * @param channel 
@@ -325,6 +324,9 @@ export interface IChannelDataSource {
     
     // 获取成员禁言状态
     getSubscriberMuteInfo(): Promise<void>;
+
+    // 清除置顶消息
+    clearPinnedMessage(channel: Channel): Promise<void>;
 }
 
 export class ChannelQrcodeResp implements APIResp {

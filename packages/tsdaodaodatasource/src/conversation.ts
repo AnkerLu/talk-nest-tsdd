@@ -28,11 +28,43 @@ export class ConversationProvider implements IConversationProvider {
             data: params
         })
     }
+
+    // 撤回消息
     revokeMessage(message: Message): Promise<void> {
         return WKApp.apiClient.post(`message/revoke?channel_id=${message.channel.channelID}&channel_type=${message.channel.channelType}&message_id=${message.messageID}&client_msg_no=${message.clientMsgNo}`)
     }
 
+    // 置顶消息
+    pinnedMessage(message:Message):Promise<void> {
+        const params = {
+            "channel_id": message.channel.channelID,
+            "channel_type": message.channel.channelType,
+            "message_id": message.messageID,
+            "message_seq": message.messageSeq
+        }
+        return WKApp.apiClient.post(`message/pinned`, params)
+    }
 
+    // 清除置顶消息
+    clearPinnedMessage(message:Message):Promise<void> {
+        const params = {
+            "channel_id": message.channel.channelID,
+            "channel_type": message.channel.channelType
+        }
+        return WKApp.apiClient.post(`message/pinned/clear`, params)
+    }
+
+    // 同步置顶消息
+    syncPinnedMessage(message:Message,version:number):Promise<void> {
+        const params = {
+            "channel_id": message.channel.channelID,
+            "channel_type": message.channel.channelType,
+            "version": version
+        }
+        return WKApp.apiClient.post(`message/pinned/sync`, params)
+    }
+
+    // 标记未读
     markConversationUnread(channel: Channel, unread: number): Promise<void> {
         return WKApp.apiClient.put('coversation/clearUnread', { "channel_id": channel.channelID, "channel_type": channel.channelType, "unread": unread > 0 ? unread : 0 }).catch(function (error) {
             console.log(error);

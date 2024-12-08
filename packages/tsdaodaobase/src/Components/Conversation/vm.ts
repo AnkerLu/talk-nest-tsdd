@@ -16,7 +16,6 @@ import { ProhibitwordsService } from "../../Service/ProhibitwordsService";
 import { SuperGroup } from "../../Utils/const";
 
 export default class ConversationVM extends ProviderListener {
-
     loading: boolean = false // 消息是否加载中
     channel: Channel
     channelInfo?: ChannelInfo // 当前会话的频道详情
@@ -185,6 +184,21 @@ export default class ConversationVM extends ProviderListener {
 
     }
 
+    // 置顶消息
+    async pinnedMessage(message: Message): Promise<void> {
+        return WKApp.conversationProvider.pinnedMessage(message)
+    }
+
+    // 清除置顶消息
+    async clearPinnedMessage(message: Message): Promise<void> {
+        return WKApp.conversationProvider.clearPinnedMessage(message)
+    }
+
+    // 同步置顶消息
+    async syncPinnedMessage(message: Message, version: number): Promise<void> {
+        return WKApp.conversationProvider.syncPinnedMessage(message, version)
+    }
+
     // 仅仅删除本地消息
     async deleteMessagesFromLocal(deletedMessages: Message[]): Promise<void> {
 
@@ -290,7 +304,11 @@ export default class ConversationVM extends ProviderListener {
                         this.updateMessageByMessageExtras(messageExtras)
                     })
                 }
-
+            } else if (cmdContent.cmd === 'syncPinnedMessage') { // 新增置顶消息同步
+                if (message.channel.isEqual(this.channel)) {
+                    const version = param?.version || 0
+                    this.syncPinnedMessage(message, version)
+                }
             }
         }
         WKSDK.shared().chatManager.addCMDListener(this.cmdListener)
@@ -310,18 +328,11 @@ export default class ConversationVM extends ProviderListener {
         }, {})
 
         if (this.channel.channelType === ChannelTypeGroup) {
-
             // 加载频道信息
             this.channelInfo = WKSDK.shared().channelManager.getChannelInfo(this.channel)
             if (this.channelInfo) {
                 this.loadChannelInfoFinished()
-            } else {
-                WKSDK.shared().channelManager.fetchChannelInfo(this.channel).then(() => {
-                    this.channelInfo = WKSDK.shared().channelManager.getChannelInfo(this.channel)
-                    this.loadChannelInfoFinished()
-                })
             }
-
         }
 
         // 输入中监听
@@ -385,8 +396,8 @@ export default class ConversationVM extends ProviderListener {
     }
 
     // 加载频道信息完成
-   async loadChannelInfoFinished() {
-        if(this.channel.channelType !== ChannelTypeGroup) {
+    async loadChannelInfoFinished() {
+        if (this.channel.channelType !== ChannelTypeGroup) {
             return
         }
         this.reloadSubscribers()
@@ -397,25 +408,29 @@ export default class ConversationVM extends ProviderListener {
             this.reloadSubscribers()
         })
 
-        if(this.channelInfo?.orgData?.group_type == SuperGroup) { 
+        if (this.channelInfo?.orgData?.group_type == SuperGroup) {
             // 如果是超级群则只获取第一页成员
-          this.subscribers = await this.getFirstPageMembers()
-          WKSDK.shared().channelManager.subscribeCacheMap.set(this.channel.getChannelKey(), this.subscribers)
-          WKSDK.shared().channelManager.notifySubscribeChangeListeners(this.channel)
-          this.notifyListener()
-        }else {
+            this.subscribers = await this.getFirstPageMembers()
+            WKSDK.shared().channelManager.subscribeCacheMap.set(this.channel.getChannelKey(), this.subscribers)
+            WKSDK.shared().channelManager.notifySubscribeChangeListeners(this.channel)
+            this.notifyListener()
+        } else {
             WKSDK.shared().channelManager.syncSubscribes(this.channel)
         }
 
-       
+        // 同步置顶消息
+        const conversation = WKSDK.shared().conversationManager.findConversation(this.channel)
+        if (conversation?.lastMessage) {
+            this.syncPinnedMessage(conversation.lastMessage, 0)
+        }
     }
 
     // 获取第一页成员列表（超大群）
     getFirstPageMembers() {
-      return WKApp.dataSource.channelDataSource.subscribers(this.channel,{
-              limit: 100,
-              page: 1
-         })
+        return WKApp.dataSource.channelDataSource.subscribers(this.channel, {
+            limit: 100,
+            page: 1
+        })
     }
 
     // 标记提醒已完成
@@ -455,7 +470,7 @@ export default class ConversationVM extends ProviderListener {
 
     }
 
-    // 获取“输入中”这条消息
+    // 获取"输入中"这条消息
     getTypingMessage(): MessageWrap | undefined {
         const typingMessage = TypingManager.shared.getFakeTypingMessage(this.channel)
         if (typingMessage) {
@@ -468,7 +483,7 @@ export default class ConversationVM extends ProviderListener {
         return
     }
 
-    // 是否有“输入中”的消息
+    // 是否有"输入中"的消息
     hasTyingMessage() {
         if (this.messagesOfOrigin.length === 0) {
             return false
@@ -481,7 +496,7 @@ export default class ConversationVM extends ProviderListener {
         }
         return false
     }
-    // 移除“输入中”这条消息
+    // 移除"输入中"这条消息
     removeTypingMessage(notify: boolean = true) {
         const newMessages = new Array()
         for (let i = 0; i < this.messagesOfOrigin.length; i++) {
@@ -494,7 +509,7 @@ export default class ConversationVM extends ProviderListener {
         this.refreshMessages(newMessages)
     }
 
-    // 添加“输入中”这条消息
+    // 添加"输入中"这条消息
     addTypingMessage(notify: boolean = true) {
         const typingMessage = this.getTypingMessage()
         if (!this.hasTyingMessage() && typingMessage) {

@@ -3,7 +3,6 @@ import APIClient from "@tsdaodao/base/src/Service/APIClient";
 import { Channel, ChannelInfo, ChannelTypeGroup, ChannelTypePerson, WKSDK, Message, MessageContentType, ConversationExtra, Subscriber } from "wukongimjssdk";
 
 export class ChannelDataSource implements IChannelDataSource {
-
     async exitChannel(channel: Channel): Promise<void> {
         if (channel.channelType === ChannelTypePerson) {
             return
@@ -160,6 +159,7 @@ export class ChannelDataSource implements IChannelDataSource {
         });
     }
 
+    // 获取禁言时长列表
     async getSubscriberMuteInfo(): Promise<void> {
         // 返回值
         // [
@@ -169,6 +169,14 @@ export class ChannelDataSource implements IChannelDataSource {
         //     }
         // ]
         return WKApp.apiClient.get("/group/forbiden_times");
+    }
+
+    // 清除置顶消息
+    async clearPinnedMessage(channel: Channel): Promise<void> {
+        return WKApp.apiClient.post("/message/pinned/clear", {
+            channel_id: channel.channelID,
+            channel_type: channel.channelType
+        })
     }
 }
 

@@ -40,6 +40,25 @@ export default interface ConversationContext {
       * @param message 
       */
      revokeMessage(message:Message) :Promise<void>
+
+     /**
+      * 置顶消息
+      * @param message 
+      */
+     pinnedMessage(message:Message):Promise<void>
+
+     /**
+      * 清除置顶消息
+      * @param message 
+      */
+     clearPinnedMessage(message:Message):Promise<void>
+
+     /**
+      * 同步置顶消息
+      * @param message 
+      * @param version 
+      */
+     syncPinnedMessage(message:Message,version:number):Promise<void>
  
      /**
       * 点击头像

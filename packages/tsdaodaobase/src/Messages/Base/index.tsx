@@ -140,6 +140,22 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
     const { message } = this.props;
     this.conversationProvider.revokeMessage(message.message);
   }
+
+  onPinnedMessage() {
+    const { context, message } = this.props;
+    context.pinnedMessage(message.message);
+  }
+
+  onClearPinnedMessage() {
+    const { context, message } = this.props;
+    context.clearPinnedMessage(message.message);
+  }
+
+  onSyncPinnedMessage() {
+    const { context, message } = this.props;
+    context.syncPinnedMessage(message.message, 1);
+  }
+
   onMultiple() {
     const { context } = this.props;
     context.setEditOn(true);

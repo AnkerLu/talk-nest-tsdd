@@ -31,6 +31,11 @@ export class ChannelSettingManager {
         return this._onSetting({ "receipt": v ? 1 : 0 }, channel)
     }
 
+    // 允许群成员查看历史消息
+    allowViewHistoryMsg(v: boolean, channel: Channel): Promise<void> {
+        return this._onSetting({ "allow_view_history_msg": v ? 1 : 0 }, channel)
+    }
+
     // 频道禁言
     forbidden(v: boolean, channel: Channel): Promise<void> {
         return this._onSetting({ "forbidden": v ? 1 : 0 }, channel)
@@ -39,6 +44,11 @@ export class ChannelSettingManager {
     // 禁止互加好友
     forbiddenAddFriend(v: boolean, channel: Channel): Promise<void> {
         return this._onSetting({ "forbidden_add_friend": v ? 1 : 0 }, channel)
+    }
+
+    // 允许群成员置顶消息
+    allowTopMessage(v: boolean, channel: Channel): Promise<void> {
+        return this._onSetting({ "allow_member_pinned_message": v ? 1 : 0 }, channel)
     }
 
     // 设置管理员
@@ -64,6 +74,11 @@ export class ChannelSettingManager {
     // 获取成员禁言状态
     getSubscriberMuteInfo(): Promise<void> {
         return this._onGetSubscriberMuteInfo()
+    }
+
+    // 清除置顶消息
+    clearPinnedMessage(channel: Channel): Promise<void> {
+        return this._onClearPinnedMessage(channel)
     }
 
     _onSetting(setting: any, channel: Channel): Promise<void> {
@@ -98,6 +113,12 @@ export class ChannelSettingManager {
 
     _onGetSubscriberMuteInfo(): Promise<void> {
         return WKApp.dataSource.channelDataSource.getSubscriberMuteInfo().catch((err) => {
+            Toast.error(err.msg)
+        })
+    }
+
+    _onClearPinnedMessage(channel: Channel): Promise<void> {
+        return WKApp.dataSource.channelDataSource.clearPinnedMessage(channel).catch((err) => {
             Toast.error(err.msg)
         })
     }

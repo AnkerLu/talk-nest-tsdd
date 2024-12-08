@@ -81,6 +81,8 @@ import ImageToolbar from "./Components/ImageToolbar";
 import { ProhibitwordsService } from "./Service/ProhibitwordsService";
 import { SubscriberList } from "./Components/Subscribers/list";
 import { Modal } from "@douyinfe/semi-ui";
+import { IconButton } from "@douyinfe/semi-ui";
+import { IconClose } from "@douyinfe/semi-icons";
 
 export default class BaseModule implements IModule {
   messageTone?: Howl;
@@ -626,10 +628,11 @@ export default class BaseModule implements IModule {
       },
       3000
     );
+
+    // 撤回消息
     WKApp.endpoints.registerMessageContextMenus(
       "contextmenus.revoke",
       (message, context) => {
-        console.warn("🚀 ~ BaseModule ~ registerMessageContextMenus ~ message.messageID:", message.messageID)
         if (message.messageID == "") {
           return null;
         }
@@ -668,7 +671,64 @@ export default class BaseModule implements IModule {
       },
       4000
     );
+
+    // 置顶消息
+    WKApp.endpoints.registerMessageContextMenus(
+      "contextmenus.pinned",
+      (message, context) => {
+        // 空消息ID或系统消息不能置顶
+        if (message.messageID === "" || WKSDK.shared().isSystemMessage(message.contentType)) {
+          return null;
+        }
+
+        // 检查权限 - 群主/管理员或自己的消息可以置顶
+        let canPin = false;
+        let isSelf = message.fromUID === WKApp.loginInfo.uid
+        if (message.channel.channelType === ChannelTypeGroup) {
+          const sub = WKSDK.shared().channelManager.getSubscribeOfMe(message.channel);
+          const channelInfo = WKSDK.shared().channelManager.getChannelInfo(message.channel);
+          const allowMemberPinnedMessage = channelInfo?.orgData.allow_member_pinned_message;
+          if ((allowMemberPinnedMessage && isSelf) || sub?.role === GroupRole.manager || sub?.role === GroupRole.owner) {
+            canPin = true;
+          }
+        }
+
+        if (!canPin) {
+          return null;
+        }
+
+        return {
+          title: "置顶消息",
+          onClick: async () => {
+            try {
+              await context.pinnedMessage(
+                message
+              );
+              Toast.success("消息已置顶");
+            } catch (err: any) {
+              Toast.error(err.msg || "置顶失败");
+            }
+          },
+        };
+      },
+      5000
+    );
+
+    // // 清除置顶消息
+    // WKApp.endpoints.registerMessageContextMenus(
+    //   "contextmenus.clearPinned",
+    //   (message, context) => {
+    //     return {
+    //       title: "清除置顶",
+    //       onClick: () => {
+    //         context.clearPinnedMessage(message);
+    //       },
+    //     };
+    //   },
+    //   6000
+    // );
   }
+
 
   registerUserInfo() {
     WKApp.shared.userInfoRegister(
@@ -1570,6 +1630,18 @@ export default class BaseModule implements IModule {
 
       rows.push(
         new Row({
+          cell: ListItem,
+          properties: {
+            title: "清除置顶消息",
+            onClick: () => {
+              ChannelSettingManager.shared.clearPinnedMessage(channel);
+            }
+          },
+        })
+      )
+
+      rows.push(
+        new Row({
           cell: ListItemSwitch,
           properties: {
             title: "全员禁言",
@@ -1638,12 +1710,12 @@ export default class BaseModule implements IModule {
         new Row({
           cell: ListItemSwitch,
           properties: {
-            title: "禁止新成员查看历史消息",
-            checked: channelInfo?.orgData.receipt === 1,
+            title: "允许新成员查看历史消息",
+            checked: channelInfo?.orgData.allow_view_history_msg === 1,
             onCheck: (v: boolean, ctx: ListItemSwitchContext) => {
               ctx.loading = true;
               ChannelSettingManager.shared
-                .receipt(v, channel)
+                .allowViewHistoryMsg(v, channel)
                 .then(() => {
                   ctx.loading = false;
                   data.refresh();
@@ -1654,6 +1726,25 @@ export default class BaseModule implements IModule {
             },
           },
         })
+      );
+
+      rows.push(
+        new Row({
+          cell: ListItemSwitch,
+          properties: {
+            title: "允许成员置顶消息",
+            checked: channelInfo?.orgData.allow_member_pinned_message === 1,
+            onCheck: (v: boolean, ctx: ListItemSwitchContext) => {
+              ctx.loading = true;
+              ChannelSettingManager.shared.allowTopMessage(v, channel).then(() => {
+                ctx.loading = false;
+                data.refresh();
+              }).catch(() => {
+                ctx.loading = false;
+              });
+            },
+          },
+        }),
       );
 
       return new Section({

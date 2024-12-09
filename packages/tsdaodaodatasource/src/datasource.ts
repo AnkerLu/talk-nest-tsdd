@@ -70,7 +70,11 @@ export class ChannelDataSource implements IChannelDataSource {
             members: uids,
         })
     }
-
+    inviteSubscribers(channel: Channel, uids: string[]): Promise<void> {
+        return WKApp.apiClient.post(`groups/${channel.channelID}/members/invite`, {
+            members: uids,
+        })
+    }
     async subscribers(channel: Channel, req: {
         keyword?: string, // 搜索关键字
         limit?: number, // 每页数量

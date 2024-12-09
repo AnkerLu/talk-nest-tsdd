@@ -34,7 +34,10 @@ import { Card, CardCell } from "./Messages/Card";
 import { GifCell, GifContent } from "./Messages/Gif";
 import { HistorySplitCell, HistorySplitContent } from "./Messages/HistorySplit";
 import { ImageCell, ImageContent } from "./Messages/Image";
-import { JoinOrganizationCell, JoinOrganizationContent } from "./Messages/JoinOrganization";
+import {
+  JoinOrganizationCell,
+  JoinOrganizationContent,
+} from "./Messages/JoinOrganization";
 import {
   SignalMessageCell,
   SignalMessageContent,
@@ -83,18 +86,19 @@ import { SubscriberList } from "./Components/Subscribers/list";
 import { Modal } from "@douyinfe/semi-ui";
 import { IconButton } from "@douyinfe/semi-ui";
 import { IconClose } from "@douyinfe/semi-icons";
+import Sections from "./Components/Sections";
+import { GroupManagement } from "./Components/GroupManagement";
 
 export default class BaseModule implements IModule {
   messageTone?: Howl;
 
-  messageNotification?: Notification //  消息通知
-  messageNotificationTimeoutId?: number
+  messageNotification?: Notification; //  消息通知
+  messageNotificationTimeoutId?: number;
 
   id(): string {
     return "base";
   }
   init(): void {
-
     APIClient.shared.logoutCallback = () => {
       WKApp.shared.logout();
     };
@@ -235,7 +239,9 @@ export default class BaseModule implements IModule {
         );
       } else if (cmdContent.cmd === "groupAvatarUpdate") {
         // 改变群头像缓存
-        WKApp.shared.changeChannelAvatarTag(new Channel(param.group_no, ChannelTypeGroup));
+        WKApp.shared.changeChannelAvatarTag(
+          new Channel(param.group_no, ChannelTypeGroup)
+        );
         // 通过触发channelInfoListener来更新UI
         WKSDK.shared().channelManager.fetchChannelInfo(
           new Channel(param.group_no, ChannelTypeGroup)
@@ -349,8 +355,11 @@ export default class BaseModule implements IModule {
             ConversationAction.update
           );
         }
-      } else if (cmdContent.cmd === "userAvatarUpdate") { // 用户头像更新
-        WKApp.shared.changeChannelAvatarTag(new Channel(param.uid, ChannelTypePerson));
+      } else if (cmdContent.cmd === "userAvatarUpdate") {
+        // 用户头像更新
+        WKApp.shared.changeChannelAvatarTag(
+          new Channel(param.uid, ChannelTypePerson)
+        );
         WKApp.dataSource.notifyContactsChange();
       }
     });
@@ -456,12 +465,11 @@ export default class BaseModule implements IModule {
       return;
     }
     if (window.Notification && Notification.permission !== "denied") {
-
       if (this.messageNotification) {
         if (this.messageNotificationTimeoutId) {
-          clearTimeout(this.messageNotificationTimeoutId)
+          clearTimeout(this.messageNotificationTimeoutId);
         }
-        this.messageNotification.close()
+        this.messageNotification.close();
       }
 
       this.messageNotification = new Notification(
@@ -475,7 +483,6 @@ export default class BaseModule implements IModule {
         }
       );
 
-
       this.messageNotification.onclick = () => {
         this.messageNotification?.close();
         window.focus();
@@ -488,7 +495,7 @@ export default class BaseModule implements IModule {
         console.log("通知关闭");
       };
       // 5秒后关闭消息框
-      const self = this
+      const self = this;
       this.messageNotificationTimeoutId = window.setTimeout(function () {
         self.messageNotification?.close();
       }, 5000);
@@ -526,7 +533,7 @@ export default class BaseModule implements IModule {
           icon={require("./assets/toolbars/func_screenshot.svg").default}
           onClick={() => {
             if ((window as any).__POWERED_ELECTRON__) {
-              (window as any).ipc.send('screenshots-start', {})
+              (window as any).ipc.send("screenshots-start", {});
             } else {
               window.open("https://www.snipaste.com");
             }
@@ -549,10 +556,11 @@ export default class BaseModule implements IModule {
       const isDark = WKApp.config.themeMode === ThemeMode.dark;
       return {
         title: "发起群聊",
-        icon: require(`${isDark
-          ? "./assets/popmenus_startchat_dark.png"
-          : "./assets/popmenus_startchat.png"
-          }`),
+        icon: require(`${
+          isDark
+            ? "./assets/popmenus_startchat_dark.png"
+            : "./assets/popmenus_startchat.png"
+        }`),
         onClick: () => {
           const channel: any = {
             channelID: "",
@@ -677,18 +685,30 @@ export default class BaseModule implements IModule {
       "contextmenus.pinned",
       (message, context) => {
         // 空消息ID或系统消息不能置顶
-        if (message.messageID === "" || WKSDK.shared().isSystemMessage(message.contentType)) {
+        if (
+          message.messageID === "" ||
+          WKSDK.shared().isSystemMessage(message.contentType)
+        ) {
           return null;
         }
 
         // 检查权限 - 群主/管理员或自己的消息可以置顶
         let canPin = false;
-        let isSelf = message.fromUID === WKApp.loginInfo.uid
+        let isSelf = message.fromUID === WKApp.loginInfo.uid;
         if (message.channel.channelType === ChannelTypeGroup) {
-          const sub = WKSDK.shared().channelManager.getSubscribeOfMe(message.channel);
-          const channelInfo = WKSDK.shared().channelManager.getChannelInfo(message.channel);
-          const allowMemberPinnedMessage = channelInfo?.orgData.allow_member_pinned_message;
-          if ((allowMemberPinnedMessage && isSelf) || sub?.role === GroupRole.manager || sub?.role === GroupRole.owner) {
+          const sub = WKSDK.shared().channelManager.getSubscribeOfMe(
+            message.channel
+          );
+          const channelInfo = WKSDK.shared().channelManager.getChannelInfo(
+            message.channel
+          );
+          const allowMemberPinnedMessage =
+            channelInfo?.orgData.allow_member_pinned_message;
+          if (
+            (allowMemberPinnedMessage && isSelf) ||
+            sub?.role === GroupRole.manager ||
+            sub?.role === GroupRole.owner
+          ) {
             canPin = true;
           }
         }
@@ -701,9 +721,7 @@ export default class BaseModule implements IModule {
           title: "置顶消息",
           onClick: async () => {
             try {
-              await context.pinnedMessage(
-                message
-              );
+              await context.pinnedMessage(message);
               Toast.success("消息已置顶");
             } catch (err: any) {
               Toast.error(err.msg || "置顶失败");
@@ -728,7 +746,6 @@ export default class BaseModule implements IModule {
     //   6000
     // );
   }
-
 
   registerUserInfo() {
     WKApp.shared.userInfoRegister(
@@ -1114,25 +1131,26 @@ export default class BaseModule implements IModule {
                       removeFinishButtonContext.disable(items.length === 0);
                     }}
                     canSelect={true}
-
                   ></SubscriberList>,
                   {
                     title: "删除群成员",
                     showFinishButton: true,
                     onFinish: async () => {
                       removeFinishButtonContext.loading(true);
-                      WKApp.dataSource.channelDataSource.removeSubscribers(
-                        channel,
-                        removeSelectItems.map((item) => {
-                          return item.uid;
+                      WKApp.dataSource.channelDataSource
+                        .removeSubscribers(
+                          channel,
+                          removeSelectItems.map((item) => {
+                            return item.uid;
+                          })
+                        )
+                        .then(() => {
+                          removeFinishButtonContext.loading(false);
+                          context.pop();
                         })
-                      ).then(() => {
-                        removeFinishButtonContext.loading(false);
-                        context.pop();
-                      }).catch((err) => {
-                        Toast.error(err.msg);
-                      });
-
+                        .catch((err) => {
+                          Toast.error(err.msg);
+                        });
                     },
                     onFinishContext: (context) => {
                       removeFinishButtonContext = context;
@@ -1295,6 +1313,25 @@ export default class BaseModule implements IModule {
                 ctx.loading = true;
                 ChannelSettingManager.shared
                   .mute(v, channel)
+                  .then(() => {
+                    ctx.loading = false;
+                    data.refresh();
+                  })
+                  .catch(() => {
+                    ctx.loading = false;
+                  });
+              },
+            },
+          }),
+          new Row({
+            cell: ListItemSwitch,
+            properties: {
+              title: "全员禁言",
+              checked: channelInfo?.orgData.forbidden === 1,
+              onCheck: (v: boolean, ctx: ListItemSwitchContext) => {
+                ctx.loading = true;
+                ChannelSettingManager.shared
+                  .forbidden(v, channel)
                   .then(() => {
                     ctx.loading = false;
                     data.refresh();
@@ -1509,302 +1546,51 @@ export default class BaseModule implements IModule {
       90000
     );
 
-    WKApp.shared.channelSettingRegister("channel.manager.setting", (context) => {
-      const data = context.routeData() as ChannelSettingRouteData;
-      const channel = data.channel;
-      const channelInfo = data.channelInfo;
-      const subscribers = data.subscribers;
-      console.warn("🚀 ~ BaseModule ~ WKApp.shared.channelSettingRegister ~ subscribers:", subscribers)
+    WKApp.shared.channelSettingRegister(
+      "channel.channel.manager",
+      (context) => {
+        const data = context.routeData() as ChannelSettingRouteData;
+        const channel = data.channel;
+        const channelInfo = data.channelInfo;
+        const subscribers = data.subscribers;
 
-      // 只在群聊中显示且只有群主可见
-      if (channel.channelType !== ChannelTypeGroup || !data.isManagerOrCreatorOfMe) {
-        return undefined;
-      }
+        if (
+          channel.channelType !== ChannelTypeGroup ||
+          !data.isManagerOrCreatorOfMe
+        ) {
+          return undefined;
+        }
 
-      let selectFinishButtonContext: FinishButtonContext;
-      let selectedItems: Subscriber[];
-
-      const rows: Row[] = [
-        new Row({
-          cell: ListItem,
-          properties: {
-            title: "添加管理员",
-            onClick: () => {
-              const disableSelectList = subscribers.filter(item => item.role === GroupRole.manager || item.role === GroupRole.owner).map(item => item.uid);
-              context.push(
-                <SubscriberList
-                  channel={channel}
-                  disableSelectList={disableSelectList}
-                  onSelect={(items) => {
-                    selectedItems = items;
-                    selectFinishButtonContext.disable(items.length === 0);
-                  }}
-                  canSelect={true}
-                />,
-                {
-                  title: "添加管理员",
-                  showFinishButton: true,
-                  onFinish: async () => {
-                    selectFinishButtonContext.loading(true);
-                    try {
-                      // 设置选中成员为管理员
-                      await ChannelSettingManager.shared.addManager(
-                        selectedItems.map(item => item.uid),
-                        channel
-                      );
-                      data.refresh();
-                      Toast.success("添加群管理员成功");
-                      context.pop();
-                    } catch (err: any) {
-                      Toast.error(err.msg || "添加群管理员失败");
+        return new Section({
+          rows: [
+            new Row({
+              cell: ListItem,
+              properties: {
+                title: "群管理",
+                onClick: () => {
+                  console.warn(
+                    "🚀 ~ BaseModule ~ registerChannelSettings ~ context:",
+                    channelInfo
+                  );
+                  context.push(
+                    <GroupManagement
+                      context={context}
+                      data={data}
+                      channel={channel}
+                      channelInfo={channelInfo}
+                      subscribers={subscribers}
+                    />,
+                    {
+                      title: "群管理",
                     }
-                    selectFinishButtonContext.loading(false);
-                  },
-                  onFinishContext: (context) => {
-                    selectFinishButtonContext = context;
-                    selectFinishButtonContext.disable(true);
-                  }
-                }
-              );
-            }
-          }
-        }),
-        new Row({
-          cell: ListItem,
-          properties: {
-            title: "删除管理员",
-            onClick: () => {
-              const disableSelectList = subscribers.filter(item => item.role === GroupRole.owner).map(item => item.uid);
-              context.push(
-                <SubscriberList
-                  channel={channel}
-                  disableSelectList={disableSelectList}
-                  onSelect={(items) => {
-                    selectedItems = items;
-                    selectFinishButtonContext.disable(items.length === 0);
-                  }}
-                  canSelect={true}
-                />,
-                {
-                  title: "删除管理员",
-                  showFinishButton: true,
-                  onFinish: async () => {
-                    selectFinishButtonContext.loading(true);
-                    try {
-                      await ChannelSettingManager.shared.removeManager(
-                        selectedItems.map(item => item.uid),
-                        channel
-                      );
-                      data.refresh();
-                      Toast.success("删除群管理员成功");
-                      context.pop();
-                    } catch (err: any) {
-                      Toast.error(err.msg || "删除群管理员失败");
-                    }
-                    selectFinishButtonContext.loading(false);
-                  },
-                  onFinishContext: (context) => {
-                    selectFinishButtonContext = context;
-                    selectFinishButtonContext.disable(true);
-                  }
-                }
-              );
-            }
-          }
-        }),
-        new Row({
-          cell: ListItem,
-          properties: {
-            title: "管理员列表",
-            onClick: () => {
-              context.push(
-                <SubscriberList
-                  channel={channel}
-                />,
-                { title: "管理员列表" }
-              );
-            }
-          }
-        })
-      ];
-
-      rows.push(
-        new Row({
-          cell: ListItem,
-          properties: {
-            title: "清除置顶消息",
-            onClick: () => {
-              ChannelSettingManager.shared.clearPinnedMessage(channel);
-            }
-          },
-        })
-      )
-
-      rows.push(
-        new Row({
-          cell: ListItemSwitch,
-          properties: {
-            title: "全员禁言",
-            checked: channelInfo?.orgData.forbidden === 1,
-            onCheck: (v: boolean, ctx: ListItemSwitchContext) => {
-              ctx.loading = true;
-              ChannelSettingManager.shared
-                .forbidden(v, channel)
-                .then(() => {
-                  ctx.loading = false;
-                  data.refresh();
-                })
-                .catch(() => {
-                  ctx.loading = false;
-                });
-            },
-          },
-        })
-      );
-
-      rows.push(
-        new Row({
-          cell: ListItemSwitch,
-          properties: {
-            title: "禁止群内互加好友",
-            checked: channelInfo?.orgData.forbidden_add_friend === 1,
-            onCheck: (v: boolean, ctx: ListItemSwitchContext) => {
-              ctx.loading = true;
-              ChannelSettingManager.shared
-                .forbiddenAddFriend(v, channel)
-                .then(() => {
-                  ctx.loading = false;
-                  data.refresh();
-                })
-                .catch(() => {
-                  ctx.loading = false;
-                });
-            },
-          },
-        })
-      );
-
-      rows.push(
-        new Row({
-          cell: ListItemSwitch,
-          properties: {
-            title: "邀请确认",
-            checked: channelInfo?.orgData.invite === 1,
-            onCheck: (v: boolean, ctx: ListItemSwitchContext) => {
-              ctx.loading = true;
-              ChannelSettingManager.shared
-                .invite(v, channel)
-                .then(() => {
-                  ctx.loading = false;
-                  data.refresh();
-                })
-                .catch(() => {
-                  ctx.loading = false;
-                });
-            },
-          },
-        })
-      );
-
-      rows.push(
-        new Row({
-          cell: ListItemSwitch,
-          properties: {
-            title: "允许新成员查看历史消息",
-            checked: channelInfo?.orgData.allow_view_history_msg === 1,
-            onCheck: (v: boolean, ctx: ListItemSwitchContext) => {
-              ctx.loading = true;
-              ChannelSettingManager.shared
-                .allowViewHistoryMsg(v, channel)
-                .then(() => {
-                  ctx.loading = false;
-                  data.refresh();
-                })
-                .catch(() => {
-                  ctx.loading = false;
-                });
-            },
-          },
-        })
-      );
-
-      rows.push(
-        new Row({
-          cell: ListItemSwitch,
-          properties: {
-            title: "允许成员置顶消息",
-            checked: channelInfo?.orgData.allow_member_pinned_message === 1,
-            onCheck: (v: boolean, ctx: ListItemSwitchContext) => {
-              ctx.loading = true;
-              ChannelSettingManager.shared.allowTopMessage(v, channel).then(() => {
-                ctx.loading = false;
-                data.refresh();
-              }).catch(() => {
-                ctx.loading = false;
-              });
-            },
-          },
-        }),
-      );
-
-      return new Section({
-        rows: rows
-      });
-    }, 1500);
-
-    WKApp.shared.channelSettingRegister("channel.owner.transfer", (context) => {
-      const data = context.routeData() as ChannelSettingRouteData;
-      const channel = data.channel;
-      const subscribers = data.subscribers;
-
-      // 只在群聊中显示且只有群主可见
-      if (channel.channelType !== ChannelTypeGroup || !data.isManagerOrCreatorOfMe) {
-        return undefined;
-      }
-
-      return new Section({
-        rows: [
-          new Row({
-            cell: ListItem,
-            properties: {
-              title: "群主管理权转让",
-              onClick: () => {
-                const disableSelectList = subscribers.filter(item => item.role === GroupRole.owner).map(item => item.uid);
-                context.push(
-                  <IndexTable
-                    items={subscribers.map(item => ({
-                      id: item.uid,
-                      name: item.name,
-                      avatar: item.avatar
-                    }))}
-                    disableSelectList={disableSelectList}
-                    onSelect={(items) => {
-                      Modal.confirm({
-                        title: '选择新的群主',
-                        content: `确定要将群主管理权转让给 ${items[0].name} 吗？转让后你将成为普通成员。`,
-                        onOk: async () => {
-                          try {
-                            await ChannelSettingManager.shared.transferOwner(
-                              items[0].id,
-                              channel
-                            );
-                            Toast.success("群主转让成功");
-                            data.refresh();
-                            context.pop();
-                          } catch (err: any) {
-                            Toast.error(err.msg || "群主转让失败");
-                          }
-                        }
-                      });
-                    }}
-                    canSelect={false}
-                  />
-                );
-              }
-            }
-          })
-        ]
-      });
-    }, 1200); // 优先级较高，显示在靠前位置
+                  );
+                },
+              },
+            }),
+          ],
+        });
+      },
+      1200
+    );
   }
 }

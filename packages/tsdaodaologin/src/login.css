@@ -12,7 +12,7 @@
 }
 
 .wk-login-bg {
-  background-image: url(https://images.unsplash.com/photo-1527181152855-fc03fc7949c8?auto=format&w=1000&dpr=2);
+  background-image: url(./assets/login-bg.png);
   background-size: cover;
   -webkit-background-position: center;
   background-position: center;

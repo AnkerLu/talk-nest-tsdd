@@ -22,6 +22,10 @@ export class ChannelSettingManager {
         return this._onSetting({ "save": v ? 1 : 0 }, channel)
     }
 
+    inviteConfirm(v: boolean, channel: Channel): Promise<void> {
+        return this._onSetting({ "invite": v ? 1 : 0 }, channel)
+    }
+
     invite(v: boolean, channel: Channel): Promise<void> {
         return this._onSetting({ "invite": v ? 1 : 0 }, channel)
     }

@@ -320,7 +320,7 @@ export interface IChannelDataSource {
     conversationExtraUpdate(conversationExtra: ConversationExtra): Promise<void>
 
     // 设置成员禁言
-    muteSubscriber(channel: Channel, uid: string, action: number, key: number): Promise<void>;
+    muteSubscriber(groupNo: string, params: any): Promise<void>;
     
     // 获取成员禁言状态
     getSubscriberMuteInfo(): Promise<void>;

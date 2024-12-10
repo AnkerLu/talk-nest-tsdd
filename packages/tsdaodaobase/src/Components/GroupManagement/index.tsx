@@ -1,16 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Section, Row } from "../../Service/Section";
 import { ListItem, ListItemSwitch, ListItemSwitchContext } from "../ListItem";
 import { ChannelSettingRouteData } from "../ChannelSetting/context";
 import { Toast } from "@douyinfe/semi-ui";
 import { Modal } from "@douyinfe/semi-ui";
-import { Channel, ChannelInfo, ChannelTypeGroup, Subscriber } from "wukongimjssdk";
+import {
+  Channel,
+  ChannelInfo,
+  ChannelTypeGroup,
+  Subscriber,
+} from "wukongimjssdk";
 import { GroupRole } from "../../Service/Const";
 import { ChannelSettingManager } from "../../Service/ChannelSetting";
 import IndexTable from "../IndexTable";
 import { SubscriberList } from "../Subscribers/list";
 import RouteContext, { FinishButtonContext } from "../../Service/Context";
 import Sections from "../Sections";
+import { Select } from "@douyinfe/semi-ui";
 
 export interface GroupManagementProps {
   context: RouteContext<ChannelSettingRouteData>;
@@ -30,6 +36,7 @@ export const GroupManagement: React.FC<GroupManagementProps> = ({
   const [channel, setChannel] = useState(initialChannel);
   const [channelInfo, setChannelInfo] = useState(initialChannelInfo);
   const [subscribers, setSubscribers] = useState(initialSubscribers);
+  const selectedMuteTime = useRef(1);
 
   if (
     initialChannel.channelType !== ChannelTypeGroup ||
@@ -51,9 +58,15 @@ export const GroupManagement: React.FC<GroupManagementProps> = ({
     setChannelInfo(data.channelInfo);
     setSubscribers(data.subscribers);
 
-    console.warn("🚀 ~ GroupManagement ~ updateChannelInfo ~ channelInfo:", channelInfo)
-    console.warn("🚀 ~ GroupManagement ~ updateChannelInfo ~ subscribers:", subscribers)
-  }
+    console.warn(
+      "🚀 ~ GroupManagement ~ updateChannelInfo ~ channelInfo:",
+      channelInfo
+    );
+    console.warn(
+      "🚀 ~ GroupManagement ~ updateChannelInfo ~ subscribers:",
+      subscribers
+    );
+  };
 
   return (
     <Sections
@@ -220,9 +233,78 @@ export const GroupManagement: React.FC<GroupManagementProps> = ({
             new Row({
               cell: ListItem,
               properties: {
-                title: "群黑名单",
-                onClick: () => {
-                  ChannelSettingManager.shared.clearPinnedMessage(channel);
+                title: "禁言成员",
+                onClick: async () => {
+                  // 获取禁言时长列表
+                  const muteTimeList =
+                    (await ChannelSettingManager.shared.getSubscriberMuteInfo()) as any;
+
+                  // 选择要禁言的成员
+                  context.push(
+                    <SubscriberList
+                      channel={channel}
+                      onSelect={(items) => {
+                        selectedItems = items;
+                        selectFinishButtonContext.disable(items.length === 0);
+                      }}
+                      canSelect={true}
+                    />,
+                    {
+                      title: "选择禁言成员",
+                      showFinishButton: true,
+                      onFinish: async () => {
+                        selectFinishButtonContext.loading(true);
+                        try {
+                          // 弹出Modal选择禁言时长
+                          Modal.confirm({
+                            title: "设置禁言时长",
+                            content: (
+                              <Select
+                                defaultValue={1}
+                                onChange={(value) => selectedMuteTime.current = value as number }
+                              >
+                                {muteTimeList.map((item: any) => (
+                                  <Select.Option
+                                    key={item.key}
+                                    value={item.key}
+                                  >
+                                    {item.text}
+                                  </Select.Option>
+                                ))}
+                              </Select>
+                            ),
+                            onOk: async () => {
+                              try {
+                                // 使用 selectedMuteTime 替代 timeKey
+                                for (const member of selectedItems) {
+                                  await ChannelSettingManager.shared.muteSubscriber(
+                                    channel.channelID,
+                                    {
+                                      member_uid: member.uid,
+                                      action: 1,
+                                      key: selectedMuteTime.current,
+                                    },
+                                    channel
+                                  );
+                                }
+                                Toast.success("设置禁言成功");
+                                context.pop();
+                              } catch (err: any) {
+                                Toast.error(err.msg || "设置禁言失败");
+                              }
+                            },
+                          });
+                        } catch (err: any) {
+                          Toast.error(err.msg || "设置禁言失败");
+                        }
+                        selectFinishButtonContext.loading(false);
+                      },
+                      onFinishContext: (context) => {
+                        selectFinishButtonContext = context;
+                        selectFinishButtonContext.disable(true);
+                      },
+                    }
+                  );
                 },
               },
             }),

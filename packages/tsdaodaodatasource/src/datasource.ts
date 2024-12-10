@@ -155,12 +155,8 @@ export class ChannelDataSource implements IChannelDataSource {
     }
 
     // 禁言群成员具体到时间
-    async muteSubscriber(channel: Channel, uid: string, action: number = 0, key: number): Promise<void> {
-        return WKApp.apiClient.post(`groups/${channel.channelID}/forbidden_with_member`, {
-            member_uid: uid,
-            action: action, // 0.解禁1.禁言
-            key: key // 禁言时间 1.一分钟 2.10分钟 3.一小时 4.一天 5.一周 6.一个月
-        });
+    async muteSubscriber(groupNo: string, params: any): Promise<void> {
+        return WKApp.apiClient.post(`groups/${groupNo}/forbidden_with_member`, params);
     }
 
     // 获取禁言时长列表
@@ -172,7 +168,7 @@ export class ChannelDataSource implements IChannelDataSource {
         //         key: 1
         //     }
         // ]
-        return WKApp.apiClient.get("/group/forbiden_times");
+        return WKApp.apiClient.get("/group/forbidden_times");
     }
 
     // 清除置顶消息

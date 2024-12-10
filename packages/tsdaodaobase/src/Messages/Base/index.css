@@ -346,12 +346,15 @@ body[theme-mode="dark"] .wk-message-base-bubble-box.recv .svgAppendix .corner {
 
 .messageFail {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .messageFail img {
-  width: 20px;
-  height: 20px;
-  margin-left: 10px;
+  width: 14px;
+  height: 14px;
+  /* margin-left: 10px; */
 }
 
 .wk-message-error-reason {

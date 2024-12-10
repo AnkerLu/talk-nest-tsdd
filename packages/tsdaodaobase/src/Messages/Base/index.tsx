@@ -265,21 +265,6 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
             className={"wk-message-base-box"}
             style={{ pointerEvents: context.editOn() ? "none" : undefined }}
           >
-            {message.send && message.status === MessageStatus.Fail ? (
-              <Popconfirm
-                title="是否重新发送"
-                okText="是"
-                cancelText="否"
-                onConfirm={() => {
-                  context.resendMessage(message.message);
-                }}
-              >
-                <div className="messageFail">
-                  <img src={require("./msg_status_fail.png")} alt=""></img>
-                </div>
-              </Popconfirm>
-            ) : undefined}
-
             <div
               className="senderAvatar"
               onClick={(el) => {
@@ -295,7 +280,25 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
             <div className={this.getBubbleBoxClassName()}>
               <div className="wk-message-base-bubble-box-top">
                 <MessageHead message={message} />
-                <MessageTrail message={message} />
+                <MessageTrail message={message}>
+                  {message.send && message.status === MessageStatus.Fail ? (
+                    <Popconfirm
+                      title="是否重新发送"
+                      okText="是"
+                      cancelText="否"
+                      onConfirm={() => {
+                        context.resendMessage(message.message);
+                      }}
+                    >
+                      <div className="messageFail">
+                        <img
+                          src={require("./msg_status_fail.png")}
+                          alt=""
+                        ></img>
+                      </div>
+                    </Popconfirm>
+                  ) : undefined}
+                </MessageTrail>
               </div>
               <div
                 className="wk-message-base-bubble"

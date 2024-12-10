@@ -3,11 +3,13 @@ import moment from "moment";
 import React from "react";
 import { Component, CSSProperties } from "react";
 import { MessageWrap } from "../../Service/Model";
+import { Popconfirm } from "@douyinfe/semi-ui";
 
 interface MessageTrailProps {
   message: MessageWrap;
   timeStyle?: CSSProperties;
   statusStyle?: CSSProperties;
+  children?: React.ReactNode;
 }
 
 export default class MessageTrail extends Component<MessageTrailProps> {
@@ -36,12 +38,13 @@ export default class MessageTrail extends Component<MessageTrailProps> {
           {" "}
           {moment(message.timestamp * 1000).format("HH:mm")}
         </span>
-        {message.send ? (
+        {message.send && this.getMessageStatusIcon() ? (
           <span className="messageStatus" style={statusStyle}>
             {" "}
             {this.getMessageStatusIcon()}
           </span>
         ) : null}
+        {this.props.children}
       </span>
     );
   }

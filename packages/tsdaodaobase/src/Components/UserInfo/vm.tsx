@@ -6,12 +6,13 @@ import {
   WKSDK,
   Subscriber,
 } from "wukongimjssdk";
-import { Section } from "../../Service/Section";
+import { Row, Section } from "../../Service/Section";
 import { ProviderListener } from "../../Service/Provider";
 import WKApp from "../../App";
 import RouteContext from "../../Service/Context";
 import { GroupRole } from "../../Service/Const";
 import { Convert } from "../../Service/Convert";
+import { ListItem } from "../ListItem";
 
 export class UserInfoRouteData {
   uid!: string;
@@ -31,6 +32,7 @@ export class UserInfoVM extends ProviderListener {
   channelInfo?: ChannelInfo;
   vercode?: string;
   subscriberChangeListener?: SubscriberChangeListener;
+  private muteTimer?: ReturnType<typeof setInterval>;
 
   constructor(uid: string, fromChannel?: Channel, vercode?: string) {
     super();
@@ -71,6 +73,9 @@ export class UserInfoVM extends ProviderListener {
         this.subscriberChangeListener
       );
     }
+    if (this.muteTimer) {
+      clearInterval(this.muteTimer);
+    }
   }
 
   reloadSubscribers() {
@@ -95,6 +100,50 @@ export class UserInfoVM extends ProviderListener {
   }
 
   sections(context: RouteContext<UserInfoRouteData>) {
+    // // 1. 获取默认的sections
+    // const defaultSections = WKApp.shared.userInfos(context) || []
+    
+    // // 2. 找到想要插入的位置
+    // const insertIndex = defaultSections.findIndex(section => 
+    //   section.title === "基本信息" // 或其他你想要的位置
+    // )
+
+    // // 3. 创建新的section
+    // const newSection: Section = {
+    //   title: "自定义信息",
+    //   // 或者使用render自定义渲染
+    //   rows: [
+    //     new Row({
+    //       cell: ListItem,
+    //       properties: {
+    //         title: "自定义内容",
+    //         onClick: () => {
+    //           console.log("自定义内容");
+    //         },
+    //       },
+    //     })
+    //   ],
+    //   sortRows: [
+    //     new Row({
+    //       cell: ListItem,
+    //       properties: {
+    //         title: "自定义内容",
+    //         onClick: () => {
+    //           console.log("自定义内容");
+    //         },
+    //       },
+    //     })
+    //   ]
+    // }
+
+    // // 4. 插入新section
+    // if (insertIndex !== -1) {
+    //   defaultSections.splice(insertIndex + 1, 0, newSection)
+    // } else {
+    //   defaultSections.push(newSection)
+    // }
+
+    // return defaultSections
     context.setRouteData({
       uid: this.uid,
       channelInfo: this.channelInfo,
@@ -208,5 +257,46 @@ export class UserInfoVM extends ProviderListener {
       );
       this.notifyListener();
     }
+  }
+
+  // 获取禁言信息
+  getMuteInfo(): string {
+    if (!this.fromSubscriberOfUser?.orgData.forbidden_expir_time) {
+      return '';
+    }
+
+    const deadline = this.fromSubscriberOfUser.orgData.forbidden_expir_time * 1000;
+    if (deadline <= Date.now()) {
+      return '';
+    }
+
+    if (!this.muteTimer) {
+      this.muteTimer = setInterval(() => {
+        this.notifyListener();
+      }, 1000);
+    }
+
+    const remainTime = Math.floor((deadline - Date.now()) / 1000);
+    const days = Math.floor(remainTime / 86400);
+    const hours = Math.floor((remainTime % 86400) / 3600);
+    const minutes = Math.floor((remainTime % 3600) / 60);
+    const seconds = remainTime % 60;
+
+    let result = '禁言中（';
+    // if (days > 0) result += `${days}天`;
+    result += `${(days * 24 + hours).toString().padStart(2, '0')}:`;
+    result += `${minutes.toString().padStart(2, '0')}:`;
+    result += `${seconds.toString().padStart(2, '0')}）`;
+
+    return result;
+  }
+
+  // 判断是否被禁言
+  isMuted(): boolean {
+    if (!this.fromSubscriberOfUser?.orgData.forbidden_expir_time) {
+      return false;
+    }
+    const isMuted = this.fromSubscriberOfUser.orgData.forbidden_expir_time * 1000 > Date.now();
+    return isMuted;
   }
 }

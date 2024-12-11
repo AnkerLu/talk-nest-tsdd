@@ -12,6 +12,8 @@ import { UserInfoRouteData, UserInfoVM } from "./vm";
 import FriendApplyUI from "../FriendApply";
 import RouteContext, { FinishButtonContext } from "../../Service/Context";
 import { Image } from "@douyinfe/semi-ui";
+import { Icon } from "@douyinfe/semi-ui";
+import { IconAlertTriangle } from "@douyinfe/semi-icons";
 
 export interface UserInfoProps extends HTMLProps<any> {
   uid: string;
@@ -169,9 +171,16 @@ export default class UserInfo extends Component<UserInfoProps> {
                             </div>
                           </div>
                           <div className="wk-userinfo-sections">
-                            <Sections
-                              sections={vm.sections(context)}
-                            ></Sections>
+                            {vm.isMuted() && (
+                              <div className="wk-userinfo-mute-section">
+                                <div className="wk-userinfo-mute-section-title">群内禁言</div>
+                                <div className="wk-userinfo-mute-section-content">
+                                  {/* <Icon svg={<IconAlertTriangle />} /> */}
+                                  <span>{vm.getMuteInfo()}</span>
+                                </div>
+                              </div>
+                            )}
+                            <Sections sections={vm.sections(context)} />
                           </div>
                         </>
                       )}

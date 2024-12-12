@@ -327,6 +327,9 @@ export interface IChannelDataSource {
 
     // 清除置顶消息
     clearPinnedMessage(channel: Channel): Promise<void>;
+
+    // 解散群
+    groupDisband(channel: Channel): Promise<void>;
 }
 
 export class ChannelQrcodeResp implements APIResp {

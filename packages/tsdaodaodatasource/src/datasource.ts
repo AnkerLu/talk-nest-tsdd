@@ -178,6 +178,11 @@ export class ChannelDataSource implements IChannelDataSource {
             channel_type: channel.channelType
         })
     }
+
+    // 解散群
+    async groupDisband(channel: Channel): Promise<void> {
+        return WKApp.apiClient.delete(`groups/${channel.channelID}/disband`)
+    }
 }
 
 export class CommonDataSource implements ICommonDataSource {

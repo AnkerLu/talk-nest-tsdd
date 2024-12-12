@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Section, Row } from "../../Service/Section";
-import { ListItem, ListItemSwitch, ListItemSwitchContext } from "../ListItem";
+import { ListItem, ListItemButton, ListItemButtonType, ListItemSwitch, ListItemSwitchContext } from "../ListItem";
 import { ChannelSettingRouteData } from "../ChannelSetting/context";
 import { Toast } from "@douyinfe/semi-ui";
 import { Modal } from "@douyinfe/semi-ui";
@@ -17,6 +17,7 @@ import { SubscriberList } from "../Subscribers/list";
 import RouteContext, { FinishButtonContext } from "../../Service/Context";
 import Sections from "../Sections";
 import { Select } from "@douyinfe/semi-ui";
+import { WKApp } from "../..";
 
 export interface GroupManagementProps {
   context: RouteContext<ChannelSettingRouteData>;
@@ -397,6 +398,34 @@ export const GroupManagement: React.FC<GroupManagementProps> = ({
                     .catch(() => {
                       ctx.loading = false;
                     });
+                },
+              },
+            }),
+            new Row({
+              cell: ListItemButton,
+              properties: {
+                title: "解散群聊",
+                type: ListItemButtonType.warn,
+                onClick: () => {
+                  // 只有群主可以解散群
+                  if (!data.isManagerOrCreatorOfMe) {
+                    Toast.error("只有群主可以解散群");
+                    return;
+                  }
+                  
+                  Modal.confirm({
+                    title: "解散群聊",
+                    content: "解散后，所有成员将被移出群聊，且不会再收到此群的消息",
+                    onOk: async () => {
+                      try {
+                        await ChannelSettingManager.shared.groupDisband(data.channel);
+                        Toast.success("群聊已解散");
+                        WKApp.routeRight.pop(); // 返回上一页
+                      } catch (err: any) {
+                        Toast.error(err.msg || "解散群失败");
+                      }
+                    },
+                  });
                 },
               },
             }),

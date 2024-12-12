@@ -3,8 +3,13 @@ import WKSDK, { Channel, ChannelTypePerson, MessageContent, Setting } from "wuko
 import WKApp from "../App";
 
 export class ChannelSettingManager {
-  private constructor() {}
-  public static shared = new ChannelSettingManager();
+  private static _shared: ChannelSettingManager;
+  static get shared() {
+    if (!this._shared) {
+      this._shared = new ChannelSettingManager();
+    }
+    return this._shared;
+  }
 
   // 发送系统消息到群
   async sendSystemMessage(channel: Channel, content: string) {
@@ -113,6 +118,11 @@ export class ChannelSettingManager {
     return this._onClearPinnedMessage(channel);
   }
 
+  // 解散群
+  groupDisband(channel: Channel): Promise<void> {
+    return this._onGroupDisband(channel);
+  }
+
   _onSetting(setting: any, channel: Channel): Promise<void> {
     return WKApp.dataSource.channelDataSource
       .updateSetting(setting, channel)
@@ -164,6 +174,14 @@ export class ChannelSettingManager {
   _onClearPinnedMessage(channel: Channel): Promise<void> {
     return WKApp.dataSource.channelDataSource
       .clearPinnedMessage(channel)
+      .catch((err) => {
+        Toast.error(err.msg);
+      });
+  }
+
+  _onGroupDisband(channel: Channel): Promise<void> {
+    return WKApp.dataSource.channelDataSource
+      .groupDisband(channel)
       .catch((err) => {
         Toast.error(err.msg);
       });

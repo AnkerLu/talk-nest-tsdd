@@ -371,6 +371,7 @@ export default class BaseModule implements IModule {
       }
       switch (message.contentType) {
         case MessageContentTypeConst.channelUpdate:
+        case MessageContentTypeConst.groupDisband:
           WKSDK.shared().channelManager.fetchChannelInfo(message.channel);
           break;
         case MessageContentTypeConst.addMembers:

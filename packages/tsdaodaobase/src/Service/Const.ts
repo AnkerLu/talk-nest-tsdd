@@ -58,6 +58,7 @@ export class MessageContentTypeConst {
   static addMembers: number = 1002 // 添加群成员
   static removeMembers: number = 1003 // 删除群成员
   static channelUpdate: number = 1005 // 频道更新
+  static groupDisband: number = 1023 // 群组解散
   static newGroupOwner: number = 1008 // 成为新群主
   static screenshot:number = 1014 // 截屏消息
 

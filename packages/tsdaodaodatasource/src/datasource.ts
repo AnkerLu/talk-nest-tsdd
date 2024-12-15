@@ -70,11 +70,6 @@ export class ChannelDataSource implements IChannelDataSource {
             members: uids,
         })
     }
-    inviteSubscribers(channel: Channel, uids: string[]): Promise<void> {
-        return WKApp.apiClient.post(`groups/${channel.channelID}/members/invite`, {
-            members: uids,
-        })
-    }
     async subscribers(channel: Channel, req: {
         keyword?: string, // 搜索关键字
         limit?: number, // 每页数量
@@ -182,6 +177,23 @@ export class ChannelDataSource implements IChannelDataSource {
     // 解散群
     async groupDisband(channel: Channel): Promise<void> {
         return WKApp.apiClient.delete(`groups/${channel.channelID}/disband`)
+    }
+
+    // 邀请订阅者
+    async inviteSubscribers(channel: Channel, uids: string[], remark: string): Promise<void> {
+        return WKApp.apiClient.post(`groups/${channel.channelID}/member/invite`, {
+            uids: uids,
+            remark: remark
+        })
+    }
+
+    async getInviteConfirmURL(channel: Channel, inviteNo: string): Promise<string> {
+        const resp = await WKApp.apiClient.get(`groups/${channel.channelID}/member/h5confirm`, {
+            param: {
+                invite_no: inviteNo
+            }
+        });
+        return resp.url;
     }
 }
 

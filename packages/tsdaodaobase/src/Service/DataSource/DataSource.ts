@@ -245,6 +245,13 @@ export interface IChannelDataSource {
   addSubscribers(channel: Channel, uids: string[]): Promise<void>;
 
   /**
+   * 邀请订阅者
+   * @param channel
+   * @param uids
+   */
+  inviteSubscribers(channel: Channel, uids: string[], remark: string): Promise<void>;
+
+  /**
    * 获取订阅者
    * @param channel
    */
@@ -345,6 +352,13 @@ export interface IChannelDataSource {
 
   // 解散群
   groupDisband(channel: Channel): Promise<void>;
+
+  /**
+   * 获取邀请确认页面URL
+   * @param channel 频道
+   * @param inviteNo 邀请编号
+   */
+  getInviteConfirmURL(channel: Channel, inviteNo: string): Promise<string>;
 }
 
 export class ChannelQrcodeResp implements APIResp {

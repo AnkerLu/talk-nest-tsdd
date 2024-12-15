@@ -49,6 +49,8 @@ interface ISateOrganizationalGroupNew {
   friendData: any[];
   friendSearchData: any[];
   searchVaule: string;
+  showRemarkModal: boolean; // 是否显示备注弹框
+  inviteRemark: string; // 邀请备注内容
 }
 
 export class OrganizationalGroupNew extends Component<
@@ -67,6 +69,8 @@ export class OrganizationalGroupNew extends Component<
     friendData: [],
     friendSearchData: [],
     searchVaule: "",
+    showRemarkModal: false,
+    inviteRemark: '',
   };
   treeRef: any = React.createRef();
 
@@ -438,7 +442,6 @@ export class OrganizationalGroupNew extends Component<
 
     // 创建群
     if (this.props.action == OrganizationalGroupNewAction.createGroup) {
-
       try {
         await WKApp.dataSource.channelDataSource.createChannel([
           ...getOptPersonnelData,
@@ -451,20 +454,47 @@ export class OrganizationalGroupNew extends Component<
     // 添加联系人
     if (this.props.action == OrganizationalGroupNewAction.AddMember) {
       try {
-        await WKApp.dataSource.channelDataSource.addSubscribers(
-          channel,
-          getOptPersonnelData
-        );
+        const channelInfo = WKSDK.shared().channelManager.getChannelInfo(channel);
+        // 检查是否开启了邀请确认
+        if(channelInfo?.orgData?.invite === 1) {
+          // 显示备注弹框
+          this.setState({ showRemarkModal: true });
+          return;
+        } else {
+          // 直接添加成员
+          await WKApp.dataSource.channelDataSource.addSubscribers(
+            channel, 
+            getOptPersonnelData
+          );
+        }
       } catch (error: any) {
         Toast.error(error.msg);
         return
       }
-
     }
     this.onCancel();
   }
 
+  handleInviteWithRemark = async () => {
+    const channel = this.props.channel as any;
+    const { optPersonnelData, inviteRemark } = this.state;
+    
+    const getOptPersonnelData = optPersonnelData.map((item) => {
+      return item.uid;
+    });
 
+    try {
+      await WKApp.dataSource.channelDataSource.inviteSubscribers(
+        channel,
+        getOptPersonnelData,
+        inviteRemark // 使用输入的备注
+      );
+      this.setState({ showRemarkModal: false });
+      this.onCancel();
+    } catch (error: any) {
+      Toast.error(error.msg);
+    }
+  }
 
   onChangeSearch(value: string) {
     const { friendSearchData, isFriend } = this.state;
@@ -484,6 +514,23 @@ export class OrganizationalGroupNew extends Component<
       console.log(this.treeRef);
       this.treeRef && this.treeRef.current.search(value);
     }
+  }
+
+  renderRemarkModal() {
+    return (
+      <Modal
+        title="邀请备注"
+        visible={this.state.showRemarkModal}
+        onOk={this.handleInviteWithRemark}
+        onCancel={() => this.setState({ showRemarkModal: false })}
+      >
+        <Input
+          placeholder="请输入邀请备注" 
+          value={this.state.inviteRemark}
+          onChange={(value) => this.setState({ inviteRemark: value })}
+        />
+      </Modal>
+    )
   }
 
   render(): ReactNode {
@@ -749,6 +796,7 @@ export class OrganizationalGroupNew extends Component<
             </div>
           </div>
         </Modal>
+        {this.renderRemarkModal()}
       </div>
     );
   }

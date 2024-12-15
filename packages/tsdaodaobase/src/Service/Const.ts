@@ -1,4 +1,3 @@
-
 export  class  EndpointID {
   static  loginWidget = "loginWidget"; // login widget
   static  homeWidget = "homeWidget"; // 主页
@@ -61,6 +60,7 @@ export class MessageContentTypeConst {
   static groupDisband: number = 1023 // 群组解散
   static newGroupOwner: number = 1008 // 成为新群主
   static screenshot:number = 1014 // 截屏消息
+  static invite:number = 1009 // 邀请消息
 
   // 音频通话消息号段 9900 - 9999
   static rtcResult:number = 9989 // 音视频通话结果

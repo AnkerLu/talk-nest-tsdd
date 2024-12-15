@@ -36,6 +36,7 @@ export *  from './Utils/filehelper'
 
 export { default as MessageBase } from "./Messages/Base"
 export  * from "./Messages/Image"
+export  * from "./Messages/Video"
 export * from "./Messages/Base"
 
 export * from "./Messages/MessageCell"

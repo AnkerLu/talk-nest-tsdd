@@ -35,15 +35,28 @@ export class MediaMessageUploadTask extends MessageTask {
   async start(): Promise<void> {
     const mediaContent = this.message.content as MediaMessageContent;
     if (mediaContent.file) {
-      const param = new FormData();
-      param.append("file", mediaContent.file);
+      // ���传主文件
       const fileName = this.getUUID();
       const path = `/${this.message.channel.channelType}/${
         this.message.channel.channelID
       }/${fileName}${mediaContent.extension ?? ""}`;
       const uploadURL = await this.getUploadURL(path);
+
+      // 如果存在 base64 格式的封面，先上传封面
+      if (mediaContent.cover && mediaContent.cover.startsWith("data:image")) {
+        const coverFile = this.base64ToFile(
+          mediaContent.cover,
+          `${fileName}_cover.jpg`
+        );
+        const coverPath = `/${this.message.channel.channelType}/${this.message.channel.channelID}/${fileName}_cover.jpg`;
+        const coverUploadURL = await this.getUploadURL(coverPath);
+        if (coverUploadURL) {
+          await this.uploadFile(coverFile, coverUploadURL, true);
+        }
+      }
+
       if (uploadURL) {
-        this.uploadFile(mediaContent.file, uploadURL);
+        await this.uploadFile(mediaContent.file, uploadURL, false);
       } else {
         console.log("获取上传地址失败！");
         this.status = TaskStatus.fail;
@@ -61,7 +74,7 @@ export class MediaMessageUploadTask extends MessageTask {
     }
   }
 
-  async uploadFile(file: File, uploadURL: string) {
+  async uploadFile(file: File, uploadURL: string, isCover: boolean = false) {
     const param = new FormData();
     param.append("file", file);
     const resp = await axios
@@ -84,9 +97,13 @@ export class MediaMessageUploadTask extends MessageTask {
     if (resp) {
       if (resp.data.path) {
         const mediaContent = this.message.content as MediaMessageContent;
-        mediaContent.remoteUrl = resp.data.path;
-        this.status = TaskStatus.success;
-        this.update();
+        if (isCover) {
+          mediaContent.cover = resp.data.path;
+        } else {
+          mediaContent.remoteUrl = resp.data.path;
+          this.status = TaskStatus.success;
+          this.update();
+        }
       }
     }
   }
@@ -112,5 +129,18 @@ export class MediaMessageUploadTask extends MessageTask {
   }
   progress(): number {
     return this._progress ?? 0;
+  }
+
+  // 添加新的辅助方法用于转换 base64 为 File
+  private base64ToFile(base64String: string, filename: string): File {
+    const arr = base64String.split(",");
+    const mime = arr[0].match(/:(.*?);/)?.[1];
+    const bstr = atob(arr[1]);
+    let n = bstr.length;
+    const u8arr = new Uint8Array(n);
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new File([u8arr], filename, { type: mime });
   }
 }

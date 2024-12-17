@@ -13,7 +13,7 @@ export class VideoContent extends MediaMessageContent {
   height!: number; // 视频高度
   duration!: number; // 视频时长(秒)
   videoData?: string; // 视频数据
-
+  extension: string = ".mp4"; // 视频文件扩展名
   constructor(
     file?: File,
     videoData?: string,
@@ -29,6 +29,7 @@ export class VideoContent extends MediaMessageContent {
     this.height = height || 0;
     this.duration = duration || 0;
     this.cover = cover || "";
+    this.extension = "." + (file?.name.split(".").pop() || "").toLowerCase();
   }
 
   decodeJSON(content: any) {
@@ -39,6 +40,7 @@ export class VideoContent extends MediaMessageContent {
     this.width = content["width"] || 0;
     this.height = content["height"] || 0;
     this.duration = content["duration"] || 0;
+    this.extension = content["extension"] || ".mp4";
   }
 
   encodeJSON() {
@@ -49,6 +51,7 @@ export class VideoContent extends MediaMessageContent {
       width: this.width || 0,
       height: this.height || 0,
       duration: this.duration || 0,
+      extension: this.extension || ".mp4",
     };
   }
 
@@ -122,6 +125,10 @@ export class VideoCell extends MessageCell<any, VideoCellState> {
     const videoUrl = content.remoteUrl || content.url;
     const realVideoUrl = WKApp.dataSource.commonDataSource.getFileURL(videoUrl);
 
+    const coverUrl = WKApp.dataSource.commonDataSource.getFileURL(
+      content.cover
+    );
+
     console.log("Rendering video:", {
       url: videoUrl,
       realUrl: realVideoUrl,
@@ -145,7 +152,7 @@ export class VideoCell extends MessageCell<any, VideoCellState> {
             <div className="wk-message-video-content-video">
               <video
                 key={realVideoUrl} // 添加key以确保URL变化时重新创建视频元素
-                poster={content.cover}
+                poster={coverUrl}
                 width={actSize.width}
                 height={actSize.height}
                 controls
@@ -171,7 +178,7 @@ export class VideoCell extends MessageCell<any, VideoCellState> {
               </video>
               {isError && content.cover && (
                 <img
-                  src={content.cover}
+                  src={coverUrl}
                   alt="视频封面"
                   style={{
                     width: "100%",

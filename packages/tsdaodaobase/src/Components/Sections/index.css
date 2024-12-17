@@ -1,5 +1,5 @@
 .wk-sections {
-    
+  background-color: var(--wk-bg-secondary);
 }
 
 .wk-section {
@@ -11,21 +11,19 @@
 }
 
 .wk-section-rows {
-
 }
 
 .wk-section-title {
   padding: 5px 15px;
-  color: var( --wk-text-secondary);
+  color: var(--wk-text-secondary);
   font-size: 13px;
 }
 
 .wk-section-row {
-
 }
 
 .wk-section-subtitle {
   padding: 5px 15px;
-  color: var( --wk-text-secondary);
+  color: var(--wk-text-secondary);
   font-size: 13px;
 }

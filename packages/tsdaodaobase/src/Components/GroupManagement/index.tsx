@@ -1,6 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Section, Row } from "../../Service/Section";
-import { ListItem, ListItemButton, ListItemButtonType, ListItemSwitch, ListItemSwitchContext } from "../ListItem";
+import {
+  ListItem,
+  ListItemButton,
+  ListItemButtonType,
+  ListItemSwitch,
+  ListItemSwitchContext,
+} from "../ListItem";
 import { ChannelSettingRouteData } from "../ChannelSetting/context";
 import { Toast } from "@douyinfe/semi-ui";
 import { Modal } from "@douyinfe/semi-ui";
@@ -18,7 +24,9 @@ import RouteContext, { FinishButtonContext } from "../../Service/Context";
 import Sections from "../Sections";
 import { Select } from "@douyinfe/semi-ui";
 import { WKApp } from "../..";
-
+import { Button } from "@douyinfe/semi-ui";
+import { Avatar } from "@douyinfe/semi-ui";
+import "./index.css";
 export interface GroupManagementProps {
   context: RouteContext<ChannelSettingRouteData>;
   data: ChannelSettingRouteData;
@@ -72,156 +80,9 @@ export const GroupManagement: React.FC<GroupManagementProps> = ({
   return (
     <Sections
       sections={[
+        // 消息管理
         new Section({
           rows: [
-            new Row({
-              cell: ListItem,
-              properties: {
-                title: "群主管理权转让",
-                onClick: () => {
-                  context.push(
-                    <IndexTable
-                      items={subscribers.map((item) => ({
-                        id: item.uid,
-                        name: item.name,
-                        avatar: item.avatar,
-                      }))}
-                      disableSelectList={disableSelectList}
-                      onSelect={(items) => {
-                        Modal.confirm({
-                          title: "选择新的群主",
-                          content: `确定要将群主管理权转让给 ${items[0].name} 吗？转让后你将成为普通成员。`,
-                          onOk: async () => {
-                            try {
-                              await ChannelSettingManager.shared.transferOwner(
-                                items[0].id,
-                                channel
-                              );
-                              Toast.success("群主转让成功");
-                              data.refresh();
-                              context.pop();
-                            } catch (err: any) {
-                              Toast.error(err.msg || "群主转让失败");
-                            }
-                          },
-                        });
-                      }}
-                      canSelect={false}
-                    />
-                  );
-                },
-              },
-            }),
-            new Row({
-              cell: ListItem,
-              properties: {
-                title: "添加管理员",
-                onClick: () => {
-                  const disableSelectList = subscribers
-                    .filter(
-                      (item) =>
-                        item.role === GroupRole.manager ||
-                        item.role === GroupRole.owner
-                    )
-                    .map((item) => item.uid);
-                  context.push(
-                    <IndexTable
-                      items={subscribers.map((item) => ({
-                        id: item.uid,
-                        name: item.name,
-                        avatar: item.avatar,
-                      }))}
-                      disableSelectList={disableSelectList}
-                      onSelect={(items) => {
-                        selectedItems = items;
-                        selectFinishButtonContext.disable(items.length === 0);
-                      }}
-                      canSelect={true}
-                    />,
-                    {
-                      title: "添加管理员",
-                      showFinishButton: true,
-                      onFinish: async () => {
-                        selectFinishButtonContext.loading(true);
-                        try {
-                          // 设置选中成员为管理员
-                          await ChannelSettingManager.shared.addManager(
-                            selectedItems.map((item) => item.id),
-                            channel
-                          );
-                          data.refresh();
-                          Toast.success("添加群管理员成功");
-                          context.pop();
-                        } catch (err: any) {
-                          Toast.error(err.msg || "添加群管理员失败");
-                        }
-                        selectFinishButtonContext.loading(false);
-                      },
-                      onFinishContext: (context) => {
-                        selectFinishButtonContext = context;
-                        selectFinishButtonContext.disable(true);
-                      },
-                    }
-                  );
-                },
-              },
-            }),
-            new Row({
-              cell: ListItem,
-              properties: {
-                title: "删除管理员",
-                onClick: () => {
-                  const disableSelectList = subscribers
-                    .filter((item) => item.role === GroupRole.owner)
-                    .map((item) => item.uid);
-                  context.push(
-                    <SubscriberList
-                      channel={channel}
-                      disableSelectList={disableSelectList}
-                      onSelect={(items) => {
-                        selectedItems = items;
-                        selectFinishButtonContext.disable(items.length === 0);
-                      }}
-                      canSelect={true}
-                    />,
-                    {
-                      title: "删除管理员",
-                      showFinishButton: true,
-                      onFinish: async () => {
-                        selectFinishButtonContext.loading(true);
-                        try {
-                          await ChannelSettingManager.shared.removeManager(
-                            selectedItems.map((item) => item.uid),
-                            channel
-                          );
-                          data.refresh();
-                          Toast.success("删除群管理员成功");
-                          context.pop();
-                        } catch (err: any) {
-                          Toast.error(err.msg || "删除群管理员失败");
-                        }
-                        selectFinishButtonContext.loading(false);
-                      },
-                      onFinishContext: (context) => {
-                        selectFinishButtonContext = context;
-                        selectFinishButtonContext.disable(true);
-                      },
-                    }
-                  );
-                },
-              },
-            }),
-            new Row({
-              cell: ListItem,
-              properties: {
-                title: "管理员列表",
-                onClick: () => {
-                  context.push(<SubscriberList channel={channel} />, {
-                    title: "管理员列表",
-                  });
-                },
-              },
-            }),
             new Row({
               cell: ListItem,
               properties: {
@@ -236,47 +97,58 @@ export const GroupManagement: React.FC<GroupManagementProps> = ({
               properties: {
                 title: "禁言成员",
                 onClick: async () => {
-                  // 获取禁言时长列表
-                  const muteTimeList =
-                    (await ChannelSettingManager.shared.getSubscriberMuteInfo()) as any;
+                  try {
+                    // 先获取禁言时长列表
+                    const muteTimeList =
+                      (await ChannelSettingManager.shared.getSubscriberMuteInfo()) as any;
 
-                  // 选择要禁言的成员
-                  context.push(
-                    <SubscriberList
-                      channel={channel}
-                      onSelect={(items) => {
-                        selectedItems = items;
-                        selectFinishButtonContext.disable(items.length === 0);
-                      }}
-                      canSelect={true}
-                    />,
-                    {
-                      title: "选择禁言成员",
-                      showFinishButton: true,
-                      onFinish: async () => {
-                        selectFinishButtonContext.loading(true);
-                        try {
-                          // 弹出Modal选择禁言时长
-                          Modal.confirm({
-                            title: "设置禁言时长",
-                            content: (
-                              <Select
-                                defaultValue={1}
-                                onChange={(value) => selectedMuteTime.current = value as number }
-                              >
-                                {muteTimeList.map((item: any) => (
-                                  <Select.Option
-                                    key={item.key}
-                                    value={item.key}
-                                  >
-                                    {item.text}
-                                  </Select.Option>
-                                ))}
-                              </Select>
-                            ),
-                            onOk: async () => {
+                    // 先弹出禁言时长选择
+                    Modal.confirm({
+                      title: "设置禁言时长",
+                      content: (
+                        <Select
+                          defaultValue={1}
+                          onChange={(value) =>
+                            (selectedMuteTime.current = value as number)
+                          }
+                          style={{ width: "100%" }}
+                        >
+                          {muteTimeList.map((item: any) => (
+                            <Select.Option key={item.key} value={item.key}>
+                              {item.text}
+                            </Select.Option>
+                          ))}
+                        </Select>
+                      ),
+                      onOk: () => {
+                        // 选择完时长后再选择成员
+                        context.push(
+                          <SubscriberList
+                            channel={channel}
+                            onSelect={(items) => {
+                              selectedItems = items;
+                              selectFinishButtonContext.disable(
+                                items.length === 0
+                              );
+                            }}
+                            canSelect={true}
+                            disableSelectList={subscribers
+                              .filter((item) => item.role === GroupRole.owner)
+                              .map((item) => item.uid)}
+                            extraInfo={(subscriber) => {
+                              // 显示成员的禁言状态
+                              if (subscriber.orgData?.mute) {
+                                return "已禁言";
+                              }
+                              return "";
+                            }}
+                          />,
+                          {
+                            title: "选择禁言成员",
+                            showFinishButton: true,
+                            onFinish: async () => {
+                              selectFinishButtonContext.loading(true);
                               try {
-                                // 使用 selectedMuteTime 替代 timeKey
                                 for (const member of selectedItems) {
                                   await ChannelSettingManager.shared.muteSubscriber(
                                     channel.channelID,
@@ -290,25 +162,36 @@ export const GroupManagement: React.FC<GroupManagementProps> = ({
                                 }
                                 Toast.success("设置禁言成功");
                                 context.pop();
+                                data.refresh();
+                                const timer = setTimeout(() => {
+                                  clearTimeout(timer);
+                                  updateChannelInfo();
+                                }, 50);
                               } catch (err: any) {
                                 Toast.error(err.msg || "设置禁言失败");
                               }
+                              selectFinishButtonContext.loading(false);
                             },
-                          });
-                        } catch (err: any) {
-                          Toast.error(err.msg || "设置禁言失败");
-                        }
-                        selectFinishButtonContext.loading(false);
+                            onFinishContext: (context) => {
+                              selectFinishButtonContext = context;
+                              selectFinishButtonContext.disable(true);
+                            },
+                          }
+                        );
                       },
-                      onFinishContext: (context) => {
-                        selectFinishButtonContext = context;
-                        selectFinishButtonContext.disable(true);
-                      },
-                    }
-                  );
+                    });
+                  } catch (err: any) {
+                    Toast.error(err.msg || "获取禁言时长失败");
+                  }
                 },
               },
             }),
+          ],
+        }),
+
+        // 权限管理
+        new Section({
+          rows: [
             new Row({
               cell: ListItemSwitch,
               properties: {
@@ -401,6 +284,28 @@ export const GroupManagement: React.FC<GroupManagementProps> = ({
                 },
               },
             }),
+          ],
+        }),
+
+        // 管理员设置
+        new Section({
+          rows: [
+            new Row({
+              cell: AdminList,
+              properties: {
+                subscribers,
+                channel,
+                context,
+                data,
+                updateChannelInfo,
+              },
+            }),
+          ],
+        }),
+
+        // 危险操作区
+        new Section({
+          rows: [
             new Row({
               cell: ListItemButton,
               properties: {
@@ -412,13 +317,16 @@ export const GroupManagement: React.FC<GroupManagementProps> = ({
                     Toast.error("只有群主可以解散群");
                     return;
                   }
-                  
+
                   Modal.confirm({
                     title: "解散群聊",
-                    content: "解散后，所有成员将被移出群聊，且不会再收到此群的消息",
+                    content:
+                      "解散后，所有成员将被移出群聊，且不会再收到此群的消息",
                     onOk: async () => {
                       try {
-                        await ChannelSettingManager.shared.groupDisband(data.channel);
+                        await ChannelSettingManager.shared.groupDisband(
+                          data.channel
+                        );
                         Toast.success("群聊已解散");
                         WKApp.routeRight.pop(); // 返回上一页
                       } catch (err: any) {
@@ -433,5 +341,137 @@ export const GroupManagement: React.FC<GroupManagementProps> = ({
         }),
       ]}
     />
+  );
+};
+
+interface AdminListProps {
+  subscribers: Subscriber[];
+  channel: Channel;
+  context: RouteContext<ChannelSettingRouteData>;
+  data: ChannelSettingRouteData;
+  updateChannelInfo: () => void;
+}
+
+const AdminList: React.FC<AdminListProps> = ({
+  subscribers,
+  channel,
+  context,
+  data,
+  updateChannelInfo,
+}) => {
+  const admins = subscribers.filter(
+    (sub) => sub.role === GroupRole.manager || sub.role === GroupRole.owner
+  );
+
+  let selectFinishButtonContext: FinishButtonContext;
+  let selectedItems: any[];
+
+  return (
+    <div className="admin-list-section">
+      <div className="admin-list-header">
+        <span>群主、管理员</span>
+        {data.isManagerOrCreatorOfMe && (
+          <Button
+            onClick={() => {
+              context.push(
+                <IndexTable
+                  items={subscribers.map((item) => ({
+                    id: item.uid,
+                    name: item.name,
+                    avatar: item.avatar,
+                  }))}
+                  disableSelectList={subscribers
+                    .filter(
+                      (item) =>
+                        item.role === GroupRole.manager ||
+                        item.role === GroupRole.owner
+                    )
+                    .map((item) => item.uid)}
+                  onSelect={(items) => {
+                    selectedItems = items;
+                    selectFinishButtonContext.disable(items.length === 0);
+                  }}
+                  canSelect={true}
+                />,
+                {
+                  title: "添加管理员",
+                  showFinishButton: true,
+                  onFinish: async () => {
+                    selectFinishButtonContext.loading(true);
+                    try {
+                      await ChannelSettingManager.shared.addManager(
+                        selectedItems.map((item) => item.id),
+                        channel
+                      );
+                      data.refresh();
+                      Toast.success("添加群管理员成功");
+                      context.pop();
+                      const timer = setTimeout(() => {
+                        clearTimeout(timer);
+                        updateChannelInfo();
+                      }, 50);
+                    } catch (err: any) {
+                      Toast.error(err.msg || "添加群管理员失败");
+                    }
+                    selectFinishButtonContext.loading(false);
+                  },
+                  onFinishContext: (context) => {
+                    selectFinishButtonContext = context;
+                    selectFinishButtonContext.disable(true);
+                  },
+                }
+              );
+            }}
+          >
+            添加管理员
+          </Button>
+        )}
+      </div>
+
+      <div className="admin-list-content">
+        {admins.map((admin) => (
+          <div key={admin.uid} className="admin-item">
+            <Avatar
+              src={WKApp.shared.avatarUser(admin.uid)}
+              style={{ width: "40px", height: "40px" }}
+            />
+            <div className="admin-info">
+              <div className="admin-name">{admin.name}</div>
+              <div className="admin-role">
+                {admin.role === GroupRole.owner ? "群主" : "管理员"}
+              </div>
+            </div>
+            {data.isManagerOrCreatorOfMe && admin.role !== GroupRole.owner && (
+              <Button
+                onClick={() => {
+                  Modal.confirm({
+                    title: "删除管理员",
+                    content: `确定要删除管理员 ${admin.name} 吗？`,
+                    onOk: async () => {
+                      try {
+                        await ChannelSettingManager.shared.removeManager(
+                          [admin.uid],
+                          channel
+                        );
+                        data.refresh();
+                        Toast.success("删除群管理员成功");
+                        const timer = setTimeout(() => {
+                          clearTimeout(timer);
+                          updateChannelInfo();
+                        }, 50);
+                      } catch (err: any) {
+                        Toast.error(err.msg || "删除群管理员失败");
+                      }
+                    },
+                  });
+                }}
+              >
+                移除
+              </Button>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };

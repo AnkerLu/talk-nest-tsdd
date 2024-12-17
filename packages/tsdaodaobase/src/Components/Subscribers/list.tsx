@@ -15,6 +15,7 @@ export interface SubscriberListProps {
   canSelect?: boolean; // 是否支持多选
   disableSelectList?: string[]; // 禁选列表
   onSelect?: (items: Subscriber[]) => void;
+  extraInfo?: (subscriber: Subscriber) => string; // 添加额外信息显示
 }
 
 export interface SubscriberListState {
@@ -165,7 +166,7 @@ export class SubscriberList extends Component<
                       this.onSearch(v.target.value, vm);
                     }}
                     placeholder={"搜索"}
-                    ref={(rf) => { }}
+                    ref={(rf) => {}}
                     type="text"
                     style={{ fontSize: "17px" }}
                   />
@@ -201,6 +202,11 @@ export class SubscriberList extends Component<
                         </div>
                         <div className="wk-subscrierlist-item-desc">
                           {this.getRoleName(item)}
+                          {this.props.extraInfo && (
+                            <span className="wk-subscrierlist-item-extra">
+                              {this.props.extraInfo(item)}
+                            </span>
+                          )}
                         </div>
                       </div>
                     </div>

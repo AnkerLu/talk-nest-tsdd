@@ -279,9 +279,11 @@ export default class MessageInput
       disabledReason = "该群已解散";
     } else if (mySelf?.orgData?.forbidden_expir_time > 0) {
       disabledReason = "您已被禁言";
-    } else if (this.isGroupForbidden(channelInfo) && 
-      mySelf?.role !== GroupRole.OWNER && 
-      mySelf?.role !== GroupRole.ADMIN) {
+    } else if (
+      this.isGroupForbidden(channelInfo) &&
+      mySelf?.role !== GroupRole.OWNER &&
+      mySelf?.role !== GroupRole.ADMIN
+    ) {
       disabledReason = "全员禁言中";
     }
 

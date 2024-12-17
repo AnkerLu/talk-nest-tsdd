@@ -115,6 +115,8 @@ export default class BaseModule implements IModule {
             return TextCell;
           case MessageContentType.image: // 图片消息
             return ImageCell;
+          case MessageContentTypeConst.smallVideo: // 小视频
+            return VideoCell;
           case MessageContentTypeConst.card: // 名片
             return CardCell;
           case MessageContentTypeConst.gif: // gif
@@ -125,8 +127,6 @@ export default class BaseModule implements IModule {
             return MergeforwardCell;
           case MessageContentTypeConst.joinOrganization: // 加入组织
             return JoinOrganizationCell;
-          case MessageContentTypeConst.smallVideo: // 小视频
-            return VideoCell;
           case MessageContentTypeConst.historySplit: // 历史消息风格线
             return HistorySplitCell;
           case MessageContentTypeConst.time: // 时间消息
@@ -152,6 +152,7 @@ export default class BaseModule implements IModule {
     );
 
     WKSDK.shared().register(MessageContentType.image, () => new ImageContent()); // 图片
+    WKSDK.shared().register(MessageContentType.video, () => new VideoContent()); // 视频
 
     WKSDK.shared().register(MessageContentTypeConst.card, () => new Card()); // 名片
     WKSDK.shared().register(

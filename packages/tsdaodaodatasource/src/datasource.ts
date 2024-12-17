@@ -221,6 +221,8 @@ export class CommonDataSource implements ICommonDataSource {
             content = message.content.contentObj.content;
         } else if (message.contentType === MessageContentType.image) {
             content = message.content.contentObj.url;
+        } else if (message.contentType === MessageContentType.video) {
+            content = message.content.contentObj.url;
         }
         const fromChannelInfo = WKSDK.shared().channelManager.getChannelInfo(new Channel(message.fromUID, ChannelTypePerson))
         return WKApp.apiClient.post(`favorites`, {

@@ -228,7 +228,7 @@ export default class WKApp extends ProviderListener {
   private messageDeleteListeners: MessageDeleteListener[] =
     new Array<MessageDeleteListener>(); // 消息删除监听
 
-  supportFavorites = [MessageContentType.text, MessageContentType.image]; // 注册收藏的消息
+  supportFavorites = [MessageContentType.text, MessageContentType.image, MessageContentType.video]; // 注册收藏的消息
 
   notSupportForward: number[] = []; // 不支持转发的消息
 

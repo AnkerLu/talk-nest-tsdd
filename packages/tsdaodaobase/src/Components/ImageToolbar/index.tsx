@@ -9,6 +9,7 @@ import React from "react";
 import { Component, ReactNode } from "react";
 
 import "./index.css";
+import { Toast } from "@douyinfe/semi-ui";
 
 interface ImageToolbarProps {
   conversationContext: ConversationContext;
@@ -24,6 +25,8 @@ interface ImageToolbarState {
   canSend?: boolean;
   width?: number;
   height?: number;
+  duration?: number;
+  cover?: string;
 }
 
 export default class ImageToolbar extends Component<
@@ -74,95 +77,201 @@ export default class ImageToolbar extends Component<
   };
   showFile(file: any) {
     const self = this;
-    console.log("File type:", file.type, "File name:", file.name);
+    console.log(
+      "File type:",
+      file.type,
+      "File name:",
+      file.name,
+      "File size:",
+      file.size
+    );
 
-    const isImage = file.type.startsWith('image/');
-    const isVideo = file.type.startsWith('video/') || 
-                   file.type === 'video/quicktime' || 
-                   file.name.toLowerCase().endsWith('.mov') ||
-                   file.name.toLowerCase().endsWith('.mp4');
+    // 改进视频格式检测
+    const isImage = file.type.startsWith("image/");
+    const isVideo =
+      file.type.startsWith("video/") ||
+      file.name.toLowerCase().endsWith(".mp4") ||
+      file.name.toLowerCase().endsWith(".mov") ||
+      file.name.toLowerCase().endsWith(".webm");
 
-    if (isImage || isVideo) {
-        if (isVideo) {
-            // 创建视频元素
-            const video = document.createElement('video');
-            
-            // 设置视频属性
-            video.preload = 'metadata';
-            video.playsInline = true;
-            video.muted = true;
-            
-            // 错误处理
-            video.onerror = (e) => {
-                console.error("Video load error:", e);
-                console.error("Error code:", video.error?.code);
-                console.error("Error message:", video.error?.message);
-            };
-
-            // 成功处理
-            video.onloadedmetadata = () => {
-                console.log("Video metadata loaded successfully");
-                URL.revokeObjectURL(video.src); // 清理URL对象
-                
-                self.setState({
-                    width: video.videoWidth,
-                    height: video.videoHeight,
-                    canSend: true
-                });
-            };
-
-            // 使用 Blob URL
-            try {
-                const videoURL = URL.createObjectURL(file);
-                
-                self.setState({
-                    file: file,
-                    fileType: "video",
-                    previewUrl: videoURL,
-                    showDialog: true,
-                }, () => {
-                    // 在状态更新后设置视频源
-                    video.src = videoURL;
-                });
-                
-            } catch (error) {
-                console.error("Error creating object URL:", error);
-            }
-        } else {
-            // 图片处理保持不变
-            var reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onloadend = function (e: any) {
-                self.setState({
-                    file: file,
-                    fileType: "image",
-                    previewUrl: e.target.result,
-                    showDialog: true,
-                });
-            };
-        }
-    } else {
-        console.warn("Unsupported file type:", file.type);
-        // 可以添加提示
-        WKApp.shared.baseContext.showToast({
-            type: 'error',
-            content: '不支持的文件格式'
+    if (isImage) {
+      // 图片处理保持不变
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = function (e: any) {
+        self.setState({
+          file: file,
+          fileType: "image",
+          previewUrl: e.target.result,
+          showDialog: true,
         });
+      };
+    } else if (isVideo) {
+      try {
+        // 标准化视频 MIME 类型
+        let videoType = file.type;
+        if (!videoType && file.name.toLowerCase().endsWith(".mp4")) {
+          videoType = "video/mp4";
+        }
+
+        // 创建视频预览URL
+        const videoURL = URL.createObjectURL(file);
+        console.log("Processing video:", {
+          originalType: file.type,
+          normalizedType: videoType,
+          fileName: file.name,
+          fileSize: file.size,
+          url: videoURL,
+        });
+
+        // 创建视频元素
+        const video = document.createElement("video");
+        video.preload = "metadata";
+        video.playsInline = true;
+        video.muted = true;
+
+        // 先设置基本状态
+        self.setState({
+          file: file,
+          fileType: "video",
+          previewUrl: videoURL,
+          showDialog: true,
+          canSend: false,
+        });
+
+        // 监听元数据加载
+        video.addEventListener("loadedmetadata", () => {
+          console.log("Video metadata loaded:", {
+            width: video.videoWidth,
+            height: video.videoHeight,
+            duration: video.duration,
+            readyState: video.readyState,
+          });
+
+          // 设置视频尺寸和时长
+          const width = video.videoWidth || 480;
+          const height = video.videoHeight || 360;
+          const duration = video.duration || 0;
+
+          // 生成视频封面
+          const canvas = document.createElement("canvas");
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext("2d");
+
+          if (ctx) {
+            // 设置到视频开始位置以获取封面
+            video.currentTime = 0.1;
+            video.addEventListener(
+              "seeked",
+              () => {
+                try {
+                  ctx.drawImage(video, 0, 0, width, height);
+                  const cover = canvas.toDataURL("image/jpeg", 0.7);
+
+                  self.setState({
+                    width,
+                    height,
+                    duration,
+                    cover,
+                    canSend: true,
+                  });
+                } catch (e) {
+                  console.warn("Failed to generate video cover:", e);
+                  // 即使封面生成失败也允许发送
+                  self.setState({
+                    width,
+                    height,
+                    duration,
+                    canSend: true,
+                  });
+                }
+              },
+              { once: true }
+            ); // 只监听一次
+          } else {
+            // 无法生成封面时也更新状态
+            self.setState({
+              width,
+              height,
+              duration,
+              canSend: true,
+            });
+          }
+        });
+
+        // 监听错误
+        video.addEventListener("error", (e) => {
+          console.error("Video error:", {
+            error: video.error,
+            code: video.error?.code,
+            message: video.error?.message,
+            event: e,
+          });
+
+          let errorMessage = "视频加载失败";
+          if (video.error?.code === 4) {
+            errorMessage = "视频格式不支持，请使用 MP4 格式";
+          }
+          Toast.error(errorMessage);
+        });
+
+        // 设置视频源
+        video.src = videoURL;
+
+        // 强制加载
+        try {
+          video.load();
+        } catch (e) {
+          console.error("Video load failed:", e);
+          Toast.error("视频加载失败，请检查格式");
+        }
+      } catch (error) {
+        console.error("Video processing error:", error);
+        Toast.error("视频处理失败");
+        self.setState({
+          canSend: false,
+          showDialog: false,
+        });
+      }
+    } else {
+      Toast.error("不支持的文件类型，请使用 MP4 格式视频");
     }
   }
 
   onSend() {
     const { conversationContext } = this.props;
-    const { file, previewUrl, width, height, fileType } = this.state;
+    const { file, previewUrl, width, height, fileType, duration, cover } =
+      this.state;
 
     if (fileType === "image") {
       conversationContext.sendMessage(
         new ImageContent(file, previewUrl, width, height)
       );
     } else if (fileType === "video") {
-      conversationContext.sendMessage(
-        new VideoContent(file, previewUrl, width, height)
+      console.log("Sending video:", {
+        fileName: file?.name,
+        fileType: file?.type,
+        width,
+        height,
+        duration,
+        hasCover: !!cover,
+      });
+
+      const videoContent = new VideoContent(
+        file,
+        previewUrl,
+        width,
+        height,
+        duration,
+        cover
       );
+
+      if (file?.size) {
+        videoContent.size = file.size;
+      }
+
+      conversationContext.sendMessage(videoContent);
     }
 
     this.setState({
@@ -186,8 +295,8 @@ export default class ImageToolbar extends Component<
   }
   render(): ReactNode {
     const { icon } = this.props;
-    const { showDialog, canSend, fileIconInfo, file, fileType, previewUrl } =
-      this.state;
+    const { showDialog, canSend, fileType, previewUrl, file } = this.state;
+
     return (
       <div className="wk-imagetoolbar">
         <div
@@ -197,7 +306,7 @@ export default class ImageToolbar extends Component<
           }}
         >
           <div className="wk-imagetoolbar-content-icon">
-            <img src={icon}></img>
+            <img src={icon} alt="" />
             <input
               onClick={this.onFileClick}
               onChange={this.onFileChange.bind(this)}
@@ -211,22 +320,27 @@ export default class ImageToolbar extends Component<
             />
           </div>
         </div>
-        {showDialog ? (
+        {showDialog && (
           <ImageDialog
             onSend={this.onSend.bind(this)}
             onLoad={this.onPreviewLoad.bind(this)}
             canSend={canSend}
-            fileIconInfo={fileIconInfo}
             file={file}
             fileType={fileType}
             previewUrl={previewUrl}
+            loading={fileType === "video" && !canSend}
             onClose={() => {
+              if (previewUrl) {
+                URL.revokeObjectURL(previewUrl);
+              }
               this.setState({
-                showDialog: !showDialog,
+                showDialog: false,
+                previewUrl: undefined,
+                canSend: false,
               });
             }}
           />
-        ) : null}
+        )}
       </div>
     );
   }
@@ -241,6 +355,7 @@ interface ImageDialogProps {
   fileIconInfo?: any;
   canSend?: boolean;
   onLoad: (e: any) => void;
+  loading?: boolean;
 }
 
 class ImageDialog extends Component<ImageDialogProps> {
@@ -268,6 +383,7 @@ class ImageDialog extends Component<ImageDialogProps> {
       canSend,
       fileIconInfo,
       onLoad,
+      loading,
     } = this.props;
     return (
       <div className="wk-imagedialog">
@@ -290,49 +406,57 @@ class ImageDialog extends Component<ImageDialogProps> {
             发送{fileType === "image" ? "图片" : "文件"}
           </div>
           <div className="wk-imagedialog-content-body">
-            {
-                fileType === 'image' ? (
-                    <div className="wk-imagedialog-content-preview">
-                        <img alt="" className="wk-imagedialog-content-previewImg" src={previewUrl} onLoad={onLoad} />
-                    </div>
-                ) : fileType === 'video' ? (
-                    <div className="wk-imagedialog-content-preview" style={{
-                        maxWidth: '100%',
-                        maxHeight: '400px',
-                        overflow: 'hidden',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                    }}>
-                        <video 
-                            className="wk-imagedialog-content-previewVideo" 
-                            src={previewUrl} 
-                            controls
-                            playsInline
-                            preload="metadata"
-                            style={{
-                                maxWidth: '100%',
-                                maxHeight: '400px',
-                                objectFit: 'contain',
-                                borderRadius: '4px'
-                            }}
-                            onError={(e) => {
-                                console.error("Preview video error:", e);
-                            }}
-                        />
-                    </div>
-                ) : null
-            }
-            <div className="wk-imagedialog-footer" >
-                <button onClick={onClose}>取消</button>
-                <button 
-                    onClick={onSend} 
-                    className="wk-imagedialog-footer-okbtn" 
-                    disabled={!canSend} 
-                    style={{ backgroundColor: canSend ? WKApp.config.themeColor : 'gray' }}
-                >
-                    发送
-                </button>
+            {fileType === "image" ? (
+              <div className="wk-imagedialog-content-preview">
+                <img
+                  alt=""
+                  className="wk-imagedialog-content-previewImg"
+                  src={previewUrl}
+                  onLoad={onLoad}
+                />
+              </div>
+            ) : fileType === "video" ? (
+              <div
+                className="wk-imagedialog-content-preview"
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "400px",
+                  overflow: "hidden",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <video
+                  className="wk-imagedialog-content-previewVideo"
+                  src={previewUrl}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  style={{
+                    maxWidth: "100%",
+                    maxHeight: "400px",
+                    objectFit: "contain",
+                    borderRadius: "4px",
+                  }}
+                  onError={(e) => {
+                    console.error("Preview video error:", e);
+                  }}
+                />
+              </div>
+            ) : null}
+            <div className="wk-imagedialog-footer">
+              <button onClick={onClose}>取消</button>
+              <button
+                onClick={onSend}
+                className="wk-imagedialog-footer-okbtn"
+                disabled={!canSend}
+                style={{
+                  backgroundColor: canSend ? WKApp.config.themeColor : "gray",
+                }}
+              >
+                发送
+              </button>
             </div>
           </div>
         </div>

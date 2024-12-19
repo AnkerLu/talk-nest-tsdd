@@ -1,9 +1,12 @@
+// @ts-nocheck
+
 import { ChatPage, EndpointCategory, WKApp, Menus } from "@tsdaodao/base";
 import { ContactsList } from "@tsdaodao/contacts";
 import React from "react";
 import "./index.css";
 import AppLayout from "../Layout";
 import { WKSDK } from "wukongimjssdk";
+
 function App() {
   registerMenus();
   return <AppLayout />;
@@ -143,11 +146,11 @@ async function registerMenus() {
   );
 
   WKApp.route.register("/", () => {
-    return <ChatPage></ChatPage>;
+    return <ChatPage />;
   });
 
   WKApp.route.register("/contacts", () => {
-    return <ContactsList></ContactsList>;
+    return <ContactsList />;
   });
 }
 

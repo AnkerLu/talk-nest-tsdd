@@ -91,8 +91,8 @@ export class ChatContentPage extends Component<
                       alt=""
                       src={WKApp.shared.avatarChannel(channel)}
                       onError={(e) => {
-                        e.currentTarget.src = require("./assets/default_avatar.svg")
-                          .default;
+                        e.currentTarget.src =
+                          require("./assets/default_avatar.svg").default;
                       }}
                     ></img>
                   </div>
@@ -196,7 +196,7 @@ export class ChatContentPage extends Component<
   }
 }
 
-export default class ChatPage extends Component<any> {
+export default class ChatPage extends React.Component<any, any> {
   vm!: ChatVM;
   constructor(props: any) {
     super(props);

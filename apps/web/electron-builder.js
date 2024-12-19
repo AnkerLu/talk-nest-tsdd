@@ -1,5 +1,5 @@
 module.exports = {
-  productName: "语窝", //项目名
+  productName: "YuWo", //项目名
   appId: "com.talknest.macapp",
   copyright: "Copyright © ShangHaiTalkNest", //版权
   directories: {
@@ -11,14 +11,16 @@ module.exports = {
   electronDownload: {
     mirror: "https://registry.npmmirror.com/-/binary/electron/",
   },
-  files: ["resources/**/*","out-election/**/*", "build/**/*"], // 需要打包的文件
+  files: ["resources/**/*", "out-election/**/*", "build/**/*"], // 需要打包的文件
   extraMetadata: {
     main: "out-election/main/index.js",
   },
-  publish: [{
-    provider: "generic",
-    url: "https://api.botgate.cn/v1/common/pcupdater/"
-  }],
+  publish: [
+    {
+      provider: "generic",
+      url: "https://api.botgate.cn/v1/common/pcupdater/",
+    },
+  ],
   mac: {
     extendInfo: {
       NSMicrophoneUsageDescription: "授权访问麦克风",
@@ -30,16 +32,16 @@ module.exports = {
     category: "public.app-category.instant-messaging",
     target: [
       {
-        target: 'dmg',
-        arch: ['x64', 'arm64']
+        target: "dmg",
+        arch: ["x64", "arm64"],
       },
       {
-        target: 'zip',
-        arch: ['x64', 'arm64']
+        target: "zip",
+        arch: ["x64", "arm64"],
       },
     ],
     // eslint-disable-next-line no-template-curly-in-string
-    artifactName: '${productName}-${version}-${os}.${ext}',
+    artifactName: "${productName}-${version}-${os}.${ext}",
     icon: "resources/icons/icon.icns",
   },
   dmg: {
@@ -58,7 +60,7 @@ module.exports = {
     verifyUpdateCodeSignature: false,
     target: ["nsis", "zip"],
     // eslint-disable-next-line no-template-curly-in-string
-    artifactName: "${productName}-Setup-${version}.${ext}"
+    artifactName: "${productName}-Setup-${version}.${ext}",
   },
   nsis: {
     oneClick: false, // 是否一键安装
@@ -69,7 +71,7 @@ module.exports = {
     // installerHeaderIcon: "./build/icon.ico", // 安装时头部图标
     createDesktopShortcut: true, // 创建桌面图标
     createStartMenuShortcut: true, // 创建开始菜单图标
-    shortcutName: "语窝", // 图标名称
+    shortcutName: "YuWo", // 图标名称
   },
   linux: {
     target: ["AppImage", "deb"],

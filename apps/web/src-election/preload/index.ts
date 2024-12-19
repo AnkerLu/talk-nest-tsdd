@@ -1,6 +1,15 @@
 import { contextBridge, ipcRenderer } from "electron";
+import path from "path";
 
 contextBridge.exposeInMainWorld("__POWERED_ELECTRON__", true);
+
+contextBridge.exposeInMainWorld("electron", {
+  getResourcePath: (filename: string) => {
+    console.log("Resource path:", process.resourcesPath, filename);
+    return path.join(process.resourcesPath, filename);
+  },
+  test: () => console.log("Preload script loaded!"),
+});
 
 contextBridge.exposeInMainWorld("ipc", {
   send: (channel: string, ...args: any[]) => ipcRenderer.send(channel, ...args),

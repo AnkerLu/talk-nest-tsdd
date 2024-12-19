@@ -12,6 +12,9 @@ export interface TabNormalScreenProps {
 
 export class TabNormalScreen extends Component<TabNormalScreenProps> {
   componentDidMount() {
+    console.log("Window electron object:", (window as any).electron);
+    (window as any).electron?.test?.();
+
     WKApp.menus.setRefresh = () => {
       this.setState({});
     };
@@ -24,7 +27,7 @@ export class TabNormalScreen extends Component<TabNormalScreenProps> {
           <div className="wk-main-sider-logo">
             <img
               className="wk-main-sider-logo-img"
-              src="/logo.png"
+              src={`${process.env.PUBLIC_URL}/logo.png`}
               alt="logo"
             />
             <span className="wk-main-sider-logo-title">

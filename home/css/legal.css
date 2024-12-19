@@ -1,0 +1,394 @@
+/* 通用布局样式 */
+.legal-content {
+  padding: 80px 0;
+  background: #f8f9fa;
+  min-height: calc(100vh - 300px);
+}
+
+.legal-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.legal-wrapper h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.last-updated {
+  text-align: center;
+  color: #6c757d;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* 章节样式 */
+.legal-section {
+  margin-bottom: 3rem;
+}
+
+.legal-section h2 {
+  font-size: 1.75rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.legal-section p {
+  color: #495057;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* 目录样式 */
+.privacy-toc {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.privacy-toc h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.privacy-toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 2;
+}
+
+.privacy-toc li {
+  margin-bottom: 0.75rem;
+}
+
+.privacy-toc a {
+  color: #495057;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.privacy-toc a:hover {
+  color: #007bff;
+}
+
+/* 重要提示框 */
+.legal-section.important {
+  background: #f8f9fa;
+  border-left: 4px solid #007bff;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.legal-section.important i {
+  color: #007bff;
+  font-size: 1.5rem;
+}
+
+/* 特性列表 */
+.feature-list {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.feature-list i {
+  color: #28a745;
+}
+
+/* 数据流程图 */
+.data-flow {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 1.5rem 0;
+}
+
+.data-flow-step {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.data-flow-step:last-child {
+  margin-bottom: 0;
+}
+
+.step-number {
+  width: 28px;
+  height: 28px;
+  background: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* 信息类型标签 */
+.info-type {
+  display: inline-block;
+  background: #e9ecef;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  color: #495057;
+  margin: 0.5rem 0;
+}
+
+/* 使用场景卡片 */
+.usage-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.usage-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.usage-card i {
+  color: #007bff;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.usage-card h4 {
+  color: #2c3e50;
+  margin-bottom: 0.75rem;
+}
+
+/* 信息共享场景 */
+.info-sharing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.sharing-scenario {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.sharing-scenario.warning {
+  background: #fff3cd;
+  border: 1px solid #ffeeba;
+}
+
+.sharing-scenario h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.sharing-scenario.warning h4 i {
+  color: #ffc107;
+}
+
+/* 安全措施卡片 */
+.security-measures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.measure-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.measure-card i {
+  color: #28a745;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* 用户权利列表 */
+.rights-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.right-item {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.right-item i {
+  color: #007bff;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Cookie 控制 */
+.cookie-info {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.cookie-control {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.btn-outline {
+  background: none;
+  border: 1px solid #007bff;
+  color: #007bff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+/* 未成年人保护提示 */
+.protection-notice {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.protection-notice i {
+  font-size: 2rem;
+  color: #007bff;
+}
+
+/* 版本历史 */
+.version-history {
+  margin-top: 1.5rem;
+}
+
+.version-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.version {
+  background: #e9ecef;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+/* 联系信息卡片 */
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.contact-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card i {
+  color: #007bff;
+  margin-right: 0.5rem;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .legal-content {
+    padding: 40px 0;
+  }
+
+  .legal-wrapper {
+    padding: 20px;
+    margin: 0 15px;
+  }
+
+  .legal-wrapper h1 {
+    font-size: 2rem;
+  }
+
+  .legal-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .privacy-toc ul {
+    columns: 1;
+  }
+
+  .data-flow {
+    padding: 1rem;
+  }
+}
+
+/* 打印样式优化 */
+@media print {
+  .legal-wrapper {
+    box-shadow: none;
+  }
+
+  .legal-section {
+    page-break-inside: avoid;
+  }
+
+  .footer,
+  .nav {
+    display: none;
+  }
+}

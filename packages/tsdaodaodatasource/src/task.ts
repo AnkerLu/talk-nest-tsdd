@@ -3,6 +3,10 @@ import axios, { Canceler } from "axios";
 import { MediaMessageContent } from "wukongimjssdk";
 import { MessageTask, TaskStatus } from "wukongimjssdk";
 
+export declare class FullMediaMessageContent extends MediaMessageContent {
+  cover?: string;
+}
+
 export class MediaMessageUploadTask extends MessageTask {
   private _progress?: number;
   private canceler: Canceler | undefined;
@@ -33,7 +37,7 @@ export class MediaMessageUploadTask extends MessageTask {
   }
 
   async start(): Promise<void> {
-    const mediaContent = this.message.content as MediaMessageContent;
+    const mediaContent = this.message.content as FullMediaMessageContent;
     if (mediaContent.file) {
       // ���传主文件
       const fileName = this.getUUID();
@@ -96,7 +100,7 @@ export class MediaMessageUploadTask extends MessageTask {
       });
     if (resp) {
       if (resp.data.path) {
-        const mediaContent = this.message.content as MediaMessageContent;
+        const mediaContent = this.message.content as FullMediaMessageContent;
         if (isCover) {
           mediaContent.cover = resp.data.path;
         } else {

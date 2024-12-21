@@ -152,7 +152,6 @@ export default class BaseModule implements IModule {
     );
 
     WKSDK.shared().register(MessageContentType.image, () => new ImageContent()); // 图片
-    WKSDK.shared().register(MessageContentType.video, () => new VideoContent()); // 视频
 
     WKSDK.shared().register(MessageContentTypeConst.card, () => new Card()); // 名片
     WKSDK.shared().register(
@@ -1125,24 +1124,50 @@ export default class BaseModule implements IModule {
                 );
               },
               onRemove: () => {
+                // 获取当前登录用户ID
+                const currentUserID = WKApp.loginInfo.uid;
+
                 context.push(
                   <SubscriberList
                     channel={channel}
                     onSelect={(items) => {
-                      removeSelectItems = items;
-                      removeFinishButtonContext.disable(items.length === 0);
+                      // 过滤掉当前用户，不允许选择自己
+                      const filteredItems = items.filter(
+                        (item) => item.uid !== currentUserID
+                      );
+                      removeSelectItems = filteredItems;
+                      removeFinishButtonContext.disable(
+                        filteredItems.length === 0
+                      );
                     }}
                     canSelect={true}
+                    // 禁用选择当前用户
+                    disableSelectList={[currentUserID || ""]}
+                    // 可选：添加提示信息
+                    extraInfo={(subscriber) => {
+                      return subscriber.uid === currentUserID
+                        ? "不能删除自己"
+                        : "";
+                    }}
                   ></SubscriberList>,
                   {
                     title: "删除群成员",
                     showFinishButton: true,
                     onFinish: async () => {
+                      // 再次确保不包含当前用户
+                      const itemsToRemove = removeSelectItems.filter(
+                        (item) => item.uid !== currentUserID
+                      );
+                      if (itemsToRemove.length === 0) {
+                        Toast.error("请选择要删除的群成员");
+                        return;
+                      }
+
                       removeFinishButtonContext.loading(true);
                       WKApp.dataSource.channelDataSource
                         .removeSubscribers(
                           channel,
-                          removeSelectItems.map((item) => {
+                          itemsToRemove.map((item) => {
                             return item.uid;
                           })
                         )

@@ -31,13 +31,13 @@
   justify-content: center;
   cursor: pointer;
   border-radius: 10px;
-  background: var(--wk-bg-1);
-  color: var(--wk-text-2);
+  background: var(--wk-bg-secondary);
+  color: var(--wk-text-secondary);
   transition: all 0.2s ease;
 }
 
 .wk-main-sider-theme-toggle:hover {
-  background: var(--wk-bg-2);
+  background: var(--wk-bg-hover);
 }
 
 .wk-main-sider-logo-img {

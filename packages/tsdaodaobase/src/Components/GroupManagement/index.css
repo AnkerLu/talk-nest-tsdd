@@ -1,48 +1,33 @@
 .admin-list-section {
-  background: var(--wk-color-theme);
-  padding: 0 16px;
+  padding: 16px;
+  background: var(--semi-color-bg-0);
 }
 
 .admin-list-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--wk-state-default-border);
+  margin-bottom: 16px;
 }
 
 .admin-list-header span {
-  font-size: 14px;
-  color: var(--wk-text-secondary);
-}
-
-/* 优化添加管理员按钮 */
-.admin-list-header .semi-button {
-  font-size: 13px;
-  color: var(--semi-color-primary);
-  padding: 4px 8px;
-  border-radius: 4px;
-  background: transparent;
-}
-
-.admin-list-header .semi-button:hover {
-  background: var(--semi-color-primary-light-default);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--semi-color-text-0);
 }
 
 .admin-list-content {
   display: flex;
   flex-direction: column;
+  gap: 12px;
 }
 
 .admin-item {
   display: flex;
   align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--wk-state-default-border);
-}
-
-.admin-item:last-child {
-  border-bottom: none;
+  padding: 8px;
+  background: var(--semi-color-bg-1);
+  border-radius: 8px;
 }
 
 .admin-info {
@@ -52,31 +37,68 @@
 
 .admin-name {
   font-size: 14px;
-  color: var(--wk-text-primary);
-  line-height: 20px;
+  font-weight: 500;
+  color: var(--semi-color-text-0);
 }
 
 .admin-role {
   font-size: 12px;
-  color: var(--wk-text-secondary);
-  margin-top: 2px;
+  color: var(--semi-color-text-2);
+  margin-top: 4px;
 }
 
-/* 优化移除按钮 */
 .admin-item .semi-button {
-  padding: 4px 8px;
+  margin-left: 8px;
+}
+
+.admin-list-header .semi-button {
+  padding: 4px 12px;
+  font-size: 14px;
+}
+
+.admin-list-header .semi-button .semi-icon {
+  margin-right: 4px;
+}
+
+.admin-remove-btn {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.admin-remove-btn:hover {
+  opacity: 1;
+  background-color: var(--semi-color-fill-0);
+}
+
+.admin-item:hover .admin-remove-btn {
+  opacity: 1;
+}
+
+/* 适配暗色主题 */
+[data-theme="dark"] .admin-list-section {
+  background: var(--semi-color-bg-1);
+}
+
+[data-theme="dark"] .admin-item {
+  background: var(--semi-color-bg-2);
+}
+
+[data-theme="dark"] .admin-remove-btn:hover {
+  background-color: var(--semi-color-fill-1);
+}
+
+.admin-remove-icon {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  cursor: pointer;
+  color: var(--semi-color-text-2);
+}
+
+.admin-remove-icon:hover {
+  opacity: 1;
   color: var(--semi-color-danger);
-  font-size: 13px;
-  background: transparent;
 }
 
-.admin-item .semi-button:hover {
-  color: var(--semi-color-danger-hover);
-  background: var(--semi-color-danger-light-default);
-  border-radius: 4px;
-}
-
-/* 头像样式 */
-.admin-item .semi-avatar {
-  border-radius: 4px;
+.admin-item:hover .admin-remove-icon {
+  opacity: 1;
 }

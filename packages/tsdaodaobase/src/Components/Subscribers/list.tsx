@@ -16,6 +16,7 @@ export interface SubscriberListProps {
   disableSelectList?: string[]; // 禁选列表
   onSelect?: (items: Subscriber[]) => void;
   extraInfo?: (subscriber: Subscriber) => string; // 添加额外信息显示
+  extraAction?: (subscriber: Subscriber) => React.ReactNode; // 新增属性
 }
 
 export interface SubscriberListState {
@@ -209,6 +210,11 @@ export class SubscriberList extends Component<
                           )}
                         </div>
                       </div>
+                      {this.props.extraAction && (
+                        <div className="wk-subscrierlist-item-action">
+                          {this.props.extraAction(item)}
+                        </div>
+                      )}
                     </div>
                   );
                 })}

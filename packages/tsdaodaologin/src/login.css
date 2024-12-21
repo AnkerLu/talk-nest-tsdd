@@ -1,271 +1,268 @@
 .wk-login {
-  display: table;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  background-color: var(--wk-color-theme);
+  display: flex;
+  height: 100vh;
+  background: #fff;
 }
 
 .wk-login-panel {
-  display: table-cell;
-  width: 50vw;
-}
-
-.wk-login-bg {
-  background-image: url(./assets/login-bg.png);
-  background-size: cover;
-  -webkit-background-position: center;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.wk-login-content {
+  flex: 1;
   display: flex;
-  position: relative;
   flex-direction: column;
-  height: 100vh;
 }
 
+/* Header 样式调整 */
 .wk-login-content-header {
+  width: 100%;
+  padding: 40px 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px;
 }
 
 .wk-login-content-logo {
-  align-items: center;
   display: flex;
+  align-items: center;
 }
 
 .wk-login-content-logo img {
-  width: 40px;
-  height: auto;
+  height: 48px;
+  width: auto;
+  margin-right: 12px;
 }
 
 .wk-login-content-logo-title {
   font-size: 24px;
   font-weight: 600;
-  margin-left: 12px;
+  color: #333;
 }
 
 .wk-login-content-slogan {
-  font-size: 24px;
-  font-weight: bold;
+  color: #666;
+  font-size: 16px;
+}
+
+/* 登录内容区域调整 */
+.wk-login-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  background: #f7f7f7;
+}
+
+/* 加强登录卡片样式 */
+.wk-login-card {
+  width: 100%;
+  max-width: 420px;
+  min-height: 520px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+}
+
+/* 顶部切换标签 */
+.wk-login-tabs {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 32px;
+}
+
+.wk-login-tab-item {
+  flex: 1;
   text-align: center;
-  text-shadow: 0 0 10px rgba(var(--wk-color-primary-rgb), 0.3),
-    0 0 20px rgba(var(--wk-color-primary-rgb), 0.3),
-    0 0 30px rgba(var(--wk-color-primary-rgb), 0.3);
-  background: linear-gradient(
-    120deg,
-    #4a90e2,
-    /* 亮蓝色 */ #63bfad,
-    /* 青绿色 */ #7c4dff /* 紫色 */
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  animation: shine 3s linear infinite;
+  padding: 16px 0;
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s;
 }
 
-@keyframes shine {
-  to {
-    background-position: 200% center;
-  }
+.wk-login-tab-item.active {
+  color: #333;
 }
 
+.wk-login-tab-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #333;
+}
+
+/* 表单样式 */
 .wk-login-content-form {
-  margin-top: 32px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .wk-login-content-form input {
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 44px;
+  padding: 12px;
+  border: 1px solid #e5e5e5;
   border-radius: 4px;
-  color: rgba(0, 0, 0, 1);
-  display: block;
-  font-family: Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;
-  height: 42px;
-  margin-top: 8px;
-  margin-bottom: 12px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 16px;
-  width: 100%;
+  font-size: 14px;
+  margin-bottom: 16px;
 }
 
-.wk-login-content-form-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 24px;
+.wk-login-content-form input:focus {
+  border-color: #333;
+  outline: none;
 }
 
-.wk-login-content-form-ok {
-  border-radius: 6px;
-  display: inline-flex;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 16px;
-  padding: 11px 20px;
-  width: 100%;
-  height: auto;
-  background-color: var(--wk-color-primary);
-}
-
-.wk-login-content-form-others {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 40px;
-  width: 320px;
-}
-
-.wk-login-content-form-scanlogin {
-  color: #929292;
-  font-size: 15px;
-  font-weight: normal;
-  text-align: center;
-  cursor: pointer;
-}
-
-.wk-login-footer {
-  color: #262626;
-  font-size: 16px;
-  font-weight: 400;
-
-  bottom: 0;
-  margin-bottom: 66px;
-  position: absolute;
-  text-align: center;
-  width: 100%;
-}
-
-.wk-login-footer ul {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 0px;
-}
-
-.wk-login-footer ul li {
-  margin-left: 40px;
-}
-
-.wk-login-content-phonelogin {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-  flex: 1;
-  width: 400px;
-}
-
-.wk-login-content-scanlogin {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.wk-login-content-scanlogin-show {
-  display: flex;
-}
-
-.wk-login-content-scanlogin-qrcode {
-  width: 280px;
-  height: 280px;
+/* 密码输入框包装器 */
+.wk-login-password-wrapper {
   position: relative;
-
-  opacity: 0;
-  transform: scale(0);
-  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 300ms;
+  margin-bottom: 24px;
 }
 
-.wk-login-content-scanlogin-show .wk-login-content-scanlogin-qrcode {
-  opacity: 1;
-  transform: scale(1);
+/* 登录按钮 */
+.wk-login-button {
+  width: 100%;
+  height: 44px;
+  font-size: 16px;
+  background: #c7000b;
+  border-color: #c7000b;
 }
 
-.wk-login-content-scanlogin-qrcode-avatar {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -30px;
-  margin-left: -30px;
-
-  opacity: 0;
-  transform: scale(0);
-  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 300ms;
+.wk-login-button:hover {
+  background: #d81e06;
+  border-color: #d81e06;
 }
 
-.wk-login-content-scanlogin-qrcode-avatar-show {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.wk-login-content-scanlogin-qrcode-avatar img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-}
-
-.wk-login-content-scanlogin-qrcode-title {
-  margin-top: 30px;
-  color: rgba(9, 30, 66, 0.87);
-}
-
-.wk-login-content-scanlogin-qrcode-desc li {
-  counter-increment: item;
-  text-align: left;
-  margin: 0.75rem 0;
+/* 注册和忘记密码 */
+.wk-login-options {
   display: flex;
-  color: rgba(9, 30, 66, 0.87);
+  justify-content: space-between;
+  margin-top: 16px;
+  color: #666;
+  font-size: 14px;
 }
 
-.wk-login-content-scanlogin-qrcode-desc li::before {
-  content: counter(item);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 1.375rem;
-  height: 1.375rem;
-  padding: 0;
-  margin: 0 0.75rem 0 0;
-  background: var(--wk-color-theme);
-  border-radius: 50%;
-  font-size: smaller;
-  color: #fff;
-}
-
-.wk-login-footer-buttons button {
-  background-color: transparent;
-  color: var(--wk-state-default-border);
-  outline: none !important;
-  border: 0;
-  height: 3.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.625rem;
+.wk-login-options span {
   cursor: pointer;
 }
 
-.wk-login-content-scanlogin-qrcode-expire {
-  width: 100%;
-  height: 100%;
+.wk-login-options span:hover {
+  color: #333;
+}
+
+/* 登录面板切换样式优化 */
+.wk-login-content-phonelogin,
+.wk-login-content-scanlogin {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgb(255, 255, 255, 0.95);
+  right: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
 }
 
-.wk-login-content-scanlogin-qrcode-expire img {
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
+.wk-login-content-phonelogin-show,
+.wk-login-content-scanlogin-show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* 内容区域容器 */
+.wk-login-content-container {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  margin-top: 24px;
+}
+
+/* 扫码登录内容居中 */
+.wk-login-content-scanlogin .wk-login-content-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* 背景图片 */
+.wk-login-bg {
+  background-image: url(./assets/login-bg.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 扫码登录区域样式优化 */
+.wk-login-content-scanlogin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px;
+}
+
+/* 内容区域容器 */
+.wk-login-content-wrapper {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 二维码提示文字样式 */
+.wk-login-qrcode-tip {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.wk-login-qrcode-tip .highlight {
+  color: #c7000b;
+  font-weight: 500;
+}
+
+.wk-login-qrcode-tip .countdown {
+  color: #c7000b;
+}
+
+/* 二维码容器样式优化 */
+.wk-login-content-scanlogin-qrcode {
+  width: 260px;
+  height: 260px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* 加载状态样式 */
+.wk-login-content-scanlogin-qrcode .semi-spin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }

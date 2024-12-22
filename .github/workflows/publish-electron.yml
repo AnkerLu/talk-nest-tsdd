@@ -70,16 +70,19 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Cleanup Artifacts
-        if: success()
+      - name: Cleanup Windows Artifacts
+        if: success() && matrix.os == 'windows-latest'
         shell: cmd
         run: |
           mkdir artifacts
-          if "%RUNNER_OS%" == "Windows" (
-            move apps\web\dist-ele\*.exe artifacts\ 2>nul || echo No exe files found
-          ) else (
-            move apps\web\dist-ele\*.dmg artifacts\ 2>nul || echo No dmg files found
-          )
+          move apps\web\dist-ele\*.exe artifacts\ 2>nul || echo No exe files found
+
+      - name: Cleanup MacOS Artifacts
+        if: success() && matrix.os == 'macos-latest'
+        shell: bash
+        run: |
+          mkdir -p artifacts
+          mv apps/web/dist-ele/*.dmg artifacts/ 2>/dev/null || echo "No dmg files found"
 
       - name: upload artifacts
         uses: actions/upload-artifact@v3.0.0

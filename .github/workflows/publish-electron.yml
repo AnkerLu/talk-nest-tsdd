@@ -47,8 +47,12 @@ jobs:
         if: matrix.os == 'windows-latest'
         shell: cmd
         run: |
-          echo "Starting Windows build..."
-          yarn build-ele:win || (echo "Build failed with %ERRORLEVEL%" && exit /b 1)
+          echo "Converting yarn.lock to package-lock.json..."
+          npx synp --source-file yarn.lock
+          echo "Installing with npm..."
+          npm install
+          echo "Building with npm..."
+          npm run build-ele:win
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

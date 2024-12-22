@@ -1,4 +1,4 @@
-import { WKApp } from "@tsdaodao/base";
+import { WKApp } from "@yuwo/base";
 import React from "react";
 import { Component, ReactNode } from "react";
 import "./tab_low_screen.css";

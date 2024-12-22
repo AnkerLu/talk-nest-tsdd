@@ -1,4 +1,4 @@
-import { WKApp, Menus, ProviderListener } from "@tsdaodao/base";
+import { WKApp, Menus, ProviderListener } from "@yuwo/base";
 import { Toast } from "@douyinfe/semi-ui";
 
 export default class MainVM extends ProviderListener {

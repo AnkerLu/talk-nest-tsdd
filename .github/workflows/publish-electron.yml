@@ -3,6 +3,12 @@ on:
   push:
     tags:
       - "v*" # 推送事件匹配 v*, 例如 v1.0，v20.15.10 等来触发工作流
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
 jobs:
   release:
     name: build and release electron app
@@ -43,6 +49,7 @@ jobs:
           echo "Starting Windows build..."
           yarn build-ele:win || (echo "Build failed with $?" && exit 1)
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEBUG: electron-builder
 

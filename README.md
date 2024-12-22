@@ -125,3 +125,9 @@ yarn build-ele:win
 ```shell
 yarn build-ele:linux
 ```
+
+注意：本地安装测试包授权
+
+```shell
+sudo xattr -rd com.apple.quarantine /Applications/YuWo.app
+```

@@ -3,12 +3,6 @@ on:
   push:
     tags:
       - "v*" # 推送事件匹配 v*, 例如 v1.0，v20.15.10 等来触发工作流
-
-permissions:
-  contents: write
-  issues: write
-  pull-requests: write
-
 jobs:
   release:
     name: build and release electron app
@@ -43,31 +37,14 @@ jobs:
       - name: Build preparation
         run: yarn build
 
-      - name: Setup electron-builder
-        working-directory: ./apps/web
-        run: |
-          yarn remove electron-builder
-          yarn add electron-builder@23.6.0 -D
-
       - name: Build electron windows
         if: matrix.os == 'windows-latest'
-        shell: cmd
         run: |
-          echo "Current directory:"
-          cd apps/web
           echo "Starting Windows build..."
-          set DEBUG=electron-builder
-          call yarn build-ele:win --debug || (
-            echo "Build failed with error code %ERRORLEVEL%"
-            type electron-builder.log
-            exit /b 1
-          )
-          echo "Build completed, checking output:"
-          dir dist-ele
+          yarn build-ele:win || (echo "Build failed with $?" && exit 1)
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEBUG: electron-builder
-          NODE_ENV: production
 
       - name: Build MacOS App
         if: matrix.os == 'macos-latest'
@@ -75,19 +52,15 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Cleanup Windows Artifacts
-        if: success() && matrix.os == 'windows-latest'
-        shell: cmd
-        run: |
-          mkdir artifacts
-          move apps\web\dist-ele\*.exe artifacts\ 2>nul || echo No exe files found
-
-      - name: Cleanup MacOS Artifacts
-        if: success() && matrix.os == 'macos-latest'
-        shell: bash
+      - name: Cleanup Artifacts
+        if: success() # 只在构建成功时执行
         run: |
           mkdir -p artifacts
-          mv apps/web/dist-ele/*.dmg artifacts/ 2>/dev/null || echo "No dmg files found"
+          if [ "${{ matrix.os }}" = "windows-latest" ]; then
+            mv apps/web/dist-ele/*.exe artifacts/ || echo "No exe files found"
+          else
+            mv apps/web/dist-ele/*.dmg artifacts/ || echo "No dmg files found"
+          fi
 
       - name: upload artifacts
         uses: actions/upload-artifact@v3.0.0
@@ -102,15 +75,3 @@ jobs:
           files: "artifacts/**"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Cache Windows builds
-        if: matrix.os == 'windows-latest'
-        uses: actions/cache@v3
-        with:
-          path: |
-            %APPDATA%\npm-cache
-            %LOCALAPPDATA%\electron
-            %LOCALAPPDATA%\electron-builder
-          key: ${{ runner.os }}-electron-cache-${{ hashFiles('**/package.json') }}
-          restore-keys: |
-            ${{ runner.os }}-electron-cache-

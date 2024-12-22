@@ -53,16 +53,21 @@ jobs:
         if: matrix.os == 'windows-latest'
         shell: cmd
         run: |
-          echo "Converting yarn.lock to package-lock.json..."
-          npx synp --source-file yarn.lock
-          echo "Installing with npm..."
-          npm install
-          echo "Building with npm..."
-          npm run build-ele:win
+          echo "Current directory:"
+          cd apps/web
+          echo "Starting Windows build..."
+          set DEBUG=electron-builder
+          call yarn build-ele:win --debug || (
+            echo "Build failed with error code %ERRORLEVEL%"
+            type electron-builder.log
+            exit /b 1
+          )
+          echo "Build completed, checking output:"
+          dir dist-ele
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEBUG: electron-builder
+          NODE_ENV: production
 
       - name: Build MacOS App
         if: matrix.os == 'macos-latest'

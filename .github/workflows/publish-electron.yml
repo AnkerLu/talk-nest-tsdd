@@ -71,14 +71,15 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Cleanup Artifacts
-        if: success() # 只在构建成功时执行
+        if: success()
+        shell: cmd
         run: |
-          mkdir -p artifacts
-          if [ "${{ matrix.os }}" = "windows-latest" ]; then
-            mv apps/web/dist-ele/*.exe artifacts/ || echo "No exe files found"
-          else
-            mv apps/web/dist-ele/*.dmg artifacts/ || echo "No dmg files found"
-          fi
+          mkdir artifacts
+          if "%RUNNER_OS%" == "Windows" (
+            move apps\web\dist-ele\*.exe artifacts\ 2>nul || echo No exe files found
+          ) else (
+            move apps\web\dist-ele\*.dmg artifacts\ 2>nul || echo No dmg files found
+          )
 
       - name: upload artifacts
         uses: actions/upload-artifact@v3.0.0

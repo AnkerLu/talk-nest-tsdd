@@ -57,10 +57,17 @@ module.exports = {
   },
   win: {
     icon: "resources/icons/icon.ico",
-    verifyUpdateCodeSignature: false,
     target: ["nsis", "zip"],
-    // eslint-disable-next-line no-template-curly-in-string
-    artifactName: "${productName}-Setup-${version}.${ext}",
+    // 移除签名验证，用于测试
+    verifyUpdateCodeSignature: false,
+    // 关闭签名要求
+    signAndEditExecutable: false,
+    // 或者配置签名信息
+    /*
+    certificateFile: process.env.WINDOWS_PFX_FILE,
+    certificatePassword: process.env.WINDOWS_PFX_PASSWORD,
+    signDlls: true,
+    */
   },
   nsis: {
     oneClick: false, // 是否一键安装

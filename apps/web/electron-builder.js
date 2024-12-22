@@ -59,6 +59,7 @@ module.exports = {
     icon: "resources/icons/icon.ico",
     verifyUpdateCodeSignature: false,
     target: ["nsis", "zip"],
+    signAndEditExecutable: false,
     // eslint-disable-next-line no-template-curly-in-string
     artifactName: "${productName}-Setup-${version}.${ext}",
   },

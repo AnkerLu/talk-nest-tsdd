@@ -7,7 +7,7 @@ jobs:
   release:
     name: build and release electron app
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 30
+    timeout-minutes: 60
 
     strategy:
       fail-fast: false
@@ -29,7 +29,15 @@ jobs:
             **/node_modules
             ~/.cache/electron
             ~/.cache/electron-builder
+            **/.turbo
+            **/dist
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Clean cache and node_modules
+        run: |
+          yarn clean
+          rm -rf node_modules
+          rm -rf apps/web/node_modules
 
       - name: Install Dependencies
         run: yarn install --frozen-lockfile --network-timeout=60000
@@ -48,7 +56,9 @@ jobs:
 
       - name: Build MacOS App
         if: matrix.os == 'macos-latest'
-        run: yarn build-ele:mac
+        run: |
+          echo "Starting MacOS build..."
+          yarn build-ele:mac || (echo "Build failed with $?" && exit 1)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

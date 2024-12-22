@@ -43,6 +43,11 @@ jobs:
       - name: Build preparation
         run: yarn build
 
+      - name: Setup electron-builder
+        run: |
+          yarn remove electron-builder
+          yarn add electron-builder@23.6.0 -D  # 使用较稳定的版本
+
       - name: Build electron windows
         if: matrix.os == 'windows-latest'
         shell: cmd

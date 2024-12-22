@@ -150,18 +150,18 @@ export class SubscriberList extends Component<
         render={(vm: SubscriberListVM) => {
           return (
             <div
-              className="wk-subscrierlist"
+              className="yw-subscrierlist"
               onScroll={(e) => {
                 this.handleScroll(e, vm);
               }}
             >
-              <div className="wk-indextable-search-box">
-                <div className="wk-indextable-search-icon">
+              <div className="yw-indextable-search-box">
+                <div className="yw-indextable-search-icon">
                   <IconSearchStroked
                     style={{ color: "#bbbfc4", fontSize: "20px" }}
                   />
                 </div>
-                <div className="wk-indextable-search-input">
+                <div className="yw-indextable-search-input">
                   <input
                     onChange={(v) => {
                       this.onSearch(v.target.value, vm);
@@ -173,18 +173,18 @@ export class SubscriberList extends Component<
                   />
                 </div>
               </div>
-              <div className="wk-subscrierlist-list">
+              <div className="yw-subscrierlist-list">
                 {vm.subscribers.map((item) => {
                   return (
                     <div
-                      className="wk-subscrierlist-list-item"
+                      className="yw-subscrierlist-list-item"
                       key={item.uid}
                       onClick={() => {
                         this.onItemClick(item);
                       }}
                     >
                       {canSelect ? (
-                        <div className="wk-indextable-checkbox">
+                        <div className="yw-indextable-checkbox">
                           <Checkbox
                             checked={
                               this.isDisableItem(item.uid) ||
@@ -194,24 +194,24 @@ export class SubscriberList extends Component<
                           ></Checkbox>
                         </div>
                       ) : undefined}
-                      <div className="wk-subscrierlist-item-avatar">
+                      <div className="yw-subscrierlist-item-avatar">
                         <WKAvatar src={item.avatar}></WKAvatar>
                       </div>
-                      <div className="wk-subscrierlist-item-content">
-                        <div className="wk-subscrierlist-item-name">
+                      <div className="yw-subscrierlist-item-content">
+                        <div className="yw-subscrierlist-item-name">
                           {this.getShowName(item)}
                         </div>
-                        <div className="wk-subscrierlist-item-desc">
+                        <div className="yw-subscrierlist-item-desc">
                           {this.getRoleName(item)}
                           {this.props.extraInfo && (
-                            <span className="wk-subscrierlist-item-extra">
+                            <span className="yw-subscrierlist-item-extra">
                               {this.props.extraInfo(item)}
                             </span>
                           )}
                         </div>
                       </div>
                       {this.props.extraAction && (
-                        <div className="wk-subscrierlist-item-action">
+                        <div className="yw-subscrierlist-item-action">
                           {this.props.extraAction(item)}
                         </div>
                       )}

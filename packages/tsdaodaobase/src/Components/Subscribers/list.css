@@ -1,18 +1,18 @@
-.wk-subscrierlist {
-  background-color: var(--wk-color-theme);
+.yw-subscrierlist {
+  background-color: var(--yw-color-theme);
   width: 100%;
   height: 100%;
   overflow: scroll;
 }
 
-.wk-subscrierlist-list-item {
+.yw-subscrierlist-list-item {
   display: flex;
   align-items: center;
   padding: 1rem;
   cursor: pointer;
 }
 
-.wk-subscrierlist-item-name {
+.yw-subscrierlist-item-name {
   margin-left: 1rem;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -20,29 +20,29 @@
   max-width: 10rem;
 }
 
-.wk-subscrierlist-item-content {
+.yw-subscrierlist-item-content {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
 
-.wk-subscrierlist-item-desc {
+.yw-subscrierlist-item-desc {
   font-size: 14px;
   color: #666;
 }
 
-.wk-subscrierlist-item-extra {
+.yw-subscrierlist-item-extra {
   margin-left: 8px;
   color: var(--semi-color-danger);
 }
 
-.wk-subscrierlist-item-action {
+.yw-subscrierlist-item-action {
   margin-left: auto;
   display: flex;
   align-items: center;
   padding-left: 12px;
 }
 
-.wk-subscrierlist-list-item:hover .wk-subscrierlist-item-action {
+.yw-subscrierlist-list-item:hover .yw-subscrierlist-item-action {
   opacity: 1;
 }

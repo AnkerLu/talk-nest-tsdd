@@ -22,20 +22,20 @@ export class TabNormalScreen extends Component<TabNormalScreenProps> {
   render() {
     const { vm } = this.props;
     return (
-      <div className="wk-main-sider">
-        <div className="wk-main-sider-header">
-          <div className="wk-main-sider-logo">
+      <div className="yw-main-sider">
+        <div className="yw-main-sider-header">
+          <div className="yw-main-sider-logo">
             <img
-              className="wk-main-sider-logo-img"
+              className="yw-main-sider-logo-img"
               src={`${process.env.PUBLIC_URL}/logo.png`}
               alt="logo"
             />
-            <span className="wk-main-sider-logo-title">
+            <span className="yw-main-sider-logo-title">
               {WKApp.config.appName}
             </span>
           </div>
           <div
-            className="wk-main-sider-theme-toggle"
+            className="yw-main-sider-theme-toggle"
             onClick={() => {
               if (WKApp.config.themeMode === ThemeMode.dark) {
                 WKApp.config.themeMode = ThemeMode.light;
@@ -61,12 +61,12 @@ export class TabNormalScreen extends Component<TabNormalScreenProps> {
             )}
           </div>
         </div>
-        <ul className="wk-main-sider-content">
+        <ul className="yw-main-sider-content">
           {vm.menusList.map((menus: Menus) => {
             return (
               <li
                 className={classnames(
-                  "wk-main-sider-item",
+                  "yw-main-sider-item",
                   menus.id === vm.currentMenus?.id ? "selected" : undefined
                 )}
                 title={menus.title}
@@ -82,26 +82,26 @@ export class TabNormalScreen extends Component<TabNormalScreenProps> {
                 }}
               >
                 {menus.badge && menus.badge > 0 ? (
-                  <div className="wk-main-sider-item-badge">
+                  <div className="yw-main-sider-item-badge">
                     <Badge count={menus.badge} type="danger"></Badge>
                   </div>
                 ) : undefined}
                 {menus.id === vm.currentMenus?.id
                   ? menus.selectedIcon
                   : menus.icon}
-                <span className="wk-main-sider-item-title">{menus.title}</span>
+                <span className="yw-main-sider-item-title">{menus.title}</span>
               </li>
             );
           })}
         </ul>
         <div
-          className="wk-main-sider-setting-box"
+          className="yw-main-sider-setting-box"
           onClick={() => {
             vm.settingSelected = !vm.settingSelected;
           }}
         >
           {vm.hasNewVersion ? (
-            <div className="wk-main-sider-setting-badge">
+            <div className="yw-main-sider-setting-badge">
               <Badge type="danger" dot>
                 {" "}
               </Badge>
@@ -109,7 +109,7 @@ export class TabNormalScreen extends Component<TabNormalScreenProps> {
           ) : undefined}
           <div
             className={classnames(
-              "wk-main-sider-item",
+              "yw-main-sider-item",
               vm.settingSelected ? "collapsed" : undefined
             )}
           >
@@ -127,12 +127,12 @@ export class TabNormalScreen extends Component<TabNormalScreenProps> {
                 fill="#ffffff"
               ></path>
             </svg>
-            <span className="wk-main-sider-item-title">设置</span>
+            <span className="yw-main-sider-item-title">设置</span>
           </div>
         </div>
-        <div className="wk-main-sider-avatar">
+        <div className="yw-main-sider-avatar">
           <div
-            className="wk-main-sider-avatar-box"
+            className="yw-main-sider-avatar-box"
             onClick={() => {
               const uid = WKApp.loginInfo.uid;
               WKApp.apiClient
@@ -155,12 +155,12 @@ export class TabNormalScreen extends Component<TabNormalScreenProps> {
               alt=""
               src={WKApp.shared.avatarUser(WKApp.loginInfo.uid || "")}
             ></img>
-            <span className="wk-main-sider-avatar-name">
+            <span className="yw-main-sider-avatar-name">
               {WKApp.loginInfo.name}
             </span>
           </div>
           <svg
-            className="wk-main-sider-avatar-logout"
+            className="yw-main-sider-avatar-logout"
             focusable="false"
             aria-hidden="true"
             viewBox="0 0 24 24"
@@ -178,7 +178,7 @@ export class TabNormalScreen extends Component<TabNormalScreenProps> {
         </div>
         <ul
           className={classnames(
-            "wk-sider-setting-list",
+            "yw-sider-setting-list",
             vm.settingSelected ? "open" : undefined
           )}
         >
@@ -261,9 +261,9 @@ export class TabNormalScreen extends Component<TabNormalScreenProps> {
           }
         >
           {vm.lastVersionInfo ? (
-            <div className="wk-versioncheckview">
-              <div className="wk-versioncheckview-content">
-                <div className="wk-versioncheckview-updateinfo">
+            <div className="yw-versioncheckview">
+              <div className="yw-versioncheckview-content">
+                <div className="yw-versioncheckview-updateinfo">
                   <ul>
                     <li>
                       当前版本: {WKApp.config.appVersion} &nbsp;&nbsp;目标版本:{" "}
@@ -290,7 +290,7 @@ export class TabNormalScreen extends Component<TabNormalScreenProps> {
 
         <Modal
           width={400}
-          className="wk-main-sider-modal wk-main-sider-meinfo"
+          className="yw-main-sider-modal yw-main-sider-meinfo"
           footer={null}
           closeIcon={<div></div>}
           visible={vm.showMeInfo}
@@ -317,9 +317,9 @@ class VersionCheckView extends Component<VersionCheckViewProps> {
   render() {
     const { lastVersion } = this.props;
     return (
-      <div className="wk-versioncheckview">
-        <div className="wk-versioncheckview-content">
-          <div className="wk-versioncheckview-updateinfo">
+      <div className="yw-versioncheckview">
+        <div className="yw-versioncheckview-content">
+          <div className="yw-versioncheckview-updateinfo">
             <ul>
               <li>
                 当前版本: {WKApp.config.appVersion} &nbsp;&nbsp;目标版本:{" "}
@@ -331,9 +331,9 @@ class VersionCheckView extends Component<VersionCheckViewProps> {
               </li>
             </ul>
           </div>
-          <div className="wk-versioncheckview-tip">
-            <div className="wk-versioncheckview-tip-title">更新方法：</div>
-            <div className="wk-versioncheckview-tip-content">
+          <div className="yw-versioncheckview-tip">
+            <div className="yw-versioncheckview-tip-title">更新方法：</div>
+            <div className="yw-versioncheckview-tip-content">
               <ul>
                 <li>
                   1. Windows系统中的某些浏览器: Ctrl + F5刷新。如Chrome谷

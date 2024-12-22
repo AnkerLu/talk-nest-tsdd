@@ -105,8 +105,8 @@ export default class UserInfo extends Component<UserInfoProps> {
     }
 
     return (
-      <div className="wk-userInfo-footer">
-        <div className="wk-userinfo-footer-sendbutton">{content}</div>
+      <div className="yw-userInfo-footer">
+        <div className="yw-userinfo-footer-sendbutton">{content}</div>
       </div>
     );
   }
@@ -129,26 +129,26 @@ export default class UserInfo extends Component<UserInfoProps> {
               }}
               render={(context) => {
                 return (
-                  <div className="wk-userinfo">
-                    <div className="wk-userinfo-content">
+                  <div className="yw-userinfo">
+                    <div className="yw-userinfo-content">
                       {!vm.channelInfo ? (
-                        <div className="wk-userinfo-loading">
+                        <div className="yw-userinfo-loading">
                           <Spin></Spin>
                         </div>
                       ) : (
                         <>
-                          <div className="wk-userinfo-header">
-                            <div className="wk-userinfo-user">
-                              <div className="wk-userinfo-user-avatar">
+                          <div className="yw-userinfo-header">
+                            <div className="yw-userinfo-user">
+                              <div className="yw-userinfo-user-avatar">
                                 <Image
                                   src={WKApp.shared.avatarUser(uid)}
                                 ></Image>
                               </div>
-                              <div className="wk-userinfo-user-info">
-                                <div className="wk-userinfo-user-info-name">
+                              <div className="yw-userinfo-user-info">
+                                <div className="yw-userinfo-user-info-name">
                                   {vm.displayName()}
                                 </div>
-                                <div className="wk-userinfo-user-info-others">
+                                <div className="yw-userinfo-user-info-others">
                                   <ul>
                                     {vm.showNickname() ? (
                                       <li>昵称： {vm.channelInfo?.title}</li>
@@ -170,11 +170,13 @@ export default class UserInfo extends Component<UserInfoProps> {
                               </div>
                             </div>
                           </div>
-                          <div className="wk-userinfo-sections">
+                          <div className="yw-userinfo-sections">
                             {vm.isMuted() && (
-                              <div className="wk-userinfo-mute-section">
-                                <div className="wk-userinfo-mute-section-title">群内禁言</div>
-                                <div className="wk-userinfo-mute-section-content">
+                              <div className="yw-userinfo-mute-section">
+                                <div className="yw-userinfo-mute-section-title">
+                                  群内禁言
+                                </div>
+                                <div className="yw-userinfo-mute-section-content">
                                   {/* <Icon svg={<IconAlertTriangle />} /> */}
                                   <span>{vm.getMuteInfo()}</span>
                                 </div>

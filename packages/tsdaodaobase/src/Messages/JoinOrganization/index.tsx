@@ -33,7 +33,7 @@ export class JoinOrganizationCell extends MessageCell {
     return (
       <MessageBase message={message} context={context}>
         <div
-          className="wk-join-oraganization"
+          className="yw-join-oraganization"
           onClick={() => {
             WKApp.shared.baseContext.showJoinOrgInfo(
               content.org_id,
@@ -42,7 +42,7 @@ export class JoinOrganizationCell extends MessageCell {
             );
           }}
         >
-          <div className="wk-join-oraganization-content">
+          <div className="yw-join-oraganization-content">
             <div>
               <img
                 src={WKApp.shared.avatarOrg(content.org_id)}
@@ -50,13 +50,13 @@ export class JoinOrganizationCell extends MessageCell {
                 alt=""
               />
             </div>
-            <div className="wk-join-oraganization-content-name">
+            <div className="yw-join-oraganization-content-name">
               {content.inviter_name} 邀请加入 {content.org_name}
             </div>
           </div>
-          <div className="wk-join-oraganization-bottom">
-            <div className="wk-join-oraganization-bottom-flag">加入组织</div>
-            <div className="wk-join-oraganization-bottom-time">
+          <div className="yw-join-oraganization-bottom">
+            <div className="yw-join-oraganization-bottom-flag">加入组织</div>
+            <div className="yw-join-oraganization-bottom-time">
               <MessageTrail message={message} timeStyle={{ color: "#999" }} />
             </div>
           </div>

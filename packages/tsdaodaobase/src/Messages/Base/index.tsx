@@ -168,7 +168,7 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
 
   getBubbleBoxClassName() {
     const { message, hiddeBubble } = this.props;
-    let messageBubble = "wk-message-base-bubble-box";
+    let messageBubble = "yw-message-base-bubble-box";
 
     if (hiddeBubble) {
       messageBubble += " hide";
@@ -238,8 +238,8 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
     return (
       <div
         className={classNames(
-          "wk-message-base",
-          context.editOn() ? "wk-message-base-check-open" : undefined
+          "yw-message-base",
+          context.editOn() ? "yw-message-base-check-open" : undefined
         )}
         onClick={
           context.editOn()
@@ -250,19 +250,19 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
         }
       >
         <div
-          className="wk-message-base-checkBox"
+          className="yw-message-base-checkBox"
           style={{ marginBottom: messageStyle.marginBottom }}
         >
           <Checkbox checked={message.checked} />
         </div>
         <div
           className={
-            message.send ? "wk-message-base-send" : "wk-message-base-recv"
+            message.send ? "yw-message-base-send" : "yw-message-base-recv"
           }
           style={messageStyle}
         >
           <div
-            className={"wk-message-base-box"}
+            className={"yw-message-base-box"}
             style={{ pointerEvents: context.editOn() ? "none" : undefined }}
           >
             <div
@@ -278,7 +278,7 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
             </div>
 
             <div className={this.getBubbleBoxClassName()}>
-              <div className="wk-message-base-bubble-box-top">
+              <div className="yw-message-base-bubble-box-top">
                 <MessageHead message={message} />
                 <MessageTrail message={message}>
                   {message.send && message.status === MessageStatus.Fail ? (
@@ -301,13 +301,13 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
                 </MessageTrail>
               </div>
               <div
-                className="wk-message-base-bubble"
+                className="yw-message-base-bubble"
                 style={bubbleStyle}
                 onContextMenu={(event) => {
                   context.showContextMenus(message.message, event);
                 }}
               >
-                <div className="wk-message-base-content">
+                <div className="yw-message-base-content">
                   {this.props.children}
                 </div>
               </div>
@@ -315,9 +315,9 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
           </div>
 
           {
-            //TODO:  wk-message-error-reason 谨用这个 这个会引起ui跳动
+            //TODO:  yw-message-error-reason 谨用这个 这个会引起ui跳动
             message.status === MessageStatus.Fail ? (
-              <div className="wk-message-error-reason">
+              <div className="yw-message-error-reason">
                 {this.getMessageErrorReason()}
               </div>
             ) : undefined

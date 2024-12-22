@@ -1,22 +1,21 @@
-
-.wk-friendapply {
-    width: 100%;
-    height: 100%;
-    background-color:white;
+.yw-friendapply {
+  width: 100%;
+  height: 100%;
+  background-color: white;
 }
 
-body[theme-mode=dark] .wk-friendapply {
-    background-color:var(--wk-color-secondary);
+body[theme-mode="dark"] .yw-friendapply {
+  background-color: var(--yw-color-secondary);
 }
 
-.wk-friendapply-content {
-    padding: 15px;
+.yw-friendapply-content {
+  padding: 15px;
 }
 
-.wk-friendapply-content-tip {
-    color: gray;
+.yw-friendapply-content-tip {
+  color: gray;
 }
 
-.wk-friendapply-content-message {
-    margin-top: 5px;
+.yw-friendapply-content-message {
+  margin-top: 5px;
 }

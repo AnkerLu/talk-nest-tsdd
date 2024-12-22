@@ -71,9 +71,9 @@ export class CardCell extends MessageCell<MessageBaseCellProps, CardCellState> {
         }}
       >
         <MessageBase hiddeBubble={true} message={message} context={context}>
-          <div className="wk-message-card">
+          <div className="yw-message-card">
             <div
-              className="wk-message-card-content"
+              className="yw-message-card-content"
               onClick={() => {
                 WKApp.shared.baseContext.showUserInfo(
                   content.uid,
@@ -89,11 +89,11 @@ export class CardCell extends MessageCell<MessageBaseCellProps, CardCellState> {
                   alt=""
                 />
               </div>
-              <div className="wk-message-card-content-name">{content.name}</div>
+              <div className="yw-message-card-content-name">{content.name}</div>
             </div>
-            <div className="wk-message-card-bottom">
-              <div className="wk-message-card-bottom-flag">个人名片</div>
-              <div className="wk-message-card-bottom-time">
+            <div className="yw-message-card-bottom">
+              <div className="yw-message-card-bottom-flag">个人名片</div>
+              <div className="yw-message-card-bottom-time">
                 <MessageTrail message={message} timeStyle={{ color: "#999" }} />
               </div>
             </div>

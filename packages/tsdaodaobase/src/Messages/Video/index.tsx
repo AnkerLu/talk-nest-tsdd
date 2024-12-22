@@ -140,16 +140,16 @@ export class VideoCell extends MessageCell<any, VideoCellState> {
     return (
       <MessageBase hiddeBubble={true} message={message} context={context}>
         <div
-          className="wk-message-video"
+          className="yw-message-video"
           style={{ width: actSize.width, height: actSize.height }}
         >
-          <div className="wk-message-video-content">
+          <div className="yw-message-video-content">
             {content.duration > 0 && (
-              <span className="wk-message-video-content-time">
+              <span className="yw-message-video-content-time">
                 {this.secondFormat(content.duration)}
               </span>
             )}
-            <div className="wk-message-video-content-video">
+            <div className="yw-message-video-content-video">
               <video
                 key={realVideoUrl} // 添加key以确保URL变化时重新创建视频元素
                 poster={coverUrl}

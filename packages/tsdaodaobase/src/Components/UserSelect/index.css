@@ -1,17 +1,15 @@
-
-.wk-userselect {
-    width: 100%;
-    height: 100%;
+.yw-userselect {
+  width: 100%;
+  height: 100%;
 }
 
-.wk-contactsselect {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+.yw-contactsselect {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-.wk-contactsselect-content {
-    width: 100%;
-    height: calc(100% - var(--wk-height-viewqueueheader));
-
+.yw-contactsselect-content {
+  width: 100%;
+  height: calc(100% - var(--yw-height-viewqueueheader));
 }

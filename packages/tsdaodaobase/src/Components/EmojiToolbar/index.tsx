@@ -35,9 +35,9 @@ export default class EmojiToolbar extends Component<
     const { show, animationStart } = this.state;
     const { icon, conversationContext } = this.props;
     return (
-      <div className="wk-emojitoolbar">
+      <div className="yw-emojitoolbar">
         <div
-          className="wk-emojitoolbar-content"
+          className="yw-emojitoolbar-content"
           onClick={() => {
             this.setState({
               show: !show,
@@ -58,11 +58,11 @@ export default class EmojiToolbar extends Component<
               }
             }}
             className={classNames(
-              "wk-emojitoolbar-emojipanel",
+              "yw-emojitoolbar-emojipanel",
               animationStart
                 ? show
-                  ? "wk-emojitoolbar-emojipanel-show"
-                  : "wk-emojitoolbar-emojipanel-hide"
+                  ? "yw-emojitoolbar-emojipanel-show"
+                  : "yw-emojitoolbar-emojipanel-hide"
                 : undefined
             )}
           >
@@ -89,7 +89,7 @@ export default class EmojiToolbar extends Component<
         </div>
         {show ? (
           <div
-            className="wk-emojitoolbar-mask"
+            className="yw-emojitoolbar-mask"
             onClick={() => {
               this.setState({
                 show: false,
@@ -154,11 +154,11 @@ export class EmojiPanel extends Component<EmojiPanelProps, EmojiPanelState> {
     const { emojis, category, stickers } = this.state;
     const { onEmoji, onSticker } = this.props;
     return (
-      <div className="wk-emojipanel">
+      <div className="yw-emojipanel">
         <div
           className={classNames(
-            "wk-emojipanel-content",
-            category !== "emoji" ? "wk-emojipanel-content-sticker" : undefined
+            "yw-emojipanel-content",
+            category !== "emoji" ? "yw-emojipanel-content-sticker" : undefined
           )}
         >
           <ul>
@@ -207,12 +207,12 @@ export class EmojiPanel extends Component<EmojiPanelProps, EmojiPanelState> {
               : undefined}
           </ul>
         </div>
-        <div className="wk-emojipanel-tab">
+        <div className="yw-emojipanel-tab">
           <div
             className={classNames(
-              "wk-emojipanel-tab-item",
+              "yw-emojipanel-tab-item",
               category === "emoji"
-                ? "wk-emojipanel-tab-item-selected"
+                ? "yw-emojipanel-tab-item-selected"
                 : undefined
             )}
             onClick={(e) => {
@@ -227,9 +227,9 @@ export class EmojiPanel extends Component<EmojiPanelProps, EmojiPanelState> {
               <div
                 key={stickerCategory.category}
                 className={classNames(
-                  "wk-emojipanel-tab-item",
+                  "yw-emojipanel-tab-item",
                   stickerCategory.category === category
-                    ? "wk-emojipanel-tab-item-selected"
+                    ? "yw-emojipanel-tab-item-selected"
                     : undefined
                 )}
                 onClick={(e) => {

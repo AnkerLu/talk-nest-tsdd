@@ -48,26 +48,26 @@ class Login extends Component<any, LoginState> {
         }}
         render={(vm: LoginVM) => {
           return (
-            <div className="wk-login">
-              <div className="wk-login-panel">
-                <div className="wk-login-content-header">
-                  <div className="wk-login-content-logo">
+            <div className="yw-login">
+              <div className="yw-login-panel">
+                <div className="yw-login-content-header">
+                  <div className="yw-login-content-logo">
                     <img
                       src={`${process.env.PUBLIC_URL}/logo.png`}
                       alt="logo"
                     />
-                    <span className="wk-login-content-logo-title">语窝</span>
+                    <span className="yw-login-content-logo-title">语窝</span>
                   </div>
-                  <div className="wk-login-content-slogan">
+                  <div className="yw-login-content-slogan">
                     更愉快的与朋友交流
                   </div>
                 </div>
 
-                <div className="wk-login-content">
-                  <div className="wk-login-card">
-                    <div className="wk-login-tabs">
+                <div className="yw-login-content">
+                  <div className="yw-login-card">
+                    <div className="yw-login-tabs">
                       <div
-                        className={classNames("wk-login-tab-item", {
+                        className={classNames("yw-login-tab-item", {
                           active: vm.loginType === LoginType.phone,
                         })}
                         onClick={() => (vm.loginType = LoginType.phone)}
@@ -75,7 +75,7 @@ class Login extends Component<any, LoginState> {
                         手机号登录
                       </div>
                       <div
-                        className={classNames("wk-login-tab-item", {
+                        className={classNames("yw-login-tab-item", {
                           active: vm.loginType === LoginType.qrcode,
                         })}
                         onClick={() => (vm.loginType = LoginType.qrcode)}
@@ -84,14 +84,14 @@ class Login extends Component<any, LoginState> {
                       </div>
                     </div>
 
-                    <div className="wk-login-content-container">
+                    <div className="yw-login-content-container">
                       <div
-                        className={classNames("wk-login-content-phonelogin", {
-                          "wk-login-content-phonelogin-show":
+                        className={classNames("yw-login-content-phonelogin", {
+                          "yw-login-content-phonelogin-show":
                             vm.loginType === LoginType.phone,
                         })}
                       >
-                        <div className="wk-login-content-form">
+                        <div className="yw-login-content-form">
                           <input
                             type="text"
                             placeholder="手机号"
@@ -104,7 +104,7 @@ class Login extends Component<any, LoginState> {
                               }
                             }}
                           />
-                          <div className="wk-login-password-wrapper">
+                          <div className="yw-login-password-wrapper">
                             <input
                               type="password"
                               placeholder="密码"
@@ -121,14 +121,14 @@ class Login extends Component<any, LoginState> {
                           </div>
                           <Button
                             loading={vm.loginLoading}
-                            className="wk-login-button"
+                            className="yw-login-button"
                             type="primary"
                             theme="solid"
                             onClick={() => this.handleLogin(vm)}
                           >
                             登录
                           </Button>
-                          <div className="wk-login-options">
+                          <div className="yw-login-options">
                             <span>注册</span>
                             <span>忘记密码</span>
                           </div>
@@ -136,13 +136,13 @@ class Login extends Component<any, LoginState> {
                       </div>
 
                       <div
-                        className={classNames("wk-login-content-scanlogin", {
-                          "wk-login-content-scanlogin-show":
+                        className={classNames("yw-login-content-scanlogin", {
+                          "yw-login-content-scanlogin-show":
                             vm.loginType === LoginType.qrcode,
                         })}
                       >
-                        <div className="wk-login-content-wrapper">
-                          <div className="wk-login-qrcode-tip">
+                        <div className="yw-login-content-wrapper">
+                          <div className="yw-login-qrcode-tip">
                             请使用<span className="highlight">手机语窝</span>
                             扫描二维码登录
                             {vm.countdown > 0 && (
@@ -152,7 +152,7 @@ class Login extends Component<any, LoginState> {
                             )}
                           </div>
 
-                          <div className="wk-login-content-scanlogin-qrcode">
+                          <div className="yw-login-content-scanlogin-qrcode">
                             <Spin size="large" spinning={vm.qrcodeLoading}>
                               {vm.qrcodeLoading || !vm.qrcode ? undefined : (
                                 <QRCode
@@ -169,7 +169,7 @@ class Login extends Component<any, LoginState> {
                   </div>
                 </div>
               </div>
-              <div className="wk-login-panel wk-login-bg"></div>
+              <div className="yw-login-panel yw-login-bg"></div>
             </div>
           );
         }}

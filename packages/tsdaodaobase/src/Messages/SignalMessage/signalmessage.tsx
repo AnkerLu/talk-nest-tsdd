@@ -14,7 +14,7 @@ export class SignalMessageCell extends MessageCell {
     const { message, context } = this.props;
     return (
       <MessageBase context={context} message={message} onBubble={() => {}}>
-        <div className="wk-message-text">
+        <div className="yw-message-text">
           <pre>此消息已采用端对端加密，web端无法解密，请在手机端查看</pre>
         </div>
       </MessageBase>

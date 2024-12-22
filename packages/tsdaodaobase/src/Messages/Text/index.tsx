@@ -18,13 +18,13 @@ export class TextCell extends MessageCell {
     return (
       <span
         key={`${message.clientMsgNo}-text-${k}`}
-        className="wk-message-text-commontext"
+        className="yw-message-text-commontext"
       >
         {texts.map((text, i) => {
           return (
             <span
               key={`${message.clientMsgNo}-common-${i}`}
-              className="wk-message-text-richtext"
+              className="yw-message-text-richtext"
             >
               {text}
               {i !== texts.length - 1 ? <br /> : undefined}
@@ -46,8 +46,8 @@ export class TextCell extends MessageCell {
         }}
         key={`${message.clientMsgNo}-mention-${k}`}
         className={classNames(
-          "wk-message-text-richmention",
-          message.send ? "wk-message-text-send" : "wk-message-text-recv"
+          "yw-message-text-richmention",
+          message.send ? "yw-message-text-send" : "yw-message-text-recv"
         )}
       >
         {part.text}
@@ -61,7 +61,7 @@ export class TextCell extends MessageCell {
     return (
       <span
         key={`${message.clientMsgNo}-emoji-${k}`}
-        className="wk-message-text-richemoji"
+        className="yw-message-text-richemoji"
       >
         {emojiURL !== "" ? <img alt="" src={emojiURL} /> : part.text}
       </span>
@@ -112,15 +112,15 @@ export class TextCell extends MessageCell {
           {message?.content.reply ? (
             <div
               className={classNames(
-                "wk-message-text-reply",
-                message.send ? undefined : "wk-message-text-reply-recv"
+                "yw-message-text-reply",
+                message.send ? undefined : "yw-message-text-reply-recv"
               )}
               onClick={() => {
                 context.locateMessage(message?.content.reply.messageSeq);
               }}
             >
-              <div className="wk-message-text-reply-author">
-                <div className="wk-message-text-reply-authoravatar">
+              <div className="yw-message-text-reply-author">
+                <div className="yw-message-text-reply-authoravatar">
                   <img
                     alt=""
                     src={WKApp.shared.avatarUser(message.content.reply.fromUID)}
@@ -131,17 +131,17 @@ export class TextCell extends MessageCell {
                     }}
                   />
                 </div>
-                <div className="wk-message-text-reply-authorname">
+                <div className="yw-message-text-reply-authorname">
                   {message.content.reply.fromName}
                 </div>
               </div>
-              <div className="wk-message-text-reply-content">
+              <div className="yw-message-text-reply-content">
                 {message.content.reply.content?.conversationDigest}
               </div>
             </div>
           ) : undefined}
 
-          <p className="wk-message-text-content">
+          <p className="yw-message-text-content">
             {this.getRenderMessageText()}
           </p>
         </MessageBase>

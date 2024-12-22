@@ -69,11 +69,11 @@ export default class ChannelSetting extends Component<ChannelSettingProps> {
                 vm.routeData.conversationContext = conversationContext;
                 context.setRouteData(vm.routeData);
                 return (
-                  <div className="wk-channelsetting-content">
+                  <div className="yw-channelsetting-content">
                     {vm.channelInfo ? (
                       <Sections sections={vm.sections(context)}></Sections>
                     ) : (
-                      <div className="wk-channelsetting-content-loading">
+                      <div className="yw-channelsetting-content-loading">
                         <Spin></Spin>
                       </div>
                     )}

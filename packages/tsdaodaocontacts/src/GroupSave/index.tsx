@@ -16,14 +16,14 @@ export default class GroupSave extends Component {
         }}
         render={(vm: GroupSaveVM) => {
           return (
-            <div className="wk-groupsave">
+            <div className="yw-groupsave">
               <WKViewQueueHeader
                 title="保存的群"
                 onBack={() => {
                   WKApp.routeLeft.pop();
                 }}
                 action={
-                  <div className="wk-viewqueueheader-content-action">
+                  <div className="yw-viewqueueheader-content-action">
                     <Button
                       size="small"
                       onClick={() => {
@@ -70,7 +70,7 @@ export default class GroupSave extends Component {
                   </div>
                 }
               ></WKViewQueueHeader>
-              <div className="wk-groupsave-content">
+              <div className="yw-groupsave-content">
                 <ul>
                   {vm.groups.map((g) => {
                     return (
@@ -80,10 +80,13 @@ export default class GroupSave extends Component {
                           WKApp.endpoints.showConversation(g.channel);
                         }}
                       >
-                        <div className="wk-groupsave-content-avatar">
-                          <img src={WKApp.shared.avatarChannel(g.channel)} alt="" />
+                        <div className="yw-groupsave-content-avatar">
+                          <img
+                            src={WKApp.shared.avatarChannel(g.channel)}
+                            alt=""
+                          />
                         </div>
-                        <div className="wk-groupsave-content-title">
+                        <div className="yw-groupsave-content-title">
                           {g.title}
                         </div>
                       </li>

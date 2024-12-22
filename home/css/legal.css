@@ -88,7 +88,7 @@
 }
 
 .privacy-toc a:hover {
-  color: var(--wk-color-primary);
+  color: var(--yw-color-primary);
 }
 
 /* 重要提示框 */
@@ -288,8 +288,8 @@
 }
 
 .btn-outline:hover {
-  background: var(--wk-bg-hover);
-  color: var(--wk-text-primary);
+  background: var(--yw-bg-hover);
+  color: var(--yw-text-primary);
 }
 
 /* 未成年人保护提示 */

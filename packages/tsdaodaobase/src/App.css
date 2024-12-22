@@ -1,126 +1,126 @@
 :root {
   /* 主题色 */
-  --wk-color-theme: #ffffff;
+  --yw-color-theme: #ffffff;
   /* 主色 */
-  --wk-color-primary: #0b6bcb;
-  --wk-color-primary-hover: rgba(11, 107, 203, 0.8);
+  --yw-color-primary: #0b6bcb;
+  --yw-color-primary-hover: rgba(11, 107, 203, 0.8);
 
-  --wk-color-primary-1: #e6f0ff; /* 最浅，用于背景 */
-  --wk-color-primary-2: #bad6ff; /* 用于hover背景 */
-  --wk-color-primary-3: #8db8ff; /* 用于特殊状态 */
-  --wk-color-primary-4: #609cff; /* 用于次要强调 */
-  --wk-color-primary-5: #0b6bcb; /* 主色调，当前使用色 */
-  --wk-color-primary-6: #0054d9; /* 用于hover状态 */
-  --wk-color-primary-7: #003eb8; /* 用于active状态 */
+  --yw-color-primary-1: #e6f0ff; /* 最浅，用于背景 */
+  --yw-color-primary-2: #bad6ff; /* 用于hover背景 */
+  --yw-color-primary-3: #8db8ff; /* 用于特殊状态 */
+  --yw-color-primary-4: #609cff; /* 用于次要强调 */
+  --yw-color-primary-5: #0b6bcb; /* 主色调，当前使用色 */
+  --yw-color-primary-6: #0054d9; /* 用于hover状态 */
+  --yw-color-primary-7: #003eb8; /* 用于active状态 */
   /* 次色 */
-  --wk-color-secondary: #ffffff;
-  --wk-color-secondary-2: rgb(240, 244, 248);
+  --yw-color-secondary: #ffffff;
+  --yw-color-secondary-2: rgb(240, 244, 248);
   /* 基础背景色 */
-  --wk-bg-base: #ffffff;
-  --wk-bg-secondary: #f5f5f5;
-  --wk-bg-hover: rgba(0, 0, 0, 0.06);
-  --wk-bg-active: rgba(0, 0, 0, 0.1);
-  --wk-bg-mask: rgba(0, 0, 0, 0.45);
-  --wk-bg-spotlight: rgba(0, 0, 0, 0.85);
-  --wk-bg-message-item: #ffffff;
-  --wk-bg-message-sender-item: #f5f5f5;
+  --yw-bg-base: #ffffff;
+  --yw-bg-secondary: #f5f5f5;
+  --yw-bg-hover: rgba(0, 0, 0, 0.06);
+  --yw-bg-active: rgba(0, 0, 0, 0.1);
+  --yw-bg-mask: rgba(0, 0, 0, 0.45);
+  --yw-bg-spotlight: rgba(0, 0, 0, 0.85);
+  --yw-bg-message-item: #ffffff;
+  --yw-bg-message-sender-item: #f5f5f5;
   /* 文字色 */
-  --wk-text-primary: rgba(0, 0, 0, 0.85);
-  --wk-text-secondary: rgba(0, 0, 0, 0.55);
-  --wk-text-disabled: rgba(0, 0, 0, 0.35);
-  --wk-text-link: var(--wk-color-primary);
-  --wk-text-item: #000000;
+  --yw-text-primary: rgba(0, 0, 0, 0.85);
+  --yw-text-secondary: rgba(0, 0, 0, 0.55);
+  --yw-text-disabled: rgba(0, 0, 0, 0.35);
+  --yw-text-link: var(--yw-color-primary);
+  --yw-text-item: #000000;
 
-  --wk-text-primary-hover: rgba(0, 0, 0, 0.85);
-  --wk-text-primary-active: rgba(0, 0, 0, 1);
-  
+  --yw-text-primary-hover: rgba(0, 0, 0, 0.85);
+  --yw-text-primary-active: rgba(0, 0, 0, 1);
+
   /* 线 */
-  --wk-line: 1px solid rgba(0, 0, 0, 0.1);
-  --wk-line-color: rgba(0, 0, 0, 0.1);
+  --yw-line: 1px solid rgba(0, 0, 0, 0.1);
+  --yw-line-color: rgba(0, 0, 0, 0.1);
   /* 圆角 */
-  --wk-border-radius-base: 4px;
-  --wk-border-radius-sm: 2px;
-  --wk-border-radius-lg: 8px;
+  --yw-border-radius-base: 4px;
+  --yw-border-radius-sm: 2px;
+  --yw-border-radius-lg: 8px;
   /* 阴影 */
-  --wk-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15);
-  --wk-shadow-card: 0 1px 2px -2px rgba(0, 0, 0, 0.16),
+  --yw-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --yw-shadow-card: 0 1px 2px -2px rgba(0, 0, 0, 0.16),
     0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
-  --wk-shadow-popup: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+  --yw-shadow-popup: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
     0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
   /* 头部高度 */
-  --wk-header-height: 60px;
+  --yw-header-height: 60px;
   /* 侧边栏宽度 */
-  --wk-sider-width: 220px;
+  --yw-sider-width: 220px;
   /* 间距 */
-  --wk-spacing-base: 8px;
-  --wk-spacing-lg: 24px;
-  --wk-spacing-sm: 12px;
+  --yw-spacing-base: 8px;
+  --yw-spacing-lg: 24px;
+  --yw-spacing-sm: 12px;
   /* 字体大小 */
-  --wk-font-size-base: 14px;
-  --wk-font-size-lg: 16px;
-  --wk-font-size-sm: 12px;
+  --yw-font-size-base: 14px;
+  --yw-font-size-lg: 16px;
+  --yw-font-size-sm: 12px;
   /* 行高 */
-  --wk-line-height-base: 1.5715;
+  --yw-line-height-base: 1.5715;
 
   /* 透明度 */
-  --wk-opacity-1: 0.05; /* 最轻微的视觉效果 */
-  --wk-opacity-2: 0.15; /* hover态 */
-  --wk-opacity-3: 0.25; /* 禁用态 */
-  --wk-opacity-4: 0.45; /* 次要文本 */
-  --wk-opacity-5: 0.65; /* 重要文本 */
-  --wk-opacity-6: 0.85; /* 主要文本 */
-  --wk-opacity-7: 1; /* 完全不透明 */
+  --yw-opacity-1: 0.05; /* 最轻微的视觉效果 */
+  --yw-opacity-2: 0.15; /* hover态 */
+  --yw-opacity-3: 0.25; /* 禁用态 */
+  --yw-opacity-4: 0.45; /* 次要文本 */
+  --yw-opacity-5: 0.65; /* 重要文本 */
+  --yw-opacity-6: 0.85; /* 主要文本 */
+  --yw-opacity-7: 1; /* 完全不透明 */
 
   /* 建议添加功能色 */
-  --wk-color-success: #52c41a;
-  --wk-color-warning: #faad14;
-  --wk-color-error: #ff4d4f;
-  --wk-color-info: #1890ff;
+  --yw-color-success: #52c41a;
+  --yw-color-warning: #faad14;
+  --yw-color-error: #ff4d4f;
+  --yw-color-info: #1890ff;
 
   /* 每个功能色都应该有其配套的浅色背景 */
-  --wk-color-success-bg: rgba(82, 196, 26, 0.1);
-  --wk-color-warning-bg: rgba(250, 173, 20, 0.1);
-  --wk-color-error-bg: rgba(255, 77, 79, 0.1);
-  --wk-color-info-bg: rgba(24, 144, 255, 0.1);
+  --yw-color-success-bg: rgba(82, 196, 26, 0.1);
+  --yw-color-warning-bg: rgba(250, 173, 20, 0.1);
+  --yw-color-error-bg: rgba(255, 77, 79, 0.1);
+  --yw-color-info-bg: rgba(24, 144, 255, 0.1);
 
   /* 基础状态 - Base State */
-  --wk-state-default-bg: #fff;
-  --wk-state-default-text: rgba(0, 0, 0, 0.85);
-  --wk-state-default-border: rgba(0, 0, 0, 0.1);
+  --yw-state-default-bg: #fff;
+  --yw-state-default-text: rgba(0, 0, 0, 0.85);
+  --yw-state-default-border: rgba(0, 0, 0, 0.1);
 
   /* 悬停状态 - Hover State */
-  --wk-state-hover-bg: rgba(0, 0, 0, 0.06);
-  --wk-state-hover-text: rgba(0, 0, 0, 0.95);
-  --wk-state-hover-border: rgba(0, 0, 0, 0.2);
+  --yw-state-hover-bg: rgba(0, 0, 0, 0.06);
+  --yw-state-hover-text: rgba(0, 0, 0, 0.95);
+  --yw-state-hover-border: rgba(0, 0, 0, 0.2);
 
   /* 选中状态 - Selected State */
-  --wk-state-selected-bg: rgba(11, 107, 203, 0.1);
-  --wk-state-selected-text: rgb(11, 107, 203);
-  --wk-state-selected-border: rgb(11, 107, 203);
+  --yw-state-selected-bg: rgba(11, 107, 203, 0.1);
+  --yw-state-selected-text: rgb(11, 107, 203);
+  --yw-state-selected-border: rgb(11, 107, 203);
 
   /* 激活状态 - Active State */
-  --wk-state-active-bg: rgba(0, 0, 0, 0.1);
-  --wk-state-active-text: rgba(0, 0, 0, 1);
-  --wk-state-active-border: rgba(0, 0, 0, 0.3);
+  --yw-state-active-bg: rgba(0, 0, 0, 0.1);
+  --yw-state-active-text: rgba(0, 0, 0, 1);
+  --yw-state-active-border: rgba(0, 0, 0, 0.3);
 
   /* 禁用状态 - Disabled State */
-  --wk-state-disabled-bg: rgba(0, 0, 0, 0.04);
-  --wk-state-disabled-text: rgba(0, 0, 0, 0.25);
-  --wk-state-disabled-border: rgba(0, 0, 0, 0.08);
+  --yw-state-disabled-bg: rgba(0, 0, 0, 0.04);
+  --yw-state-disabled-text: rgba(0, 0, 0, 0.25);
+  --yw-state-disabled-border: rgba(0, 0, 0, 0.08);
 
-  --wk-width-layout-content-left: 321px;
-  --wk-height-chat-search: 64px;
-  --wk-height-chat-conversation-header: 64px;
-  --wk-wdith-chat-channelsetting: 340px;
-  --wk-layer-transition: 300ms cubic-bezier(0.33, 1, 0.68, 1);
-  --wk-slide-transition: 450ms cubic-bezier(0.25, 1, 0.5, 1);
+  --yw-width-layout-content-left: 321px;
+  --yw-height-chat-search: 64px;
+  --yw-height-chat-conversation-header: 64px;
+  --yw-wdith-chat-channelsetting: 340px;
+  --yw-layer-transition: 300ms cubic-bezier(0.33, 1, 0.68, 1);
+  --yw-slide-transition: 450ms cubic-bezier(0.25, 1, 0.5, 1);
 
   /* 图标 */
   --icon-primary: rgba(0, 0, 0, 0.65);
   --icon-secondary: rgba(0, 0, 0, 0.35);
   --icon-disabled: rgba(0, 0, 0, 0.25);
-  --icon-active: var(--wk-color-primary);
-  --icon-hover: var(--wk-color-primary-hover);
+  --icon-active: var(--yw-color-primary);
+  --icon-hover: var(--yw-color-primary-hover);
 }
 
 *,
@@ -131,128 +131,128 @@
 
 [theme-mode="dark"] {
   /* 主题色 */
-  --wk-color-theme: #121212;
+  --yw-color-theme: #121212;
   /* 主色 */
-  --wk-color-primary: #0b6bcb;
-  --wk-color-primary-hover: rgba(11, 107, 203, 0.5);
+  --yw-color-primary: #0b6bcb;
+  --yw-color-primary-hover: rgba(11, 107, 203, 0.5);
   /* 次色 */
-  --wk-color-secondary: #0F0F0F;
-  --wk-color-secondary-2: rgb(33,33,33);
+  --yw-color-secondary: #0f0f0f;
+  --yw-color-secondary-2: rgb(33, 33, 33);
 
-  --wk-color-primary-1: #e6f0ff; /* 最浅，用于背景 */
-  --wk-color-primary-2: #bad6ff; /* 用于hover背景 */
-  --wk-color-primary-3: #8db8ff; /* 用于特殊状态 */
-  --wk-color-primary-4: #609cff; /* 用于次要强调 */
-  --wk-color-primary-5: #0b6bcb; /* 主色调，当前使用色 */
-  --wk-color-primary-6: #0054d9; /* 用于hover状态 */
-  --wk-color-primary-7: #003eb8; /* 用于active状态 */
+  --yw-color-primary-1: #e6f0ff; /* 最浅，用于背景 */
+  --yw-color-primary-2: #bad6ff; /* 用于hover背景 */
+  --yw-color-primary-3: #8db8ff; /* 用于特殊状态 */
+  --yw-color-primary-4: #609cff; /* 用于次要强调 */
+  --yw-color-primary-5: #0b6bcb; /* 主色调，当前使用色 */
+  --yw-color-primary-6: #0054d9; /* 用于hover状态 */
+  --yw-color-primary-7: #003eb8; /* 用于active状态 */
 
   /* 基础背景色 */
-  --wk-bg-base: #000;
-  --wk-bg-secondary: #141414;
-  --wk-bg-hover: rgba(255, 255, 255, 0.08);
-  --wk-bg-active: rgba(255, 255, 255, 0.12);
-  --wk-bg-mask: rgba(0, 0, 0, 0.45);
-  --wk-bg-spotlight: rgba(0, 0, 0, 0.85);
-  --wk-bg-message-item: #0b0d0e;
-  --wk-bg-message-sender-item: #0b6bcb;
+  --yw-bg-base: #000;
+  --yw-bg-secondary: #141414;
+  --yw-bg-hover: rgba(255, 255, 255, 0.08);
+  --yw-bg-active: rgba(255, 255, 255, 0.12);
+  --yw-bg-mask: rgba(0, 0, 0, 0.45);
+  --yw-bg-spotlight: rgba(0, 0, 0, 0.85);
+  --yw-bg-message-item: #0b0d0e;
+  --yw-bg-message-sender-item: #0b6bcb;
   /* 文字色 */
-  --wk-text-primary: rgba(255, 255, 255, 0.9);
-  --wk-text-secondary: rgba(255, 255, 255, 0.7);
-  --wk-text-disabled: rgba(255, 255, 255, 0.5);
-  --wk-text-link: #177ddc;
-  --wk-text-item: white;
+  --yw-text-primary: rgba(255, 255, 255, 0.9);
+  --yw-text-secondary: rgba(255, 255, 255, 0.7);
+  --yw-text-disabled: rgba(255, 255, 255, 0.5);
+  --yw-text-link: #177ddc;
+  --yw-text-item: white;
 
-  --wk-text-primary-hover: rgba(255, 255, 255, 1);
-  --wk-text-primary-active: rgba(255, 255, 255, 1);
+  --yw-text-primary-hover: rgba(255, 255, 255, 1);
+  --yw-text-primary-active: rgba(255, 255, 255, 1);
 
   /* 线 */
-  --wk-line: 1px solid rgba(159, 166, 173, 0.16);
-  --wk-line-color: rgba(159, 166, 173, 0.16);
+  --yw-line: 1px solid rgba(159, 166, 173, 0.16);
+  --yw-line-color: rgba(159, 166, 173, 0.16);
   /* 圆角 */
-  --wk-border-radius-base: 4px;
-  --wk-border-radius-sm: 2px;
-  --wk-border-radius-lg: 8px;
+  --yw-border-radius-base: 4px;
+  --yw-border-radius-sm: 2px;
+  --yw-border-radius-lg: 8px;
   /* 阴影 */
-  --wk-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.65);
-  --wk-shadow-card: 0 1px 2px -2px rgba(0, 0, 0, 0.64),
+  --yw-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.65);
+  --yw-shadow-card: 0 1px 2px -2px rgba(0, 0, 0, 0.64),
     0 3px 6px 0 rgba(0, 0, 0, 0.48), 0 5px 12px 4px rgba(0, 0, 0, 0.36);
-  --wk-shadow-popup: 0 3px 6px -4px rgba(0, 0, 0, 0.48),
+  --yw-shadow-popup: 0 3px 6px -4px rgba(0, 0, 0, 0.48),
     0 6px 16px 0 rgba(0, 0, 0, 0.32), 0 9px 28px 8px rgba(0, 0, 0, 0.2);
   /* 头部高度 */
-  --wk-header-height: 60px;
+  --yw-header-height: 60px;
   /* 侧边栏宽度 */
-  --wk-sider-width: 220px;
+  --yw-sider-width: 220px;
   /* 间距 */
-  --wk-spacing-base: 8px;
-  --wk-spacing-lg: 24px;
-  --wk-spacing-sm: 12px;
+  --yw-spacing-base: 8px;
+  --yw-spacing-lg: 24px;
+  --yw-spacing-sm: 12px;
   /* 字体大小 */
-  --wk-font-size-base: 14px;
-  --wk-font-size-lg: 16px;
-  --wk-font-size-sm: 12px;
+  --yw-font-size-base: 14px;
+  --yw-font-size-lg: 16px;
+  --yw-font-size-sm: 12px;
   /* 行高 */
-  --wk-line-height-base: 1.5715;
+  --yw-line-height-base: 1.5715;
 
   /* 透明度 */
-  --wk-opacity-1: 0.05; /* 最轻微的视觉效果 */
-  --wk-opacity-2: 0.15; /* hover态 */
-  --wk-opacity-3: 0.25; /* 禁用态 */
-  --wk-opacity-4: 0.45; /* 次要文本 */
-  --wk-opacity-5: 0.65; /* 重要文本 */
-  --wk-opacity-6: 0.85; /* 主要文本 */
-  --wk-opacity-7: 1; /* 完全不透明 */
+  --yw-opacity-1: 0.05; /* 最轻微的视觉效果 */
+  --yw-opacity-2: 0.15; /* hover态 */
+  --yw-opacity-3: 0.25; /* 禁用态 */
+  --yw-opacity-4: 0.45; /* 次要文本 */
+  --yw-opacity-5: 0.65; /* 重要文本 */
+  --yw-opacity-6: 0.85; /* 主要文本 */
+  --yw-opacity-7: 1; /* 完全不透明 */
 
   /* 建议添加功能色 */
-  --wk-color-success: #52c41a;
-  --wk-color-warning: #faad14;
-  --wk-color-error: #ff4d4f;
-  --wk-color-info: #1890ff;
+  --yw-color-success: #52c41a;
+  --yw-color-warning: #faad14;
+  --yw-color-error: #ff4d4f;
+  --yw-color-info: #1890ff;
 
   /* 每个功能色都应该有其配套的浅色背景 */
-  --wk-color-success-bg: rgba(82, 196, 26, 0.1);
-  --wk-color-warning-bg: rgba(250, 173, 20, 0.1);
-  --wk-color-error-bg: rgba(255, 77, 79, 0.1);
-  --wk-color-info-bg: rgba(24, 144, 255, 0.1);
+  --yw-color-success-bg: rgba(82, 196, 26, 0.1);
+  --yw-color-warning-bg: rgba(250, 173, 20, 0.1);
+  --yw-color-error-bg: rgba(255, 77, 79, 0.1);
+  --yw-color-info-bg: rgba(24, 144, 255, 0.1);
 
   /* 基础状态 - Base State */
-  --wk-state-default-bg: #141414;
-  --wk-state-default-text: rgba(255, 255, 255, 0.85);
-  --wk-state-default-border: rgba(255, 255, 255, 0.1);
+  --yw-state-default-bg: #141414;
+  --yw-state-default-text: rgba(255, 255, 255, 0.85);
+  --yw-state-default-border: rgba(255, 255, 255, 0.1);
 
   /* 悬停状态 - Hover State */
-  --wk-state-hover-bg: rgba(255, 255, 255, 0.08);
-  --wk-state-hover-text: rgba(255, 255, 255, 0.95);
-  --wk-state-hover-border: rgba(255, 255, 255, 0.2);
+  --yw-state-hover-bg: rgba(255, 255, 255, 0.08);
+  --yw-state-hover-text: rgba(255, 255, 255, 0.95);
+  --yw-state-hover-border: rgba(255, 255, 255, 0.2);
 
   /* 选中状态 - Selected State */
-  --wk-state-selected-bg: rgba(11, 107, 203, 0.2);
-  --wk-state-selected-text: #177ddc;
-  --wk-state-selected-border: #177ddc;
+  --yw-state-selected-bg: rgba(11, 107, 203, 0.2);
+  --yw-state-selected-text: #177ddc;
+  --yw-state-selected-border: #177ddc;
 
   /* 激活状态 - Active State */
-  --wk-state-active-bg: rgba(255, 255, 255, 0.12);
-  --wk-state-active-text: rgba(255, 255, 255, 1);
-  --wk-state-active-border: rgba(255, 255, 255, 0.3);
+  --yw-state-active-bg: rgba(255, 255, 255, 0.12);
+  --yw-state-active-text: rgba(255, 255, 255, 1);
+  --yw-state-active-border: rgba(255, 255, 255, 0.3);
 
   /* 禁用状态 - Disabled State */
-  --wk-state-disabled-bg: rgba(255, 255, 255, 0.08);
-  --wk-state-disabled-text: rgba(255, 255, 255, 0.25);
-  --wk-state-disabled-border: rgba(255, 255, 255, 0.08);
+  --yw-state-disabled-bg: rgba(255, 255, 255, 0.08);
+  --yw-state-disabled-text: rgba(255, 255, 255, 0.25);
+  --yw-state-disabled-border: rgba(255, 255, 255, 0.08);
 
-  --wk-width-layout-content-left: 321px;
-  --wk-height-chat-search: 64px;
-  --wk-height-chat-conversation-header: 64px;
-  --wk-wdith-chat-channelsetting: 340px;
-  --wk-layer-transition: 300ms cubic-bezier(0.33, 1, 0.68, 1);
-  --wk-slide-transition: 450ms cubic-bezier(0.25, 1, 0.5, 1);
+  --yw-width-layout-content-left: 321px;
+  --yw-height-chat-search: 64px;
+  --yw-height-chat-conversation-header: 64px;
+  --yw-wdith-chat-channelsetting: 340px;
+  --yw-layer-transition: 300ms cubic-bezier(0.33, 1, 0.68, 1);
+  --yw-slide-transition: 450ms cubic-bezier(0.25, 1, 0.5, 1);
 
   /* 图标 */
   --icon-primary: rgba(255, 255, 255, 0.85);
   --icon-secondary: rgba(255, 255, 255, 0.45);
   --icon-disabled: rgba(255, 255, 255, 0.25);
-  --icon-active: var(--wk-color-primary);
-  --icon-hover: var(--wk-color-primary-hover);
+  --icon-active: var(--yw-color-primary);
+  --icon-hover: var(--yw-color-primary-hover);
 }
 
 html {
@@ -265,13 +265,13 @@ body {
   margin: 0;
   font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Apple Color Emoji",
     "Helvetica Neue", sans-serif;
-  font-size: var(--wk-font-size-base);
+  font-size: var(--yw-font-size-base);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 
   /* 添加主题相关的默认值 */
-  background-color: var(--wk-bg-base);
-  color: var(--wk-text-primary);
+  background-color: var(--yw-bg-base);
+  color: var(--yw-text-primary);
 
   /* 过渡效果 */
   transition: background-color 0.15s ease;
@@ -285,15 +285,15 @@ body {
 
 /* 全局a标签样式 */
 a {
-  color: var(--wk-text-primary);
+  color: var(--yw-text-primary);
 }
 
 a:hover {
-  color: var(--wk-text-primary-hover);
+  color: var(--yw-text-primary-hover);
 }
 
 a:active {
-  color: var(--wk-text-primary-active);
+  color: var(--yw-text-primary-active);
 }
 
 /* 全局SVG规则 */
@@ -380,14 +380,14 @@ ul {
   padding-inline-start: 0px;
 }
 
-.wk-loading {
+.yw-loading {
   width: 100%;
   display: flex;
   justify-content: center;
   padding: 15px 0px;
 }
 
-.wk-text-oneline {
+.yw-text-oneline {
   display: inline-block;
   white-space: nowrap;
   width: 100%;
@@ -396,5 +396,5 @@ ul {
 }
 
 body[theme-mode="dark"] .semi-badge-count {
-  color: var(--wk-text-primary);
+  color: var(--yw-text-primary);
 }

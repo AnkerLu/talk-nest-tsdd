@@ -166,11 +166,9 @@ export default class ContactsList extends Component<any, ContactsState> {
     const items = indexItemMap.get(indexName);
 
     return (
-      <div key={indexName} className="wk-contacts-section">
-        <div className="wk-contacts-section-item-index">
-          {indexName}
-        </div>
-        <div className="wk-contacts-section-list">
+      <div key={indexName} className="yw-contacts-section">
+        <div className="yw-contacts-section-item-index">{indexName}</div>
+        <div className="yw-contacts-section-list">
           {items?.map((item, i) => {
             let name = item.name;
             if (item.remark && item.remark !== "") {
@@ -180,10 +178,10 @@ export default class ContactsList extends Component<any, ContactsState> {
               <div
                 key={item.uid}
                 className={classnames(
-                  "wk-contacts-section-item",
+                  "yw-contacts-section-item",
                   WKApp.shared.openChannel?.channelType === ChannelTypePerson &&
                     WKApp.shared.openChannel?.channelID === item.uid
-                    ? "wk-contacts-section-item-selected"
+                    ? "yw-contacts-section-item-selected"
                     : undefined
                 )}
                 onClick={() => {
@@ -195,12 +193,12 @@ export default class ContactsList extends Component<any, ContactsState> {
                   this._handleContextMenu(item, e);
                 }}
               >
-                <div className="wk-contacts-section-item-avatar">
+                <div className="yw-contacts-section-item-avatar">
                   <WKAvatar
                     channel={new Channel(item.uid, ChannelTypePerson)}
                   ></WKAvatar>
                 </div>
-                <div className="wk-contacts-section-item-name">{name}</div>
+                <div className="yw-contacts-section-item-name">{name}</div>
               </div>
             );
           })}
@@ -216,10 +214,10 @@ export default class ContactsList extends Component<any, ContactsState> {
           this.baseContext = baseCtx;
         }}
       >
-        <div className="wk-contacts">
+        <div className="yw-contacts">
           <WKNavMainHeader title="联系人"></WKNavMainHeader>
-          <div className="wk-contacts-content">
-            <div className="wk-contacts-content-header">
+          <div className="yw-contacts-content">
+            <div className="yw-contacts-content-header">
               <Search
                 placeholder="搜索"
                 onChange={(v) => {
@@ -234,12 +232,12 @@ export default class ContactsList extends Component<any, ContactsState> {
                 }}
               ></Search>
             </div>
-            <div className="wk-contacts-content-fnc">
+            <div className="yw-contacts-content-fnc">
               {WKApp.endpoints.contactsHeaders().map((view, i) => {
                 return <div key={i}>{view}</div>;
               })}
             </div>
-            <div className="wk-contacts-content-contacts">
+            <div className="yw-contacts-content-contacts">
               {indexList.map((indexName) => {
                 return this.sectionUI(indexName);
               })}

@@ -17,7 +17,7 @@ export class InputEdit extends Component<InputEditProps> {
     const { onChange, defaultValue, placeholder, maxCount, allowWrap } =
       this.props;
     return (
-      <div className="wk-inputedit">
+      <div className="yw-inputedit">
         <TextArea
           defaultValue={defaultValue}
           onChange={(value) => {
@@ -40,7 +40,7 @@ export class InputEdit extends Component<InputEditProps> {
             }
           }}
         ></TextArea>
-        <div className="wk-inputedit-placeholder">{placeholder}</div>
+        <div className="yw-inputedit-placeholder">{placeholder}</div>
       </div>
     );
   }

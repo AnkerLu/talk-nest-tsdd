@@ -114,18 +114,18 @@ export default class MergeforwardMessageList extends Component<MergeforwardMessa
   render(): ReactNode {
     const { mergeforwardContent } = this.props;
     return (
-      <div className="wk-mergeforwardmessagelist">
-        <div className="wk-mergeforwardmessagelist-header">
+      <div className="yw-mergeforwardmessagelist">
+        <div className="yw-mergeforwardmessagelist-header">
           <WKViewQueueHeader
             hideBack={true}
             title={this.getTitle(mergeforwardContent)}
           ></WKViewQueueHeader>
         </div>
-        <div className="wk-mergeforwardmessagelist-content">
-          <div className="wk-mergeforwardmessagelist-content-timeline">
+        <div className="yw-mergeforwardmessagelist-content">
+          <div className="yw-mergeforwardmessagelist-content-timeline">
             {this.getTimeline(mergeforwardContent)}
           </div>
-          <div className="wk-mergeforwardmessagelist-content-msgs">
+          <div className="yw-mergeforwardmessagelist-content-msgs">
             {mergeforwardContent.msgs.map((m, i) => {
               const fromChannel = new Channel(m.fromUID, ChannelTypePerson);
               let fromChannelInfo =
@@ -140,11 +140,11 @@ export default class MergeforwardMessageList extends Component<MergeforwardMessa
               }
               return (
                 <div
-                  className="wk-mergeforwardmessagelist-content-msg"
+                  className="yw-mergeforwardmessagelist-content-msg"
                   key={m.messageID}
                 >
                   <div
-                    className="wk-mergeforwardmessagelist-content-msg-avatar"
+                    className="yw-mergeforwardmessagelist-content-msg-avatar"
                     style={{
                       width: "40px",
                       height: "40px",
@@ -162,17 +162,17 @@ export default class MergeforwardMessageList extends Component<MergeforwardMessa
                       ></WKAvatar>
                     ) : undefined}
                   </div>
-                  <div className="wk-mergeforwardmessagelist-content-msg-info">
-                    <div className="wk-mergeforwardmessagelist-content-msg-info-first">
-                      <div className="wk-mergeforwardmessagelist-content-msg-info-first-name">
+                  <div className="yw-mergeforwardmessagelist-content-msg-info">
+                    <div className="yw-mergeforwardmessagelist-content-msg-info-first">
+                      <div className="yw-mergeforwardmessagelist-content-msg-info-first-name">
                         {fromChannelInfo?.title}
                       </div>
-                      <div className="wk-mergeforwardmessagelist-content-msg-info-first-time">
+                      <div className="yw-mergeforwardmessagelist-content-msg-info-first-time">
                         {getTimeStringAutoShort2(m.timestamp * 1000, true)}
                       </div>
                     </div>
-                    <div className="wk-mergeforwardmessagelist-content-msg-info-second">
-                      <div className="wk-mergeforwardmessagelist-content-msg-info-second-msgcontent">
+                    <div className="yw-mergeforwardmessagelist-content-msg-info-second">
+                      <div className="yw-mergeforwardmessagelist-content-msg-info-second-msgcontent">
                         {this.getMsgContent(m)}
                       </div>
                     </div>

@@ -9,8 +9,8 @@ import WKApp from "../../App";
 export class SystemCell extends MessageCell {
   state = {
     showModal: false,
-    iframeUrl: ''
-  }
+    iframeUrl: "",
+  };
 
   render() {
     const { message } = this.props;
@@ -21,25 +21,30 @@ export class SystemCell extends MessageCell {
 
     const handleInvite = async () => {
       const inviteNo = content.content.invite_no;
-      if(!inviteNo) {
+      if (!inviteNo) {
         return;
       }
-      let result = await WKApp.dataSource.channelDataSource.getInviteConfirmURL(message.channel, inviteNo);
-      if(result) {
+      let result = await WKApp.dataSource.channelDataSource.getInviteConfirmURL(
+        message.channel,
+        inviteNo
+      );
+      if (result) {
         this.setState({
           showModal: true,
-          iframeUrl: decodeURIComponent(result)
+          iframeUrl: decodeURIComponent(result),
         });
       }
-    }
+    };
 
     return (
       <>
-        <div className="wk-message-system">
+        <div className="yw-message-system">
           {displayText}
-          {contentType === MessageContentTypeConst.invite && 
-            <div className="wk-message-system-invite" onClick={handleInvite}>去确认</div>
-          }
+          {contentType === MessageContentTypeConst.invite && (
+            <div className="yw-message-system-invite" onClick={handleInvite}>
+              去确认
+            </div>
+          )}
         </div>
 
         <Modal
@@ -50,12 +55,12 @@ export class SystemCell extends MessageCell {
           height="80%"
           footer={null}
         >
-          <iframe 
+          <iframe
             src={iframeUrl}
             style={{
-              width: '100%',
-              height: '100%',
-              border: 'none'
+              width: "100%",
+              height: "100%",
+              border: "none",
             }}
           />
         </Modal>

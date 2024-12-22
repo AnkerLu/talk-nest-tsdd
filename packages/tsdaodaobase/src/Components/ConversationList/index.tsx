@@ -76,11 +76,11 @@ export default class ConversationList extends Component<
     const typing = TypingManager.shared.getTyping(conversationWrap.channel);
     const selected = select && select.isEqual(conversationWrap.channel);
     return (
-      <div className="wk-typing">
+      <div className="yw-typing">
         <BeatLoader
           size={4}
           margin={3}
-          color={selected ? "white" : "var(--wk-text-primary)"}
+          color={selected ? "white" : "var(--yw-text-primary)"}
         />
         &nbsp;&nbsp;
         {conversationWrap.channel.channelType !== ChannelTypePerson
@@ -179,8 +179,8 @@ export default class ConversationList extends Component<
           }
         }}
         className={classNames(
-          "wk-conversationlist-item",
-          channelInfo?.top ? "wk-conversationlist-item-top" : undefined
+          "yw-conversationlist-item",
+          channelInfo?.top ? "yw-conversationlist-item-top" : undefined
         )}
         onContextMenu={(e) => {
           this._handleContextMenu(conversationWrap, e);
@@ -188,12 +188,12 @@ export default class ConversationList extends Component<
       >
         <div
           className={classNames(
-            "wk-conversationlist-item-content",
-            selected ? "wk-conversationlist-item-selected" : undefined
+            "yw-conversationlist-item-content",
+            selected ? "yw-conversationlist-item-selected" : undefined
           )}
         >
-          <div className="wk-conversationlist-item-left">
-            <div className="wk-conversationlist-item-avatar-box">
+          <div className="yw-conversationlist-item-left">
+            <div className="yw-conversationlist-item-avatar-box">
               <WKAvatar
                 channel={conversationWrap.channel}
                 key={avatarKey}
@@ -205,9 +205,9 @@ export default class ConversationList extends Component<
               ) : undefined}
             </div>
           </div>
-          <div className="wk-conversationlist-item-right">
-            <div className="wk-conversationlist-item-right-first-line">
-              <div className="wk-conversationlist-item-name">
+          <div className="yw-conversationlist-item-right">
+            <div className="yw-conversationlist-item-right-first-line">
+              <div className="yw-conversationlist-item-name">
                 <h3>{channelInfo?.orgData.displayName}</h3>
                 {channelInfo?.orgData.identityIcon ? (
                   <img
@@ -246,7 +246,7 @@ export default class ConversationList extends Component<
                     </svg>
                   )}
                 </div>
-                <div className="wk-conversationlist-item-time">
+                <div className="yw-conversationlist-item-time">
                   <span>
                     {getTimeStringAutoShort2(
                       conversationWrap.timestamp * 1000,
@@ -256,11 +256,11 @@ export default class ConversationList extends Component<
                 </div>
               </div>
             </div>
-            <div className="wk-conversationlist-item-right-second-line">
-              <div className="wk-conversationlist-item-lastmsg">
+            <div className="yw-conversationlist-item-right-second-line">
+              <div className="yw-conversationlist-item-lastmsg">
                 {!typing ? (
                   <label
-                    className="wk-reminder"
+                    className="yw-reminder"
                     style={{
                       display: conversationWrap.remoteExtra.draft
                         ? undefined
@@ -277,7 +277,7 @@ export default class ConversationList extends Component<
                       .filter((r) => r.done === false)
                       .map((r) => {
                         return (
-                          <label key={r.reminderID} className="wk-reminder">
+                          <label key={r.reminderID} className="yw-reminder">
                             {r.text}
                           </label>
                         );
@@ -287,7 +287,7 @@ export default class ConversationList extends Component<
                   ? this._getTypingUI(conversationWrap)
                   : this.lastContent(conversationWrap)}
               </div>
-              <div className="wk-conversationlist-item-reddot">
+              <div className="yw-conversationlist-item-reddot">
                 {conversationWrap.unread > 0 ? (
                   <Badge
                     style={
@@ -381,8 +381,8 @@ export default class ConversationList extends Component<
 
     return (
       <div
-        id="wk-conversationlist"
-        className="wk-conversationlist"
+        id="yw-conversationlist"
+        className="yw-conversationlist"
         onScroll={this._handleScroll.bind(this)}
       >
         {conversations &&
@@ -410,12 +410,12 @@ export class OnlineStatusBadge extends Component<OnlineStatusBadgeProps> {
     return (
       <div
         className={classNames(
-          "wk-onlinestatusbadge",
-          !tip ? "wk-onlinestatusbadge-empty" : undefined
+          "yw-onlinestatusbadge",
+          !tip ? "yw-onlinestatusbadge-empty" : undefined
         )}
       >
-        <div className="wk-onlinestatusbadge-content">
-          <div className="wk-onlinestatusbadge-content-tip">{tip}</div>
+        <div className="yw-onlinestatusbadge-content">
+          <div className="yw-onlinestatusbadge-content-tip">{tip}</div>
         </div>
       </div>
     );

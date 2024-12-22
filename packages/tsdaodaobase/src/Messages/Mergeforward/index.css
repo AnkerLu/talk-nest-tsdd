@@ -1,57 +1,52 @@
-
-
-.wk-mergeforwards {
-    width: 300px;
-    background-color: var(--wk-color-theme);
-    border-radius: 8px;
-    cursor: pointer;
+.yw-mergeforwards {
+  width: 300px;
+  background-color: var(--yw-color-theme);
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-
-
-.wk-mergeforwards-content {
-    padding: 10px 10px 0px 10px;
-    color: var(--wk-text-primary);
-
+.yw-mergeforwards-content {
+  padding: 10px 10px 0px 10px;
+  color: var(--yw-text-primary);
 }
 
-.wk-mergeforwards-content-title {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--wk-text-primary);
+.yw-mergeforwards-content-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--yw-text-primary);
 }
 
-.wk-mergeforwards-content-items {
-    padding-bottom: 5px;
+.yw-mergeforwards-content-items {
+  padding-bottom: 5px;
 }
 
-.wk-mergeforwards-content-items .wk-mergeforwards-content-item {
-    white-space: nowrap;
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 13px;
-    color: var(--wk-text-secondary) !important;
+.yw-mergeforwards-content-items .yw-mergeforwards-content-item {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  color: var(--yw-text-secondary) !important;
 }
 
-.wk-mergeforwards-content-tip {
-    display: flex;
-    justify-content: space-between;
-    color: var(--wk-text-secondary) !important;
-    font-size: 13px;
-    padding: 2px 0px;
+.yw-mergeforwards-content-tip {
+  display: flex;
+  justify-content: space-between;
+  color: var(--yw-text-secondary) !important;
+  font-size: 13px;
+  padding: 2px 0px;
 }
 
-.wk-mergeforwards-content-tip p {
-    margin-bottom: 0px;
+.yw-mergeforwards-content-tip p {
+  margin-bottom: 0px;
 }
 
-.wk-mergeforwards-content-tip p:last-child {
-    margin-top: -4px;
+.yw-mergeforwards-content-tip p:last-child {
+  margin-top: -4px;
 }
 
-.wk-mergeforwards-content-line {
-    width: 100%;
-    background-color: var(--wk-line-color);
-    height: 1px;
+.yw-mergeforwards-content-line {
+  width: 100%;
+  background-color: var(--yw-line-color);
+  height: 1px;
 }

@@ -1,17 +1,17 @@
-.wk-login {
+.yw-login {
   display: flex;
   height: 100vh;
   background: #fff;
 }
 
-.wk-login-panel {
+.yw-login-panel {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
 /* Header 样式调整 */
-.wk-login-content-header {
+.yw-login-content-header {
   width: 100%;
   padding: 40px 80px;
   display: flex;
@@ -19,30 +19,30 @@
   justify-content: space-between;
 }
 
-.wk-login-content-logo {
+.yw-login-content-logo {
   display: flex;
   align-items: center;
 }
 
-.wk-login-content-logo img {
+.yw-login-content-logo img {
   height: 48px;
   width: auto;
   margin-right: 12px;
 }
 
-.wk-login-content-logo-title {
+.yw-login-content-logo-title {
   font-size: 24px;
   font-weight: 600;
   color: #333;
 }
 
-.wk-login-content-slogan {
+.yw-login-content-slogan {
   color: #666;
   font-size: 16px;
 }
 
 /* 登录内容区域调整 */
-.wk-login-content {
+.yw-login-content {
   flex: 1;
   display: flex;
   align-items: center;
@@ -52,7 +52,7 @@
 }
 
 /* 加强登录卡片样式 */
-.wk-login-card {
+.yw-login-card {
   width: 100%;
   max-width: 420px;
   min-height: 520px;
@@ -63,14 +63,14 @@
 }
 
 /* 顶部切换标签 */
-.wk-login-tabs {
+.yw-login-tabs {
   display: flex;
   width: 100%;
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 32px;
 }
 
-.wk-login-tab-item {
+.yw-login-tab-item {
   flex: 1;
   text-align: center;
   padding: 16px 0;
@@ -81,11 +81,11 @@
   transition: color 0.3s;
 }
 
-.wk-login-tab-item.active {
+.yw-login-tab-item.active {
   color: #333;
 }
 
-.wk-login-tab-item.active::after {
+.yw-login-tab-item.active::after {
   content: "";
   position: absolute;
   bottom: -1px;
@@ -96,12 +96,12 @@
 }
 
 /* 表单样式 */
-.wk-login-content-form {
+.yw-login-content-form {
   width: 100%;
   max-width: 400px;
 }
 
-.wk-login-content-form input {
+.yw-login-content-form input {
   width: 100%;
   height: 44px;
   padding: 12px;
@@ -111,19 +111,19 @@
   margin-bottom: 16px;
 }
 
-.wk-login-content-form input:focus {
+.yw-login-content-form input:focus {
   border-color: #333;
   outline: none;
 }
 
 /* 密码输入框包装器 */
-.wk-login-password-wrapper {
+.yw-login-password-wrapper {
   position: relative;
   margin-bottom: 24px;
 }
 
 /* 登录按钮 */
-.wk-login-button {
+.yw-login-button {
   width: 100%;
   height: 44px;
   font-size: 16px;
@@ -131,13 +131,13 @@
   border-color: #c7000b;
 }
 
-.wk-login-button:hover {
+.yw-login-button:hover {
   background: #d81e06;
   border-color: #d81e06;
 }
 
 /* 注册和忘记密码 */
-.wk-login-options {
+.yw-login-options {
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
@@ -145,17 +145,17 @@
   font-size: 14px;
 }
 
-.wk-login-options span {
+.yw-login-options span {
   cursor: pointer;
 }
 
-.wk-login-options span:hover {
+.yw-login-options span:hover {
   color: #333;
 }
 
 /* 登录面板切换样式优化 */
-.wk-login-content-phonelogin,
-.wk-login-content-scanlogin {
+.yw-login-content-phonelogin,
+.yw-login-content-scanlogin {
   position: absolute;
   top: 0;
   left: 0;
@@ -172,15 +172,15 @@
   transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
 }
 
-.wk-login-content-phonelogin-show,
-.wk-login-content-scanlogin-show {
+.yw-login-content-phonelogin-show,
+.yw-login-content-scanlogin-show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
 /* 内容区域容器 */
-.wk-login-content-container {
+.yw-login-content-container {
   position: relative;
   width: 100%;
   min-height: 420px;
@@ -188,7 +188,7 @@
 }
 
 /* 扫码登录内容居中 */
-.wk-login-content-scanlogin .wk-login-content-form {
+.yw-login-content-scanlogin .yw-login-content-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -197,7 +197,7 @@
 }
 
 /* 背景图片 */
-.wk-login-bg {
+.yw-login-bg {
   background-image: url(./assets/login-bg.png);
   background-size: cover;
   background-position: center;
@@ -205,7 +205,7 @@
 }
 
 /* 扫码登录区域样式优化 */
-.wk-login-content-scanlogin {
+.yw-login-content-scanlogin {
   position: absolute;
   top: 0;
   left: 0;
@@ -219,7 +219,7 @@
 }
 
 /* 内容区域容器 */
-.wk-login-content-wrapper {
+.yw-login-content-wrapper {
   width: 260px;
   display: flex;
   flex-direction: column;
@@ -227,7 +227,7 @@
 }
 
 /* 二维码提示文字样式 */
-.wk-login-qrcode-tip {
+.yw-login-qrcode-tip {
   width: 100%;
   text-align: center;
   font-size: 14px;
@@ -236,17 +236,17 @@
   line-height: 1.5;
 }
 
-.wk-login-qrcode-tip .highlight {
+.yw-login-qrcode-tip .highlight {
   color: #c7000b;
   font-weight: 500;
 }
 
-.wk-login-qrcode-tip .countdown {
+.yw-login-qrcode-tip .countdown {
   color: #c7000b;
 }
 
 /* 二维码容器样式优化 */
-.wk-login-content-scanlogin-qrcode {
+.yw-login-content-scanlogin-qrcode {
   width: 260px;
   height: 260px;
   padding: 10px;
@@ -259,7 +259,7 @@
 }
 
 /* 加载状态样式 */
-.wk-login-content-scanlogin-qrcode .semi-spin {
+.yw-login-content-scanlogin-qrcode .semi-spin {
   display: flex;
   align-items: center;
   justify-content: center;

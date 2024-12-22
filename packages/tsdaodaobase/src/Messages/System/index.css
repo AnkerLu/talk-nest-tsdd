@@ -1,4 +1,4 @@
-.wk-message-system {
+.yw-message-system {
   padding: 10px 20px;
   width: 85%;
   margin: 0 auto;
@@ -7,11 +7,11 @@
   font-size: 12px;
   white-space: pre-line;
 }
-body[theme-mode="dark"] .wk-message-system {
+body[theme-mode="dark"] .yw-message-system {
   color: #999;
 }
 
-.wk-message-system-invite {
+.yw-message-system-invite {
   color: #3370ff;
   cursor: pointer;
   display: inline;

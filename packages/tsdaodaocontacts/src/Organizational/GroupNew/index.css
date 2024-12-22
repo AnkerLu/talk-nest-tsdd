@@ -1,44 +1,44 @@
-.wk-main-modal-organizational-group-new .semi-modal-body-wrapper {
+.yw-main-modal-organizational-group-new .semi-modal-body-wrapper {
   margin: 0;
 }
-.wk-main-modal-organizational-group-new .semi-modal-close {
+.yw-main-modal-organizational-group-new .semi-modal-close {
   display: none;
 }
-.wk-main-modal-organizational-group-new .semi-modal-body {
+.yw-main-modal-organizational-group-new .semi-modal-body {
   height: 500px;
   display: flex;
 }
-.wk-main-modal-organizational-group-new .semi-modal-content {
+.yw-main-modal-organizational-group-new .semi-modal-content {
   border: none !important;
   padding: 0px !important;
 }
 
-.wk-organizational-group-new-left {
+.yw-organizational-group-new-left {
   width: 50%;
   height: 100%;
-  background-color: var(--wk-color-secondary);
+  background-color: var(--yw-color-secondary);
   padding: 12px;
   display: flex;
   flex-direction: column;
 }
 
-.wk-organizational-group-new-left .group-new-left-main {
+.yw-organizational-group-new-left .group-new-left-main {
   flex: 1 1 auto;
   overflow-y: auto;
 }
 
-.wk-organizational-group-new-left .group-new-left-search {
+.yw-organizational-group-new-left .group-new-left-search {
   margin-bottom: 12px;
 }
-.wk-organizational-group-new-left
+.yw-organizational-group-new-left
   .group-new-left-search
   .group-new-left-search-input.semi-input-wrapper-focus {
-  border: var(--wk-state-default-border) solid 1px;
+  border: var(--yw-state-default-border) solid 1px;
 }
-.wk-organizational-group-new-left
+.yw-organizational-group-new-left
   .group-new-left-search
   .group-new-left-search-input.semi-input-wrapper-focus:active {
-  border: var(--wk-border-primary) solid 1px;
+  border: var(--yw-border-primary) solid 1px;
 }
 /* 好友选择 */
 .group-new-left-main .friend-opt .organization-name {
@@ -49,7 +49,7 @@
   cursor: pointer;
 }
 .group-new-left-main .friend-opt .organization-name:hover {
-  background-color: var(--wk-bg-secondary);
+  background-color: var(--yw-bg-secondary);
 }
 .group-new-left-main .friend-opt .friend-opt-main .friend-opt-item {
   display: flex;
@@ -61,7 +61,7 @@
   row-gap: 0;
 }
 .group-new-left-main .friend-opt .friend-opt-main .friend-opt-item:hover {
-  background-color: var(--wk-bg-secondary);
+  background-color: var(--yw-bg-secondary);
 }
 
 /* 组织架构选择 */
@@ -76,8 +76,8 @@
   margin-bottom: 12px;
   border-radius: 4px;
 }
-.group-new-left-main .organizational-opt-header .wk-viewqueueheader {
-  background-color: var(--wk-bg-secondary);
+.group-new-left-main .organizational-opt-header .yw-viewqueueheader {
+  background-color: var(--yw-bg-secondary);
   height: 100%;
 }
 .group-new-left-main .organizational-opt-main {
@@ -89,10 +89,10 @@
   height: 100%;
 }
 .organizational-tree .semi-input-wrapper-focus {
-  border: var(--wk-state-default-border) solid 1px;
+  border: var(--yw-state-default-border) solid 1px;
 }
 .organizational-tree .semi-input-wrapper-focus:active {
-  border: var(--wk-state-default-border) solid 1px;
+  border: var(--yw-state-default-border) solid 1px;
 }
 .organizational-tree .semi-tree-option-list {
   padding-top: 0;
@@ -107,23 +107,23 @@
 
 .semi-checkbox-indeterminate .semi-checkbox-inner-display,
 .semi-checkbox-checked .semi-checkbox-inner-display {
-  background: var(--wk-color-primary);
-  box-shadow: inset 0 0 0 1px var(--wk-color-primary);
+  background: var(--yw-color-primary);
+  box-shadow: inset 0 0 0 1px var(--yw-color-primary);
 }
 
 .semi-checkbox:hover .semi-checkbox-inner-display {
-  background: var(--wk-bg-hover);
-  box-shadow: inset 0 0 0 1px var(--wk-color-primary);
+  background: var(--yw-bg-hover);
+  box-shadow: inset 0 0 0 1px var(--yw-color-primary);
 }
 
 .semi-checkbox:hover .semi-checkbox-inner-checked .semi-checkbox-inner-display {
-  background: var(--wk-color-primary-hover);
-  border-color: var(--wk-border-primary);
+  background: var(--yw-color-primary-hover);
+  border-color: var(--yw-border-primary);
   color: var(--semi-color-white);
 }
 
 .organizational-tree .semi-tree-option-list-block .department-icon {
-  color: var(--wk-border-primary);
+  color: var(--yw-border-primary);
 }
 .organizational-tree
   .semi-tree-option-list-block
@@ -133,14 +133,14 @@
 }
 
 .organizational-tree .semi-tree-option-list-block .semi-tree-option-selected {
-  background-color: var(--wk-color-theme);
+  background-color: var(--yw-color-theme);
   color: #fff;
 }
 
 .organizational-tree
   .semi-tree-option-list-block
   .semi-tree-option-selected:hover {
-  background-color: var(--wk-color-theme);
+  background-color: var(--yw-color-theme);
   color: #fff;
 }
 
@@ -151,24 +151,24 @@
   color: #fff;
 }
 
-.wk-organizational-group-new-right {
+.yw-organizational-group-new-right {
   width: 50%;
   height: 100%;
-  background-color: var(--wk-bg-secondary);
+  background-color: var(--yw-bg-secondary);
   padding: 12px;
   display: flex;
   flex-direction: column;
 }
-.wk-organizational-group-new-right .organizational-group-new-right-title {
+.yw-organizational-group-new-right .organizational-group-new-right-title {
   font-size: 15px;
   font-weight: bold;
 }
-.wk-organizational-group-new-right .organizational-group-new-right-body {
+.yw-organizational-group-new-right .organizational-group-new-right-body {
   flex: 1 1 auto;
   overflow-y: auto;
   margin: 12px 0;
 }
-.wk-organizational-group-new-right
+.yw-organizational-group-new-right
   .organizational-group-new-right-body
   .opt-personnel-item {
   padding: 12px 0;
@@ -178,10 +178,10 @@
   font-size: 14px;
   line-height: 20px;
   word-break: break-word;
-  color: var(--wk-text-primary);
+  color: var(--yw-text-primary);
 }
 
-.wk-organizational-group-new-right
+.yw-organizational-group-new-right
   .organizational-group-new-right-body
   .opt-personnel-item
   .user-info {
@@ -189,7 +189,7 @@
   align-items: center;
 }
 
-.wk-organizational-group-new-right
+.yw-organizational-group-new-right
   .organizational-group-new-right-body
   .opt-personnel-item
   .close-icon {
@@ -197,7 +197,7 @@
   align-items: center;
 }
 
-.wk-organizational-group-new-right
+.yw-organizational-group-new-right
   .organizational-group-new-right-body
   .opt-personnel-item
   .close-icon
@@ -211,7 +211,7 @@
   justify-content: center;
 }
 
-.wk-organizational-group-new-right
+.yw-organizational-group-new-right
   .organizational-group-new-right-body
   .opt-personnel-item
   .close-icon
@@ -219,7 +219,7 @@
   background-color: rgb(112, 117, 121, 0.08);
 }
 
-.wk-organizational-group-new-right .organizational-group-new-right-footer {
+.yw-organizational-group-new-right .organizational-group-new-right-footer {
   display: flex;
   justify-content: flex-end;
 }

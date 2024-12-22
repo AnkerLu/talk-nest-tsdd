@@ -1,27 +1,26 @@
-.wk-join-oraganization {
-  background-color: var(--wk-color-theme);
+.yw-join-oraganization {
+  background-color: var(--yw-color-theme);
   cursor: pointer;
   border-radius: 8px;
   width: 100%;
 }
 
-body[theme-mode=dark] .wk-join-oraganization {
-  background-color: var(--wk-color-secondary);
+body[theme-mode="dark"] .yw-join-oraganization {
+  background-color: var(--yw-color-secondary);
 }
 
-
-.wk-join-oraganization-content {
+.yw-join-oraganization-content {
   display: flex;
   padding: 10px;
   align-items: center;
 }
 
-.wk-join-oraganization-content-name {
+.yw-join-oraganization-content-name {
   margin-left: 20px;
-  color: var(--wk-text-item);
+  color: var(--yw-text-item);
 }
 
-.wk-join-oraganization-bottom {
+.yw-join-oraganization-bottom {
   position: relative;
   display: flex;
   align-items: center;
@@ -29,12 +28,12 @@ body[theme-mode=dark] .wk-join-oraganization {
   padding: 0px 10px 5px 10px;
 }
 
-.wk-join-oraganization-bottom-flag {
+.yw-join-oraganization-bottom-flag {
   font-size: 12px;
   color: #999;
 }
 
-.wk-join-oraganization-bottom-time {
+.yw-join-oraganization-bottom-time {
   position: absolute;
   right: 10px;
   top: -5px;

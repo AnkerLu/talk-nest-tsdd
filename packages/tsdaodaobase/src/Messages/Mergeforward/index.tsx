@@ -143,7 +143,7 @@ export class MergeforwardCell extends MessageCell<any, MergeforwardCellState> {
         WKSDK.shared().channelManager.fetchChannelInfo(channel);
       }
       return (
-        <div key={m.messageID} className="wk-mergeforwards-content-item">
+        <div key={m.messageID} className="yw-mergeforwards-content-item">
           {name}： {m.content.conversationDigest}
         </div>
       );
@@ -166,23 +166,23 @@ export class MergeforwardCell extends MessageCell<any, MergeforwardCellState> {
     const content = message.content as MergeforwardContent;
     return (
       <MessageBase hiddeBubble={true} message={message} context={context}>
-        <div className="wk-mergeforwards">
+        <div className="yw-mergeforwards">
           <div
-            className="wk-mergeforwards-content"
+            className="yw-mergeforwards-content"
             onClick={() => {
               this.setState({
                 showList: true,
               });
             }}
           >
-            <div className="wk-mergeforwards-content-title">
+            <div className="yw-mergeforwards-content-title">
               {this.getTitle(content)}
             </div>
-            <div className="wk-mergeforwards-content-items">
+            <div className="yw-mergeforwards-content-items">
               {this.getMsgListUI(content.msgs)}
             </div>
-            <div className="wk-mergeforwards-content-line"></div>
-            <div className="wk-mergeforwards-content-tip">
+            <div className="yw-mergeforwards-content-line"></div>
+            <div className="yw-mergeforwards-content-tip">
               <p>聊天记录</p>
               <p>
                 {" "}
@@ -192,7 +192,7 @@ export class MergeforwardCell extends MessageCell<any, MergeforwardCellState> {
           </div>
         </div>
         <Modal
-          className="wk-base-modal"
+          className="yw-base-modal"
           visible={showList}
           footer={null}
           onCancel={() => {

@@ -20,7 +20,7 @@ import { SuperGroup } from "@tsdaodao/base/src/Utils/const";
 
 export enum OrganizationalGroupNewAction {
   createGroup, // 创建群聊
-  AddMember // 添加成员
+  AddMember, // 添加成员
 }
 
 interface IPorpsOrganizationalGroupNew {
@@ -70,7 +70,7 @@ export class OrganizationalGroupNew extends Component<
     friendSearchData: [],
     searchVaule: "",
     showRemarkModal: false,
-    inviteRemark: '',
+    inviteRemark: "",
   };
   treeRef: any = React.createRef();
 
@@ -80,7 +80,6 @@ export class OrganizationalGroupNew extends Component<
 
   componentDidMount(): void {
     // this.getFriendData();
-
   }
 
   // 获取加入公司
@@ -198,7 +197,8 @@ export class OrganizationalGroupNew extends Component<
       }
 
       OTree.push({
-        label: employeesNum > 0 ? `${item.name}(${employeesNum})` : `${item.name}`,
+        label:
+          employeesNum > 0 ? `${item.name}(${employeesNum})` : `${item.name}`,
         value: item.dept_id,
         key: item.short_no,
         icon: (
@@ -297,53 +297,57 @@ export class OrganizationalGroupNew extends Component<
     const newOpt = this.state.optPersonnelData.filter((item) => {
       return item.uid !== uid;
     });
-    const { friendData } = this.state
+    const { friendData } = this.state;
     friendData.map((item) => {
       if (item.uid == uid) {
-        item.checked = false
+        item.checked = false;
       }
-    })
+    });
     this.setState({
       optPersonnelData: [...newOpt],
-      friendData: [...friendData]
+      friendData: [...friendData],
     });
   }
 
   async getFriendData() {
-
-
     let subscribers = new Array<Subscriber>();
 
     // 群聊
     if (this.props.channel.channelID.trim() != "") {
-      const channel = new Channel(this.props.channel.channelID, this.props.channel.channelType)
+      const channel = new Channel(
+        this.props.channel.channelID,
+        this.props.channel.channelType
+      );
 
       // 个人聊天，对方不可选
       if (this.props.channel.channelType == ChannelTypePerson) {
-        const sub = new Subscriber()
-        sub.uid = this.props.channel.channelID
-        subscribers.push(sub)
+        const sub = new Subscriber();
+        sub.uid = this.props.channel.channelID;
+        subscribers.push(sub);
       } else {
         // 群聊
-        const channelInfo = WKSDK.shared().channelManager.getChannelInfo(channel); // 获取频道信息
+        const channelInfo =
+          WKSDK.shared().channelManager.getChannelInfo(channel); // 获取频道信息
         if (channelInfo?.orgData?.group_type == SuperGroup) {
-          subscribers = await WKApp.dataSource.channelDataSource.subscribers(channel, {
-            limit: 5000,
-            page: 1
-          })
+          subscribers = await WKApp.dataSource.channelDataSource.subscribers(
+            channel,
+            {
+              limit: 5000,
+              page: 1,
+            }
+          );
         } else {
           await WKSDK.shared().channelManager.syncSubscribes(channel); // 同步订阅者
           subscribers = WKSDK.shared().channelManager.getSubscribes(channel); // 获取订阅者
         }
       }
-
     }
 
-    let subscriberUids = new Array<string>()
+    let subscriberUids = new Array<string>();
     if (subscribers) {
       subscriberUids = subscribers.map((item) => {
         return item.uid;
-      })
+      });
     }
 
     const setFriendData: any[] = [];
@@ -370,14 +374,14 @@ export class OrganizationalGroupNew extends Component<
       for (const value of values) {
         if (value == item.uid) {
           exist = true;
-          break
+          break;
         }
       }
       if (exist) {
-        item.checked = true
+        item.checked = true;
         getFriendOpt.push(item);
       } else {
-        item.checked = false
+        item.checked = false;
         // 删除已选中的
         for (let i = 0; i < optPersonnelData.length; i++) {
           if (optPersonnelData[i].uid == item.uid) {
@@ -399,7 +403,7 @@ export class OrganizationalGroupNew extends Component<
     );
     this.setState({
       optPersonnelData: [...uniqueArr],
-      friendData: [...friendData]
+      friendData: [...friendData],
     });
   }
 
@@ -445,31 +449,32 @@ export class OrganizationalGroupNew extends Component<
       try {
         await WKApp.dataSource.channelDataSource.createChannel([
           ...getOptPersonnelData,
-        ])
+        ]);
       } catch (error: any) {
         Toast.error(error.msg);
-        return
+        return;
       }
     }
     // 添加联系人
     if (this.props.action == OrganizationalGroupNewAction.AddMember) {
       try {
-        const channelInfo = WKSDK.shared().channelManager.getChannelInfo(channel);
+        const channelInfo =
+          WKSDK.shared().channelManager.getChannelInfo(channel);
         // 检查是否开启了邀请确认
-        if(channelInfo?.orgData?.invite === 1) {
+        if (channelInfo?.orgData?.invite === 1) {
           // 显示备注弹框
           this.setState({ showRemarkModal: true });
           return;
         } else {
           // 直接添加成员
           await WKApp.dataSource.channelDataSource.addSubscribers(
-            channel, 
+            channel,
             getOptPersonnelData
           );
         }
       } catch (error: any) {
         Toast.error(error.msg);
-        return
+        return;
       }
     }
     this.onCancel();
@@ -478,7 +483,7 @@ export class OrganizationalGroupNew extends Component<
   handleInviteWithRemark = async () => {
     const channel = this.props.channel as any;
     const { optPersonnelData, inviteRemark } = this.state;
-    
+
     const getOptPersonnelData = optPersonnelData.map((item) => {
       return item.uid;
     });
@@ -494,7 +499,7 @@ export class OrganizationalGroupNew extends Component<
     } catch (error: any) {
       Toast.error(error.msg);
     }
-  }
+  };
 
   onChangeSearch(value: string) {
     const { friendSearchData, isFriend } = this.state;
@@ -525,12 +530,12 @@ export class OrganizationalGroupNew extends Component<
         onCancel={() => this.setState({ showRemarkModal: false })}
       >
         <Input
-          placeholder="请输入邀请备注" 
+          placeholder="请输入邀请备注"
           value={this.state.inviteRemark}
           onChange={(value) => this.setState({ inviteRemark: value })}
         />
       </Modal>
-    )
+    );
   }
 
   render(): ReactNode {
@@ -589,7 +594,7 @@ export class OrganizationalGroupNew extends Component<
                 </clipPath>
               </defs>
             </svg>
-            <div className="wk-conversation-header-mask"></div>
+            <div className="yw-conversation-header-mask"></div>
           </div>
         )}
 
@@ -605,7 +610,7 @@ export class OrganizationalGroupNew extends Component<
 
         <Modal
           width={640}
-          className="wk-main-modal-organizational-group-new"
+          className="yw-main-modal-organizational-group-new"
           footer={null}
           closeIcon={<div></div>}
           visible={showModal}
@@ -615,7 +620,7 @@ export class OrganizationalGroupNew extends Component<
             this.onCancel();
           }}
         >
-          <div className="wk-organizational-group-new-left">
+          <div className="yw-organizational-group-new-left">
             <div className="group-new-left-search">
               <Input
                 className="group-new-left-search-input"
@@ -724,7 +729,7 @@ export class OrganizationalGroupNew extends Component<
               )}
             </div>
           </div>
-          <div className="wk-organizational-group-new-right">
+          <div className="yw-organizational-group-new-right">
             <div className="organizational-group-new-right-title">
               {optTitle}
             </div>
@@ -783,7 +788,7 @@ export class OrganizationalGroupNew extends Component<
                 </Button>
                 <Button
                   style={{ width: 80 }}
-                  className="wk-but-ok"
+                  className="yw-but-ok"
                   theme="solid"
                   type="primary"
                   onClick={() => {

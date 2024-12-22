@@ -24,7 +24,7 @@ export class Subscribers extends Component<SubscribersProps> {
     return (
       <div
         key={subscriber.uid}
-        className="wk-subscribers-item"
+        className="yw-subscribers-item"
         onClick={() => {
           const vercode = subscriber.orgData?.vercode;
           WKApp.shared.baseContext.showUserInfo(
@@ -35,7 +35,7 @@ export class Subscribers extends Component<SubscribersProps> {
         }}
       >
         <img src={WKApp.shared.avatarUser(subscriber.uid)} alt=""></img>
-        <div className="wk-subscribers-item-name">
+        <div className="yw-subscribers-item-name">
           {subscriber.remark || subscriber.name}
         </div>
       </div>
@@ -56,14 +56,14 @@ export class Subscribers extends Component<SubscribersProps> {
                 this.baseContext = baseContext;
               }}
             >
-              <div className="wk-subscribers">
-                <div className="wk-subscribers-content">
+              <div className="yw-subscribers">
+                <div className="yw-subscribers-content">
                   {vm.subscribersTop.map((subscriber) => {
                     return this.subscriberUI(subscriber);
                   })}
                   {/* {vm.showAdd() ? (
                     <div
-                      className="wk-subscribers-item"
+                      className="yw-subscribers-item"
                       onClick={() => {
                         if (onAdd) {
                           console.log(channel);
@@ -79,18 +79,18 @@ export class Subscribers extends Component<SubscribersProps> {
                   ) : undefined} */}
                   {vm.showAdd()
                     ? WKApp.endpoints.organizationalTool(
-                      channel,
-                      <div className="wk-subscribers-item">
-                        <img
-                          src={require("./assets/icon_add_more_gray.png")}
-                          alt=""
-                        />
-                      </div>
-                    )
+                        channel,
+                        <div className="yw-subscribers-item">
+                          <img
+                            src={require("./assets/icon_add_more_gray.png")}
+                            alt=""
+                          />
+                        </div>
+                      )
                     : undefined}
                   {vm.showRemove() ? (
                     <div
-                      className="wk-subscribers-item"
+                      className="yw-subscribers-item"
                       onClick={() => {
                         if (onRemove) {
                           onRemove();
@@ -106,10 +106,10 @@ export class Subscribers extends Component<SubscribersProps> {
                 </div>
                 {vm.hasMoreSubscribers() ? (
                   <div
-                    className="wk-subscribers-more"
+                    className="yw-subscribers-more"
                     onClick={() => {
                       context.push(
-                       <SubscriberList channel={channel} ></SubscriberList>,
+                        <SubscriberList channel={channel}></SubscriberList>,
                         new RouteContextConfig({
                           title: "成员列表",
                         })

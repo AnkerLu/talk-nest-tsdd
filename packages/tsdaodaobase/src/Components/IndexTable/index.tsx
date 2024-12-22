@@ -140,13 +140,13 @@ export default class IndexTable extends Component<
     const { canSelect, onSelect } = this.props;
     const items = indexItemMap.get(indexName);
     return (
-      <div key={indexName} className="wk-indextable-section">
-        <div className="wk-indextable-list">
+      <div key={indexName} className="yw-indextable-section">
+        <div className="yw-indextable-list">
           {items?.map((item, i) => {
             return (
               <div
                 key={item.id}
-                className="wk-indextable-item"
+                className="yw-indextable-item"
                 onClick={() => {
                   if (canSelect && !this.isDisableItem(item.id)) {
                     this.checkItem(item);
@@ -160,11 +160,11 @@ export default class IndexTable extends Component<
                   }
                 }}
               >
-                <div className="wk-indextable-item-index">
+                <div className="yw-indextable-item-index">
                   {i === 0 ? indexName : ""}
                 </div>
                 {canSelect ? (
-                  <div className="wk-indextable-checkbox">
+                  <div className="yw-indextable-checkbox">
                     <Checkbox
                       checked={
                         this.isDisableItem(item.id) || this.isCheckItem(item)
@@ -173,10 +173,10 @@ export default class IndexTable extends Component<
                     ></Checkbox>
                   </div>
                 ) : undefined}
-                <div className="wk-indextable-item-avatar">
+                <div className="yw-indextable-item-avatar">
                   <img src={item.avatar} alt=""></img>
                 </div>
-                <div className="wk-indextable-item-name">{item.name}</div>
+                <div className="yw-indextable-item-name">{item.name}</div>
               </div>
             );
           })}
@@ -199,14 +199,14 @@ export default class IndexTable extends Component<
   render() {
     const { indexList } = this.state;
     return (
-      <div className="wk-indextable">
-        <div className="wk-indextable-search">
-          <div className="wk-indextable-selected-box" id="selectedList">
+      <div className="yw-indextable">
+        <div className="yw-indextable-search">
+          <div className="yw-indextable-selected-box" id="selectedList">
             {this.getSelectedUsers().map((item) => {
               return (
                 <div
                   key={item.id}
-                  className="wk-indextable-select-user"
+                  className="yw-indextable-select-user"
                   onClick={() => {
                     if (!this.isDisableItem(item.id)) {
                       this.checkItem(item);
@@ -222,13 +222,13 @@ export default class IndexTable extends Component<
               );
             })}
           </div>
-          <div className="wk-indextable-search-box">
-            <div className="wk-indextable-search-icon">
+          <div className="yw-indextable-search-box">
+            <div className="yw-indextable-search-icon">
               <IconSearchStroked
                 style={{ color: "#bbbfc4", fontSize: "20px" }}
               />
             </div>
-            <div className="wk-indextable-search-input">
+            <div className="yw-indextable-search-input">
               <input
                 onChange={(v) => {
                   this.onSearch(v.target.value);
@@ -241,7 +241,7 @@ export default class IndexTable extends Component<
             </div>
           </div>
         </div>
-        <div className="wk-indextable-contacts">
+        <div className="yw-indextable-contacts">
           {indexList.map((indexName) => {
             return this.sectionUI(indexName);
           })}

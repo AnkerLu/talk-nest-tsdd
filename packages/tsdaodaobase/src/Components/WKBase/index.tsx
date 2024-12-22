@@ -169,13 +169,13 @@ export default class WKBase
     } = this.state;
     const baseURl = WKApp.apiClient.config.apiURL.replace("v1/", "");
     return (
-      <div className="wk-base">
+      <div className="yw-base">
         {this.props.children}
         <Modal
           width={400}
           footer={null}
           closeIcon={<div></div>}
-          className="wk-base-modal-userinfo wk-base-modal"
+          className="yw-base-modal-userinfo yw-base-modal"
           visible={showUserInfo}
           mask={false}
           centered
@@ -202,7 +202,7 @@ export default class WKBase
         </Modal>
 
         <Modal
-          className="wk-base-modal"
+          className="yw-base-modal"
           width={400}
           footer={null}
           visible={showConversationSelect}
@@ -256,7 +256,7 @@ export default class WKBase
           visible={showJoinOrgInfo}
           width={400}
           title="加入组织"
-          className="wk-base-modal-join-org"
+          className="yw-base-modal-join-org"
           footer={null}
           mask={false}
           centered

@@ -15,17 +15,14 @@ export default class IconListItem extends Component<IconListItemProps> {
   render(): ReactNode {
     const { icon, title, backgroudColor, onClick, badge } = this.props;
     return (
-      <div
-        className="wk-iconlistitem"
-        onClick={onClick}
-      >
-        <div className="wk-iconlistitem-content">
-          <div className="wk-iconlistitem-content-icon">
+      <div className="yw-iconlistitem" onClick={onClick}>
+        <div className="yw-iconlistitem-content">
+          <div className="yw-iconlistitem-content-icon">
             <img src={icon}></img>
           </div>
-          <div className="wk-iconlistitem-content-title">{title}</div>
+          <div className="yw-iconlistitem-content-title">{title}</div>
           {badge && badge > 0 ? (
-            <div className="wk-iconlistitem-content-badge">
+            <div className="yw-iconlistitem-content-badge">
               <Badge count={badge} type="danger"></Badge>
             </div>
           ) : undefined}

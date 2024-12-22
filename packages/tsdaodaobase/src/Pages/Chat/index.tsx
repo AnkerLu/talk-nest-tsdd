@@ -61,32 +61,32 @@ export class ChatContentPage extends Component<
     return (
       <div
         className={classNames(
-          "wk-chat-content-right",
-          showChannelSetting ? "wk-chat-channelsetting-open" : ""
+          "yw-chat-content-right",
+          showChannelSetting ? "yw-chat-channelsetting-open" : ""
         )}
       >
-        <div className="wk-chat-content-chat">
+        <div className="yw-chat-content-chat">
           <div
-            className="wk-chat-conversation-header"
+            className="yw-chat-conversation-header"
             onClick={() => {
               this.setState({
                 showChannelSetting: !this.state.showChannelSetting,
               });
             }}
           >
-            <div className="wk-chat-conversation-header-content">
-              <div className="wk-chat-conversation-header-left">
+            <div className="yw-chat-conversation-header-content">
+              <div className="yw-chat-conversation-header-left">
                 <div
-                  className="wk-chat-conversation-header-back"
+                  className="yw-chat-conversation-header-back"
                   onClick={(e) => {
                     e.stopPropagation();
                     WKApp.routeRight.pop();
                   }}
                 >
-                  <div className="wk-chat-conversation-header-back-icon"></div>
+                  <div className="yw-chat-conversation-header-back-icon"></div>
                 </div>
-                <div className="wk-chat-conversation-header-channel">
-                  <div className="wk-chat-conversation-header-channel-avatar">
+                <div className="yw-chat-conversation-header-channel">
+                  <div className="yw-chat-conversation-header-channel-avatar">
                     <img
                       alt=""
                       src={WKApp.shared.avatarChannel(channel)}
@@ -96,28 +96,28 @@ export class ChatContentPage extends Component<
                       }}
                     ></img>
                   </div>
-                  <div className="wk-chat-conversation-header-channel-info">
-                    <div className="wk-chat-conversation-header-channel-info-name">
+                  <div className="yw-chat-conversation-header-channel-info">
+                    <div className="yw-chat-conversation-header-channel-info-name">
                       {channelInfo?.orgData?.displayName}
                     </div>
-                    <div className="wk-chat-conversation-header-channel-info-tip"></div>
+                    <div className="yw-chat-conversation-header-channel-info-tip"></div>
                   </div>
                 </div>
               </div>
-              <div className="wk-chat-conversation-header-right">
+              <div className="yw-chat-conversation-header-right">
                 {WKApp.endpoints
                   .channelHeaderRightItems(channel)
                   .map((item: any, i: number) => {
                     return (
                       <div
                         key={i}
-                        className="wk-chat-conversation-header-right-item"
+                        className="yw-chat-conversation-header-right-item"
                       >
                         {item}
                       </div>
                     );
                   })}
-                <div className="wk-chat-conversation-header-right-item">
+                <div className="yw-chat-conversation-header-right-item">
                   {/* <svg
                     fill={WKApp.config.themeColor}
                     height="28px"
@@ -155,12 +155,12 @@ export class ChatContentPage extends Component<
                       fill="#ffffff"
                     ></path>
                   </svg>
-                  <div className="wk-conversation-header-mask"></div>
+                  <div className="yw-conversation-header-mask"></div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="wk-chat-conversation">
+          <div className="yw-chat-conversation">
             <Conversation
               initLocateMessageSeq={initLocateMessageSeq}
               shouldShowHistorySplit={true}
@@ -179,7 +179,7 @@ export class ChatContentPage extends Component<
           </div>
         </div>
 
-        <div className={classNames("wk-chat-channelsetting")}>
+        <div className={classNames("yw-chat-channelsetting")}>
           <ChannelSetting
             conversationContext={this.conversationContext}
             key={channel.getChannelKey()}
@@ -217,21 +217,21 @@ export default class ChatPage extends React.Component<any, any> {
         }}
         render={(vm: ChatVM) => {
           return (
-            <div className="wk-chat">
+            <div className="yw-chat">
               <div
                 className={classNames(
-                  "wk-chat-content",
-                  vm.selectedConversation ? "wk-conversation-open" : undefined
+                  "yw-chat-content",
+                  vm.selectedConversation ? "yw-conversation-open" : undefined
                 )}
               >
-                <div className="wk-chat-content-left">
-                  <div className="wk-chat-search">
-                    <div className="wk-chat-title">{vm.connectTitle}</div>
+                <div className="yw-chat-content-left">
+                  <div className="yw-chat-search">
+                    <div className="yw-chat-title">{vm.connectTitle}</div>
                     <Popover
                       onClickOutSide={() => {
                         vm.showAddPopover = false;
                       }}
-                      className="wk-chat-popover"
+                      className="yw-chat-popover"
                       position="bottomRight"
                       visible={vm.showAddPopover}
                       showArrow={false}
@@ -245,7 +245,7 @@ export default class ChatPage extends React.Component<any, any> {
                       }
                     >
                       <div
-                        className="wk-chat-search-add"
+                        className="yw-chat-search-add"
                         onClick={() => {
                           vm.showAddPopover = !vm.showAddPopover;
                         }}
@@ -257,9 +257,9 @@ export default class ChatPage extends React.Component<any, any> {
                                 }}></Button> */}
                     </Popover>
                   </div>
-                  <div className="wk-chat-conversation-list">
+                  <div className="yw-chat-conversation-list">
                     {vm.loading ? (
-                      <div className="wk-chat-conversation-list-loading">
+                      <div className="yw-chat-conversation-list-loading">
                         <Spin style={{ marginTop: "20px" }} />
                       </div>
                     ) : (
@@ -313,7 +313,7 @@ class ChatMenusPopover extends Component<
     const { chatMenus } = this.state;
     const { onItem } = this.props;
     return (
-      <div className="wk-chatmenuspopover">
+      <div className="yw-chatmenuspopover">
         <ul>
           {chatMenus.map((c, i) => {
             return (
@@ -328,10 +328,10 @@ class ChatMenusPopover extends Component<
                   }
                 }}
               >
-                <div className="wk-chatmenuspopover-avatar">
+                <div className="yw-chatmenuspopover-avatar">
                   <img alt="" src={c.icon}></img>
                 </div>
-                <div className="wk-chatmenuspopover-title">{c.title}</div>
+                <div className="yw-chatmenuspopover-title">{c.title}</div>
               </li>
             );
           })}

@@ -1,4 +1,4 @@
-.wk-messageinput-box {
+.yw-messageinput-box {
   width: 100%;
   height: 100%;
   position: relative;
@@ -7,18 +7,18 @@
   border-left: none;
 }
 
-.wk-messageinput-inputbox {
+.yw-messageinput-inputbox {
   height: 77px;
   width: 100%;
   padding: 0px 15px 15px 15px;
   box-sizing: border-box;
 }
 
-.wk-messageinput-input {
+.yw-messageinput-input {
   height: 100%;
   width: 100%;
   border: none;
-  color: var(--wk-text-primary);
+  color: var(--yw-text-primary);
   font-size: 14px;
   overflow-y: scroll;
   display: inline-block;
@@ -26,43 +26,43 @@
   outline: none;
 }
 
-body[theme-mode="dark"] .wk-messageinput-input {
-  color: var(--wk-text-primary);
+body[theme-mode="dark"] .yw-messageinput-input {
+  color: var(--yw-text-primary);
 }
 
-.wk-messageinput-input textarea {
+.yw-messageinput-input textarea {
   outline: none;
   border: none;
-  color: var(--wk-text-primary);
+  color: var(--yw-text-primary);
 }
 
-.wk-messageinput-input:empty:before {
+.yw-messageinput-input:empty:before {
   content: attr(data-placeholder);
   position: absolute;
   color: #a9a9a9;
 }
 
-.wk-messageinput-bar {
+.yw-messageinput-bar {
   height: 40px;
   width: 100%;
   display: flex;
   top: 0px;
-  border-bottom: var(--wk-line);
+  border-bottom: var(--yw-line);
 }
 
-.wk-messageinput-tabs {
+.yw-messageinput-tabs {
   height: 100%;
   width: 50%;
 }
 
-.wk-messageinput-toolbar {
+.yw-messageinput-toolbar {
   height: 100%;
   width: 50%;
   display: flex;
   justify-content: space-between;
 }
 
-.wk-messageinput-actionbox {
+.yw-messageinput-actionbox {
   height: 100%;
   width: 100%;
   display: flex;
@@ -70,7 +70,7 @@ body[theme-mode="dark"] .wk-messageinput-input {
   margin-left: 10px;
 }
 
-.wk-messageinput-actionitem {
+.yw-messageinput-actionitem {
   width: 40px;
   height: 40px;
   display: flex;
@@ -78,7 +78,7 @@ body[theme-mode="dark"] .wk-messageinput-input {
   align-items: center;
 }
 
-.wk-messageinput-sendbtn {
+.yw-messageinput-sendbtn {
   height: 28px;
   width: 32px;
   display: flex;
@@ -89,11 +89,11 @@ body[theme-mode="dark"] .wk-messageinput-input {
   cursor: pointer;
 }
 
-.wk-messageinput-hasValue {
-  background-color: var(--wk-color-theme);
+.yw-messageinput-hasValue {
+  background-color: var(--yw-color-theme);
 }
 
-.wk-messageinput-member {
+.yw-messageinput-member {
   height: 100%;
   width: 100%;
   padding: 0 16px;
@@ -102,17 +102,17 @@ body[theme-mode="dark"] .wk-messageinput-input {
   display: flex;
 }
 
-.wk-messageinput-iconbox {
+.yw-messageinput-iconbox {
   margin-right: 8px;
 }
 
-.wk-messageinput-icon {
+.yw-messageinput-icon {
   width: 20px;
   height: 20px;
   border-radius: 3px;
 }
 
-.wk-messageinput-selected {
+.yw-messageinput-selected {
   color: #fff;
   /* background-color: #1264a3; */
 }
@@ -123,7 +123,7 @@ body[theme-mode="dark"] .wk-messageinput-input {
   max-height: 400px;
   overflow-x: hidden;
   bottom: 0;
-  background-color: var(--wk-color-theme);
+  background-color: var(--yw-color-theme);
   width: 100%;
   border-radius: 4px;
 }
@@ -152,10 +152,10 @@ body[theme-mode="dark"] .wk-messageinput-input {
   color: #fff !important;
 }
 
-.wk-messageinput-header {
+.yw-messageinput-header {
 }
 
-.wk-messageinput-reply {
+.yw-messageinput-reply {
   margin: 10px 10px 0px 10px;
   background-color: #f5f6f7;
   display: flex;
@@ -163,35 +163,35 @@ body[theme-mode="dark"] .wk-messageinput-input {
   align-items: center;
 }
 
-.wk-messageinput-closeicon {
+.yw-messageinput-closeicon {
   margin: 0px 6px;
   cursor: pointer;
 }
 
-.wk-messageinput-replycontent {
+.yw-messageinput-replycontent {
   overflow: hidden;
   text-overflow: ellipsis;
   height: 22px;
 }
 
-.wk-messageinput-input__control {
+.yw-messageinput-input__control {
   background-color: transparent;
 }
 
-.wk-messageinput-input__suggestions {
-  background-color: var(--wk-bg-secondary);
+.yw-messageinput-input__suggestions {
+  background-color: var(--yw-bg-secondary);
 }
 
-body[theme-mode="dark"] .wk-messageinput-input__input {
-  color: var(--wk-text-primary);
+body[theme-mode="dark"] .yw-messageinput-input__input {
+  color: var(--yw-text-primary);
 }
 
-.wk-messageinput-disabled {
+.yw-messageinput-disabled {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
-  background-color: var(--wk-color-theme);
+  background-color: var(--yw-color-theme);
   color: #999;
   font-size: 14px;
   border-radius: 10px;

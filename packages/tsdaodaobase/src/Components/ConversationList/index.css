@@ -1,41 +1,41 @@
-.wk-conversationlist {
+.yw-conversationlist {
   height: 100%;
   overflow-y: auto;
   /* padding: 0px 5px; */
 }
 
-.wk-conversationlist-item {
+.yw-conversationlist-item {
   height: 80px;
   width: 100%;
   cursor: pointer;
   box-sizing: border-box;
 }
 
-body[theme-mode="dark"] .wk-conversationlist-item {
-  background-color: var(--wk-color-secondary);
+body[theme-mode="dark"] .yw-conversationlist-item {
+  background-color: var(--yw-color-secondary);
 }
 
-body[theme-mode="dark"] .wk-conversationlist-item:hover {
+body[theme-mode="dark"] .yw-conversationlist-item:hover {
   background-color: rgb(23, 26, 28);
 }
 
-.wk-conversationlist-item-top {
-  background-color: var(--wk-color-secondary) !important;
+.yw-conversationlist-item-top {
+  background-color: var(--yw-color-secondary) !important;
 }
 
-.wk-conversationlist-item-content {
+.yw-conversationlist-item-content {
   display: flex;
   height: 100%;
 }
 
-.wk-conversationlist-item-left {
+.yw-conversationlist-item-left {
   width: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.wk-conversationlist-item-right {
+.yw-conversationlist-item-right {
   height: 100%;
   width: calc(100% - 70px);
   display: flex;
@@ -49,30 +49,30 @@ body[theme-mode="dark"] .wk-conversationlist-item:hover {
   box-sizing: border-box;
 }
 
-.wk-conversationlist-item-avatar-box {
+.yw-conversationlist-item-avatar-box {
   margin-left: 4px;
   position: relative;
 }
 
-.wk-conversationlist-item-right-first-line {
+.yw-conversationlist-item-right-first-line {
   overflow: hidden;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.wk-conversationlist-item-right-second-line {
+.yw-conversationlist-item-right-second-line {
   display: flex;
 }
 
-.wk-conversationlist-item-name {
+.yw-conversationlist-item-name {
   display: flex;
   width: 100%;
   flex: 1;
   align-items: center;
 }
 
-.wk-conversationlist-item-name h3 {
+.yw-conversationlist-item-name h3 {
   font-size: 1rem;
   line-height: 1.6875rem;
   margin: 0;
@@ -83,11 +83,11 @@ body[theme-mode="dark"] .wk-conversationlist-item:hover {
   max-width: 80%;
 }
 
-body[theme-mode="dark"] .wk-conversationlist-item-name h3 {
-  color: var(--wk-text-primary);
+body[theme-mode="dark"] .yw-conversationlist-item-name h3 {
+  color: var(--yw-text-primary);
 }
 
-.wk-conversationlist-item-time {
+.yw-conversationlist-item-time {
   color: #9b9b9b;
   padding-left: 10px;
   flex-shrink: 0;
@@ -98,34 +98,34 @@ body[theme-mode="dark"] .wk-conversationlist-item-name h3 {
   margin-left: auto;
 }
 
-.wk-conversationlist-item-selected .wk-conversationlist-item-time {
-  color: var(--wk-state-selected-text);
+.yw-conversationlist-item-selected .yw-conversationlist-item-time {
+  color: var(--yw-state-selected-text);
 }
 
-.wk-conversationlist-item-lastmsg {
+.yw-conversationlist-item-lastmsg {
   width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: var(--wk-text-secondary);
+  color: var(--yw-text-secondary);
   overflow: hidden;
   font-size: 14px;
   min-height: 22px;
 }
 
-.wk-conversationlist-item-selected {
-  background-color: var(--wk-state-selected-bg);
+.yw-conversationlist-item-selected {
+  background-color: var(--yw-state-selected-bg);
 }
 
-.wk-mention {
+.yw-mention {
   color: red;
 }
 
-.wk-reminder {
+.yw-reminder {
   color: red;
 }
 
-.wk-onlinestatusbadge {
-  background-color: var(--wk-bg-secondary);
+.yw-onlinestatusbadge {
+  background-color: var(--yw-bg-secondary);
   position: absolute;
   padding: 1.5px;
   transform: scale(0.6);
@@ -133,29 +133,29 @@ body[theme-mode="dark"] .wk-conversationlist-item-name h3 {
   bottom: -5px;
   border-radius: 10px;
 }
-.wk-onlinestatusbadge-empty.wk-onlinestatusbadge {
+.yw-onlinestatusbadge-empty.yw-onlinestatusbadge {
   border-radius: 50%;
   right: -1px;
   bottom: -1px;
 }
 
-.wk-onlinestatusbadge-content {
+.yw-onlinestatusbadge-content {
   background-color: rgb(238, 249, 233);
   padding: 0px 5px;
   border-radius: 10px;
 }
-.wk-onlinestatusbadge-content-tip {
+.yw-onlinestatusbadge-content-tip {
   padding: 0px;
   font-size: 14px;
   color: rgb(124, 208, 83);
 }
 
-.wk-onlinestatusbadge-empty .wk-onlinestatusbadge-content {
+.yw-onlinestatusbadge-empty .yw-onlinestatusbadge-content {
   background-color: rgb(124, 208, 83);
   border-radius: 50%;
   padding: 0px;
 }
 
-.wk-onlinestatusbadge-empty .wk-onlinestatusbadge-content-tip {
+.yw-onlinestatusbadge-empty .yw-onlinestatusbadge-content-tip {
   padding: 8px;
 }

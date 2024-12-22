@@ -298,14 +298,14 @@ export default class ImageToolbar extends Component<
     const { showDialog, canSend, fileType, previewUrl, file } = this.state;
 
     return (
-      <div className="wk-imagetoolbar">
+      <div className="yw-imagetoolbar">
         <div
-          className="wk-imagetoolbar-content"
+          className="yw-imagetoolbar-content"
           onClick={() => {
             this.chooseFile();
           }}
         >
-          <div className="wk-imagetoolbar-content-icon">
+          <div className="yw-imagetoolbar-content-icon">
             <img src={icon} alt="" />
             <input
               onClick={this.onFileClick}
@@ -386,10 +386,10 @@ class ImageDialog extends Component<ImageDialogProps> {
       loading,
     } = this.props;
     return (
-      <div className="wk-imagedialog">
-        <div className="wk-imagedialog-mask" onClick={onClose}></div>
-        <div className="wk-imagedialog-content">
-          <div className="wk-imagedialog-content-close" onClick={onClose}>
+      <div className="yw-imagedialog">
+        <div className="yw-imagedialog-mask" onClick={onClose}></div>
+        <div className="yw-imagedialog-content">
+          <div className="yw-imagedialog-content-close" onClick={onClose}>
             <svg
               viewBox="0 0 1024 1024"
               version="1.1"
@@ -402,22 +402,22 @@ class ImageDialog extends Component<ImageDialogProps> {
               ></path>
             </svg>
           </div>
-          <div className="wk-imagedialog-content-title">
+          <div className="yw-imagedialog-content-title">
             发送{fileType === "image" ? "图片" : "文件"}
           </div>
-          <div className="wk-imagedialog-content-body">
+          <div className="yw-imagedialog-content-body">
             {fileType === "image" ? (
-              <div className="wk-imagedialog-content-preview">
+              <div className="yw-imagedialog-content-preview">
                 <img
                   alt=""
-                  className="wk-imagedialog-content-previewImg"
+                  className="yw-imagedialog-content-previewImg"
                   src={previewUrl}
                   onLoad={onLoad}
                 />
               </div>
             ) : fileType === "video" ? (
               <div
-                className="wk-imagedialog-content-preview"
+                className="yw-imagedialog-content-preview"
                 style={{
                   maxWidth: "100%",
                   maxHeight: "400px",
@@ -428,7 +428,7 @@ class ImageDialog extends Component<ImageDialogProps> {
                 }}
               >
                 <video
-                  className="wk-imagedialog-content-previewVideo"
+                  className="yw-imagedialog-content-previewVideo"
                   src={previewUrl}
                   controls
                   playsInline
@@ -445,11 +445,11 @@ class ImageDialog extends Component<ImageDialogProps> {
                 />
               </div>
             ) : null}
-            <div className="wk-imagedialog-footer">
+            <div className="yw-imagedialog-footer">
               <button onClick={onClose}>取消</button>
               <button
                 onClick={onSend}
-                className="wk-imagedialog-footer-okbtn"
+                className="yw-imagedialog-footer-okbtn"
                 disabled={!canSend}
                 style={{
                   backgroundColor: canSend ? WKApp.config.themeColor : "gray",

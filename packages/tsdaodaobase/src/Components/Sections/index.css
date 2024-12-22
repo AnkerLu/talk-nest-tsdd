@@ -1,29 +1,29 @@
-.wk-sections {
-  background-color: var(--wk-bg-secondary);
+.yw-sections {
+  background-color: var(--yw-bg-secondary);
 }
 
-.wk-section {
+.yw-section {
   margin-top: 10px;
 }
 
-.wk-section:first-child {
+.yw-section:first-child {
   margin-top: 0px;
 }
 
-.wk-section-rows {
+.yw-section-rows {
 }
 
-.wk-section-title {
+.yw-section-title {
   padding: 5px 15px;
-  color: var(--wk-text-secondary);
+  color: var(--yw-text-secondary);
   font-size: 13px;
 }
 
-.wk-section-row {
+.yw-section-row {
 }
 
-.wk-section-subtitle {
+.yw-section-subtitle {
   padding: 5px 15px;
-  color: var(--wk-text-secondary);
+  color: var(--yw-text-secondary);
   font-size: 13px;
 }

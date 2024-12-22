@@ -1,72 +1,68 @@
-
-
-.wk-qrcodemy {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+.yw-qrcodemy {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-.wk-qrcodemy-content-qrcodebox {
-
-    width: 100%;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+.yw-qrcodemy-content-qrcodebox {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.wk-qrcodemy-content-qrcodeinfo {
-    background-color: var(--wk-color-theme);
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.yw-qrcodemy-content-qrcodeinfo {
+  background-color: var(--yw-color-theme);
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-body[theme-mode=dark] .wk-qrcodemy-content-qrcodeinfo {
-    background-color: var(--wk-color-secondary-2);
+body[theme-mode="dark"] .yw-qrcodemy-content-qrcodeinfo {
+  background-color: var(--yw-color-secondary-2);
 }
 
-.wk-qrcodemy-content-userinfo {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding-top: 15px;
+.yw-qrcodemy-content-userinfo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 15px;
 }
 
-.wk-qrcodemy-content-userinfo-avatar img{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.yw-qrcodemy-content-userinfo-avatar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
-.wk-qrcodemy-content-qrcode {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 15px;
-    width: 250px;
-    height: 250px;
+.yw-qrcodemy-content-qrcode {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  width: 250px;
+  height: 250px;
 }
 
-.wk-qrcodemy-content-tip {
-    font-size: 13px;
-    text-align: center;
-    color: #999;
-    margin: 15px 0px;
+.yw-qrcodemy-content-tip {
+  font-size: 13px;
+  text-align: center;
+  color: #999;
+  margin: 15px 0px;
 }
 
-.wk-qrcodemy-content-userinfo-name {
-    font-size: 15px;
-    font-weight: 500;
+.yw-qrcodemy-content-userinfo-name {
+  font-size: 15px;
+  font-weight: 500;
 }
 
-body[theme-mode=dark]  .wk-qrcodemy-content-userinfo-name {
-    color: var(--wk-text-primary);
+body[theme-mode="dark"] .yw-qrcodemy-content-userinfo-name {
+  color: var(--yw-text-primary);
 }

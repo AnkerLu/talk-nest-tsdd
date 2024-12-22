@@ -14,10 +14,10 @@ export default class FriendApplyUI extends Component<FriendApplyUIProps> {
     const { onMessage, placeholder } = this.props;
     console.log("placeholder----->", placeholder);
     return (
-      <div className="wk-friendapply">
-        <div className="wk-friendapply-content">
-          <div className="wk-friendapply-content-tip">发送添加朋友申请</div>
-          <div className="wk-friendapply-content-message">
+      <div className="yw-friendapply">
+        <div className="yw-friendapply-content">
+          <div className="yw-friendapply-content-tip">发送添加朋友申请</div>
+          <div className="yw-friendapply-content-message">
             <TextArea
               defaultValue={placeholder}
               onChange={(v) => {

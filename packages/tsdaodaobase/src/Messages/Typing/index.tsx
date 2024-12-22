@@ -26,7 +26,7 @@ export class TypingCell extends MessageCell {
     return (
       <MessageBase message={message} context={context} hiddenStatus={true}>
         <div style={{ height: "18px" }}>
-          <BeatLoader size={8} margin={4} color="var(--wk-text-primary)" />
+          <BeatLoader size={8} margin={4} color="var(--yw-text-primary)" />
         </div>
       </MessageBase>
     );

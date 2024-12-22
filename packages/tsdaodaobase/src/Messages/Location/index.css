@@ -1,34 +1,32 @@
-
-.wk-message-location {
-    cursor: pointer;
+.yw-message-location {
+  cursor: pointer;
 }
 
-.wk-message-location-content {
-    width: 250px;
-    background-color: var(--wk-color-theme);
-    border-radius: 4px;
+.yw-message-location-content {
+  width: 250px;
+  background-color: var(--yw-color-theme);
+  border-radius: 4px;
 }
 
-body[theme-mode=dark] .wk-message-location-content{
-    background-color: var(--wk-color-secondary);
+body[theme-mode="dark"] .yw-message-location-content {
+  background-color: var(--yw-color-secondary);
 }
 
-
-.wk-message-location-content-title {
-    color: var(--wk-text-item);
-    font-size: 16px;
-    padding: 5px 5px 0px 5px;
+.yw-message-location-content-title {
+  color: var(--yw-text-item);
+  font-size: 16px;
+  padding: 5px 5px 0px 5px;
 }
 
-.wk-message-location-content-address {
-    color: #666;
-    font-size: 12px;
-    padding: 0px 5px 5px 5px;
+.yw-message-location-content-address {
+  color: #666;
+  font-size: 12px;
+  padding: 0px 5px 5px 5px;
 }
 
-.wk-message-location-content-locationimg {
-    width: 250px;
-    height: 100px;
-    overflow: hidden;
-    background-size: cover;
+.yw-message-location-content-locationimg {
+  width: 250px;
+  height: 100px;
+  overflow: hidden;
+  background-size: cover;
 }

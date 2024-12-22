@@ -1,15 +1,15 @@
-.wk-iconlistitem {
+.yw-iconlistitem {
   height: 70px;
   width: 100%;
   cursor: pointer;
   position: relative;
 }
 
-.wk-iconlistitem:hover {
-  background-color: var(--wk-state-hover-bg);
+.yw-iconlistitem:hover {
+  background-color: var(--yw-state-hover-bg);
 }
 
-.wk-iconlistitem-content {
+.yw-iconlistitem-content {
   width: 100%;
   height: 100%;
   display: flex;
@@ -17,22 +17,22 @@
   padding: 0px 20px;
 }
 
-.wk-iconlistitem-content-icon img {
+.yw-iconlistitem-content-icon img {
   width: 32px;
   height: 32px;
 }
 
-.wk-iconlistitem-content-title {
+.yw-iconlistitem-content-title {
   font-size: 14px;
   font-weight: 500;
   margin-left: 15px;
 }
 
-body[theme-mode="dark"] .wk-iconlistitem-content-title {
-  color: var(--wk-state-default-text);
+body[theme-mode="dark"] .yw-iconlistitem-content-title {
+  color: var(--yw-state-default-text);
 }
 
-.wk-iconlistitem-content-badge {
+.yw-iconlistitem-content-badge {
   position: absolute;
   right: 15px;
 }

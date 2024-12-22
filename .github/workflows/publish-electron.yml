@@ -45,9 +45,10 @@ jobs:
 
       - name: Build electron windows
         if: matrix.os == 'windows-latest'
+        shell: cmd
         run: |
           echo "Starting Windows build..."
-          yarn build-ele:win || (echo "Build failed with $?" && exit 1)
+          yarn build-ele:win || (echo "Build failed with %ERRORLEVEL%" && exit /b 1)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

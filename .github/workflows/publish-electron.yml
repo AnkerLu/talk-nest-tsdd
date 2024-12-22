@@ -44,9 +44,10 @@ jobs:
         run: yarn build
 
       - name: Setup electron-builder
+        working-directory: ./apps/web
         run: |
           yarn remove electron-builder
-          yarn add electron-builder@23.6.0 -D  # 使用较稳定的版本
+          yarn add electron-builder@23.6.0 -D
 
       - name: Build electron windows
         if: matrix.os == 'windows-latest'

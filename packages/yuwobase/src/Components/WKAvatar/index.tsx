@@ -3,6 +3,7 @@ import React from "react";
 import { Component, CSSProperties } from "react";
 import WKApp from "../../App";
 import "./index.css";
+import { generateFallbackAvatar } from "../../Utils/avatarUtils";
 
 interface WKAvatarProps {
   channel?: Channel;
@@ -46,7 +47,18 @@ export default class WKAvatar extends Component<WKAvatarProps, WKAvatarState> {
     return imgSrc;
   }
   handleImgError() {
-    this.setState({ src: defaultAvatarSVG, loadedErr: true });
+    const { channel } = this.props;
+    if (channel) {
+      this.setState({
+        src: generateFallbackAvatar(channel),
+        loadedErr: true,
+      });
+    } else {
+      this.setState({
+        src: defaultAvatarSVG,
+        loadedErr: true,
+      });
+    }
   }
   handleLoad() {
     if (!this.state.loadedErr) {

@@ -125,7 +125,7 @@ body[theme-mode="dark"] .yw-message-base-bubble {
 }
 
 .yw-message-base-bubble-box.send .yw-message-base-bubble {
-  background-color: rgb(11, 107, 203);
+  background-color: var(--yw-color-primary);
   color: white;
   border-radius: 12px 0 12px 12px;
 }

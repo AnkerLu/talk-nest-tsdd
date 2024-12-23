@@ -64,6 +64,11 @@
   background-color: var(--yw-bg-secondary);
 }
 
+/* 覆盖svg颜色 */
+.group-new-left-main .friend-opt .friend-opt-main .friend-opt-item svg path {
+  fill: var(--yw-color-theme) !important;
+}
+
 /* 组织架构选择 */
 .group-new-left-main .organizational-opt {
   height: 100%;

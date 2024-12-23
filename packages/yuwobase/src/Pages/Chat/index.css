@@ -7,13 +7,11 @@
   display: flex;
   width: 100%;
   height: 100%;
-  border-right: var(--yw-line);
 }
 
 .yw-chat-content-left {
   width: 100%;
   height: 100%;
-  border-right: var(--yw-line);
 }
 
 .yw-chat-search {
@@ -23,6 +21,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: var(--yw-line);
 }
 
 .yw-chat-search-add {
@@ -106,8 +105,7 @@ body[theme-mode="dark"] .yw-chat-title {
 }
 
 .yw-chat-empty img {
-  height: 340px;
-  transform: scale(1.14);
+  height: 120px;
 }
 
 .yw-chat-conversation-header {
@@ -115,12 +113,13 @@ body[theme-mode="dark"] .yw-chat-title {
   width: 100%;
   display: flex;
   align-items: center;
-  box-shadow: 0 1px 1px rgba(114, 114, 114, 0.168627);
   z-index: 11;
   padding: 0.5rem 0.8125rem 0.5rem 1.5rem;
   position: relative;
   cursor: pointer;
   box-sizing: border-box;
+  background-color: var(--yw-bg-base);
+  border-bottom: var(--yw-line);
 }
 
 body[theme-mode="dark"] .yw-chat-conversation-header {
@@ -175,21 +174,28 @@ body[theme-mode="dark"] .yw-chat-conversation-header {
 
 .yw-chat-conversation-header-channel {
   display: flex;
+  gap: 10px;
+}
+
+.yw-chat-conversation-header-channel-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .yw-chat-conversation-header-channel-avatar img {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
 
 .yw-chat-conversation-header-channel-info {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .yw-chat-conversation-header-channel-info-name {
-  margin-left: 10px;
   font-size: 14px;
   font-weight: 600;
 }
@@ -318,4 +324,28 @@ body[theme-mode="dark"] .yw-chat-popover {
 
 .yw-conversation-header-mask:hover {
   background-color: rgb(0, 0, 0, 0.1);
+}
+
+.yw-chat-conversation-header-channel-info-tip {
+  font-size: 12px;
+  color: #8e8e8e;
+  margin-top: 2px;
+}
+
+.yw-chat-conversation-header-channel-info-tip .online-status {
+  color: #52c41a;
+}
+
+.yw-chat-conversation-header-channel-info-tip .offline-status {
+  color: #8e8e8e;
+}
+
+/* 群聊状态样式 */
+.yw-chat-conversation-header-channel-info-tip .group-status {
+  color: #8e8e8e;
+}
+
+.yw-chat-conversation-header-channel-info-tip .online-count {
+  margin-left: 4px;
+  color: #52c41a;
 }

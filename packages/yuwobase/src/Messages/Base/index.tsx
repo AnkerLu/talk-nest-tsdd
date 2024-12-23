@@ -24,6 +24,7 @@ import classNames from "classnames";
 import { Popconfirm } from "@douyinfe/semi-ui";
 import MessageTrail from "./tail";
 import MessageHead from "./head";
+import { generateFallbackAvatar } from "../../Utils/avatarUtils";
 
 interface MessageBaseProps extends HTMLProps<any> {
   message: MessageWrap;
@@ -274,6 +275,13 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
               <img
                 alt=""
                 src={WKApp.shared.avatarChannel(channelInfo?.channel!)}
+                onError={(e) => {
+                  if (message.fromUID) {
+                    e.currentTarget.src = generateFallbackAvatar(
+                      new Channel(message.fromUID, ChannelTypePerson)
+                    );
+                  }
+                }}
               />
             </div>
 

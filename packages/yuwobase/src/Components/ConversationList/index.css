@@ -1,6 +1,6 @@
 .yw-conversationlist {
   height: 100%;
-  overflow-y: auto;
+  overflow-y: overlay;
   /* padding: 0px 5px; */
 }
 
@@ -9,6 +9,11 @@
   width: 100%;
   cursor: pointer;
   box-sizing: border-box;
+  border-bottom: var(--yw-line);
+}
+
+.yw-conversationlist-item:last-child {
+  border-bottom: none;
 }
 
 body[theme-mode="dark"] .yw-conversationlist-item {
@@ -88,7 +93,7 @@ body[theme-mode="dark"] .yw-conversationlist-item-name h3 {
 }
 
 .yw-conversationlist-item-time {
-  color: #9b9b9b;
+  color: var(--yw-text-forth);
   padding-left: 10px;
   flex-shrink: 0;
   font-size: 0.75rem;
@@ -106,7 +111,7 @@ body[theme-mode="dark"] .yw-conversationlist-item-name h3 {
   width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: var(--yw-text-secondary);
+  color: var(--yw-text-thrid);
   overflow: hidden;
   font-size: 14px;
   min-height: 22px;
@@ -158,4 +163,18 @@ body[theme-mode="dark"] .yw-conversationlist-item-name h3 {
 
 .yw-onlinestatusbadge-empty .yw-onlinestatusbadge-content-tip {
   padding: 8px;
+}
+
+/* 添加自定义滚动条样式 */
+.yw-conversationlist::-webkit-scrollbar {
+  width: 4px;
+}
+
+.yw-conversationlist::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.yw-conversationlist::-webkit-scrollbar-track {
+  background: transparent;
 }

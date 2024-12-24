@@ -101,7 +101,7 @@ class Login extends Component<any, LoginState> {
       }
     } catch (err: unknown) {
       if (err && typeof err === "object" && "msg" in err) {
-        Toast.error(err.msg);
+        Toast.error(err.msg as string);
       } else {
         Toast.error("登录失败");
       }
@@ -231,7 +231,7 @@ class Login extends Component<any, LoginState> {
                             </a>
                             <a
                               onClick={() =>
-                                (window.location.href = "/forgot-password")
+                                (window.location.href = "/forget_pwd")
                               }
                             >
                               忘记密码

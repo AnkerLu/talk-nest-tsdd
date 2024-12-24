@@ -12,7 +12,7 @@ import {
 import { relaunch } from "@tauri-apps/api/process";
 import { os } from "@tauri-apps/api";
 
-const NOT_NEED_AUTH_PATH = ["/login", "/register"];
+const NOT_NEED_AUTH_PATH = ["/login", "/register", "/forget_pwd"];
 
 export default class AppLayout extends Component {
   onLogin!: () => void;

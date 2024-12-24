@@ -67,12 +67,12 @@ class Register extends Component<any, RegisterState> {
         render={(vm: RegisterVM) => (
           <div className="yw-register">
             <div className="yw-register-panel">
-              <div className="yw-register-content-header">
-                <div className="yw-register-content-logo">
+              <div className="yw-register-header">
+                <div className="yw-register-logo">
                   <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="logo" />
-                  <span className="yw-register-content-logo-title">语窝</span>
+                  <span className="yw-register-logo-title">语窝</span>
                 </div>
-                <div className="yw-register-content-slogan">注册账号</div>
+                <div className="yw-register-slogan">注册账号</div>
               </div>
 
               <div className="yw-register-content">

@@ -159,7 +159,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: #333;
+  background: var(--semi-color-primary);
 }
 
 .yw-register-verify-code {
@@ -181,4 +181,86 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Header 样式 */
+.yw-register-header {
+  width: 100%;
+  padding: 24px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.yw-register-logo {
+  display: flex;
+  align-items: center;
+}
+
+.yw-register-logo img {
+  height: 36px;
+  width: auto;
+  margin-right: 8px;
+}
+
+.yw-register-logo-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.yw-register-slogan {
+  color: #666;
+  font-size: 14px;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .yw-register-header {
+    padding: 16px 20px;
+  }
+
+  .yw-register-logo img {
+    height: 28px;
+  }
+
+  .yw-register-logo-title {
+    font-size: 18px;
+  }
+
+  .yw-register-content {
+    padding: 0 16px;
+  }
+
+  .yw-register-card {
+    padding: 24px 16px;
+    box-shadow: none;
+    min-height: auto;
+  }
+
+  .yw-register-verify-code {
+    gap: 8px;
+  }
+
+  .yw-register-verify-code .verify-code-btn {
+    width: 100px;
+    font-size: 13px;
+  }
+
+  .yw-register-tabs {
+    margin-bottom: 24px;
+  }
+
+  .yw-register-tab-item {
+    font-size: 14px;
+    padding: 12px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .yw-register-slogan {
+    display: none;
+  }
 }

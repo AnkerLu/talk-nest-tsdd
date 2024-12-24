@@ -10,34 +10,36 @@
   flex-direction: column;
 }
 
-.yw-forget-content-header {
+.yw-forget-header {
   width: 100%;
-  padding: 40px 80px;
+  padding: 24px 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
 }
 
-.yw-forget-content-logo {
+.yw-forget-logo {
   display: flex;
   align-items: center;
 }
 
-.yw-forget-content-logo img {
-  height: 48px;
+.yw-forget-logo img {
+  height: 36px;
   width: auto;
-  margin-right: 12px;
+  margin-right: 8px;
 }
 
-.yw-forget-content-logo-title {
-  font-size: 24px;
+.yw-forget-logo-title {
+  font-size: 20px;
   font-weight: 600;
   color: #333;
 }
 
-.yw-forget-content-slogan {
+.yw-forget-slogan {
   color: #666;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .yw-forget-content {
@@ -139,4 +141,44 @@
 
 .yw-forget-options a:hover {
   text-decoration: underline;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .yw-forget-header {
+    padding: 16px 20px;
+  }
+
+  .yw-forget-logo img {
+    height: 28px;
+  }
+
+  .yw-forget-logo-title {
+    font-size: 18px;
+  }
+
+  .yw-forget-content {
+    padding: 0 16px;
+  }
+
+  .yw-forget-card {
+    padding: 24px 16px;
+    box-shadow: none;
+    min-height: auto;
+  }
+
+  .yw-forget-verify-code {
+    gap: 8px;
+  }
+
+  .yw-forget-verify-code .verify-code-btn {
+    width: 100px;
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .yw-forget-slogan {
+    display: none;
+  }
 }

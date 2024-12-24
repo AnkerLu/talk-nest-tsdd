@@ -13,9 +13,24 @@ type LoginState = {
   getLoginUUIDLoading: boolean;
   scanner?: string; // 扫描者的uid
   qrcode?: string;
+  primaryColor: string;
 };
 
 class Login extends Component<any, LoginState> {
+  state = {
+    loginStatus: "",
+    loginUUID: "",
+    getLoginUUIDLoading: false,
+    primaryColor: "#7c42ff",
+  };
+
+  componentDidMount() {
+    const color = getComputedStyle(document.documentElement)
+      .getPropertyValue("--yw-color-primary")
+      .trim();
+    this.setState({ primaryColor: color });
+  }
+
   // 获取设备信息
   getDeviceInfo(): DeviceInfo {
     // 获取浏览器名称和版本
@@ -117,12 +132,12 @@ class Login extends Component<any, LoginState> {
         render={(vm: LoginVM) => (
           <div className="yw-login">
             <div className="yw-login-panel">
-              <div className="yw-login-content-header">
-                <div className="yw-login-content-logo">
+              <div className="yw-login-header">
+                <div className="yw-login-logo">
                   <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="logo" />
-                  <span className="yw-login-content-logo-title">语窝</span>
+                  <span className="yw-login-logo-title">语窝</span>
                 </div>
-                <div className="yw-login-content-slogan">欢迎登录</div>
+                <div className="yw-login-slogan">欢迎登录</div>
               </div>
 
               <div className="yw-login-content">
@@ -212,7 +227,7 @@ class Login extends Component<any, LoginState> {
                               <QRCode
                                 value={vm.qrcode}
                                 size={240}
-                                fgColor="#c7000b"
+                                fgColor={this.state.primaryColor}
                               />
                             )}
                           </Spin>

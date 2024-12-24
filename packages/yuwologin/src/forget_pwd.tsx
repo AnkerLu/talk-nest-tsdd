@@ -31,12 +31,12 @@ class ForgetPwd extends Component<any, ForgetPwdState> {
         render={(vm: ForgetPwdVM) => (
           <div className="yw-forget">
             <div className="yw-forget-panel">
-              <div className="yw-forget-content-header">
-                <div className="yw-forget-content-logo">
+              <div className="yw-forget-header">
+                <div className="yw-forget-logo">
                   <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="logo" />
-                  <span className="yw-forget-content-logo-title">语窝</span>
+                  <span className="yw-forget-logo-title">语窝</span>
                 </div>
-                <div className="yw-forget-content-slogan">重置密码</div>
+                <div className="yw-forget-slogan">重置密码</div>
               </div>
 
               <div className="yw-forget-content">

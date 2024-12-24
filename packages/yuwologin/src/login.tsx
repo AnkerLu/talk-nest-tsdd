@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { Component } from "react";
-import { Button, Spin, Toast } from "@douyinfe/semi-ui";
+import { Button, Checkbox, Spin, Toast } from "@douyinfe/semi-ui";
 import "./login.css";
 import QRCode from "qrcode.react";
 import { Provider } from "@yuwo/base";
-import { LoginStatus, LoginType, LoginVM } from "./login_vm";
+import { DeviceInfo, LoginStatus, LoginType, LoginVM } from "./login_vm";
 import classNames from "classnames";
 
 type LoginState = {
@@ -16,28 +16,96 @@ type LoginState = {
 };
 
 class Login extends Component<any, LoginState> {
+  // 获取设备信息
+  getDeviceInfo(): DeviceInfo {
+    // 获取浏览器名称和版本
+    const ua = navigator.userAgent;
+    let browserName = "Unknown";
+    if (ua.indexOf("Chrome") > -1) {
+      browserName = "Chrome";
+    } else if (ua.indexOf("Firefox") > -1) {
+      browserName = "Firefox";
+    } else if (ua.indexOf("Safari") > -1) {
+      browserName = "Safari";
+    } else if (ua.indexOf("Edge") > -1) {
+      browserName = "Edge";
+    }
+
+    return {
+      device_id: localStorage.getItem("device_id") || this.generateDeviceId(),
+      device_name: browserName,
+      device_model: navigator.platform,
+    };
+  }
+
+  // 生成设备ID
+  generateDeviceId(): string {
+    const deviceId = Math.random().toString(36).substring(2);
+    localStorage.setItem("device_id", deviceId);
+    return deviceId;
+  }
+
+  // 格式化手机号
+  formatPhoneNumber(phone: string): string {
+    if (!phone) return "";
+
+    // 移除所有非数字字符
+    phone = phone.replace(/\D/g, "");
+
+    // 中国手机号
+    if (phone.length === 11 && phone.startsWith("1")) {
+      return phone;
+    }
+
+    // 其他国际号码
+    return phone;
+  }
+
+  // 判断是否是手机号
+  isPhoneNumber(value: string): boolean {
+    return /^[0-9]+$/.test(value);
+  }
+
   handleLogin = async (vm: LoginVM) => {
     if (!vm.username) {
-      Toast.error("手机号不能为空！");
+      Toast.error("用户名/手机号不能为空！");
       return;
     }
     if (!vm.password) {
       Toast.error("密码不能为空！");
       return;
     }
-    let fullPhone = vm.username;
-    if (vm.username.length == 11 && vm.username.substring(0, 1) === "1") {
-      fullPhone = `0086${vm.username}`;
-    } else {
-      if (vm.username.startsWith("+")) {
-        fullPhone = `00${vm.username.substring(1)}`;
-      } else if (!vm.username.startsWith("00")) {
-        fullPhone = `00${vm.username}`;
+
+    let username = vm.username;
+    // 如果输入的是手机号，则进行格式化处理
+    if (this.isPhoneNumber(vm.username)) {
+      username = this.formatPhoneNumber(vm.username);
+    }
+
+    const deviceInfo = this.getDeviceInfo();
+
+    try {
+      await vm.requestLoginWithUsernameAndPwd(
+        username,
+        vm.password,
+        deviceInfo
+      );
+
+      // 记住密码
+      if (vm.rememberPassword) {
+        localStorage.setItem("remembered_phone", vm.username);
+        localStorage.setItem("remembered_password", window.btoa(vm.password));
+      } else {
+        localStorage.removeItem("remembered_phone");
+        localStorage.removeItem("remembered_password");
+      }
+    } catch (err: unknown) {
+      if (err && typeof err === "object" && "msg" in err) {
+        Toast.error(err.msg);
+      } else {
+        Toast.error("登录失败");
       }
     }
-    vm.requestLoginWithUsernameAndPwd(fullPhone, vm.password).catch((err) => {
-      Toast.error(err.msg);
-    });
   };
 
   render() {
@@ -72,7 +140,7 @@ class Login extends Component<any, LoginState> {
                         })}
                         onClick={() => (vm.loginType = LoginType.phone)}
                       >
-                        手机号登录
+                        账号登录
                       </div>
                       <div
                         className={classNames("yw-login-tab-item", {
@@ -94,7 +162,10 @@ class Login extends Component<any, LoginState> {
                         <div className="yw-login-content-form">
                           <input
                             type="text"
-                            placeholder="手机号"
+                            placeholder="手机号/用户名"
+                            defaultValue={
+                              localStorage.getItem("remembered_phone") || ""
+                            }
                             onChange={(v) => {
                               vm.username = v.target.value;
                             }}
@@ -108,6 +179,15 @@ class Login extends Component<any, LoginState> {
                             <input
                               type="password"
                               placeholder="密码"
+                              defaultValue={
+                                localStorage.getItem("remembered_password")
+                                  ? window.atob(
+                                      localStorage.getItem(
+                                        "remembered_password"
+                                      )!
+                                    )
+                                  : ""
+                              }
                               onChange={(v) => {
                                 vm.password = v.target.value;
                               }}
@@ -119,6 +199,19 @@ class Login extends Component<any, LoginState> {
                             />
                             <i className="password-eye"></i>
                           </div>
+
+                          {/* <div className="yw-login-remember">
+                            <Checkbox
+                              checked={vm.rememberPassword}
+                              onChange={(e) =>
+                                (vm.rememberPassword = e.target
+                                  .checked as boolean)
+                              }
+                            >
+                              记住密码
+                            </Checkbox>
+                          </div> */}
+
                           <Button
                             loading={vm.loginLoading}
                             className="yw-login-button"
@@ -129,8 +222,20 @@ class Login extends Component<any, LoginState> {
                             登录
                           </Button>
                           <div className="yw-login-options">
-                            <span>注册</span>
-                            <span>忘记密码</span>
+                            <a
+                              onClick={() =>
+                                (window.location.href = "/register")
+                              }
+                            >
+                              注册
+                            </a>
+                            <a
+                              onClick={() =>
+                                (window.location.href = "/forgot-password")
+                              }
+                            >
+                              忘记密码
+                            </a>
                           </div>
                         </div>
                       </div>

@@ -13,6 +13,12 @@ export enum LoginType {
   phone, // 手机号登录
 }
 
+export type DeviceInfo = {
+  device_id: string;
+  device_name: string;
+  device_model: string;
+};
+
 export class LoginVM extends ProviderListener {
   loginStatus: string = LoginStatus.getUUID; // 登录状态
   qrcodeLoading: boolean = false; // 二维码加载中
@@ -33,6 +39,8 @@ export class LoginVM extends ProviderListener {
   // ---------- 手机登录方式 ----------
   username?: string;
   password?: string;
+
+  rememberPassword: boolean = false;
 
   set autoRefresh(v: boolean) {
     this._autoRefresh = v;
@@ -118,18 +126,30 @@ export class LoginVM extends ProviderListener {
     this.loginLoading = false;
   }
 
-  async requestLoginWithUsernameAndPwd(username: string, password: string) {
+  async requestLoginWithUsernameAndPwd(
+    username: string,
+    password: string,
+    device: DeviceInfo
+  ) {
     this.loginLoading = true;
     this.notifyListener();
-    return WKApp.apiClient
-      .post(`user/login`, { username: username, password: password, flag: 1 })
-      .then((result) => {
-        this.loginSuccess(result);
-      })
-      .finally(() => {
-        this.loginLoading = false;
-        this.notifyListener();
-      }); // flag 0.app 1.pc
+
+    try {
+      const result = await WKApp.apiClient.post("user/login", {
+        username,
+        password,
+        device: {
+          device_id: device.device_id,
+          device_name: device.device_name,
+          device_model: device.device_model,
+        },
+      });
+
+      this.loginSuccess(result);
+    } finally {
+      this.loginLoading = false;
+      this.notifyListener();
+    }
   }
 
   loginSuccess(data: any) {

@@ -5,6 +5,7 @@ import { Component } from "react";
 import MainVM, { VersionInfo } from "./vm";
 import "./tab_normal_screen.css";
 import { Badge, Modal, Toast, Progress, Button } from "@douyinfe/semi-ui";
+import { generateFallbackAvatar } from "@yuwo/base/src/Utils/avatarUtils";
 
 export interface TabNormalScreenProps {
   vm: MainVM;
@@ -154,6 +155,15 @@ export class TabNormalScreen extends Component<TabNormalScreenProps> {
             <img
               alt=""
               src={WKApp.shared.avatarUser(WKApp.loginInfo.uid || "")}
+              onError={(e) => {
+                const fallbackAvatar = generateFallbackAvatar(
+                  WKApp.loginInfo.name || "",
+                  40
+                );
+                if (fallbackAvatar) {
+                  e.currentTarget.src = fallbackAvatar;
+                }
+              }}
             ></img>
             <span className="yw-main-sider-avatar-name">
               {WKApp.loginInfo.name}

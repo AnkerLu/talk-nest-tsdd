@@ -1,0 +1,184 @@
+.yw-register {
+  display: flex;
+  height: 100vh;
+  background: #fff;
+}
+
+.yw-register-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.yw-register-content-header {
+  width: 100%;
+  padding: 40px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.yw-register-content-logo {
+  display: flex;
+  align-items: center;
+}
+
+.yw-register-content-logo img {
+  height: 48px;
+  width: auto;
+  margin-right: 12px;
+}
+
+.yw-register-content-logo-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+.yw-register-content-slogan {
+  color: #666;
+  font-size: 16px;
+}
+
+.yw-register-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  background: #f7f7f7;
+}
+
+.yw-register-card {
+  width: 100%;
+  max-width: 420px;
+  min-height: 520px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+}
+
+/* 注册表单 */
+.yw-register-form {
+  width: 100%;
+  max-width: 400px;
+}
+
+.yw-register-form input {
+  width: 100%;
+  height: 44px;
+  padding: 12px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.yw-register-verify-code {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.yw-register-verify-code input {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.yw-register-verify-code .verify-code-btn {
+  width: 120px;
+  height: 44px;
+  white-space: nowrap;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.yw-register-button {
+  width: 100%;
+  height: 44px;
+  font-size: 16px;
+  background: #c7000b;
+  border-color: #c7000b;
+}
+
+.yw-register-button:hover {
+  background: #d81e06;
+  border-color: #d81e06;
+}
+
+.yw-register-options {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.yw-register-options a {
+  color: var(--semi-color-primary);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.yw-register-form input:focus {
+  border-color: #333;
+  outline: none;
+}
+
+.yw-register-options a:hover {
+  text-decoration: underline;
+}
+
+/* 注册标签切换 */
+.yw-register-tabs {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 32px;
+}
+
+.yw-register-tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 16px 0;
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.yw-register-tab-item.active {
+  color: #333;
+}
+
+.yw-register-tab-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #333;
+}
+
+.yw-register-verify-code {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.yw-register-verify-code input {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.yw-register-verify-code .verify-code-btn {
+  width: 120px;
+  height: 44px;
+  white-space: nowrap;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

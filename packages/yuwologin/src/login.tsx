@@ -114,170 +114,117 @@ class Login extends Component<any, LoginState> {
         create={() => {
           return new LoginVM();
         }}
-        render={(vm: LoginVM) => {
-          return (
-            <div className="yw-login">
-              <div className="yw-login-panel">
-                <div className="yw-login-content-header">
-                  <div className="yw-login-content-logo">
-                    <img
-                      src={`${process.env.PUBLIC_URL}/logo.png`}
-                      alt="logo"
-                    />
-                    <span className="yw-login-content-logo-title">语窝</span>
-                  </div>
-                  <div className="yw-login-content-slogan">
-                    更愉快的与朋友交流
-                  </div>
+        render={(vm: LoginVM) => (
+          <div className="yw-login">
+            <div className="yw-login-panel">
+              <div className="yw-login-content-header">
+                <div className="yw-login-content-logo">
+                  <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="logo" />
+                  <span className="yw-login-content-logo-title">语窝</span>
                 </div>
+                <div className="yw-login-content-slogan">欢迎登录</div>
+              </div>
 
-                <div className="yw-login-content">
-                  <div className="yw-login-card">
-                    <div className="yw-login-tabs">
-                      <div
-                        className={classNames("yw-login-tab-item", {
-                          active: vm.loginType === LoginType.phone,
-                        })}
-                        onClick={() => (vm.loginType = LoginType.phone)}
-                      >
-                        账号登录
-                      </div>
-                      <div
-                        className={classNames("yw-login-tab-item", {
-                          active: vm.loginType === LoginType.qrcode,
-                        })}
-                        onClick={() => (vm.loginType = LoginType.qrcode)}
-                      >
-                        扫码登录
-                      </div>
+              <div className="yw-login-content">
+                <div className="yw-login-card">
+                  <div className="yw-login-tabs">
+                    <div
+                      className={classNames("yw-login-tab-item", {
+                        active: vm.loginType === LoginType.phone,
+                      })}
+                      onClick={() => (vm.loginType = LoginType.phone)}
+                    >
+                      账号登录
                     </div>
+                    <div
+                      className={classNames("yw-login-tab-item", {
+                        active: vm.loginType === LoginType.qrcode,
+                      })}
+                      onClick={() => (vm.loginType = LoginType.qrcode)}
+                    >
+                      扫码登录
+                    </div>
+                  </div>
 
-                    <div className="yw-login-content-container">
-                      <div
-                        className={classNames("yw-login-content-phonelogin", {
-                          "yw-login-content-phonelogin-show":
-                            vm.loginType === LoginType.phone,
-                        })}
-                      >
-                        <div className="yw-login-content-form">
-                          <input
-                            type="text"
-                            placeholder="手机号/用户名"
-                            defaultValue={
-                              localStorage.getItem("remembered_phone") || ""
+                  <div className="yw-login-content-container">
+                    <div
+                      className={classNames("yw-login-content-phonelogin", {
+                        "yw-login-content-phonelogin-show":
+                          vm.loginType === LoginType.phone,
+                      })}
+                    >
+                      <div className="yw-login-form">
+                        <input
+                          type="text"
+                          placeholder="手机号/用户名"
+                          defaultValue={
+                            localStorage.getItem("remembered_phone") || ""
+                          }
+                          onChange={(v) => {
+                            vm.username = v.target.value;
+                          }}
+                          onKeyPress={(e) => {
+                            if (e.key === "Enter") {
+                              this.handleLogin(vm);
                             }
-                            onChange={(v) => {
-                              vm.username = v.target.value;
-                            }}
+                          }}
+                        />
+                        <div className="yw-login-password-wrapper">
+                          <input
+                            type="password"
+                            placeholder="密码"
+                            onChange={(e) => (vm.password = e.target.value)}
                             onKeyPress={(e) => {
                               if (e.key === "Enter") {
                                 this.handleLogin(vm);
                               }
                             }}
                           />
-                          <div className="yw-login-password-wrapper">
-                            <input
-                              type="password"
-                              placeholder="密码"
-                              defaultValue={
-                                localStorage.getItem("remembered_password")
-                                  ? window.atob(
-                                      localStorage.getItem(
-                                        "remembered_password"
-                                      )!
-                                    )
-                                  : ""
-                              }
-                              onChange={(v) => {
-                                vm.password = v.target.value;
-                              }}
-                              onKeyPress={(e) => {
-                                if (e.key === "Enter") {
-                                  this.handleLogin(vm);
-                                }
-                              }}
-                            />
-                            <i className="password-eye"></i>
-                          </div>
-
-                          {/* <div className="yw-login-remember">
-                            <Checkbox
-                              checked={vm.rememberPassword}
-                              onChange={(e) =>
-                                (vm.rememberPassword = e.target
-                                  .checked as boolean)
-                              }
-                            >
-                              记住密码
-                            </Checkbox>
-                          </div> */}
-
-                          <Button
-                            loading={vm.loginLoading}
-                            className="yw-login-button"
-                            type="primary"
-                            theme="solid"
-                            onClick={() => this.handleLogin(vm)}
-                          >
-                            登录
-                          </Button>
-                          <div className="yw-login-options">
-                            <a
-                              onClick={() =>
-                                (window.location.href = "/register")
-                              }
-                            >
-                              注册
-                            </a>
-                            <a
-                              onClick={() =>
-                                (window.location.href = "/forget_pwd")
-                              }
-                            >
-                              忘记密码
-                            </a>
-                          </div>
+                        </div>
+                        <Button
+                          className="yw-login-button"
+                          loading={vm.loginLoading}
+                          onClick={() => this.handleLogin(vm)}
+                        >
+                          登录
+                        </Button>
+                        <div className="yw-login-options">
+                          <a href="/register">注册账号</a>
+                          <a href="/forget_pwd">忘记密码？</a>
                         </div>
                       </div>
+                    </div>
 
-                      <div
-                        className={classNames("yw-login-content-scanlogin", {
-                          "yw-login-content-scanlogin-show":
-                            vm.loginType === LoginType.qrcode,
-                        })}
-                      >
-                        <div className="yw-login-content-wrapper">
-                          <div className="yw-login-qrcode-tip">
-                            请使用<span className="highlight">手机语窝</span>
-                            扫描二维码登录
-                            {/* {vm.countdown > 0 && (
-                              <span className="countdown">
-                                ，{vm.countdown}秒后二维码失效
-                              </span>
-                            )} */}
-                          </div>
-
-                          <div className="yw-login-content-scanlogin-qrcode">
-                            <Spin size="large" spinning={vm.qrcodeLoading}>
-                              {vm.qrcodeLoading || !vm.qrcode ? undefined : (
-                                <QRCode
-                                  value={vm.qrcode}
-                                  size={240}
-                                  fgColor="#c7000b"
-                                />
-                              )}
-                            </Spin>
-                          </div>
+                    <div
+                      className={classNames("yw-login-content-scanlogin", {
+                        "yw-login-content-scanlogin-show":
+                          vm.loginType === LoginType.qrcode,
+                      })}
+                    >
+                      <div className="yw-login-content-wrapper">
+                        <div className="yw-login-qrcode-tip">
+                          请使用<span className="highlight">手机语窝</span>
+                          扫描二维码登录
+                        </div>
+                        <div className="yw-login-content-scanlogin-qrcode">
+                          <Spin size="large" spinning={vm.qrcodeLoading}>
+                            {vm.qrcodeLoading || !vm.qrcode ? undefined : (
+                              <QRCode
+                                value={vm.qrcode}
+                                size={240}
+                                fgColor="#c7000b"
+                              />
+                            )}
+                          </Spin>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="yw-login-panel yw-login-bg"></div>
             </div>
-          );
-        }}
+          </div>
+        )}
       ></Provider>
     );
   }

@@ -66,8 +66,9 @@ body[theme-mode="dark"] .yw-list-item {
   font-size: 14px;
   color: var(--yw-text-secondary);
   text-align: end;
-  word-wrap: break-word;
-  word-break: normal;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .yw-list-item-subtitle-oneline {

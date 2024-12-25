@@ -308,13 +308,17 @@ body[theme-mode="dark"] .yw-message-base-bubble-box.recv .svgAppendix .corner {
   color: var(--yw-state-default-text);
 }
 
+.yw-message-text-commontext {
+  line-height: 1.5;
+}
+
 .textTitle {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: calc(var(--message-text-size, 1rem) - 0.125rem);
   font-weight: 500;
-  color: var(--accent-color);
+  color: var(--yw-chat-message-receiver-color);
   unicode-bidi: plaintext;
   display: flex;
 }

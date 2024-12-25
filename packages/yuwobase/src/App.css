@@ -127,6 +127,7 @@
 
   /* 添加新的颜色值 */
   --yw-chat-badge-bg: rgba(124, 66, 255, 0.2);
+  --yw-chat-message-receiver-color: #666666;
 }
 
 *,

@@ -124,6 +124,8 @@
   --icon-disabled: rgba(0, 0, 0, 0.25);
   --icon-active: var(--yw-color-primary);
   --icon-hover: var(--yw-color-primary-hover);
+
+  /* 添加新的颜色值 */
 }
 
 *,

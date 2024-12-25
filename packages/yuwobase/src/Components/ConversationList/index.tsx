@@ -43,7 +43,12 @@ export default class ConversationList extends Component<
 
   componentDidMount() {
     this.channelListener = (channelInfo: ChannelInfo) => {
-      this.setState({});
+      const conversation = this.props.conversations.find((conv) =>
+        conv.channel.isEqual(channelInfo.channel)
+      );
+      if (conversation) {
+        this.setState({});
+      }
     };
     WKSDK.shared().channelManager.addListener(this.channelListener);
 
@@ -86,7 +91,7 @@ export default class ConversationList extends Component<
         {conversationWrap.channel.channelType !== ChannelTypePerson
           ? typing?.fromName
           : ""}
-        正在输入
+        正在输���
       </div>
     );
   }

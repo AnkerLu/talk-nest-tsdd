@@ -267,7 +267,8 @@ export default class ChatPage extends React.Component<any, any> {
               >
                 <div className="yw-chat-content-left">
                   <div className="yw-chat-search">
-                    <div className="yw-chat-title">{vm.connectTitle}</div>
+                    {/* <div className="yw-chat-title">{vm.connectTitle}</div> */}
+                    <div className="yw-chat-title">会话</div>
                     <Popover
                       onClickOutSide={() => {
                         vm.showAddPopover = false;

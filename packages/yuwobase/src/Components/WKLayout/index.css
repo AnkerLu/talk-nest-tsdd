@@ -10,9 +10,10 @@
 }
 
 .yw-layout-tab {
-  width: var(--yw-sider-width);
   height: 100%;
   background-color: var(--yw-color-secondary);
+  border-right: var(--yw-line);
+  padding: 20px 12px;
 }
 
 .yw-layout-content {

@@ -1,8 +1,9 @@
 .yw-main-sider {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 20px;
   height: 100%;
-  border-right: var(--yw-line);
 }
 
 /* Header styles */
@@ -21,9 +22,18 @@
   gap: 12px;
 }
 
-.yw-main-sider-theme-toggle {
+.yw-main-sider-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.yw-main-sider-setting-menu-btn {
+  position: relative;
   width: 40px;
   height: 40px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,9 +42,10 @@
   background: var(--yw-bg-secondary);
   color: var(--yw-text-secondary);
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
-.yw-main-sider-theme-toggle:hover {
+.yw-main-sider-setting-menu-btn:hover {
   background: var(--yw-bg-hover);
 }
 
@@ -57,13 +68,11 @@
 
 .yw-main-sider-avatar {
   width: 100%;
-  padding: 10px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   display: flex;
   cursor: pointer;
   margin-top: auto;
-  border-top: var(--yw-line);
 }
 
 .yw-main-sider-avatar-box {
@@ -73,8 +82,8 @@
 }
 
 .yw-main-sider-avatar img {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
 }
 
@@ -83,11 +92,18 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   width: 100%;
-  padding: 20px 10px;
+  padding: 16px;
   color: var(--yw-state-default-text);
+  border-radius: 10px;
+  margin-bottom: 10px;
   /* border: 1px solid var(--yw-state-default-border); */
+}
+
+.yw-main-sider-item::last-child {
+  margin-bottom: 0;
 }
 
 .yw-main-sider-item.selected {
@@ -111,9 +127,6 @@
 .yw-main-sider-item img {
   width: 24px;
   height: 24px;
-}
-
-.yw-main-sider-setting-box {
 }
 
 .yw-main-sider-setting {
@@ -175,13 +188,13 @@
 
 .yw-sider-setting-list {
   position: absolute;
-  left: var(--sider-width);
+  left: 100%;
   bottom: 0;
   z-index: 1;
   width: 140px;
   box-shadow: rgb(0 0 0 / 50%) 2px 5px 8px;
-  color: #fdfdfd;
-  background-color: #333;
+  color: var(--yw-text-secondary);
+  background-color: var(--yw-bg-secondary);
   border-radius: 4px;
 
   transform: scale(0);

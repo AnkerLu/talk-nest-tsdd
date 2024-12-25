@@ -2,7 +2,7 @@ import { Channel, ChannelTypePerson, WKSDK } from "wukongimjssdk";
 
 export const generateFallbackAvatar = (
   nameOrChannel: string | Channel,
-  size: number = 40
+  size: number = 50
 ) => {
   let name = "";
 

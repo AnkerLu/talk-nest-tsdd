@@ -9,11 +9,10 @@
   display: flex;
   flex-wrap: wrap;
   padding: 0 16px;
-  gap: 8px;
+  gap: 20px;
 }
 
 .yw-subscribers-item {
-  width: 60px;
   font-size: 12px;
   display: flex;
   flex-direction: column;
@@ -22,8 +21,8 @@
 }
 
 .yw-subscribers-item img {
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
 }
 

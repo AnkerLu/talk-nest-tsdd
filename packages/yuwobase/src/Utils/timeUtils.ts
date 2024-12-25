@@ -21,14 +21,14 @@ export function needShowOnlineStatus(channelInfo?: ChannelInfo): boolean {
   if (!channelInfo) {
     return false;
   }
-  if (channelInfo.online) {
-    return true;
-  }
-  const nowTime = new Date().getTime() / 1000;
-  const btwTime = nowTime - channelInfo.lastOffline;
-  if (btwTime > 0 && btwTime < 60 * 60) {
-    // 小于1小时才显示
-    return true;
-  }
-  return false;
+  // if (channelInfo.online) {
+  //   return true;
+  // }
+  // const nowTime = new Date().getTime() / 1000;
+  // const btwTime = nowTime - channelInfo.lastOffline;
+  // if (btwTime > 0 && btwTime < 60 * 60) {
+  //   // 小于1小时才显示
+  //   return true;
+  // }
+  return true;
 }

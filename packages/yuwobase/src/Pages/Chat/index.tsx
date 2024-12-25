@@ -3,7 +3,7 @@ import { Conversation } from "../../Components/Conversation";
 import ConversationList from "../../Components/ConversationList";
 import Provider from "../../Service/Provider";
 
-import { Spin, Button, Popover } from "@douyinfe/semi-ui";
+import { Spin, Button, Popover, Badge } from "@douyinfe/semi-ui";
 import { IconPlus } from "@douyinfe/semi-icons";
 import { ChatVM } from "./vm";
 import "./index.css";
@@ -268,7 +268,16 @@ export default class ChatPage extends React.Component<any, any> {
                 <div className="yw-chat-content-left">
                   <div className="yw-chat-search">
                     {/* <div className="yw-chat-title">{vm.connectTitle}</div> */}
-                    <div className="yw-chat-title">会话</div>
+                    <div className="yw-chat-title">
+                      会话
+                      {vm.getConversationBadge() > 0 && (
+                        <Badge
+                          className="yw-chat-badge"
+                          count={vm.getConversationBadge()}
+                          type="danger"
+                        />
+                      )}
+                    </div>
                     <Popover
                       onClickOutSide={() => {
                         vm.showAddPopover = false;

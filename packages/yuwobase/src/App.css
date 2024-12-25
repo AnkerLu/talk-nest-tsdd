@@ -112,8 +112,8 @@
   --yw-state-disabled-border: rgba(0, 0, 0, 0.08);
 
   --yw-width-layout-content-left: 321px;
-  --yw-height-chat-search: 64px;
-  --yw-height-chat-conversation-header: 64px;
+  --yw-height-chat-search: 80px;
+  --yw-height-chat-conversation-header: 80px;
   --yw-wdith-chat-channelsetting: 340px;
   --yw-layer-transition: 300ms cubic-bezier(0.33, 1, 0.68, 1);
   --yw-slide-transition: 450ms cubic-bezier(0.25, 1, 0.5, 1);
@@ -126,6 +126,7 @@
   --icon-hover: var(--yw-color-primary-hover);
 
   /* 添加新的颜色值 */
+  --yw-chat-badge-bg: rgba(124, 66, 255, 0.2);
 }
 
 *,
@@ -174,7 +175,7 @@
   /* 线 */
   --yw-line: 1px solid rgba(159, 166, 173, 0.16);
   --yw-line-color: rgba(159, 166, 173, 0.16);
-  /* ���角 */
+  /* 圆角 */
   --yw-border-radius-base: 4px;
   --yw-border-radius-sm: 2px;
   --yw-border-radius-lg: 8px;
@@ -246,8 +247,8 @@
   --yw-state-disabled-border: rgba(255, 255, 255, 0.08);
 
   --yw-width-layout-content-left: 321px;
-  --yw-height-chat-search: 64px;
-  --yw-height-chat-conversation-header: 64px;
+  --yw-height-chat-search: 80px;
+  --yw-height-chat-conversation-header: 80px;
   --yw-wdith-chat-channelsetting: 340px;
   --yw-layer-transition: 300ms cubic-bezier(0.33, 1, 0.68, 1);
   --yw-slide-transition: 450ms cubic-bezier(0.25, 1, 0.5, 1);

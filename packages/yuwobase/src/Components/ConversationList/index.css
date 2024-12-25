@@ -34,7 +34,7 @@ body[theme-mode="dark"] .yw-conversationlist-item:hover {
 }
 
 .yw-conversationlist-item-left {
-  width: 70px;
+  width: 72px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,7 +55,6 @@ body[theme-mode="dark"] .yw-conversationlist-item:hover {
 }
 
 .yw-conversationlist-item-avatar-box {
-  margin-left: 4px;
   position: relative;
 }
 

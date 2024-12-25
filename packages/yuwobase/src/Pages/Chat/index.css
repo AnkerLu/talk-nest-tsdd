@@ -17,7 +17,7 @@
 .yw-chat-search {
   height: var(--yw-height-chat-search);
   width: 100%;
-  padding: 0px 20px 0px 20px;
+  padding: 0px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,6 +37,9 @@ body[theme-mode="dark"] .yw-chat-search-add {
   width: 250px;
   font-size: 18px;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 body[theme-mode="dark"] .yw-chat-title {
@@ -348,4 +351,16 @@ body[theme-mode="dark"] .yw-chat-popover {
 .yw-chat-conversation-header-channel-info-tip .online-count {
   margin-left: 4px;
   color: #52c41a;
+}
+
+.yw-chat-badge .semi-badge-danger.semi-badge-solid {
+  background-color: var(--yw-chat-badge-bg) !important;
+  color: var(--yw-color-primary);
+  font-weight: 500;
+  font-size: 12px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

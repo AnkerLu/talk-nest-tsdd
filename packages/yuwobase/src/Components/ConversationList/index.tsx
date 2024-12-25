@@ -91,7 +91,7 @@ export default class ConversationList extends Component<
         {conversationWrap.channel.channelType !== ChannelTypePerson
           ? typing?.fromName
           : ""}
-        正在输���
+        正在输入
       </div>
     );
   }

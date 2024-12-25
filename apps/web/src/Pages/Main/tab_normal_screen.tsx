@@ -358,7 +358,7 @@ class VersionCheckView extends Component<VersionCheckViewProps> {
                   1. Windows系统中的某些浏览器: Ctrl + F5刷新。如Chrome谷
                   歌、Opera欧鹏、FireFox火狐浏览器等。
                 </li>
-                <li>2. MacOS系统的Safari浏览器: Command + Option + R刷新���</li>
+                <li>2. MacOS系统的Safari浏览器: Command + Option + R刷新</li>
                 <li>
                   3. MacOS系统中的某些浏览器: Command + Shift +
                   R刷新。如Chrome谷歌、Opera欧鹏、 FireFox火狐浏览器等 。
@@ -367,7 +367,7 @@ class VersionCheckView extends Component<VersionCheckViewProps> {
                   {`4.浏览器打开"设置" -> "清理浏览数据" ->勾选"缓存的图片和
 文件”(其他不勾选) -> "清理" ->刷新页面。`}
                 </li>
-                <li>5.若��述方法都不行，请直接清理浏览器的数据或缓存。</li>
+                <li>5.若上述方法都不行，请直接清理浏览器的数据或缓存。</li>
               </ul>
             </div>
           </div>

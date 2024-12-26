@@ -25,7 +25,7 @@
 }
 
 .yw-message-base-recv {
-  margin-left: 15px;
+  margin-left: 20px;
   transform: translate3d(0, 0, 0);
   transition: transform var(--yw-layer-transition);
 }
@@ -40,12 +40,6 @@
   font-weight: 400;
   /* text-transform: capitalize; */
   padding-bottom: 1px;
-}
-
-.senderAvatar {
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
 }
 
 .senderAvatar img {
@@ -238,7 +232,12 @@ body[theme-mode="dark"] .yw-message-base-bubble-box.recv .svgAppendix .corner {
 
 .yw-message-base-checkBox .yw-check {
   position: absolute;
-  bottom: 10px;
+  top: 9px;
+}
+
+.yw-message-sender .yw-message-base-checkBox .yw-check {
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .yw-message-base-send .checkBox {

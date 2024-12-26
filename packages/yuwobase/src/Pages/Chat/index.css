@@ -187,7 +187,7 @@ body[theme-mode="dark"] .yw-chat-conversation-header {
 }
 
 .yw-chat-conversation-header-channel-avatar img {
-  width: 40px;
+  width: auto;
   height: 40px;
   border-radius: 50%;
 }
@@ -360,7 +360,28 @@ body[theme-mode="dark"] .yw-chat-popover {
   font-size: 12px;
   width: 22px;
   height: 22px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+}
+
+/* 两位数的样式 */
+.yw-chat-badge .semi-badge-danger.semi-badge-solid[style*="--data-count: 1"],
+.yw-chat-badge .semi-badge-danger.semi-badge-solid[style*="--data-count: 2"],
+.yw-chat-badge .semi-badge-danger.semi-badge-solid[style*="--data-count: 3"],
+.yw-chat-badge .semi-badge-danger.semi-badge-solid[style*="--data-count: 4"],
+.yw-chat-badge .semi-badge-danger.semi-badge-solid[style*="--data-count: 5"],
+.yw-chat-badge .semi-badge-danger.semi-badge-solid[style*="--data-count: 6"],
+.yw-chat-badge .semi-badge-danger.semi-badge-solid[style*="--data-count: 7"],
+.yw-chat-badge .semi-badge-danger.semi-badge-solid[style*="--data-count: 8"],
+.yw-chat-badge .semi-badge-danger.semi-badge-solid[style*="--data-count: 9"] {
+  width: 28px;
+  height: 28px;
+}
+
+/* 99+ 的样式 */
+.yw-chat-badge .semi-badge-danger.semi-badge-solid[style*="--data-count: 99+"] {
+  width: 32px;
+  height: 32px;
 }

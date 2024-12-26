@@ -240,7 +240,8 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
       <div
         className={classNames(
           "yw-message-base",
-          context.editOn() ? "yw-message-base-check-open" : undefined
+          context.editOn() ? "yw-message-base-check-open" : undefined,
+          message.send ? "yw-message-sender" : "yw-message-receiver"
         )}
         onClick={
           context.editOn()
@@ -252,7 +253,7 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
       >
         <div
           className="yw-message-base-checkBox"
-          style={{ marginBottom: messageStyle.marginBottom }}
+          // style={{ marginBottom: messageStyle.marginBottom }}
         >
           <Checkbox checked={message.checked} />
         </div>
@@ -260,7 +261,7 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
           className={
             message.send ? "yw-message-base-send" : "yw-message-base-recv"
           }
-          style={messageStyle}
+          // style={messageStyle}
         >
           <div
             className={"yw-message-base-box"}

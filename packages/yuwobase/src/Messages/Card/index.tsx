@@ -8,6 +8,7 @@ import { MessageBaseCellProps, MessageCell } from "../MessageCell";
 
 import "./index.css";
 import { MessageContentTypeConst } from "../../Service/Const";
+import { generateFallbackAvatar } from "../../Utils/avatarUtils";
 
 export class Card extends MessageContent {
   name!: string;
@@ -49,6 +50,8 @@ export class Card extends MessageContent {
 
 interface CardCellState {
   showUser: boolean;
+  avatarSrc: string;
+  loadedErr: boolean;
 }
 
 export class CardCell extends MessageCell<MessageBaseCellProps, CardCellState> {
@@ -57,12 +60,47 @@ export class CardCell extends MessageCell<MessageBaseCellProps, CardCellState> {
     super(props);
     this.state = {
       showUser: false,
+      avatarSrc: this.getImageSrc(),
+      loadedErr: false,
     };
   }
+
+  getImageSrc() {
+    const { message } = this.props;
+    const content = message.content as Card;
+    return WKApp.shared.avatarUser(content.uid);
+  }
+
+  handleImgError() {
+    const { message } = this.props;
+    const content = message.content as Card;
+    const fallbackAvatar = generateFallbackAvatar(
+      content.name || content.uid,
+      64
+    );
+    if (fallbackAvatar) {
+      this.setState({
+        avatarSrc: fallbackAvatar,
+        loadedErr: true,
+      });
+    }
+  }
+
+  componentDidMount() {
+    const channel = new Channel(
+      this.props.message.content.uid,
+      ChannelTypePerson
+    );
+    const fallbackAvatar = generateFallbackAvatar(channel, 64);
+    if (fallbackAvatar && this.baseContext) {
+      this.setState({ avatarSrc: fallbackAvatar });
+    }
+  }
+
   render() {
     const { message, context } = this.props;
     const content = message.content as Card;
-    const { showUser } = this.state;
+    const { showUser, avatarSrc } = this.state;
 
     return (
       <WKBase
@@ -84,9 +122,9 @@ export class CardCell extends MessageCell<MessageBaseCellProps, CardCellState> {
             >
               <div>
                 <img
-                  src={WKApp.shared.avatarUser(content.uid)}
-                  style={{ width: "64px", height: "64px", borderRadius: "50%" }}
+                  src={avatarSrc}
                   alt=""
+                  onError={this.handleImgError.bind(this)}
                 />
               </div>
               <div className="yw-message-card-content-name">{content.name}</div>

@@ -273,8 +273,18 @@ export default class ChatPage extends React.Component<any, any> {
                       {vm.getConversationBadge() > 0 && (
                         <Badge
                           className="yw-chat-badge"
-                          count={vm.getConversationBadge()}
+                          count={
+                            vm.getConversationBadge() > 99
+                              ? "99+"
+                              : vm.getConversationBadge().toString()
+                          }
                           type="danger"
+                          style={{
+                            ["--data-count" as any]:
+                              vm.getConversationBadge() > 99
+                                ? "99+"
+                                : vm.getConversationBadge().toString(),
+                          }}
                         />
                       )}
                     </div>

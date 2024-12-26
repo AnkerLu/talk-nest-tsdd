@@ -36,10 +36,51 @@ export class SystemCell extends MessageCell {
       }
     };
 
+    const renderSystemText = () => {
+      if (!content.content?.content || !content.content?.extra) {
+        return displayText;
+      }
+
+      const originalText = content.content.content;
+      const extras = content.content.extra;
+
+      let lastIndex = 0;
+      const parts = [];
+
+      // Find all placeholders {0}, {1}, etc. and replace with styled names
+      for (let i = 0; i < extras.length; i++) {
+        const placeholder = `{${i}}`;
+        const index = originalText.indexOf(placeholder, lastIndex);
+
+        if (index === -1) continue;
+
+        // Add text before placeholder
+        if (index > lastIndex) {
+          parts.push(originalText.substring(lastIndex, index));
+        }
+
+        // Add styled username
+        parts.push(
+          <span key={i} className="yw-message-system-username">
+            {extras[i].name}
+          </span>
+        );
+
+        lastIndex = index + placeholder.length;
+      }
+
+      // Add remaining text
+      if (lastIndex < originalText.length) {
+        parts.push(originalText.substring(lastIndex));
+      }
+
+      return <>{parts}</>;
+    };
+
     return (
       <>
         <div className="yw-message-system">
-          {displayText}
+          {renderSystemText()}
           {contentType === MessageContentTypeConst.invite && (
             <div className="yw-message-system-invite" onClick={handleInvite}>
               去确认

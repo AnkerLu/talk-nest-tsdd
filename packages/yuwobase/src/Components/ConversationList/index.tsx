@@ -185,18 +185,14 @@ export default class ConversationList extends Component<
         }}
         className={classNames(
           "yw-conversationlist-item",
+          selected ? "yw-conversationlist-item-selected" : undefined,
           channelInfo?.top ? "yw-conversationlist-item-top" : undefined
         )}
         onContextMenu={(e) => {
           this._handleContextMenu(conversationWrap, e);
         }}
       >
-        <div
-          className={classNames(
-            "yw-conversationlist-item-content",
-            selected ? "yw-conversationlist-item-selected" : undefined
-          )}
-        >
+        <div className={classNames("yw-conversationlist-item-content")}>
           <div className="yw-conversationlist-item-left">
             <div className="yw-conversationlist-item-avatar-box">
               <WKAvatar
@@ -305,6 +301,7 @@ export default class ConversationList extends Component<
                     }
                     count={conversationWrap.unread}
                     type="danger"
+                    dot={conversationWrap.unread > 0}
                   ></Badge>
                 ) : undefined}
               </div>

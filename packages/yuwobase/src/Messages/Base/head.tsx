@@ -66,10 +66,10 @@ const hascode = (str: string) => {
   return hash;
 };
 
-const getTitleColor = (title: string = "") => {
-  const v = hascode(title);
-  return titleColors[v % titleColors.length];
-};
+// const getTitleColor = (title: string = "") => {
+//   const v = hascode(title);
+//   return titleColors[v % titleColors.length];
+// };
 
 interface MessageHeadProps {
   message: MessageWrap;
@@ -97,9 +97,9 @@ export default class MessageHead extends Component<MessageHeadProps> {
     );
     return (
       <>
-          <div
-            className="textTitle"
-            style={{ color: getTitleColor(channelInfo?.orgData.displayName) }}
+        <div
+          className="textTitle"
+          // style={{ color: getTitleColor(channelInfo?.orgData.displayName) }}
         >
           {!message.send ? channelInfo?.orgData.displayName : "你"}
         </div>

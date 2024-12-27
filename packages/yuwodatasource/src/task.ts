@@ -39,7 +39,7 @@ export class MediaMessageUploadTask extends MessageTask {
   async start(): Promise<void> {
     const mediaContent = this.message.content as FullMediaMessageContent;
     if (mediaContent.file) {
-      // ���传主文件
+      // 传主文件
       const fileName = this.getUUID();
       const path = `/${this.message.channel.channelType}/${
         this.message.channel.channelID

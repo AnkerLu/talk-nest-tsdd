@@ -1,14 +1,19 @@
 .yw-conversationlist {
   height: 100%;
-  overflow-y: auto;
+  overflow-y: overlay;
   /* padding: 0px 5px; */
 }
 
 .yw-conversationlist-item {
-  height: 80px;
   width: 100%;
   cursor: pointer;
   box-sizing: border-box;
+  border-bottom: var(--yw-line);
+  padding: 15px 14px;
+}
+
+.yw-conversationlist-item:last-child {
+  border-bottom: none;
 }
 
 body[theme-mode="dark"] .yw-conversationlist-item {
@@ -24,34 +29,36 @@ body[theme-mode="dark"] .yw-conversationlist-item:hover {
 }
 
 .yw-conversationlist-item-content {
-  display: flex;
-  height: 100%;
+  /* display: flex;
+  gap: 26px;
+  height: 100%; */
+  position: relative;
 }
 
 .yw-conversationlist-item-left {
-  width: 70px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .yw-conversationlist-item-right {
-  height: 100%;
-  width: calc(100% - 70px);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-right: 10px;
-  padding-left: 5px;
-
+  margin-left: 68px;
   flex-grow: 1;
   overflow: hidden;
   box-sizing: border-box;
 }
 
 .yw-conversationlist-item-avatar-box {
-  margin-left: 4px;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .yw-conversationlist-item-right-first-line {
@@ -63,6 +70,8 @@ body[theme-mode="dark"] .yw-conversationlist-item:hover {
 
 .yw-conversationlist-item-right-second-line {
   display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .yw-conversationlist-item-name {
@@ -88,7 +97,7 @@ body[theme-mode="dark"] .yw-conversationlist-item-name h3 {
 }
 
 .yw-conversationlist-item-time {
-  color: #9b9b9b;
+  color: var(--yw-text-forth);
   padding-left: 10px;
   flex-shrink: 0;
   font-size: 0.75rem;
@@ -106,7 +115,7 @@ body[theme-mode="dark"] .yw-conversationlist-item-name h3 {
   width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: var(--yw-text-secondary);
+  color: var(--yw-text-thrid);
   overflow: hidden;
   font-size: 14px;
   min-height: 22px;
@@ -158,4 +167,18 @@ body[theme-mode="dark"] .yw-conversationlist-item-name h3 {
 
 .yw-onlinestatusbadge-empty .yw-onlinestatusbadge-content-tip {
   padding: 8px;
+}
+
+/* 添加自定义滚动条样式 */
+.yw-conversationlist::-webkit-scrollbar {
+  width: 4px;
+}
+
+.yw-conversationlist::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.yw-conversationlist::-webkit-scrollbar-track {
+  background: transparent;
 }

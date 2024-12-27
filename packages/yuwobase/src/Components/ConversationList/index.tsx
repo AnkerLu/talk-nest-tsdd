@@ -43,7 +43,12 @@ export default class ConversationList extends Component<
 
   componentDidMount() {
     this.channelListener = (channelInfo: ChannelInfo) => {
-      this.setState({});
+      const conversation = this.props.conversations.find((conv) =>
+        conv.channel.isEqual(channelInfo.channel)
+      );
+      if (conversation) {
+        this.setState({});
+      }
     };
     WKSDK.shared().channelManager.addListener(this.channelListener);
 
@@ -180,18 +185,14 @@ export default class ConversationList extends Component<
         }}
         className={classNames(
           "yw-conversationlist-item",
+          selected ? "yw-conversationlist-item-selected" : undefined,
           channelInfo?.top ? "yw-conversationlist-item-top" : undefined
         )}
         onContextMenu={(e) => {
           this._handleContextMenu(conversationWrap, e);
         }}
       >
-        <div
-          className={classNames(
-            "yw-conversationlist-item-content",
-            selected ? "yw-conversationlist-item-selected" : undefined
-          )}
-        >
+        <div className={classNames("yw-conversationlist-item-content")}>
           <div className="yw-conversationlist-item-left">
             <div className="yw-conversationlist-item-avatar-box">
               <WKAvatar
@@ -300,6 +301,7 @@ export default class ConversationList extends Component<
                     }
                     count={conversationWrap.unread}
                     type="danger"
+                    dot={conversationWrap.unread > 0}
                   ></Badge>
                 ) : undefined}
               </div>

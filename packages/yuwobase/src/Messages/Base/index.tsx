@@ -24,6 +24,7 @@ import classNames from "classnames";
 import { Popconfirm } from "@douyinfe/semi-ui";
 import MessageTrail from "./tail";
 import MessageHead from "./head";
+import { generateFallbackAvatar } from "../../Utils/avatarUtils";
 
 interface MessageBaseProps extends HTMLProps<any> {
   message: MessageWrap;
@@ -239,7 +240,8 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
       <div
         className={classNames(
           "yw-message-base",
-          context.editOn() ? "yw-message-base-check-open" : undefined
+          context.editOn() ? "yw-message-base-check-open" : undefined,
+          message.send ? "yw-message-sender" : "yw-message-receiver"
         )}
         onClick={
           context.editOn()
@@ -251,7 +253,7 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
       >
         <div
           className="yw-message-base-checkBox"
-          style={{ marginBottom: messageStyle.marginBottom }}
+          // style={{ marginBottom: messageStyle.marginBottom }}
         >
           <Checkbox checked={message.checked} />
         </div>
@@ -259,7 +261,7 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
           className={
             message.send ? "yw-message-base-send" : "yw-message-base-recv"
           }
-          style={messageStyle}
+          // style={messageStyle}
         >
           <div
             className={"yw-message-base-box"}
@@ -274,6 +276,13 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
               <img
                 alt=""
                 src={WKApp.shared.avatarChannel(channelInfo?.channel!)}
+                onError={(e) => {
+                  if (message.fromUID) {
+                    e.currentTarget.src = generateFallbackAvatar(
+                      new Channel(message.fromUID, ChannelTypePerson)
+                    );
+                  }
+                }}
               />
             </div>
 

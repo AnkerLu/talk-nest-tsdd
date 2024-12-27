@@ -9,6 +9,7 @@ import IndexTable, { IndexTableItem } from "../IndexTable";
 import WKBase, { WKBaseContext } from "../WKBase";
 import RouteContext, { RouteContextConfig } from "../../Service/Context";
 import { SubscriberList } from "./list";
+import { generateFallbackAvatar } from "../../Utils/avatarUtils";
 
 export interface SubscribersProps {
   context: RouteContext<any>;
@@ -19,6 +20,14 @@ export interface SubscribersProps {
 
 export class Subscribers extends Component<SubscribersProps> {
   baseContext!: WKBaseContext;
+
+  handleAvatarError = (event: React.SyntheticEvent<HTMLImageElement>) => {
+    const subscriber = (event.currentTarget as HTMLImageElement).dataset
+      .subscriber;
+    if (!subscriber) return;
+
+    event.currentTarget.src = generateFallbackAvatar(subscriber);
+  };
 
   subscriberUI(subscriber: Subscriber) {
     return (
@@ -34,7 +43,12 @@ export class Subscribers extends Component<SubscribersProps> {
           );
         }}
       >
-        <img src={WKApp.shared.avatarUser(subscriber.uid)} alt=""></img>
+        <img
+          src={WKApp.shared.avatarUser(subscriber.uid)}
+          alt=""
+          data-subscriber={subscriber.remark || subscriber.name}
+          onError={this.handleAvatarError}
+        ></img>
         <div className="yw-subscribers-item-name">
           {subscriber.remark || subscriber.name}
         </div>

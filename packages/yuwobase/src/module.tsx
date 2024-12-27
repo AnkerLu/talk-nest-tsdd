@@ -1349,25 +1349,6 @@ export default class BaseModule implements IModule {
                   });
               },
             },
-          }),
-          new Row({
-            cell: ListItemSwitch,
-            properties: {
-              title: "全员禁言",
-              checked: channelInfo?.orgData.forbidden === 1,
-              onCheck: (v: boolean, ctx: ListItemSwitchContext) => {
-                ctx.loading = true;
-                ChannelSettingManager.shared
-                  .forbidden(v, channel)
-                  .then(() => {
-                    ctx.loading = false;
-                    data.refresh();
-                  })
-                  .catch(() => {
-                    ctx.loading = false;
-                  });
-              },
-            },
           })
         );
 

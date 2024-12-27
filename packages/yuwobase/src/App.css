@@ -2,19 +2,19 @@
   /* 主题色 */
   --yw-color-theme: #ffffff;
   /* 主色 */
-  --yw-color-primary: #0b6bcb;
-  --yw-color-primary-hover: rgba(11, 107, 203, 0.8);
+  --yw-color-primary: #7c42ff;
+  --yw-color-primary-hover: rgba(124, 66, 255, 0.6);
 
-  --yw-color-primary-1: #e6f0ff; /* 最浅，用于背景 */
-  --yw-color-primary-2: #bad6ff; /* 用于hover背景 */
-  --yw-color-primary-3: #8db8ff; /* 用于特殊状态 */
-  --yw-color-primary-4: #609cff; /* 用于次要强调 */
-  --yw-color-primary-5: #0b6bcb; /* 主色调，当前使用色 */
-  --yw-color-primary-6: #0054d9; /* 用于hover状态 */
-  --yw-color-primary-7: #003eb8; /* 用于active状态 */
+  --yw-color-primary-1: #f5f0ff; /* 最浅，用于背景 */
+  --yw-color-primary-2: #e6d6ff; /* 用于hover背景 */
+  --yw-color-primary-3: #c4a3ff; /* 用于特殊状态 */
+  --yw-color-primary-4: #9e70ff; /* 用于次要强调 */
+  --yw-color-primary-5: #7c42ff; /* 主色调，当前使用色 */
+  --yw-color-primary-6: #6535cc; /* 用于hover状态 */
+  --yw-color-primary-7: #4d2899; /* 用于active状态 */
   /* 次色 */
-  --yw-color-secondary: #ffffff;
-  --yw-color-secondary-2: rgb(240, 244, 248);
+  --yw-color-secondary: #fbfcfe;
+  --yw-color-secondary-2: #f0f4f8;
   /* 基础背景色 */
   --yw-bg-base: #ffffff;
   --yw-bg-secondary: #f5f5f5;
@@ -25,9 +25,12 @@
   --yw-bg-message-item: #ffffff;
   --yw-bg-message-sender-item: #f5f5f5;
   /* 文字色 */
+  --yw-text-menu-selected: #ffffff;
   --yw-text-primary: rgba(0, 0, 0, 0.85);
   --yw-text-secondary: rgba(0, 0, 0, 0.55);
   --yw-text-disabled: rgba(0, 0, 0, 0.35);
+  --yw-text-thrid: #666;
+  --yw-text-forth: #999;
   --yw-text-link: var(--yw-color-primary);
   --yw-text-item: #000000;
 
@@ -94,9 +97,9 @@
   --yw-state-hover-border: rgba(0, 0, 0, 0.2);
 
   /* 选中状态 - Selected State */
-  --yw-state-selected-bg: rgba(11, 107, 203, 0.1);
-  --yw-state-selected-text: rgb(11, 107, 203);
-  --yw-state-selected-border: rgb(11, 107, 203);
+  --yw-state-selected-bg: #eee;
+  --yw-state-selected-text: var(--yw-text-forth);
+  --yw-state-selected-border: var(--yw-text-forth);
 
   /* 激活状态 - Active State */
   --yw-state-active-bg: rgba(0, 0, 0, 0.1);
@@ -109,8 +112,8 @@
   --yw-state-disabled-border: rgba(0, 0, 0, 0.08);
 
   --yw-width-layout-content-left: 321px;
-  --yw-height-chat-search: 64px;
-  --yw-height-chat-conversation-header: 64px;
+  --yw-height-chat-search: 80px;
+  --yw-height-chat-conversation-header: 80px;
   --yw-wdith-chat-channelsetting: 340px;
   --yw-layer-transition: 300ms cubic-bezier(0.33, 1, 0.68, 1);
   --yw-slide-transition: 450ms cubic-bezier(0.25, 1, 0.5, 1);
@@ -121,6 +124,10 @@
   --icon-disabled: rgba(0, 0, 0, 0.25);
   --icon-active: var(--yw-color-primary);
   --icon-hover: var(--yw-color-primary-hover);
+
+  /* 添加新的颜色值 */
+  --yw-chat-badge-bg: rgba(124, 66, 255, 0.2);
+  --yw-chat-message-receiver-color: #666666;
 }
 
 *,
@@ -133,8 +140,8 @@
   /* 主题色 */
   --yw-color-theme: #121212;
   /* 主色 */
-  --yw-color-primary: #0b6bcb;
-  --yw-color-primary-hover: rgba(11, 107, 203, 0.5);
+  --yw-color-primary: #7c42ff;
+  --yw-color-primary-hover: rgba(124, 66, 255, 0.5);
   /* 次色 */
   --yw-color-secondary: #0f0f0f;
   --yw-color-secondary-2: rgb(33, 33, 33);
@@ -143,7 +150,7 @@
   --yw-color-primary-2: #bad6ff; /* 用于hover背景 */
   --yw-color-primary-3: #8db8ff; /* 用于特殊状态 */
   --yw-color-primary-4: #609cff; /* 用于次要强调 */
-  --yw-color-primary-5: #0b6bcb; /* 主色调，当前使用色 */
+  --yw-color-primary-5: #7c42ff; /* 主色调，当前使用色 */
   --yw-color-primary-6: #0054d9; /* 用于hover状态 */
   --yw-color-primary-7: #003eb8; /* 用于active状态 */
 
@@ -155,7 +162,7 @@
   --yw-bg-mask: rgba(0, 0, 0, 0.45);
   --yw-bg-spotlight: rgba(0, 0, 0, 0.85);
   --yw-bg-message-item: #0b0d0e;
-  --yw-bg-message-sender-item: #0b6bcb;
+  --yw-bg-message-sender-item: #7c42ff;
   /* 文字色 */
   --yw-text-primary: rgba(255, 255, 255, 0.9);
   --yw-text-secondary: rgba(255, 255, 255, 0.7);
@@ -241,8 +248,8 @@
   --yw-state-disabled-border: rgba(255, 255, 255, 0.08);
 
   --yw-width-layout-content-left: 321px;
-  --yw-height-chat-search: 64px;
-  --yw-height-chat-conversation-header: 64px;
+  --yw-height-chat-search: 80px;
+  --yw-height-chat-conversation-header: 80px;
   --yw-wdith-chat-channelsetting: 340px;
   --yw-layer-transition: 300ms cubic-bezier(0.33, 1, 0.68, 1);
   --yw-slide-transition: 450ms cubic-bezier(0.25, 1, 0.5, 1);
@@ -302,10 +309,10 @@ svg {
   transition: fill 0.15s ease;
 }
 
-svg path {
+/* svg path {
   fill: var(--icon-primary);
   transition: fill 0.15s ease;
-}
+} */
 
 svg[data-type="secondary"] {
   fill: var(--icon-secondary);
@@ -397,4 +404,29 @@ ul {
 
 body[theme-mode="dark"] .semi-badge-count {
   color: var(--yw-text-primary);
+}
+
+/* 覆盖semi-ui的badge样式 */
+.semi-badge-count {
+  background-color: var(--yw-color-primary) !important;
+}
+
+.semi-badge-count.semi-badge-solid {
+  background-color: var(--yw-color-primary) !important;
+}
+
+/* 覆盖semi-ui的button样式 */
+.semi-button-primary,
+.semi-button-primary.semi-button-light:hover,
+.semi-button-primary.semi-button-outline:hover,
+.semi-button-primary.semi-button-borderless:hover {
+  background-color: var(--yw-color-primary) !important;
+}
+
+.semi-button-primary:hover {
+  background-color: var(--yw-color-primary-hover) !important;
+}
+
+.semi-button-primary.semi-button-light:hover {
+  background-color: var(--yw-color-primary-hover) !important;
 }

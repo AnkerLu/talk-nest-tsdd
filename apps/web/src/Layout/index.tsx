@@ -12,6 +12,8 @@ import {
 import { relaunch } from "@tauri-apps/api/process";
 import { os } from "@tauri-apps/api";
 
+const NOT_NEED_AUTH_PATH = ["/login", "/register", "/forget_pwd"];
+
 export default class AppLayout extends Component {
   onLogin!: () => void;
   componentDidMount() {
@@ -101,16 +103,29 @@ export default class AppLayout extends Component {
           return WKApp.shared;
         }}
         render={(vm: WKApp): any => {
-          if (
-            !WKApp.shared.isLogined() ||
-            window.location.pathname === "/login"
-          ) {
+          const currentPath = window.location.pathname;
+          const isAuthRequired = !NOT_NEED_AUTH_PATH.includes(currentPath);
+          const isLoggedIn = WKApp.shared.isLogined();
+
+          // 需要认证但未登录，跳转到登录页
+          if (isAuthRequired && !isLoggedIn) {
             const loginComponent = WKApp.route.get("/login");
             if (!loginComponent) {
               return <div>没有登录模块！</div>;
             }
             return loginComponent;
           }
+
+          // 不需要认证的路由，直接渲染对应组件
+          if (!isAuthRequired) {
+            const routeComponent = WKApp.route.get(currentPath);
+            if (!routeComponent) {
+              return <div>没有找到对应模块！</div>;
+            }
+            return routeComponent;
+          }
+
+          // 已登录或其他情况，显示主页面
           return (
             <WKBase
               onContext={(ctx) => {

@@ -296,4 +296,11 @@ export class ChatVM extends ProviderListener {
 
     WKApp.menus.refresh();
   }
+
+  // 获取会话菜单的徽章数
+  getConversationBadge(): number {
+    const menus = WKApp.menus.menusList();
+    const conversationMenu = menus.find((menu) => menu.id === "chat"); // 假设会话菜单的id是'conversation'
+    return conversationMenu?.badge || 0;
+  }
 }

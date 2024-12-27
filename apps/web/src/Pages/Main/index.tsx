@@ -91,10 +91,7 @@ export class MainPage extends Component {
               }}
               contentRight={
                 <div className="yw-chat-empty">
-                  <img
-                    src={require("./assets/start_chat.svg").default}
-                    alt=""
-                  ></img>
+                  <img src={require("./assets/logo.png")} alt=""></img>
                 </div>
               }
             />

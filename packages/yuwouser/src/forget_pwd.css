@@ -1,0 +1,184 @@
+.yw-forget {
+  display: flex;
+  height: 100vh;
+  background: #fff;
+}
+
+.yw-forget-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.yw-forget-header {
+  width: 100%;
+  padding: 24px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.yw-forget-logo {
+  display: flex;
+  align-items: center;
+}
+
+.yw-forget-logo img {
+  height: 36px;
+  width: auto;
+  margin-right: 8px;
+}
+
+.yw-forget-logo-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.yw-forget-slogan {
+  color: #666;
+  font-size: 14px;
+}
+
+.yw-forget-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  background: #f7f7f7;
+}
+
+.yw-forget-card {
+  width: 100%;
+  max-width: 420px;
+  /* min-height: 520px; */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+}
+
+/* 忘记密码表单 */
+.yw-forget-form {
+  width: 100%;
+  max-width: 400px;
+}
+
+.yw-forget-form input {
+  width: 100%;
+  height: 44px;
+  padding: 12px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.yw-forget-form input:focus {
+  border-color: #333;
+  outline: none;
+}
+
+/* 验证码区域 */
+.yw-forget-verify-code {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.yw-forget-verify-code input {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.yw-forget-verify-code .verify-code-btn {
+  width: 120px;
+  height: 44px;
+  white-space: nowrap;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #6c5ce7; /* 紫色按钮 */
+  border-color: #6c5ce7;
+  color: #fff;
+}
+
+.yw-forget-verify-code .verify-code-btn:hover {
+  background: #5f51e3;
+  border-color: #5f51e3;
+}
+
+/* 提交按钮 */
+.yw-forget-button {
+  width: 100%;
+  height: 44px;
+  font-size: 16px;
+  background: #6c5ce7;
+  border-color: #6c5ce7;
+  color: #fff;
+}
+
+.yw-forget-button:hover {
+  background: #5f51e3;
+  border-color: #5f51e3;
+}
+
+/* 底部链接 */
+.yw-forget-options {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.yw-forget-options a {
+  color: var(--semi-color-primary);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.yw-forget-options a:hover {
+  text-decoration: underline;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .yw-forget-header {
+    padding: 16px 20px;
+  }
+
+  .yw-forget-logo img {
+    height: 28px;
+  }
+
+  .yw-forget-logo-title {
+    font-size: 18px;
+  }
+
+  .yw-forget-content {
+    padding: 0 16px;
+  }
+
+  .yw-forget-card {
+    padding: 24px 16px;
+    box-shadow: none;
+    min-height: auto;
+  }
+
+  .yw-forget-verify-code {
+    gap: 8px;
+  }
+
+  .yw-forget-verify-code .verify-code-btn {
+    width: 100px;
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .yw-forget-slogan {
+    display: none;
+  }
+}

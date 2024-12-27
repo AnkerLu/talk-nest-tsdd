@@ -15,6 +15,12 @@ body[theme-mode="dark"] .yw-message-card {
   align-items: center;
 }
 
+.yw-message-card-content img {
+  width: auto;
+  height: 42px;
+  border-radius: 50%;
+}
+
 .yw-message-card-content-name {
   margin-left: 20px;
   color: var(--yw-text-item);

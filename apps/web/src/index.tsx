@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BaseModule, WKApp } from "@yuwo/base";
-import { LoginModule } from "@yuwo/login";
+import { LoginModule } from "@yuwo/user";
 import { DataSourceModule } from "@yuwo/datasource";
 import { ContactsModule } from "@yuwo/contacts";
 

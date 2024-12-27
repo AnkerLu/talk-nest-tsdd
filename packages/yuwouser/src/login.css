@@ -10,7 +10,6 @@
   flex-direction: column;
 }
 
-/* Header 样式调整 */
 .yw-login-content-header {
   width: 100%;
   padding: 40px 80px;
@@ -41,7 +40,6 @@
   font-size: 16px;
 }
 
-/* 登录内容区域调整 */
 .yw-login-content {
   flex: 1;
   display: flex;
@@ -51,7 +49,6 @@
   background: #f7f7f7;
 }
 
-/* 加强登录卡片样式 */
 .yw-login-card {
   width: 100%;
   max-width: 420px;
@@ -62,7 +59,7 @@
   padding: 32px;
 }
 
-/* 顶部切换标签 */
+/* 登录特有的标签切换 */
 .yw-login-tabs {
   display: flex;
   width: 100%;
@@ -92,16 +89,16 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: #333;
+  background: var(--semi-color-primary);
 }
 
-/* 表单样式 */
-.yw-login-content-form {
+/* 登录表单 */
+.yw-login-form {
   width: 100%;
   max-width: 400px;
 }
 
-.yw-login-content-form input {
+.yw-login-form input {
   width: 100%;
   height: 44px;
   padding: 12px;
@@ -111,18 +108,11 @@
   margin-bottom: 16px;
 }
 
-.yw-login-content-form input:focus {
+.yw-login-form input:focus {
   border-color: #333;
   outline: none;
 }
 
-/* 密码输入框包装器 */
-.yw-login-password-wrapper {
-  position: relative;
-  margin-bottom: 24px;
-}
-
-/* 登录按钮 */
 .yw-login-button {
   width: 100%;
   height: 44px;
@@ -136,117 +126,8 @@
   border-color: #d81e06;
 }
 
-/* 注册和忘记密码 */
-.yw-login-options {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 16px;
-  color: #666;
-  font-size: 14px;
-}
-
-.yw-login-options span {
-  cursor: pointer;
-}
-
-.yw-login-options span:hover {
-  color: #333;
-}
-
-/* 登录面板切换样式优化 */
-.yw-login-content-phonelogin,
-.yw-login-content-scanlogin {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
-}
-
-.yw-login-content-phonelogin-show,
-.yw-login-content-scanlogin-show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* 内容区域容器 */
-.yw-login-content-container {
-  position: relative;
-  width: 100%;
-  min-height: 420px;
-  margin-top: 24px;
-}
-
-/* 扫码登录内容居中 */
-.yw-login-content-scanlogin .yw-login-content-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-/* 背景图片 */
-.yw-login-bg {
-  background-image: url(./assets/login-bg.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* 扫码登录区域样式优化 */
-.yw-login-content-scanlogin {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 24px 20px;
-}
-
-/* 内容区域容器 */
-.yw-login-content-wrapper {
-  width: 260px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* 二维码提示文字样式 */
-.yw-login-qrcode-tip {
-  width: 100%;
-  text-align: center;
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 16px;
-  line-height: 1.5;
-}
-
-.yw-login-qrcode-tip .highlight {
-  color: #c7000b;
-  font-weight: 500;
-}
-
-.yw-login-qrcode-tip .countdown {
-  color: #c7000b;
-}
-
-/* 二维码容器样式优化 */
-.yw-login-content-scanlogin-qrcode {
+/* 扫码登录相关 */
+.yw-login-qrcode {
   width: 260px;
   height: 260px;
   padding: 10px;
@@ -258,11 +139,142 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-/* 加载状态样式 */
-.yw-login-content-scanlogin-qrcode .semi-spin {
+.yw-login-options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.yw-login-options a {
+  color: var(--semi-color-primary);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.yw-login-options a:hover {
+  text-decoration: underline;
+}
+
+.yw-login-content-phonelogin {
+  display: none;
+}
+
+.yw-login-content-phonelogin-show {
+  display: block;
+}
+
+/* 内容区域切换 */
+.yw-login-content-container {
+  position: relative;
+  width: 100%;
+}
+
+.yw-login-content-phonelogin,
+.yw-login-content-scanlogin {
+  display: none;
+}
+
+.yw-login-content-phonelogin-show,
+.yw-login-content-scanlogin-show {
+  display: block;
+}
+
+/* 扫码登录样式 */
+.yw-login-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.yw-login-qrcode-tip {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.yw-login-qrcode-tip .highlight {
+  color: #c7000b;
+  margin: 0 4px;
+}
+
+.yw-login-content-scanlogin-qrcode {
+  width: 240px;
+  height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Header 样式 */
+.yw-login-header {
   width: 100%;
-  height: 100%;
+  padding: 24px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.yw-login-logo {
+  display: flex;
+  align-items: center;
+}
+
+.yw-login-logo img {
+  height: 36px;
+  width: auto;
+  margin-right: 8px;
+}
+
+.yw-login-logo-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.yw-login-slogan {
+  color: #666;
+  font-size: 14px;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .yw-login-header {
+    padding: 16px 20px;
+  }
+
+  .yw-login-logo img {
+    height: 28px;
+  }
+
+  .yw-login-logo-title {
+    font-size: 18px;
+  }
+
+  .yw-login-content {
+    padding: 0 16px;
+  }
+
+  .yw-login-card {
+    padding: 24px 16px;
+    box-shadow: none;
+    min-height: auto;
+  }
+
+  .yw-login-verify-code {
+    gap: 8px;
+  }
+
+  .yw-login-verify-code .verify-code-btn {
+    width: 100px;
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .yw-login-slogan {
+    display: none;
+  }
 }

@@ -1,7 +1,7 @@
 .yw-newfriend {
   width: 100%;
   height: 100%;
-  border-right: var(--yw-line);
+  background-color: var(--yw-bg-base);
 }
 
 .yw-newfriend-content {

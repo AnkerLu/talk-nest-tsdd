@@ -131,6 +131,7 @@
   --yw-sender-text-primary: rgba(255, 255, 255, 1);
   --yw-sender-text-secondary: rgba(255, 255, 255, 0.8);
   --yw-sender-text-disabled: rgba(255, 255, 255, 0.6);
+  --yw-viewqueueheader-height: 80px;
   --yw-modal-body-height: 518px;
 }
 
@@ -150,13 +151,13 @@
   --yw-color-secondary: #0f0f0f;
   --yw-color-secondary-2: rgb(33, 33, 33);
 
-  --yw-color-primary-1: #e6f0ff; /* 最浅，用于背景 */
-  --yw-color-primary-2: #bad6ff; /* 用于hover背景 */
-  --yw-color-primary-3: #8db8ff; /* 用于特殊状态 */
-  --yw-color-primary-4: #609cff; /* 用于次要强调 */
-  --yw-color-primary-5: #7c42ff; /* 主色调，当前使用色 */
-  --yw-color-primary-6: #0054d9; /* 用于hover状态 */
-  --yw-color-primary-7: #003eb8; /* 用于active状态 */
+  --yw-color-primary-1: rgba(124, 66, 255, 0.1); /* 最浅，用于背景 */
+  --yw-color-primary-2: rgba(124, 66, 255, 0.2); /* 用于hover背景 */
+  --yw-color-primary-3: rgba(124, 66, 255, 0.3); /* 用于特殊状态 */
+  --yw-color-primary-4: rgba(124, 66, 255, 0.4); /* 用于次要强调 */
+  --yw-color-primary-5: #7c42ff; /* 主色调保持不变 */
+  --yw-color-primary-6: #8f5cff; /* 用于hover状态，略亮 */
+  --yw-color-primary-7: #a276ff; /* 用于active状态，更亮 */
 
   /* 基础背景色 */
   --yw-bg-base: #000;
@@ -264,6 +265,20 @@
   --icon-disabled: rgba(255, 255, 255, 0.25);
   --icon-active: var(--yw-color-primary);
   --icon-hover: var(--yw-color-primary-hover);
+
+  /* 补充缺失的变量 */
+  --yw-text-menu-selected: #ffffff;
+  --yw-text-thrid: rgba(255, 255, 255, 0.7);
+  --yw-text-forth: rgba(255, 255, 255, 0.5);
+
+  /* 补充聊天相关变量 */
+  --yw-chat-badge-bg: rgba(124, 66, 255, 0.3);
+  --yw-chat-message-receiver-color: rgba(255, 255, 255, 0.7);
+  --yw-sender-text-primary: rgba(255, 255, 255, 1);
+  --yw-sender-text-secondary: rgba(255, 255, 255, 0.8);
+  --yw-sender-text-disabled: rgba(255, 255, 255, 0.6);
+  --yw-viewqueueheader-height: 80px;
+  --yw-modal-body-height: 518px;
 }
 
 html {

@@ -103,4 +103,6 @@ body[theme-mode="dark"] .yw-list-item {
   justify-content: center;
   color: var(--yw-text-secondary);
   font-size: 13px;
+  background-color: var(--yw-bg-base);
+  padding: 10px 0;
 }

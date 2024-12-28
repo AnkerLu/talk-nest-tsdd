@@ -1,8 +1,6 @@
 .yw-contacts {
   width: 100%;
   height: 100%;
-  --yw-height-contacts-content-header: 50px;
-  border-right: var(--yw-line);
 }
 
 .yw-contacts-content-header {

@@ -1,11 +1,7 @@
-:root {
-  --yw-height-navheader: 64px;
-}
-
 .yw-navheader {
-  height: var(--yw-height-navheader);
   width: 100%;
-  background-color: var(--yw-color-secondary);
+  height: var(--yw-viewqueueheader-height);
+  border-bottom: var(--yw-line);
 }
 
 .yw-navheader-content {

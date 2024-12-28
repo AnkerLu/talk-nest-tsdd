@@ -1,12 +1,8 @@
-:root {
-  --yw-height-viewqueueheader: 50px;
-}
-
 .yw-viewqueueheader {
-  background-color: var(--yw-color-secondary);
-  height: var(--yw-height-viewqueueheader);
   width: 100%;
+  height: var(--yw-viewqueueheader-height);
   position: relative;
+  border-bottom: var(--yw-line);
 }
 
 .yw-viewqueueheader-content {

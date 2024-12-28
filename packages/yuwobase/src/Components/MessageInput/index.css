@@ -2,15 +2,16 @@
   width: 100%;
   height: 100%;
   position: relative;
-
   box-shadow: 0.3rem -0.2rem 0.8rem 0.05rem rgb(114 114 114 / 5%);
   border-left: none;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .yw-messageinput-inputbox {
-  height: 77px;
+  height: 100%;
   width: 100%;
-  padding: 0px 15px 15px 15px;
+  padding: 20px 20px 10px 20px;
   box-sizing: border-box;
 }
 
@@ -30,10 +31,17 @@ body[theme-mode="dark"] .yw-messageinput-input {
   color: var(--yw-text-primary);
 }
 
+.yw-messageinput-input__highlighter {
+  height: 100% !important;
+  padding: 0 !important;
+}
+
 .yw-messageinput-input textarea {
   outline: none;
   border: none;
   color: var(--yw-text-primary);
+  padding: 0 !important;
+  height: 100% !important;
 }
 
 .yw-messageinput-input:empty:before {
@@ -43,11 +51,11 @@ body[theme-mode="dark"] .yw-messageinput-input {
 }
 
 .yw-messageinput-bar {
-  height: 40px;
+  height: 48px;
   width: 100%;
   display: flex;
   top: 0px;
-  border-bottom: var(--yw-line);
+  border-top: var(--yw-line);
 }
 
 .yw-messageinput-tabs {
@@ -57,9 +65,11 @@ body[theme-mode="dark"] .yw-messageinput-input {
 
 .yw-messageinput-toolbar {
   height: 100%;
-  width: 50%;
+  width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  padding: 0 20px 0 10px;
 }
 
 .yw-messageinput-actionbox {
@@ -67,7 +77,6 @@ body[theme-mode="dark"] .yw-messageinput-input {
   width: 100%;
   display: flex;
   align-items: center;
-  margin-left: 10px;
 }
 
 .yw-messageinput-actionitem {
@@ -79,14 +88,10 @@ body[theme-mode="dark"] .yw-messageinput-input {
 }
 
 .yw-messageinput-sendbtn {
-  height: 28px;
-  width: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: linear-gradient(180deg, #92a2b1 4.39%, #7b8e9f 94.46%);
-  border-radius: 2px;
-  cursor: pointer;
+  padding: 7px 10px !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 6px !important;
 }
 
 .yw-messageinput-hasValue {

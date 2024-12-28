@@ -343,6 +343,27 @@ export default class MessageInput
                                 <PictureOutlined style={{ fontSize: '15px' }} />
                             </div> */}
             </div>
+            <Button
+              className="yw-messageinput-sendbtn"
+              type="primary"
+              icon={
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19.5112 10.8266C20.1413 10.5391 20.1431 10.0741 19.5112 9.786L2.4 1.97913C1.77 1.69163 1.25875 2.02163 1.2575 2.70475L1.25 8.33975L15.1087 10.306L1.25 12.2723L1.2575 17.9079C1.25875 18.596 1.76812 18.9216 2.4 18.6335L19.5112 10.8266Z"
+                    fill="white"
+                  />
+                </svg>
+              }
+              onClick={() => {
+                this.send();
+              }}
+            ></Button>
           </div>
         </div>
         <div className="yw-messageinput-inputbox">

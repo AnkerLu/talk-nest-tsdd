@@ -35,11 +35,14 @@ body[theme-mode="dark"] .yw-message-text-recv {
 }
 
 .yw-message-text-richemoji {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .yw-message-text-richemoji img {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
 }
 
 .yw-message-text-reply {
@@ -79,4 +82,7 @@ body[theme-mode="dark"] .yw-message-text-recv {
   text-align: initial;
   display: flow-root;
   unicode-bidi: plaintext;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }

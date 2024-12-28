@@ -25,7 +25,7 @@ body[theme-mode="dark"] .yw-conversationlist-item:hover {
 }
 
 .yw-conversationlist-item-top {
-  background-color: var(--yw-color-secondary) !important;
+  background-color: var(--yw-conversationlist-top-item-bg);
 }
 
 .yw-conversationlist-item-content {
@@ -167,18 +167,4 @@ body[theme-mode="dark"] .yw-conversationlist-item-name h3 {
 
 .yw-onlinestatusbadge-empty .yw-onlinestatusbadge-content-tip {
   padding: 8px;
-}
-
-/* 添加自定义滚动条样式 */
-.yw-conversationlist::-webkit-scrollbar {
-  width: 4px;
-}
-
-.yw-conversationlist::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-}
-
-.yw-conversationlist::-webkit-scrollbar-track {
-  background: transparent;
 }

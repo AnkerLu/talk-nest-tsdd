@@ -133,6 +133,7 @@
   --yw-sender-text-disabled: rgba(255, 255, 255, 0.6);
   --yw-viewqueueheader-height: 80px;
   --yw-modal-body-height: 518px;
+  --yw-conversationlist-top-item-bg: #f5f0ff;
 }
 
 *,
@@ -279,6 +280,7 @@
   --yw-sender-text-disabled: rgba(255, 255, 255, 0.6);
   --yw-viewqueueheader-height: 80px;
   --yw-modal-body-height: 518px;
+  --yw-conversationlist-top-item-bg: #f5f0ff;
 }
 
 html {

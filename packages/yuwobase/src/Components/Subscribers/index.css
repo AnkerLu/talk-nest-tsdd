@@ -10,9 +10,13 @@
   flex-wrap: wrap;
   padding: 0 16px;
   gap: 20px;
+  justify-content: flex-start;
 }
 
 .yw-subscribers-item {
+  width: calc((100% - 80px) / 5);
+  min-width: 44px;
+  max-width: 80px;
   font-size: 12px;
   display: flex;
   flex-direction: column;

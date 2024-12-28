@@ -128,6 +128,10 @@
   /* 添加新的颜色值 */
   --yw-chat-badge-bg: rgba(124, 66, 255, 0.2);
   --yw-chat-message-receiver-color: #666666;
+  --yw-sender-text-primary: rgba(255, 255, 255, 1);
+  --yw-sender-text-secondary: rgba(255, 255, 255, 0.8);
+  --yw-sender-text-disabled: rgba(255, 255, 255, 0.6);
+  --yw-modal-body-height: 518px;
 }
 
 *,
@@ -290,24 +294,11 @@ body {
     border-color 0.15s ease;
 }
 
-/* 全局a标签样式 */
-a {
-  color: var(--yw-text-primary);
-}
-
-a:hover {
-  color: var(--yw-text-primary-hover);
-}
-
-a:active {
-  color: var(--yw-text-primary-active);
-}
-
 /* 全局SVG规则 */
-svg {
+/* svg {
   fill: var(--icon-primary);
   transition: fill 0.15s ease;
-}
+} */
 
 /* svg path {
   fill: var(--icon-primary);

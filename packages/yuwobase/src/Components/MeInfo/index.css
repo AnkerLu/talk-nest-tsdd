@@ -1,11 +1,117 @@
 .yw-meinfo {
-  background-color: var(--yw-color-secondary);
-  position: relative;
-  --yw-height-userInfo-footer: 60px;
-  --yw-height-userInfo-nav: 44px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--yw-bg-base);
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+.yw-meinfo-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.yw-meinfo-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.yw-meinfo-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.yw-meinfo-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.yw-meinfo-content {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.yw-meinfo-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 20px 0;
+  background: var(--yw-color-theme);
+  margin: 0 -20px;
+}
+
+.yw-meinfo-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.yw-meinfo-user-avatar {
+  width: 82px;
+  height: 82px;
+  margin-bottom: 14px;
+}
+
+.yw-meinfo-user-avatar img {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.yw-meinfo-user-avatar img.avatar-error {
+  background-color: var(--yw-color-secondary);
+  object-fit: contain;
+}
+
+.yw-meinfo-user-info {
+  text-align: center;
+}
+
+.yw-meinfo-user-info-name {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--yw-text-primary);
+  margin-bottom: 8px;
+}
+
+.yw-meinfo-user-info-others {
+  color: var(--yw-text-secondary);
+}
+
+.yw-meinfo-user-info-others ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.yw-meinfo-user-info-others li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--yw-text-secondary);
 }
 
 .yw-meinfo-sections {
+  padding: 0;
+}
+
+.yw-meinfo-sections .yw-section {
+  margin: 0;
+}
+
+.sex-select-container {
+  position: relative;
+  background: var(--yw-bg-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  margin-top: 1px;
+}
+
+.sex-select-row {
+  position: relative;
+}
+
+.yw-listitem {
+  position: relative;
 }

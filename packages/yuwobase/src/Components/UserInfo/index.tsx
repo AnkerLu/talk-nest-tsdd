@@ -14,6 +14,7 @@ import RouteContext, { FinishButtonContext } from "../../Service/Context";
 import { Image } from "@douyinfe/semi-ui";
 import { Icon } from "@douyinfe/semi-ui";
 import { IconAlertTriangle } from "@douyinfe/semi-icons";
+import { generateFallbackAvatar } from "../../Utils/avatarUtils";
 
 export interface UserInfoProps extends HTMLProps<any> {
   uid: string;
@@ -42,7 +43,7 @@ export default class UserInfo extends Component<UserInfoProps> {
             );
           }}
         >
-          发送消息
+          发消息
         </Button>
       );
     } else {
@@ -122,6 +123,8 @@ export default class UserInfo extends Component<UserInfoProps> {
         render={(vm: UserInfoVM) => {
           return (
             <RoutePage
+              type="modal"
+              title="用户信息"
               onClose={() => {
                 if (onClose) {
                   onClose();
@@ -131,7 +134,15 @@ export default class UserInfo extends Component<UserInfoProps> {
                 return (
                   <div className="yw-userinfo">
                     <div className="yw-userinfo-content">
-                      {!vm.channelInfo ? (
+                      {vm.error ? (
+                        <div className="yw-userinfo-error">
+                          <Icon
+                            svg={<IconAlertTriangle />}
+                            style={{ marginRight: "8px", color: "#ff4d4f" }}
+                          />
+                          <span>{vm.errorMsg}</span>
+                        </div>
+                      ) : !vm.channelInfo ? (
                         <div className="yw-userinfo-loading">
                           <Spin></Spin>
                         </div>
@@ -140,9 +151,20 @@ export default class UserInfo extends Component<UserInfoProps> {
                           <div className="yw-userinfo-header">
                             <div className="yw-userinfo-user">
                               <div className="yw-userinfo-user-avatar">
-                                <Image
+                                <img
+                                  alt=""
                                   src={WKApp.shared.avatarUser(uid)}
-                                ></Image>
+                                  onError={(e) => {
+                                    const fallbackAvatar =
+                                      generateFallbackAvatar(
+                                        vm.displayName() || "",
+                                        40
+                                      );
+                                    if (fallbackAvatar) {
+                                      e.currentTarget.src = fallbackAvatar;
+                                    }
+                                  }}
+                                ></img>
                               </div>
                               <div className="yw-userinfo-user-info">
                                 <div className="yw-userinfo-user-info-name">
@@ -186,9 +208,6 @@ export default class UserInfo extends Component<UserInfoProps> {
                           </div>
                         </>
                       )}
-
-                      <br></br>
-                      <br></br>
                     </div>
                     {this.getBottomPanel(vm, context)}
                   </div>

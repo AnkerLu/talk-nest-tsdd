@@ -13,7 +13,9 @@ export function getOfflineTimeText(lastOffline: number): string {
   if (btwTime < 86400) {
     return `${Math.floor(btwTime / 3600)}小时前离线`;
   }
-  return `${Math.floor(btwTime / 86400)}天前离线`;
+  // 超过一天显示具体日期
+  const date = new Date(lastOffline * 1000);
+  return `最后在线 ${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 }
 
 // 是否需要显示在线状态

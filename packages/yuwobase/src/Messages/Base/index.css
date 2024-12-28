@@ -104,6 +104,18 @@
   font-size: 15px;
 }
 
+.yw-message-base-bubble-box.send .yw-message-base-bubble {
+  background-color: var(--yw-sender-text-primary);
+}
+
+.yw-message-base-bubble-box.send .yw-message-base-bubble a {
+  color: var(--yw-sender-text-secondary);
+}
+
+.yw-message-base-bubble-box.recv .yw-message-base-bubble a {
+  background-color: var(--yw-text-secondary);
+}
+
 .yw-message-base-bubble-box.hide .yw-message-base-bubble {
   padding: 0px;
 }

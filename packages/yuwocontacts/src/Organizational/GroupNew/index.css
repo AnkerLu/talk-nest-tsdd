@@ -5,7 +5,7 @@
   display: none;
 }
 .yw-main-modal-organizational-group-new .semi-modal-body {
-  height: 500px;
+  height: var(--yw-modal-body-height);
   display: flex;
 }
 .yw-main-modal-organizational-group-new .semi-modal-content {

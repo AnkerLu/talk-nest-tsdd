@@ -13,6 +13,7 @@ import RouteContext from "../../Service/Context";
 import { GroupRole } from "../../Service/Const";
 import { Convert } from "../../Service/Convert";
 import { ListItem } from "../ListItem";
+import { Toast } from "@douyinfe/semi-ui";
 
 export class UserInfoRouteData {
   uid!: string;
@@ -33,6 +34,8 @@ export class UserInfoVM extends ProviderListener {
   vercode?: string;
   subscriberChangeListener?: SubscriberChangeListener;
   private muteTimer?: ReturnType<typeof setInterval>;
+  error: boolean = false;
+  errorMsg: string = ""; // 添加错误信息属性
 
   constructor(uid: string, fromChannel?: Channel, vercode?: string) {
     super();
@@ -102,9 +105,9 @@ export class UserInfoVM extends ProviderListener {
   sections(context: RouteContext<UserInfoRouteData>) {
     // // 1. 获取默认的sections
     // const defaultSections = WKApp.shared.userInfos(context) || []
-    
+
     // // 2. 找到想要插入的位置
-    // const insertIndex = defaultSections.findIndex(section => 
+    // const insertIndex = defaultSections.findIndex(section =>
     //   section.title === "基本信息" // 或其他你想要的位置
     // )
 
@@ -238,16 +241,25 @@ export class UserInfoVM extends ProviderListener {
   }
 
   async reloadChannelInfo() {
-    const res = await WKApp.apiClient.get(`users/${this.uid}`, {
-      param: { group_no: this.fromChannel?.channelID || "" },
-    });
-    this.channelInfo = Convert.userToChannelInfo(res);
-    if (!this.vercode || this.vercode == "") {
-      if (res.vercode && res.vercode !== "") {
-        this.vercode = res.vercode;
+    try {
+      const res = await WKApp.apiClient.get(`users/${this.uid}`, {
+        param: { group_no: this.fromChannel?.channelID || "" },
+      });
+      this.channelInfo = Convert.userToChannelInfo(res);
+      if (!this.vercode || this.vercode == "") {
+        if (res.vercode && res.vercode !== "") {
+          this.vercode = res.vercode;
+        }
       }
+    } catch (err: any) {
+      if (err.status === 400) {
+        this.error = true;
+        this.errorMsg = err.msg;
+        Toast.error(err.msg);
+      }
+      this.notifyListener();
+      return;
     }
-
     this.notifyListener();
   }
   reloadFromChannelInfo() {
@@ -262,12 +274,13 @@ export class UserInfoVM extends ProviderListener {
   // 获取禁言信息
   getMuteInfo(): string {
     if (!this.fromSubscriberOfUser?.orgData.forbidden_expir_time) {
-      return '';
+      return "";
     }
 
-    const deadline = this.fromSubscriberOfUser.orgData.forbidden_expir_time * 1000;
+    const deadline =
+      this.fromSubscriberOfUser.orgData.forbidden_expir_time * 1000;
     if (deadline <= Date.now()) {
-      return '';
+      return "";
     }
 
     if (!this.muteTimer) {
@@ -282,21 +295,23 @@ export class UserInfoVM extends ProviderListener {
     const minutes = Math.floor((remainTime % 3600) / 60);
     const seconds = remainTime % 60;
 
-    let result = '禁言中（';
+    let result = "禁言中（";
     // if (days > 0) result += `${days}天`;
-    result += `${(days * 24 + hours).toString().padStart(2, '0')}:`;
-    result += `${minutes.toString().padStart(2, '0')}:`;
-    result += `${seconds.toString().padStart(2, '0')}）`;
+    result += `${(days * 24 + hours).toString().padStart(2, "0")}:`;
+    result += `${minutes.toString().padStart(2, "0")}:`;
+    result += `${seconds.toString().padStart(2, "0")}）`;
 
     return result;
   }
 
-  // 判断是否被禁言
+  // 断是否被禁言
   isMuted(): boolean {
     if (!this.fromSubscriberOfUser?.orgData.forbidden_expir_time) {
       return false;
     }
-    const isMuted = this.fromSubscriberOfUser.orgData.forbidden_expir_time * 1000 > Date.now();
+    const isMuted =
+      this.fromSubscriberOfUser.orgData.forbidden_expir_time * 1000 >
+      Date.now();
     return isMuted;
   }
 }

@@ -55,6 +55,7 @@ export default class ChannelSetting extends Component<ChannelSettingProps> {
 
           return (
             <RoutePage
+              type="setting"
               title={
                 vm.channel.channelType === ChannelTypeCustomerService
                   ? "聊天信息"

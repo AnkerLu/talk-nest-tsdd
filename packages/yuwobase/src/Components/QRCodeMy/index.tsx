@@ -64,7 +64,7 @@ export default class QRCodeMy extends Component<QRCodeMyProps, QRCodeMyState> {
               </div>
               <div className="yw-qrcodemy-content-qrcode">
                 {qrcode ? (
-                  <QRCode value={qrcode} size={250} fgColor="#000000"></QRCode>
+                  <QRCode value={qrcode} size={210} fgColor="#000000"></QRCode>
                 ) : (
                   <Spin></Spin>
                 )}

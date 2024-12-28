@@ -16,7 +16,10 @@ import { Toast } from "@douyinfe/semi-ui";
 import WKSDK, { Channel } from "wukongimjssdk";
 import { ChannelInfoListener } from "wukongimjssdk";
 import { ChannelInfo, ChannelTypePerson } from "wukongimjssdk";
+import { WKAvatarEditor } from "../WKAvatarEditor";
+
 export class MeInfoVM extends ProviderListener {
+  avatarEdit?: WKAvatarEditor | null;
   channelInfoListener!: ChannelInfoListener;
 
   didMount(): void {
@@ -108,25 +111,6 @@ export class MeInfoVM extends ProviderListener {
     sections.push(
       new Section({
         rows: [
-          new Row({
-            cell: ListItemAvatar,
-            properties: {
-              title: `头像`,
-              context: context,
-              avatar: (
-                <img
-                  style={{ width: "24px", height: "24px", borderRadius: "50%" }}
-                  src={WKApp.shared.avatarUser(WKApp.loginInfo.uid || "")}
-                ></img>
-              ),
-              onFileUpload: async (f: File) => {
-                await this.uploadAvatar(f);
-                WKApp.shared.changeChannelAvatarTag(
-                  new Channel(WKApp.loginInfo.uid || "", ChannelTypePerson)
-                );
-              },
-            },
-          }),
           new Row({
             cell: ListItem,
             properties: {

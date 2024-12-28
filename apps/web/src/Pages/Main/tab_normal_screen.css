@@ -272,10 +272,6 @@
   margin: 0px;
 }
 
-/* .yw-base-modal-userinfo .semi-modal-body{
-    height: 500px;
-  } */
-
 .yw-main-sider-meinfo .semi-modal-body {
-  height: 500px;
+  height: var(--yw-modal-body-height);
 }

@@ -17,7 +17,7 @@
 }
 
 .yw-base-modal-userinfo .semi-modal-body {
-  height: 500px;
+  height: var(--yw-modal-body-height);
 }
 
 /* 加入组织 */

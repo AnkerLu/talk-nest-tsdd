@@ -1,22 +1,42 @@
 .yw-route {
   width: 100%;
   height: 100%;
-  --yw-height-route-header: 56px;
+  display: flex;
+  flex-direction: column;
 }
 
+/* 基础样式 */
 .yw-route-header {
   width: 100%;
-  height: var(--yw-height-route-header);
-  padding: 0.5rem 0.8125rem;
   display: flex;
   align-items: center;
-  background-color: var(--yw-color-secondary);
+  background-color: var(--yw-bg-base);
+  border-bottom: var(--yw-line);
+  position: relative;
+}
+
+/* 弹窗模式 */
+.yw-route-header--modal {
+  height: 56px;
+  padding: 0 16px;
+}
+
+/* 设置页面模式 */
+.yw-route-header--setting {
+  height: 80px;
+  padding: 0 20px;
+}
+
+/* 聊天详情模式 */
+.yw-route-header--chat {
+  height: 64px;
+  padding: 0 16px;
 }
 
 .yw-route-box {
   width: 100%;
-  height: calc(100% - var(--yw-height-route-header));
   position: relative;
+  flex: 1;
 }
 
 .yw-route-content {
@@ -47,8 +67,6 @@
 }
 
 .yw-route-header-close {
-  width: 44px;
-  height: 44px;
   position: relative;
   display: flex;
   align-items: center;
@@ -107,16 +125,22 @@
   height: 100%;
   position: relative;
   flex: 1;
+  order: 1;
+  /* margin: 0 8px; */
 }
 
 .yw-route-header-title-box-open {
 }
 
 .yw-route-header-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
-  margin-left: 1.375rem;
+  margin-left: 0;
   color: black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 body[theme-mode="dark"] .yw-route-header-title {
@@ -130,13 +154,16 @@ body[theme-mode="dark"] .yw-route-header-title {
 .yw-route-header-title-next {
   font-size: 18px;
   font-weight: 500;
-  margin-left: 1.375rem;
+  margin-left: 0;
   color: black;
   position: absolute;
   opacity: 0;
   transform: translate3d(100vw, 0, 0);
   transition: transform var(--yw-layer-transition), opacity 500ms ease-in 0s;
-  width: 180px;
+  max-width: calc(100% - 16px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 body[theme-mode="dark"] .yw-route-header-title-next {
@@ -163,10 +190,20 @@ body[theme-mode="dark"] .yw-route-header-title-next {
 .yw-route-header-right-view {
   opacity: 0;
   transition: opacity 500ms ease-out;
+  margin-left: 8px;
+  position: absolute;
+  right: 8px;
+  pointer-events: none;
 }
 
 .yw-route-header-right-view-open {
   opacity: 1;
+  position: static;
+  pointer-events: auto;
+}
+
+body[theme-mode="dark"] .yw-route-header-action:hover {
+  background-color: rgba(255, 255, 255, 0.04);
 }
 
 .semi-button-primary,
@@ -183,4 +220,38 @@ body[theme-mode="dark"] .yw-route-header-title-next {
 .semi-button-primary.semi-button-borderless:hover {
   background-color: var(--yw-color-primary-6);
   color: var(--yw-color-secondary);
+}
+
+.yw-route-header-action {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  border-radius: 50%;
+}
+
+.yw-route-header-action:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.yw-route-header-action-left {
+  order: 0;
+  margin-right: 4px;
+}
+
+.yw-route-header-action-right {
+  order: 2;
+  margin-left: auto;
+}
+
+/* 响应式处理 */
+@media screen and (max-width: 640px) {
+  .yw-route-header {
+    padding: 0 12px;
+  }
+
+  .yw-route-header--chat {
+    height: 56px;
+  }
 }

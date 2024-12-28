@@ -1,5 +1,5 @@
 :root {
-  --yw-channelsetting-header: 56px;
+  --yw-channelsetting-header: 80px;
 }
 
 .yw-channelsetting {
@@ -109,7 +109,7 @@
   font-size: 16px;
   font-weight: 600;
   margin-left: 10px;
-  font-weight: 500px;
+  font-weight: 500;
 }
 
 .yw-channelsetting-header-title-box {

@@ -1,0 +1,28 @@
+.yw-svg-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.yw-svg-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.yw-svg-icon-clickable {
+  cursor: pointer;
+}
+
+.yw-svg-icon-clickable:hover {
+  color: var(--svg-hover-color, var(--yw-color-primary));
+}
+
+.yw-svg-icon-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.yw-svg-icon-disabled:hover {
+  transform: none;
+}

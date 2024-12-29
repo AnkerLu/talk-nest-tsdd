@@ -355,12 +355,14 @@ export default class ConversationList extends Component<
       },
       {
         title: "清空聊天记录",
+        isDangerous: true,
         onClick: () => {
           this.onClearMessages(selectConversationWrap?.channel!);
         },
       },
       {
         title: "关闭窗口并清空聊天记录",
+        isDangerous: true,
         onClick: () => {
           this.onCloseChat(selectConversationWrap?.channel!);
           this.onClearMessages(selectConversationWrap?.channel!);

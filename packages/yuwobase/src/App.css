@@ -3,7 +3,9 @@
   --yw-color-theme: #ffffff;
   /* 主色 */
   --yw-color-primary: #7c42ff;
+  --yw-color-danger: #e9446a;
   --yw-color-primary-hover: rgba(124, 66, 255, 0.6);
+  --yw-color-danger-hover: rgba(233, 68, 106, 0.6);
 
   --yw-color-primary-1: #f5f0ff; /* 最浅，用于背景 */
   --yw-color-primary-2: #e6d6ff; /* 用于hover背景 */
@@ -147,7 +149,9 @@
   --yw-color-theme: #121212;
   /* 主色 */
   --yw-color-primary: #7c42ff;
+  --yw-color-danger: #e9446a;
   --yw-color-primary-hover: rgba(124, 66, 255, 0.5);
+  --yw-color-danger-hover: rgba(233, 68, 106, 0.5);
   /* 次色 */
   --yw-color-secondary: #0f0f0f;
   --yw-color-secondary-2: rgb(33, 33, 33);

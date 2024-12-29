@@ -42,3 +42,31 @@
 .semi-button.semi-button-danger:focus-visible {
   outline: none;
 }
+
+.yw-base-modal-alert .semi-modal-content {
+  padding: 20px !important;
+}
+
+.yw-base-modal-alert .semi-modal-header,
+.yw-base-modal-alert .semi-modal-footer {
+  margin: 0px !important;
+  font-size: 16px !important;
+}
+
+.yw-base-modal-alert .semi-modal-header {
+  border-bottom: var(--yw-line) !important;
+  padding-bottom: 16px !important;
+}
+
+.yw-base-modal-alert .semi-modal-body {
+  margin-top: 16px !important;
+  margin-bottom: 38px !important;
+}
+
+.yw-base-modal-alert .semi-modal-footer .semi-button-primary {
+  background-color: var(--yw-color-danger) !important;
+}
+
+.yw-base-modal-alert .semi-modal-footer .semi-button-primary:hover {
+  background-color: var(--yw-color-danger-hover) !important;
+}

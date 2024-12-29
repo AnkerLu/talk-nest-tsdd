@@ -11,24 +11,9 @@
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-}
-
-.yw-userinfo-content::-webkit-scrollbar {
-  width: 4px;
-}
-
-.yw-userinfo-content::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 2px;
-}
-
-.yw-userinfo-content::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.yw-userinfo-content {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  padding-bottom: 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .yw-userinfo-header {

@@ -31,18 +31,19 @@
 
 .yw-main-sider-setting-menu-btn {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   border-radius: 10px;
-  background: var(--yw-bg-secondary);
+  background: var(--yw-bg-base);
   color: var(--yw-text-secondary);
   transition: all 0.2s ease;
   cursor: pointer;
+  border: var(--yw-line);
 }
 
 .yw-main-sider-setting-menu-btn:hover {

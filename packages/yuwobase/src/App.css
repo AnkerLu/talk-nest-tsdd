@@ -19,7 +19,7 @@
   --yw-color-secondary-2: #f0f4f8;
   /* 基础背景色 */
   --yw-bg-base: #ffffff;
-  --yw-bg-secondary: #f5f5f5;
+  --yw-bg-secondary: #fbfcfe;
   --yw-bg-hover: rgba(0, 0, 0, 0.06);
   --yw-bg-active: rgba(0, 0, 0, 0.1);
   --yw-bg-mask: rgba(0, 0, 0, 0.45);
@@ -136,6 +136,7 @@
   --yw-viewqueueheader-height: 80px;
   --yw-modal-body-height: 518px;
   --yw-conversationlist-top-item-bg: #f5f0ff;
+  --yw-bg-switch-checked: #20c6a3;
 }
 
 *,
@@ -285,6 +286,7 @@
   --yw-viewqueueheader-height: 80px;
   --yw-modal-body-height: 518px;
   --yw-conversationlist-top-item-bg: #f5f0ff;
+  --yw-bg-switch-checked: #20c6a3;
 }
 
 html {
@@ -441,4 +443,8 @@ body[theme-mode="dark"] .semi-badge-count {
 
 .semi-button-primary.semi-button-light:hover {
   background-color: var(--yw-color-primary-hover) !important;
+}
+
+.semi-switch-checked {
+  background-color: var(--yw-bg-switch-checked) !important;
 }

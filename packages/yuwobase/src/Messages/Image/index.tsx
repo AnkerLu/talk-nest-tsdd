@@ -5,6 +5,9 @@ import { MessageContentTypeConst } from "../../Service/Const";
 import MessageBase from "../Base";
 import { MessageCell } from "../MessageCell";
 import Viewer from "react-viewer";
+import { Modal } from "@douyinfe/semi-ui";
+import SVGIcon from "../../Components/SVGIcon";
+import "./index.css";
 
 export class ImageContent extends MediaMessageContent {
   width!: number;
@@ -141,21 +144,24 @@ export class ImageCell extends MessageCell<any, ImageCellState> {
         >
           {this.getImageElement()}
         </div>
-        <Viewer
+        <Modal
+          width={720}
+          height="auto"
+          title="图片预览"
+          footer={null}
+          closeIcon={<SVGIcon name="close" />}
+          className="yw-base-modal yw-image-preview-modal"
           visible={showPreview}
-          noImgDetails={true}
-          downloadable={true}
-          rotatable={false}
-          changeable={false}
-          showTotal={false}
-          onMaskClick={() => {
+          centered
+          maskClosable={true}
+          onCancel={() => {
             this.setState({ showPreview: false });
           }}
-          onClose={() => {
-            this.setState({ showPreview: false });
-          }}
-          images={[{ src: imageURL, alt: "", downloadUrl: imageURL }]}
-        />
+        >
+          <div className="yw-image-preview-wrapper">
+            <img className="yw-image-preview-image" src={imageURL} alt="" />
+          </div>
+        </Modal>
       </MessageBase>
     );
   }

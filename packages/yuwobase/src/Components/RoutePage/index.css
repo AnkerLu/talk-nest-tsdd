@@ -9,10 +9,10 @@
 .yw-route-header {
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   background-color: var(--yw-bg-base);
   border-bottom: var(--yw-line);
-  position: relative;
 }
 
 /* 弹窗模式 */
@@ -33,10 +33,59 @@
   padding: 0 16px;
 }
 
-.yw-route-box {
-  width: 100%;
-  position: relative;
+/* 左侧区域 */
+.yw-route-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   flex: 1;
+  min-width: 0;
+}
+
+/* 返回按钮 */
+.yw-route-header-back {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px;
+  margin-right: 4px;
+}
+
+/* 标题区域 */
+.yw-route-header-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.yw-route-header-title-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--yw-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+/* 右侧区域 */
+.yw-route-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 关闭按钮 */
+.yw-route-header-close {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px;
+}
+
+/* 内容区域 */
+.yw-route-box {
+  flex: 1;
+  overflow: hidden;
 }
 
 .yw-route-content {
@@ -119,14 +168,10 @@
 }
 
 .yw-route-header-title-box {
-  color: #999;
+  flex: 1;
   display: flex;
   align-items: center;
-  height: 100%;
-  position: relative;
-  flex: 1;
-  order: 1;
-  /* margin: 0 8px; */
+  min-width: 0;
 }
 
 .yw-route-header-title-box-open {
@@ -135,12 +180,10 @@
 .yw-route-header-title {
   font-size: 16px;
   font-weight: 500;
-  margin-left: 0;
-  color: black;
+  color: var(--yw-text-primary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 100%;
 }
 
 body[theme-mode="dark"] .yw-route-header-title {
@@ -152,18 +195,15 @@ body[theme-mode="dark"] .yw-route-header-title {
 }
 
 .yw-route-header-title-next {
-  font-size: 18px;
+  margin-left: 8px;
+  font-size: 16px;
   font-weight: 500;
-  margin-left: 0;
-  color: black;
-  position: absolute;
-  opacity: 0;
-  transform: translate3d(100vw, 0, 0);
-  transition: transform var(--yw-layer-transition), opacity 500ms ease-in 0s;
-  max-width: calc(100% - 16px);
+  color: var(--yw-text-primary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 body[theme-mode="dark"] .yw-route-header-title-next {
@@ -171,7 +211,6 @@ body[theme-mode="dark"] .yw-route-header-title-next {
 }
 
 .yw-route-header-title-box-open .yw-route-header-title-next {
-  transform: translate3d(0, 0, 0);
   opacity: 1;
 }
 
@@ -188,18 +227,15 @@ body[theme-mode="dark"] .yw-route-header-title-next {
 }
 
 .yw-route-header-right-view {
+  margin-left: auto;
   opacity: 0;
-  transition: opacity 500ms ease-out;
-  margin-left: 8px;
-  position: absolute;
-  right: 8px;
-  pointer-events: none;
+  transform: translateX(10px);
+  transition: all 0.3s;
 }
 
 .yw-route-header-right-view-open {
   opacity: 1;
-  position: static;
-  pointer-events: auto;
+  transform: translateX(0);
 }
 
 body[theme-mode="dark"] .yw-route-header-action:hover {
@@ -223,12 +259,12 @@ body[theme-mode="dark"] .yw-route-header-action:hover {
 }
 
 .yw-route-header-action {
-  cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
-  transition: all 0.3s;
-  border-radius: 50%;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
 }
 
 .yw-route-header-action:hover {
@@ -236,12 +272,10 @@ body[theme-mode="dark"] .yw-route-header-action:hover {
 }
 
 .yw-route-header-action-left {
-  order: 0;
-  margin-right: 4px;
+  margin-right: 12px;
 }
 
 .yw-route-header-action-right {
-  order: 2;
   margin-left: auto;
 }
 

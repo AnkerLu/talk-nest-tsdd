@@ -779,7 +779,11 @@ export default class BaseModule implements IModule {
                       });
                     return;
                   },
-                  "设置备注"
+                  "设置备注",
+                  20,
+                  false,
+                  true,
+                  "设置好友备注"
                 );
               },
             },
@@ -1034,7 +1038,8 @@ export default class BaseModule implements IModule {
     placeholder?: string,
     maxCount?: number,
     allowEmpty?: boolean,
-    allowWrap?: boolean
+    allowWrap?: boolean,
+    title?: string
   ) {
     let value: string;
     let finishButtonContext: FinishButtonContext;
@@ -1057,6 +1062,7 @@ export default class BaseModule implements IModule {
         allowWrap={allowWrap}
       ></InputEdit>,
       new RouteContextConfig({
+        title: title,
         showFinishButton: true,
         onFinishContext: (finishBtnContext) => {
           finishButtonContext = finishBtnContext;
@@ -1248,8 +1254,11 @@ export default class BaseModule implements IModule {
                         Toast.error(err.msg);
                       });
                   },
-                  "群名称",
-                  20
+                  "群聊名称",
+                  20,
+                  false,
+                  true,
+                  "编辑群聊名称"
                 );
               },
             },
@@ -1263,7 +1272,7 @@ export default class BaseModule implements IModule {
               title: "群头像",
               icon: (
                 <img
-                  style={{ width: "24px", height: "24px", borderRadius: "50%" }}
+                  className="yw-list-item-subtitle-icon"
                   src={WKApp.shared.avatarChannel(channel)}
                   alt=""
                 />
@@ -1329,7 +1338,8 @@ export default class BaseModule implements IModule {
                   "群公告",
                   400,
                   false,
-                  true
+                  true,
+                  "编辑群公告"
                 );
               },
             },
@@ -1462,7 +1472,9 @@ export default class BaseModule implements IModule {
                     },
                     "在这里可以设置你在这个群里的昵称。这个昵称只会在此群内显示。",
                     10,
-                    true
+                    true,
+                    true,
+                    "设置群内昵称"
                   );
                 },
               },

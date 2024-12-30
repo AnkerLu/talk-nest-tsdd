@@ -9,7 +9,8 @@ import React from "react";
 import { Component, ReactNode } from "react";
 
 import "./index.css";
-import { Toast } from "@douyinfe/semi-ui";
+import { Toast, Modal } from "@douyinfe/semi-ui";
+import SVGIcon from "../SVGIcon";
 
 interface ImageToolbarProps {
   conversationContext: ConversationContext;
@@ -322,13 +323,7 @@ export default class ImageToolbar extends Component<
         </div>
         {showDialog && (
           <ImageDialog
-            onSend={this.onSend.bind(this)}
-            onLoad={this.onPreviewLoad.bind(this)}
-            canSend={canSend}
-            file={file}
-            fileType={fileType}
-            previewUrl={previewUrl}
-            loading={fileType === "video" && !canSend}
+            visible={showDialog}
             onClose={() => {
               if (previewUrl) {
                 URL.revokeObjectURL(previewUrl);
@@ -339,6 +334,11 @@ export default class ImageToolbar extends Component<
                 canSend: false,
               });
             }}
+            fileType={fileType}
+            previewUrl={previewUrl}
+            canSend={canSend}
+            onSend={this.onSend.bind(this)}
+            onLoad={this.onPreviewLoad.bind(this)}
           />
         )}
       </div>
@@ -349,13 +349,14 @@ export default class ImageToolbar extends Component<
 interface ImageDialogProps {
   onClose: () => void;
   onSend?: () => void;
-  fileType?: string; // image, file
+  fileType?: string;
   previewUrl?: string;
   file?: any;
   fileIconInfo?: any;
   canSend?: boolean;
   onLoad: (e: any) => void;
   loading?: boolean;
+  visible: boolean;
 }
 
 class ImageDialog extends Component<ImageDialogProps> {
@@ -384,83 +385,74 @@ class ImageDialog extends Component<ImageDialogProps> {
       fileIconInfo,
       onLoad,
       loading,
+      visible,
     } = this.props;
-    return (
-      <div className="yw-imagedialog">
-        <div className="yw-imagedialog-mask" onClick={onClose}></div>
-        <div className="yw-imagedialog-content">
-          <div className="yw-imagedialog-content-close" onClick={onClose}>
-            <svg
-              viewBox="0 0 1024 1024"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              p-id="2683"
-            >
-              <path
-                d="M568.92178541 508.23169412l299.36805789-299.42461715a39.13899415 39.13899415 0 0 0 0-55.1452591L866.64962537 152.02159989a39.13899415 39.13899415 0 0 0-55.08869988 0L512.19286756 451.84213173 212.76825042 151.90848141a39.13899415 39.13899415 0 0 0-55.0886999 0L155.98277331 153.54869938a38.46028327 38.46028327 0 0 0 0 55.08869987L455.46394971 508.23169412 156.03933259 807.71287052a39.13899415 39.13899415 0 0 0 0 55.08869986l1.64021795 1.6967772a39.13899415 39.13899415 0 0 0 55.08869988 0l299.42461714-299.48117638 299.36805793 299.42461714a39.13899415 39.13899415 0 0 0 55.08869984 0l1.6967772-1.64021796a39.13899415 39.13899415 0 0 0 0-55.08869987L568.86522614 508.17513487z"
-                p-id="2684"
-              ></path>
-            </svg>
+
+    const modalContent = (
+      <div className="yw-imagedialog-content-body">
+        {fileType === "image" ? (
+          <div className="yw-imagedialog-content-preview">
+            <img
+              alt=""
+              className="yw-imagedialog-content-previewImg"
+              src={previewUrl}
+              onLoad={onLoad}
+            />
           </div>
-          <div className="yw-imagedialog-content-title">
-            发送{fileType === "image" ? "图片" : "文件"}
+        ) : fileType === "video" ? (
+          <div className="yw-imagedialog-content-preview">
+            <video
+              className="yw-imagedialog-content-previewVideo"
+              src={previewUrl}
+              controls
+              playsInline
+              preload="metadata"
+              style={{
+                maxWidth: "100%",
+                maxHeight: "400px",
+                objectFit: "contain",
+                borderRadius: "4px",
+              }}
+              onError={(e) => {
+                console.error("Preview video error:", e);
+              }}
+            />
           </div>
-          <div className="yw-imagedialog-content-body">
-            {fileType === "image" ? (
-              <div className="yw-imagedialog-content-preview">
-                <img
-                  alt=""
-                  className="yw-imagedialog-content-previewImg"
-                  src={previewUrl}
-                  onLoad={onLoad}
-                />
-              </div>
-            ) : fileType === "video" ? (
-              <div
-                className="yw-imagedialog-content-preview"
-                style={{
-                  maxWidth: "100%",
-                  maxHeight: "400px",
-                  overflow: "hidden",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <video
-                  className="yw-imagedialog-content-previewVideo"
-                  src={previewUrl}
-                  controls
-                  playsInline
-                  preload="metadata"
-                  style={{
-                    maxWidth: "100%",
-                    maxHeight: "400px",
-                    objectFit: "contain",
-                    borderRadius: "4px",
-                  }}
-                  onError={(e) => {
-                    console.error("Preview video error:", e);
-                  }}
-                />
-              </div>
-            ) : null}
-            <div className="yw-imagedialog-footer">
-              <button onClick={onClose}>取消</button>
-              <button
-                onClick={onSend}
-                className="yw-imagedialog-footer-okbtn"
-                disabled={!canSend}
-                style={{
-                  backgroundColor: canSend ? WKApp.config.themeColor : "gray",
-                }}
-              >
-                发送
-              </button>
-            </div>
-          </div>
-        </div>
+        ) : null}
       </div>
+    );
+
+    const modalFooter = (
+      <div className="yw-imagedialog-footer">
+        <button onClick={onClose}>取消</button>
+        <button
+          onClick={onSend}
+          className="yw-imagedialog-footer-okbtn"
+          disabled={!canSend}
+          style={{
+            backgroundColor: canSend ? WKApp.config.themeColor : "gray",
+          }}
+        >
+          发送
+        </button>
+      </div>
+    );
+
+    return (
+      <Modal
+        visible={visible}
+        onCancel={onClose}
+        footer={null}
+        closeIcon={<SVGIcon name="close" />}
+        className="yw-base-modal yw-imagedialog-modal"
+        title={`发送${fileType === "image" ? "图片" : "文件"}`}
+        width={360}
+        centered
+        maskClosable={false}
+      >
+        {modalContent}
+        {modalFooter}
+      </Modal>
     );
   }
 }

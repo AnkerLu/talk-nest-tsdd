@@ -9,8 +9,16 @@
 }
 
 .yw-channelavatar-avatar {
-  width: 200px;
   height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.yw-channelavatar-avatar-img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .yw-channelavatar-upload {

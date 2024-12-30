@@ -1,14 +1,34 @@
 .yw-inputedit {
   width: 100%;
-  height: 50px;
+  background: var(--yw-bg-base);
+}
+
+.yw-inputedit-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--yw-text-primary);
+  margin-bottom: 16px;
 }
 
 .yw-inputedit .semi-input-textarea-wrapper {
-  background-color: var(--yw-bg-secondary);
+  background-color: var(--yw-bg-base);
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.yw-inputedit .semi-input-textarea {
+  padding: 0;
 }
 
 .yw-inputedit-placeholder {
   font-size: 13px;
   color: var(--yw-text-secondary);
-  margin: 5px 0px 0px 5px;
+  margin: 8px 0 0 0;
+}
+
+.yw-inputedit-counter {
+  text-align: right;
+  margin-top: 8px;
+  color: var(--yw-text-secondary);
+  font-size: 12px;
 }

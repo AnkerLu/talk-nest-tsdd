@@ -97,7 +97,7 @@ export class ChannelAvatar extends Component<ChannelAvatarProps> {
       <div className="yw-channelavatar">
         <div className="yw-channelavatar-avatar">
           <img
-            style={{ width: "200px", height: "200px" }}
+            className="yw-channelavatar-avatar-img"
             src={WKApp.shared.avatarChannel(channel)}
           ></img>
         </div>

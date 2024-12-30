@@ -16,6 +16,11 @@
   position: absolute;
   transition: transform var(--yw-layer-transition);
   overflow: hidden;
+  background-color: var(--yw-bg-secondary);
+}
+
+.yw-viewqueue-view-last {
+  background-color: var(--yw-bg-secondary);
 }
 
 .yw-viewqueue-view-in {

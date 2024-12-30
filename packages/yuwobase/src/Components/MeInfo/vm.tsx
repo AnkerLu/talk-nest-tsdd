@@ -10,7 +10,6 @@ import { Row, Section } from "../../Service/Section";
 import { InputEdit } from "../InputEdit";
 import { ListItem, ListItemIcon } from "../ListItem";
 import { Sex, SexSelect } from "../SexSelect";
-import { ListItemAvatar } from "../ListItemAvatar";
 import axios from "axios";
 import { Toast } from "@douyinfe/semi-ui";
 import WKSDK, { Channel } from "wukongimjssdk";

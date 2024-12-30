@@ -168,7 +168,7 @@ export class ListItemButton extends Component<ListItemButtonProps> {
         <div
           className="yw-list-item-title"
           style={{
-            color: type === ListItemButtonType.warn ? "red" : undefined,
+            color: type === ListItemButtonType.warn ? "#E9446A" : undefined,
           }}
         >
           {title}

@@ -71,6 +71,12 @@ body[theme-mode="dark"] .yw-list-item {
   text-overflow: ellipsis;
 }
 
+.yw-list-item-subtitle-icon {
+  width: auto;
+  height: 24px;
+  border-radius: 50%;
+}
+
 .yw-list-item-subtitle-oneline {
   display: inline-block;
   white-space: nowrap;

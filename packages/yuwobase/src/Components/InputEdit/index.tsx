@@ -4,20 +4,22 @@ import { Component } from "react";
 import "./index.css";
 
 export interface InputEditProps {
-  // exceeded 表示是否超出最大限制
+  title?: string;
   onChange?: (value: string, exceeded?: boolean) => void;
   defaultValue?: string;
   placeholder?: string;
   maxCount?: number;
-  allowWrap?: boolean; // 是否允许换行
+  allowWrap?: boolean;
 }
 
 export class InputEdit extends Component<InputEditProps> {
   render() {
-    const { onChange, defaultValue, placeholder, maxCount, allowWrap } =
+    const { title, onChange, defaultValue, placeholder, maxCount, allowWrap } =
       this.props;
+
     return (
       <div className="yw-inputedit">
+        {/* {title && <div className="yw-inputedit-title">{title}</div>} */}
         <TextArea
           defaultValue={defaultValue}
           onChange={(value) => {
@@ -39,8 +41,8 @@ export class InputEdit extends Component<InputEditProps> {
               e.preventDefault();
             }
           }}
-        ></TextArea>
-        <div className="yw-inputedit-placeholder">{placeholder}</div>
+          placeholder={placeholder}
+        />
       </div>
     );
   }

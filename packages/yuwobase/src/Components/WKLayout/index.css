@@ -11,7 +11,7 @@
 
 .yw-layout-tab {
   height: 100%;
-  background-color: var(--yw-color-secondary);
+  background-color: var(--yw-bg-secondary);
   border-right: var(--yw-line);
   padding: 20px 12px;
 }

@@ -22,7 +22,7 @@
 }
 
 .yw-channelqrcode-info-avatar img {
-  width: 60px;
+  width: auto;
   height: 60px;
   border-radius: 50%;
 }

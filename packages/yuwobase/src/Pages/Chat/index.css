@@ -385,3 +385,9 @@ body[theme-mode="dark"] .yw-chat-popover {
   width: 32px;
   height: 32px;
 }
+
+.yw-chatmenuspopover-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

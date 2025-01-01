@@ -89,6 +89,7 @@ import { IconClose } from "@douyinfe/semi-icons";
 import Sections from "./Components/Sections";
 import { GroupManagement } from "./Components/GroupManagement";
 import SVGIcon from "./Components/SVGIcon";
+import { FileCell, FileContent } from "./Messages/File";
 
 export default class BaseModule implements IModule {
   messageTone?: Howl;
@@ -118,6 +119,8 @@ export default class BaseModule implements IModule {
             return ImageCell;
           case MessageContentTypeConst.smallVideo: // 小视频
             return VideoCell;
+          case MessageContentTypeConst.file: // 文件
+            return FileCell;
           case MessageContentTypeConst.card: // 名片
             return CardCell;
           case MessageContentTypeConst.gif: // gif
@@ -167,6 +170,10 @@ export default class BaseModule implements IModule {
       MessageContentTypeConst.smallVideo,
       () => new VideoContent()
     ); // 视频正文
+    WKSDK.shared().register(
+      MessageContentTypeConst.file,
+      () => new FileContent()
+    ); // 文件
     WKSDK.shared().register(
       MessageContentTypeConst.historySplit,
       () => new HistorySplitContent()

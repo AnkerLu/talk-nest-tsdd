@@ -5,6 +5,8 @@ import "./index.css";
 export interface SVGIconProps {
   name?: string;
   size?: number | string;
+  width?: number | string;
+  height?: number | string;
   color?: string;
   hoverColor?: string;
   className?: string;
@@ -17,6 +19,8 @@ export interface SVGIconProps {
 const SVGIcon: React.FC<SVGIconProps> = ({
   name,
   size = 20,
+  width,
+  height,
   color,
   hoverColor,
   className,
@@ -45,8 +49,8 @@ const SVGIcon: React.FC<SVGIconProps> = ({
   });
 
   const styles: React.CSSProperties & { [key: string]: string | number } = {
-    width: typeof size === "number" ? `${size}px` : size,
-    height: typeof size === "number" ? `${size}px` : size,
+    width: width || (typeof size === "number" ? `${size}px` : size),
+    height: height || (typeof size === "number" ? `${size}px` : size),
     "--svg-color": color || "currentColor",
     "--svg-hover-color": hoverColor || color || "currentColor",
     ...style,

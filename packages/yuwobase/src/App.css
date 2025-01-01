@@ -31,8 +31,9 @@
   --yw-text-primary: rgba(0, 0, 0, 0.85);
   --yw-text-secondary: rgba(0, 0, 0, 0.55);
   --yw-text-disabled: rgba(0, 0, 0, 0.35);
-  --yw-text-thrid: #666;
-  --yw-text-forth: #999;
+  --yw-text-thrid: #333;
+  --yw-text-forth: #666;
+  --yw-text-fifth: #999;
   --yw-text-link: var(--yw-color-primary);
   --yw-text-item: #000000;
 

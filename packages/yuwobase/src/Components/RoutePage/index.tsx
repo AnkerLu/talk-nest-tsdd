@@ -98,13 +98,13 @@ export default class RoutePage
     this._routeData = data;
   }
 
-  componentDidMount() {
-    document.addEventListener("mousedown", this.handleClickOutside);
-  }
+  // componentDidMount() {
+  //   document.addEventListener("mousedown", this.handleClickOutside);
+  // }
 
-  componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClickOutside);
-  }
+  // componentWillUnmount() {
+  //   document.removeEventListener("mousedown", this.handleClickOutside);
+  // }
 
   handleClickOutside = (event: MouseEvent) => {
     const routeElement = document.querySelector(".yw-route");

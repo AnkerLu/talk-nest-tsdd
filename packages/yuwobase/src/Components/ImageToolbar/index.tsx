@@ -336,6 +336,7 @@ export default class ImageToolbar extends Component<
             }}
             fileType={fileType}
             previewUrl={previewUrl}
+            file={file}
             canSend={canSend}
             onSend={this.onSend.bind(this)}
             onLoad={this.onPreviewLoad.bind(this)}
@@ -360,18 +361,17 @@ interface ImageDialogProps {
 }
 
 class ImageDialog extends Component<ImageDialogProps> {
-  // 格式化文件大小
-  getFileSizeFormat(size: number) {
+  // 添加文件大小格式化方法
+  getFileSizeFormat(size: number): string {
     if (size < 1024) {
-      return `${size} B`;
+      return size + " B";
+    } else if (size < 1024 * 1024) {
+      return (size / 1024).toFixed(2) + " KB";
+    } else if (size < 1024 * 1024 * 1024) {
+      return (size / (1024 * 1024)).toFixed(2) + " MB";
+    } else {
+      return (size / (1024 * 1024 * 1024)).toFixed(2) + " GB";
     }
-    if (size > 1024 && size < 1024 * 1024) {
-      return `${(size / 1024).toFixed(2)} KB`;
-    }
-    if (size > 1024 * 1024 && size < 1024 * 1024 * 1024) {
-      return `${(size / 1024 / 1024).toFixed(2)} M`;
-    }
-    return `${(size / (1024 * 1024 * 1024)).toFixed(2)}G`;
   }
 
   render() {
@@ -398,6 +398,16 @@ class ImageDialog extends Component<ImageDialogProps> {
               src={previewUrl}
               onLoad={onLoad}
             />
+            {file && (
+              <div className="yw-imagedialog-content-info">
+                <div className="yw-imagedialog-content-filename">
+                  {file.name}
+                </div>
+                <div className="yw-imagedialog-content-filesize">
+                  {this.getFileSizeFormat(file.size)}
+                </div>
+              </div>
+            )}
           </div>
         ) : fileType === "video" ? (
           <div className="yw-imagedialog-content-preview">
@@ -417,6 +427,16 @@ class ImageDialog extends Component<ImageDialogProps> {
                 console.error("Preview video error:", e);
               }}
             />
+            {file && (
+              <div className="yw-imagedialog-content-info">
+                <div className="yw-imagedialog-content-filename">
+                  {file.name}
+                </div>
+                <div className="yw-imagedialog-content-filesize">
+                  {this.getFileSizeFormat(file.size)}
+                </div>
+              </div>
+            )}
           </div>
         ) : null}
       </div>

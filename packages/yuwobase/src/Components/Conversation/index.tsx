@@ -31,6 +31,7 @@ import WKAvatar from "../WKAvatar";
 import { IconClose } from "@douyinfe/semi-icons";
 import { Toast, Spin } from "@douyinfe/semi-ui";
 import { FlameMessageCell } from "../../Messages/Flame";
+import { FileContent } from "../../Messages/File";
 
 export interface ConversationProps {
   channel: Channel;
@@ -552,6 +553,22 @@ export class Conversation
     this.vm.notifyListener();
   }
 
+  handleFileSelect = async (file: File) => {
+    if (file.size > 100 * 1024 * 1024) {
+      // 100MB 限制
+      Toast.error("文件大小不能超过100MB");
+      return;
+    }
+
+    try {
+      const fileContent = new FileContent(file);
+      await this.sendMessage(fileContent);
+    } catch (error) {
+      console.error("Send file error:", error);
+      Toast.error("发送文件失败");
+    }
+  };
+
   render() {
     const { chatBg, channel } = this.props;
 
@@ -754,6 +771,7 @@ export class Conversation
                         }
                         this.sendMessage(content);
                       }}
+                      onFileSelect={this.handleFileSelect}
                     ></MessageInput>
                   </div>
                 </div>

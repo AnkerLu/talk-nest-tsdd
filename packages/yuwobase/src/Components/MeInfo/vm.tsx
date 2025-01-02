@@ -21,7 +21,7 @@ export class MeInfoVM extends ProviderListener {
   avatarEdit?: WKAvatarEditor | null;
   channelInfoListener!: ChannelInfoListener;
   private _showSexSelect: boolean = false;
-
+  sexSelectRef: HTMLDivElement | null = null;
   get showSexSelect(): boolean {
     return this._showSexSelect;
   }
@@ -40,8 +40,12 @@ export class MeInfoVM extends ProviderListener {
   }
 
   handleClickOutside = (event: MouseEvent) => {
-    if (this.showSexSelect) {
-      this.toggleSexSelect();
+    if (
+      this.showSexSelect &&
+      this.sexSelectRef &&
+      !this.sexSelectRef.contains(event.target as Node)
+    ) {
+      this.hideSexSelect();
     }
   };
 

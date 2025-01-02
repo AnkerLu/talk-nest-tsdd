@@ -150,15 +150,21 @@ export class MeInfo extends Component<MeInfoProps> {
                         <Sections sections={vm.sections(context)} />
 
                         {vm.showSexSelect && (
-                          <SexSelect
-                            sex={WKApp.loginInfo.sex}
-                            onSelect={async (sex) => {
-                              await vm.updateMyInfo("sex", sex.toString());
-                              WKApp.loginInfo.sex = sex;
-                              WKApp.loginInfo.save();
-                              vm.toggleSexSelect();
+                          <div
+                            ref={(ref) => {
+                              vm.sexSelectRef = ref;
                             }}
-                          />
+                          >
+                            <SexSelect
+                              sex={WKApp.loginInfo.sex}
+                              onSelect={async (sex) => {
+                                await vm.updateMyInfo("sex", sex.toString());
+                                WKApp.loginInfo.sex = sex;
+                                WKApp.loginInfo.save();
+                                vm.hideSexSelect();
+                              }}
+                            />
+                          </div>
                         )}
                       </div>
                     </div>

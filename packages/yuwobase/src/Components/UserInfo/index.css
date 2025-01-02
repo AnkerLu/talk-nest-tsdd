@@ -59,6 +59,10 @@
   font-weight: 500;
   color: var(--yw-text-primary);
   margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
 .yw-userinfo-user-info-others {

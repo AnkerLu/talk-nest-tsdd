@@ -135,29 +135,34 @@ body[theme-mode="dark"] .yw-conversationlist-item-name h3 {
 }
 
 .yw-onlinestatusbadge {
+  width: 10px;
+  height: 10px;
   background-color: var(--yw-bg-secondary);
   position: absolute;
   padding: 1.5px;
-  transform: scale(0.6);
-  right: -10px;
-  bottom: -5px;
-  border-radius: 10px;
+  right: 2px;
+  bottom: 2px;
+  border-radius: 50%;
+  display: none;
 }
 .yw-onlinestatusbadge-empty.yw-onlinestatusbadge {
+  display: block;
   border-radius: 50%;
-  right: -1px;
-  bottom: -1px;
+  right: 2px;
+  bottom: 2px;
 }
 
 .yw-onlinestatusbadge-content {
-  background-color: rgb(238, 249, 233);
+  width: 100%;
+  height: 100%;
+  background-color: #20c6ad;
   padding: 0px 5px;
   border-radius: 10px;
 }
 .yw-onlinestatusbadge-content-tip {
   padding: 0px;
   font-size: 14px;
-  color: rgb(124, 208, 83);
+  color: #20c6ad;
 }
 
 .yw-onlinestatusbadge-empty .yw-onlinestatusbadge-content {

@@ -20,6 +20,30 @@ import { WKAvatarEditor } from "../WKAvatarEditor";
 export class MeInfoVM extends ProviderListener {
   avatarEdit?: WKAvatarEditor | null;
   channelInfoListener!: ChannelInfoListener;
+  private _showSexSelect: boolean = false;
+
+  get showSexSelect(): boolean {
+    return this._showSexSelect;
+  }
+
+  set showSexSelect(value: boolean) {
+    this._showSexSelect = value;
+    this.notifyListener(); // 通知监听器状态已更新
+  }
+
+  toggleSexSelect() {
+    this.showSexSelect = !this.showSexSelect;
+  }
+
+  hideSexSelect() {
+    this.showSexSelect = false;
+  }
+
+  handleClickOutside = (event: MouseEvent) => {
+    if (this.showSexSelect) {
+      this.toggleSexSelect();
+    }
+  };
 
   didMount(): void {
     this.channelInfoListener = (channelInfo: ChannelInfo) => {
@@ -36,10 +60,14 @@ export class MeInfoVM extends ProviderListener {
       this.notifyListener();
     };
     WKSDK.shared().channelManager.addListener(this.channelInfoListener);
+    // 添加点击事件监听
+    document.addEventListener("mousedown", this.handleClickOutside);
   }
 
   didUnMount(): void {
     WKSDK.shared().channelManager.removeListener(this.channelInfoListener);
+    // 清理事件监听
+    document.removeEventListener("mousedown", this.handleClickOutside);
   }
 
   uploadAvatar(file: File) {
@@ -177,17 +205,7 @@ export class MeInfoVM extends ProviderListener {
               title: "性别",
               subTitle: sexStr,
               onClick: () => {
-                context.push(
-                  <SexSelect
-                    sex={sex}
-                    onSelect={async (sex) => {
-                      this.updateMyInfo("sex", sex.toString());
-                      context.pop();
-                      WKApp.loginInfo.sex = sex;
-                      WKApp.loginInfo.save();
-                    }}
-                  ></SexSelect>
-                );
+                this.showSexSelect = !this.showSexSelect;
               },
             },
           }),

@@ -77,12 +77,19 @@
 }
 
 .yw-main-sider-avatar-box {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.yw-main-sider-avatar img {
+.yw-main-sider-avatar-edit {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+}
+
+.yw-main-sider-avatar-img {
   width: 44px;
   height: 44px;
   border-radius: 50%;

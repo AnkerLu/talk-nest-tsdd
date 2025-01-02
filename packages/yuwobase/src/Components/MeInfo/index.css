@@ -7,6 +7,19 @@
   overflow-x: hidden;
 }
 
+.avatar-label {
+  position: relative;
+  cursor: pointer;
+}
+
+.avatar-label .avatar-label-upload {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 100%;
+  height: 100%;
+}
+
 .yw-meinfo-content {
   flex: 1;
   overflow-y: auto;
@@ -96,6 +109,10 @@
   padding: 0;
 }
 
+.yw-meinfo-sections .yw-list-item {
+  padding: 10px 14px;
+}
+
 .yw-meinfo-sections .yw-section {
   margin: 0;
 }
@@ -114,4 +131,25 @@
 
 .yw-listitem {
   position: relative;
+}
+
+.yw-meinfo-sex-select-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.yw-meinfo-sex-select-container {
+  background: var(--yw-bg-base);
+  border-radius: 8px;
+  padding: 20px;
+  min-width: 300px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }

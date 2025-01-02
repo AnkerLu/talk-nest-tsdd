@@ -78,6 +78,7 @@ export class TabNormalScreen extends Component<TabNormalScreenProps> {
             }}
           >
             <img
+              className="yw-main-sider-avatar-img"
               alt=""
               src={WKApp.shared.avatarUser(WKApp.loginInfo.uid || "")}
               onError={(e) => {
@@ -90,6 +91,11 @@ export class TabNormalScreen extends Component<TabNormalScreenProps> {
                 }
               }}
             ></img>
+            <SVGIcon
+              className="yw-main-sider-avatar-edit"
+              name="info-edit"
+              size={12}
+            />
             {/* <span className="yw-main-sider-avatar-name">
               {WKApp.loginInfo.name}
             </span> */}

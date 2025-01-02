@@ -136,6 +136,10 @@ body[theme-mode="dark"] .yw-message-base-bubble {
   border-radius: 12px 0 12px 12px;
 }
 
+.yw-message-base-bubble-box.send .yw-message-base-bubble.yw-message-type-file {
+  background-color: var(--yw-bg-base);
+}
+
 .yw-message-base-bubble-box.recv .yw-message-base-bubble {
   border-radius: 0 12px 12px 12px;
 }

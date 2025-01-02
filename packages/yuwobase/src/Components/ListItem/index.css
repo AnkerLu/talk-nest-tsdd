@@ -61,6 +61,8 @@ body[theme-mode="dark"] .yw-list-item {
 }
 
 .yw-list-item-subtitle {
+  display: flex;
+  justify-content: end;
   flex: 1;
   margin-left: 20px;
   font-size: 14px;

@@ -90,6 +90,7 @@ import Sections from "./Components/Sections";
 import { GroupManagement } from "./Components/GroupManagement";
 import SVGIcon from "./Components/SVGIcon";
 import { FileCell, FileContent } from "./Messages/File";
+import FileToolbar from "./Components/FileToolbar";
 
 export default class BaseModule implements IModule {
   messageTone?: Howl;
@@ -556,6 +557,14 @@ export default class BaseModule implements IModule {
           icon={require("./assets/toolbars/func_upload_image.svg").default}
           conversationContext={ctx}
         ></ImageToolbar>
+      );
+    });
+    WKApp.endpoints.registerChatToolbar("chattoolbar.file", (ctx) => {
+      return (
+        <FileToolbar
+          icon={require("./assets/toolbars/func_upload_file.svg").default}
+          conversationContext={ctx}
+        ></FileToolbar>
       );
     });
   }

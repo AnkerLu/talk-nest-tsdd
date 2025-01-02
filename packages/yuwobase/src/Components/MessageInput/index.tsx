@@ -20,6 +20,7 @@ import InputStyle from "./defaultStyle";
 import { IconSend } from "@douyinfe/semi-icons";
 import { Notification, Button, Toast } from "@douyinfe/semi-ui";
 import { GroupForbidden, GroupRole, GroupStatus } from "../../Utils/const";
+import SVGIcon from "../SVGIcon";
 
 const MentionsInput = OriginalMentionsInput as any;
 const Mention = OriginalMention as any;
@@ -38,7 +39,6 @@ interface MessageInputProps extends HTMLProps<any> {
   toolbar?: JSX.Element;
   onContext?: (ctx: MessageInputContext) => void;
   topView?: JSX.Element;
-  onFileSelect?: (file: File) => void;
 }
 
 interface MessageInputState {
@@ -71,7 +71,6 @@ export default class MessageInput
   toolbars: Array<ElementType>;
   inputRef: any;
   eventListener: any;
-  fileInputRef: any;
   constructor(props: MessageInputProps) {
     super(props);
     this.toolbars = [];
@@ -253,18 +252,6 @@ export default class MessageInput
     return channelInfo.orgData?.forbidden === GroupForbidden.FORBIDDEN;
   }
 
-  handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const { onFileSelect } = this.props;
-      if (onFileSelect) {
-        onFileSelect(file);
-      }
-    }
-    // 清空 input 值，允许选择相同文件
-    event.target.value = "";
-  };
-
   render() {
     const { members, onInputRef, topView, toolbar, context } = this.props;
     const { value, mentionCache } = this.state;
@@ -328,25 +315,6 @@ export default class MessageInput
           {/* <div className="yw-messageinput-tabs"></div> */}
           <div className="yw-messageinput-toolbar">
             <div className="yw-messageinput-actionbox">{toolbar}</div>
-            <Button
-              className="yw-messageinput-filebtn"
-              icon={
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12.5 2H7.5C5.01472 2 3 4.01472 3 6.5V17.5C3 19.9853 5.01472 22 7.5 22H16.5C18.9853 22 21 19.9853 21 17.5V10.5M12.5 2L21 10.5M12.5 2V8.5C12.5 9.60457 13.3954 10.5 14.5 10.5H21"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  />
-                </svg>
-              }
-              onClick={() => this.fileInputRef?.click()}
-            />
-            <input
-              type="file"
-              ref={(ref) => (this.fileInputRef = ref)}
-              style={{ display: "none" }}
-              onChange={this.handleFileSelect}
-            />
             <Button
               className="yw-messageinput-sendbtn"
               type="primary"

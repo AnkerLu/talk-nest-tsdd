@@ -14,6 +14,7 @@ import React from "react";
 import {
   MessageContentTypeConst,
   MessageReasonCode,
+  MessageContentTypeClassName,
 } from "../../Service/Const";
 import { IConversationProvider } from "../../Service/DataSource/DataProvider";
 import WKApp from "../../App";
@@ -310,7 +311,13 @@ export default class MessageBase extends Component<MessageBaseProps, any> {
                 </MessageTrail>
               </div>
               <div
-                className="yw-message-base-bubble"
+                className={classNames(
+                  "yw-message-base-bubble",
+                  `yw-message-type-${
+                    MessageContentTypeClassName[message.contentType] ||
+                    "unknown"
+                  }`
+                )}
                 style={bubbleStyle}
                 onContextMenu={(event) => {
                   context.showContextMenus(message.message, event);

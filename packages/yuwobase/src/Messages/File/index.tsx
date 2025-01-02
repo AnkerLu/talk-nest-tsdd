@@ -26,7 +26,7 @@ export class FileContent extends MediaMessageContent {
   decodeJSON(content: any) {
     this.fileName = content["file_name"] || "";
     this.fileSize = content["file_size"] || 0;
-    this.url = content["url"] || "";
+    this.url = content["url"] || content["remote_url"] || "";
     this.extension = content["extension"] || "";
     this.remoteUrl = this.url;
   }
@@ -62,16 +62,58 @@ export class FileCell extends MessageCell {
     // 转换为小写便于匹配
     const ext = extension.toLowerCase();
 
-    // 只处理最常用的文件类型
+    // 文件类型映射表
     const iconMap: { [key: string]: string } = {
+      // 文档类型
       ".pdf": "file-pdf",
-      ".doc": "file-word",
-      ".docx": "file-word",
+      ".doc": "file-doc",
+      ".docx": "file-docx",
       ".xls": "file-excel",
       ".xlsx": "file-excel",
+      ".ppt": "file-ppt",
+      ".pptx": "file-ppt",
+      ".txt": "file-text",
+      ".rtf": "file-text",
+      ".md": "file-text",
+
+      // 压缩文件
       ".zip": "file-zip",
       ".rar": "file-zip",
-      ".txt": "file-text",
+      ".7z": "file-zip",
+      ".tar": "file-zip",
+      ".gz": "file-zip",
+
+      // 图片文件
+      ".jpg": "file-image",
+      ".jpeg": "file-image",
+      ".png": "file-image",
+      ".gif": "file-image",
+      ".bmp": "file-image",
+      ".webp": "file-image",
+
+      // 音频文件
+      ".mp3": "file-audio",
+      ".wav": "file-audio",
+      ".aac": "file-audio",
+      ".flac": "file-audio",
+      ".m4a": "file-audio",
+
+      // 视频文件
+      ".mp4": "file-video",
+      ".avi": "file-video",
+      ".mov": "file-video",
+      ".wmv": "file-video",
+      ".mkv": "file-video",
+      ".flv": "file-video",
+
+      // // 代码文件
+      // ".js": "file-code",
+      // ".ts": "file-code",
+      // ".jsx": "file-code",
+      // ".tsx": "file-code",
+      // ".html": "file-code",
+      // ".css": "file-code",
+      // ".json": "file-code",
     };
 
     return iconMap[ext] || "file-default"; // 未匹配的文件使用默认图标
@@ -81,15 +123,16 @@ export class FileCell extends MessageCell {
     const { message, context } = this.props;
     const content = message.content as FileContent;
 
+    const fileUrl = content.remoteUrl || content.url;
+
+    const realFileUrl = WKApp.dataSource.commonDataSource.getFileURL(fileUrl);
     return (
       <MessageBase message={message} context={context}>
         <div
           className="yw-message-file"
           onClick={() => {
-            if (content.url) {
-              window.open(
-                WKApp.dataSource.commonDataSource.getFileURL(content.url)
-              );
+            if (realFileUrl) {
+              window.open(realFileUrl);
             }
           }}
         >
@@ -106,6 +149,12 @@ export class FileCell extends MessageCell {
               {this.formatFileSize(content.fileSize)}
             </div>
           </div>
+          <SVGIcon
+            className="yw-message-file-preview"
+            name="file-preview"
+            width={16}
+            height={16}
+          />
         </div>
       </MessageBase>
     );

@@ -771,7 +771,6 @@ export class Conversation
                         }
                         this.sendMessage(content);
                       }}
-                      onFileSelect={this.handleFileSelect}
                     ></MessageInput>
                   </div>
                 </div>

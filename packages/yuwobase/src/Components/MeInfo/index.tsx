@@ -10,6 +10,8 @@ import { generateFallbackAvatar } from "../../Utils/avatarUtils";
 import { Channel, ChannelTypePerson } from "wukongimjssdk";
 import { WKAvatarEditor } from "../WKAvatarEditor";
 import { FinishButtonContext } from "../../Service/Context";
+import SVGIcon from "../SVGIcon";
+import { SexSelect } from "../SexSelect";
 
 export interface MeInfoProps {
   onClose: () => void;
@@ -18,6 +20,7 @@ export interface MeInfoProps {
 export class MeInfo extends Component<MeInfoProps> {
   render() {
     const { onClose } = this.props;
+
     return (
       <Provider
         create={function (): IProviderListener {
@@ -111,6 +114,11 @@ export class MeInfo extends Component<MeInfoProps> {
                                   }
                                 }}
                               />
+                              <SVGIcon
+                                className="avatar-label-upload"
+                                name="upload"
+                                size={20}
+                              />
                             </label>
                             <input
                               id="avatar-upload"
@@ -140,6 +148,18 @@ export class MeInfo extends Component<MeInfoProps> {
                       </div>
                       <div className="yw-meinfo-sections">
                         <Sections sections={vm.sections(context)} />
+
+                        {vm.showSexSelect && (
+                          <SexSelect
+                            sex={WKApp.loginInfo.sex}
+                            onSelect={async (sex) => {
+                              await vm.updateMyInfo("sex", sex.toString());
+                              WKApp.loginInfo.sex = sex;
+                              WKApp.loginInfo.save();
+                              vm.toggleSexSelect();
+                            }}
+                          />
+                        )}
                       </div>
                     </div>
                   </div>

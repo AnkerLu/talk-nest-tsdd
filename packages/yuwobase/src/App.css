@@ -135,7 +135,7 @@
   --yw-sender-text-secondary: rgba(255, 255, 255, 0.8);
   --yw-sender-text-disabled: rgba(255, 255, 255, 0.6);
   --yw-viewqueueheader-height: 80px;
-  --yw-modal-body-height: 518px;
+  --yw-modal-body-height: 580px;
   --yw-conversationlist-top-item-bg: #f5f0ff;
   --yw-bg-switch-checked: #20c6a3;
 }
@@ -285,7 +285,7 @@
   --yw-sender-text-secondary: rgba(255, 255, 255, 0.8);
   --yw-sender-text-disabled: rgba(255, 255, 255, 0.6);
   --yw-viewqueueheader-height: 80px;
-  --yw-modal-body-height: 518px;
+  --yw-modal-body-height: 580px;
   --yw-conversationlist-top-item-bg: #f5f0ff;
   --yw-bg-switch-checked: #20c6a3;
 }

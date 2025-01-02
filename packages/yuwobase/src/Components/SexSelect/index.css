@@ -1,23 +1,29 @@
 .yw-sex-select {
-  width: 100%;
+  width: 98%;
   height: 100%;
+  margin: 6px auto 1px auto;
+  background-color: var(--yw-bg-base);
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+  padding: 12px 18px;
+  border-radius: 12px;
 }
 
 .yw-sex-select-item {
-  background-color: var(--yw-color-theme);
-  height: 50px;
-  width: 100%;
-  background-color: var(--yw-bg-secondary);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+.yw-sex-select-item:hover {
+  background-color: var(--yw-bg-hover);
 }
 
 .yw-sex-select-item .checked {
   color: var(--yw-text-primary);
-  margin-left: 40px;
 }
 
 .yw-sex-select-item .sex {
-  margin-left: 20px;
 }

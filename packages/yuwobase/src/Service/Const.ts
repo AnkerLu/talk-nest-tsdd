@@ -123,3 +123,40 @@ export enum MessageReasonCode {
 export const OrderFactor = 10000; // 排序因子
 
 export const ChannelTypeCustomerService = 3; // 客服频道
+
+// 添加消息类型名称映射
+export const MessageContentTypeClassName: { [key: number]: string } = {
+  [-3]: "history-split",
+  [-2]: "typing",
+  [-1]: "time",
+  [2]: "image",
+  [3]: "gif",
+  [4]: "voice",
+  [5]: "small-video",
+  [6]: "location",
+  [7]: "card",
+  [8]: "file",
+  [11]: "merge-forward",
+  [12]: "lottie-sticker",
+  [13]: "lottie-emoji-sticker",
+  [16]: "join-organization",
+  [1002]: "add-members",
+  [1003]: "remove-members",
+  [1005]: "channel-update",
+  [1023]: "group-disband",
+  [1008]: "new-group-owner",
+  [1014]: "screenshot",
+  [1009]: "invite",
+  // RTC messages
+  [9989]: "rtc-result",
+  [9990]: "rtc-switch-to-video",
+  [9991]: "rtc-switch-to-video-reply",
+  [9992]: "rtc-cancel",
+  [9993]: "rtc-switch-to-audio",
+  [9994]: "rtc-data",
+  [9995]: "rtc-missed",
+  [9996]: "rtc-received",
+  [9997]: "rtc-refuse",
+  [9998]: "rtc-accept",
+  [9999]: "rtc-hangup",
+};

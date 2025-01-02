@@ -15,6 +15,8 @@ import { Image } from "@douyinfe/semi-ui";
 import { Icon } from "@douyinfe/semi-ui";
 import { IconAlertTriangle } from "@douyinfe/semi-icons";
 import { generateFallbackAvatar } from "../../Utils/avatarUtils";
+import SVGIcon from "../SVGIcon";
+import { Sex } from "../../Utils/const";
 
 export interface UserInfoProps extends HTMLProps<any> {
   uid: string;
@@ -168,7 +170,15 @@ export default class UserInfo extends Component<UserInfoProps> {
                               </div>
                               <div className="yw-userinfo-user-info">
                                 <div className="yw-userinfo-user-info-name">
-                                  {vm.displayName()}
+                                  <span>{vm.displayName()}</span>
+                                  <SVGIcon
+                                    name={
+                                      vm.channelInfo?.orgData.sex === Sex.MALE
+                                        ? "male"
+                                        : "female"
+                                    }
+                                    size={20}
+                                  />
                                 </div>
                                 <div className="yw-userinfo-user-info-others">
                                   <ul>

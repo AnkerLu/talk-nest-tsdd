@@ -2,6 +2,7 @@ import React from "react";
 import { Component } from "react";
 import { IconCheckboxTick } from "@douyinfe/semi-icons";
 import "./index.css";
+import SVGIcon from "../SVGIcon";
 
 export enum Sex {
   Female,
@@ -30,15 +31,12 @@ export class SexSelect extends Component<SexSelectProps, SexSelectState> {
             }
           }}
         >
+          <div className="yw-sex-select-item sex">男</div>
           <div
             style={{ visibility: `${sex == Sex.Male ? "unset" : "hidden"}` }}
           >
-            <IconCheckboxTick
-              className="yw-sex-select-item checked"
-              size="large"
-            />
+            <SVGIcon name="sure" size={16} />
           </div>
-          <div className="yw-sex-select-item sex">男</div>
         </div>
         <div
           className="yw-sex-select-item"
@@ -48,15 +46,12 @@ export class SexSelect extends Component<SexSelectProps, SexSelectState> {
             }
           }}
         >
+          <div className="yw-sex-select-item sex">女</div>
           <div
             style={{ visibility: `${sex == Sex.Female ? "unset" : "hidden"}` }}
           >
-            <IconCheckboxTick
-              className="yw-sex-select-item checked"
-              size="large"
-            />
+            <SVGIcon name="sure" size={16} />
           </div>
-          <div className="yw-sex-select-item sex">女</div>
         </div>
       </div>
     );

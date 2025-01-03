@@ -33,6 +33,7 @@ export enum ThemeMode {
   light,
   dark,
 }
+
 export class WKConfig {
   appName: string = "语窝";
   appVersion: string = "0.0.0"; // app版本
@@ -204,6 +205,9 @@ export class LoginInfo {
   }
 }
 
+export declare class YWMessageContentType extends MessageContentType {
+  static video: string;
+}
 export default class WKApp extends ProviderListener {
   private constructor() {
     super();
@@ -228,7 +232,11 @@ export default class WKApp extends ProviderListener {
   private messageDeleteListeners: MessageDeleteListener[] =
     new Array<MessageDeleteListener>(); // 消息删除监听
 
-  supportFavorites = [MessageContentType.text, MessageContentType.image, MessageContentType.video]; // 注册收藏的消息
+  supportFavorites = [
+    YWMessageContentType.text,
+    YWMessageContentType.image,
+    YWMessageContentType.video,
+  ]; // 注册收藏的消息
 
   notSupportForward: number[] = []; // 不支持转发的消息
 
@@ -258,7 +266,7 @@ export default class WKApp extends ProviderListener {
     // 检测系统主题
     const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
     const darkTheme = darkThemeMq.matches;
-    
+
     // 如果没有保存的主题设置,则使用系统主题
     const themeMode = StorageService.shared.getItem("theme-mode");
     if (!themeMode) {
@@ -268,7 +276,7 @@ export default class WKApp extends ProviderListener {
     }
 
     // 监听系统主题变化
-    darkThemeMq.addListener(e => {
+    darkThemeMq.addListener((e) => {
       if (!StorageService.shared.getItem("theme-mode")) {
         WKApp.config.themeMode = e.matches ? ThemeMode.dark : ThemeMode.light;
       }
@@ -388,14 +396,16 @@ export default class WKApp extends ProviderListener {
     return this.avatarChannel(c);
   }
 
-  avatarOrg(orgID: string){
+  avatarOrg(orgID: string) {
     const baseURl = WKApp.apiClient.config.apiURL;
     return `${baseURl}organizations/${orgID}/logo`;
   }
 
   // 我的用户头像发送改变
   myUserAvatarChange() {
-    this.changeChannelAvatarTag(new Channel(WKApp.loginInfo.uid||"", ChannelTypePerson));
+    this.changeChannelAvatarTag(
+      new Channel(WKApp.loginInfo.uid || "", ChannelTypePerson)
+    );
   }
 
   changeChannelAvatarTag(channel: Channel) {
@@ -406,13 +416,13 @@ export default class WKApp extends ProviderListener {
     const t = new Date().getTime();
     WKApp.loginInfo.setStorageItem(myAvatarTag, `${t}`);
   }
-  getChannelAvatarTag(channel? :Channel) {
+  getChannelAvatarTag(channel?: Channel) {
     let myAvatarTag = "channelAvatarTag";
     if (channel) {
       myAvatarTag = `channelAvatarTag:${channel.channelType}${channel.channelID}`;
     }
     const tag = WKApp.loginInfo.getStorageItem(myAvatarTag);
-    if(!tag) {
+    if (!tag) {
       return "";
     }
     return tag;
@@ -543,13 +553,16 @@ export default class WKApp extends ProviderListener {
     return friendApplys;
   }
 
-  public setFriendApplysUnreadCount(){
-    if(WKApp.loginInfo.isLogined()){
-      WKApp.apiClient.get(`/user/reddot/friendApply`).then(res=>{
-        WKApp.mittBus.emit('friend-applys-unread-count', res.count)
-        WKApp.loginInfo.setStorageItem(`${WKApp.loginInfo.uid}-friend-applys-unread-count`, res.count);
+  public setFriendApplysUnreadCount() {
+    if (WKApp.loginInfo.isLogined()) {
+      WKApp.apiClient.get(`/user/reddot/friendApply`).then((res) => {
+        WKApp.mittBus.emit("friend-applys-unread-count", res.count);
+        WKApp.loginInfo.setStorageItem(
+          `${WKApp.loginInfo.uid}-friend-applys-unread-count`,
+          res.count
+        );
         WKApp.menus.refresh();
-      })
+      });
     }
   }
 
@@ -564,7 +577,9 @@ export default class WKApp extends ProviderListener {
     //   }
     // }
     if (WKApp.loginInfo.isLogined()) {
-      const num = WKApp.loginInfo.getStorageItem(`${WKApp.loginInfo.uid}-friend-applys-unread-count`)
+      const num = WKApp.loginInfo.getStorageItem(
+        `${WKApp.loginInfo.uid}-friend-applys-unread-count`
+      );
       unreadCount = Number(num);
     }
     return unreadCount;
@@ -590,7 +605,10 @@ export default class WKApp extends ProviderListener {
     //   WKApp.endpointManager.invokes(EndpointCategory.friendApplyDataChange);
     // }
     if (WKApp.loginInfo.isLogined()) {
-      WKApp.loginInfo.setStorageItem(`${WKApp.loginInfo.uid}-friend-applys-unread-count`, '0')
+      WKApp.loginInfo.setStorageItem(
+        `${WKApp.loginInfo.uid}-friend-applys-unread-count`,
+        "0"
+      );
     }
     await WKApp.apiClient.delete(`/user/reddot/friendApply`);
   }
